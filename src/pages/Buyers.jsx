@@ -23,7 +23,9 @@ export const Buyers = ({ onNavigate }) => {
   };
 
   const handleActionClick = (action) => {
-    if (action === 'rfq' || action === 'register') {
+    if (action === 'register') {
+      if (onNavigate) onNavigate('register');
+    } else if (action === 'rfq') {
       openModal('quote');
     }
   };

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ProductCategoryCard } from './ProductCategoryCard';
 
-export const ProductCategoryGrid = ({ categories, onCategoryClick }) => {
+export const ProductCategoryGrid = ({ categories, onCategoryClick, activeCategoryId }) => {
   return (
     <div
       className="portfolio-category-grid"
@@ -13,13 +13,24 @@ export const ProductCategoryGrid = ({ categories, onCategoryClick }) => {
         margin: '0 auto',
       }}
     >
-      {categories.map((category) => (
-        <ProductCategoryCard
-          key={category.id}
-          category={category}
-          onClick={onCategoryClick}
-        />
-      ))}
+      {categories.map((category) => {
+        const catId = category.id?.toString() || '';
+        const activeId = activeCategoryId?.toString() || '';
+        const isMatched = activeId !== 'all' && (
+          activeId === catId ||
+          category.name?.toLowerCase().includes(activeId.toLowerCase()) ||
+          category.title?.toLowerCase().includes(activeId.toLowerCase())
+        );
+
+        return (
+          <ProductCategoryCard
+            key={category.id}
+            category={category}
+            onClick={onCategoryClick}
+            isActive={isMatched}
+          />
+        );
+      })}
     </div>
   );
 };

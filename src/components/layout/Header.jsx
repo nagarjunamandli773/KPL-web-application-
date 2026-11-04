@@ -154,7 +154,13 @@ export const Header = ({ onTrackClick, onQuoteClick, currentRoute = 'home', onNa
         route === 'supplier-network' ||
         route === 'logistics-operations' ||
         route === 'enterprise-employee' ||
-        route === 'careers'
+        route === 'careers' ||
+        route === 'register' ||
+        route === 'signup' ||
+        route === 'create-account' ||
+        route === 'support' ||
+        route === 'help' ||
+        route === 'contact'
       ) {
         onNavigate(route);
       } else {
@@ -186,7 +192,8 @@ export const Header = ({ onTrackClick, onQuoteClick, currentRoute = 'home', onNa
           top: 0,
           left: 0,
           right: 0,
-          width: '100vw',
+          width: '100%',
+          maxWidth: '100%',
           zIndex: 99999,
           display: 'flex',
           flexDirection: 'column',
@@ -205,7 +212,7 @@ export const Header = ({ onTrackClick, onQuoteClick, currentRoute = 'home', onNa
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            padding: '0 36px',
+            padding: '0 clamp(16px, 2.5vw, 36px)',
             boxSizing: 'border-box',
           }}
         >
@@ -237,7 +244,7 @@ export const Header = ({ onTrackClick, onQuoteClick, currentRoute = 'home', onNa
           <div style={{ display: 'flex', alignItems: 'center', gap: '28px' }}>
             {/* 1. Register Utility */}
             <button
-              onClick={() => handleNavClick('about')}
+              onClick={() => handleNavClick('register')}
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -313,7 +320,7 @@ export const Header = ({ onTrackClick, onQuoteClick, currentRoute = 'home', onNa
 
             {/* 3. Support Utility */}
             <button
-              onClick={() => handleNavClick('contact')}
+              onClick={() => handleNavClick('support')}
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -386,21 +393,22 @@ export const Header = ({ onTrackClick, onQuoteClick, currentRoute = 'home', onNa
               : '0 4px 16px rgba(15, 23, 42, 0.05)',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'space-between',
-            padding: '0 32px',
+            padding: '0 clamp(16px, 2.5vw, 36px)',
             boxSizing: 'border-box',
             position: 'relative',
           }}
         >
-          {/* Section 2 Left: Primary Navigation Links */}
+          {/* Section 2 Primary Navigation Bar */}
           <nav
             style={{
+              width: '100%',
               display: 'flex',
               alignItems: 'center',
-              gap: '24px',
-              marginLeft: '100px',
+              justifyContent: 'space-between',
+              margin: 0,
+              minWidth: 0,
             }}
-            className="desktop-nav"
+            className="desktop-nav sec2-nav-list"
           >
             {primaryNavItems.map((item) => {
               const active = isItemActive(item);
@@ -415,7 +423,7 @@ export const Header = ({ onTrackClick, onQuoteClick, currentRoute = 'home', onNa
                     position: (item.label === 'Enterprise Logistics Services' || item.label === 'Our Company' || item.label === 'Careers') ? 'static' : 'relative',
                     display: 'flex',
                     alignItems: 'center',
-                    height: '44px',
+                    height: '50px',
                   }}
                 >
                   <button
@@ -480,7 +488,7 @@ export const Header = ({ onTrackClick, onQuoteClick, currentRoute = 'home', onNa
                         style={{
                           position: 'absolute',
                           top: '100%',
-                          left: '-100px',
+                          left: 0,
                           width: '740px',
                           backgroundColor: '#FFFFFF',
                           border: '1px solid #E2E8F0',
@@ -607,7 +615,7 @@ export const Header = ({ onTrackClick, onQuoteClick, currentRoute = 'home', onNa
                               borderTop: '1px solid #E2E8F0'
                             }}>
                               <button 
-                                onClick={(e) => { e.stopPropagation(); handleNavClick('about'); }}
+                                onClick={(e) => { e.stopPropagation(); handleNavClick('register'); }}
                                 className="mega-action-btn register-btn"
                               >
                                 Register Now
@@ -1662,83 +1670,101 @@ export const Header = ({ onTrackClick, onQuoteClick, currentRoute = 'home', onNa
                 </div>
               );
             })}
-          </nav>
 
-          {/* Section 2 Right: Nav Tabs */}
-          <div className="desktop-nav" style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
-
-            {/* Portal Logins Dropdown — moved from Section-1 */}
+            {/* Section 2 Action Buttons: Portal Logins + Get a Quote */}
             <div
-              ref={portalDropdownRef}
-              style={{ position: 'relative' }}
+              className="sec2-action-group"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                flexShrink: 0,
+              }}
             >
-              <button
-                onClick={() => setSec1PortalDropdownOpen(!sec1PortalDropdownOpen)}
-                className="sec2-quote-btn sec2-portal-match"
+              {/* Portal Logins Dropdown */}
+              <div
+                ref={portalDropdownRef}
+                style={{ position: 'relative', display: 'flex', alignItems: 'center' }}
               >
-                <span>Portal Logins</span>
+                <button
+                  onClick={() => setSec1PortalDropdownOpen(!sec1PortalDropdownOpen)}
+                  className="sec2-quote-btn sec2-portal-match"
+                >
+                  <span>Portal Logins</span>
+                  <div className="arrow-circle-icon">
+                    <ChevronDown
+                      size={12}
+                      strokeWidth={2.5}
+                      color="currentColor"
+                      style={{
+                        transform: sec1PortalDropdownOpen ? 'rotate(180deg)' : 'none',
+                        transition: 'transform 0.25s ease',
+                      }}
+                    />
+                  </div>
+                </button>
+
+                {sec1PortalDropdownOpen && (
+                  <div className="sec1-dropdown-menu">
+                    <button onClick={() => handleNavClick('client-access')} className="sec1-dropdown-item">
+                      <User size={15} className="item-icon" />
+                      <span>Customer Access Portal</span>
+                      <ArrowRight size={14} className="redirect-arrow" />
+                    </button>
+                    <button onClick={() => handleNavClick('strategic-partners')} className="sec1-dropdown-item">
+                      <Briefcase size={15} className="item-icon" />
+                      <span>Strategic Partners Login</span>
+                      <ArrowRight size={14} className="redirect-arrow" />
+                    </button>
+                    <button onClick={() => handleNavClick('global-export')} className="sec1-dropdown-item">
+                      <ArrowUpRight size={15} className="item-icon" />
+                      <span>Global Export Portal</span>
+                      <ArrowRight size={14} className="redirect-arrow" />
+                    </button>
+                    <button onClick={() => handleNavClick('global-import')} className="sec1-dropdown-item">
+                      <ArrowDownLeft size={15} className="item-icon" />
+                      <span>Global Import Portal</span>
+                      <ArrowRight size={14} className="redirect-arrow" />
+                    </button>
+                    <button onClick={() => handleNavClick('supplier-network')} className="sec1-dropdown-item">
+                      <Truck size={15} className="item-icon" />
+                      <span>Supplier & Vendor Network</span>
+                      <ArrowRight size={14} className="redirect-arrow" />
+                    </button>
+                    <button onClick={() => handleNavClick('logistics-operations')} className="sec1-dropdown-item">
+                      <Settings size={15} className="item-icon" />
+                      <span>Logistics Operations</span>
+                      <ArrowRight size={14} className="redirect-arrow" />
+                    </button>
+                    <button onClick={() => handleNavClick('enterprise-employee')} className="sec1-dropdown-item">
+                      <Building size={15} className="item-icon" />
+                      <span>Enterprise Employee Portal</span>
+                      <ArrowRight size={14} className="redirect-arrow" />
+                    </button>
+                    <div style={{ borderTop: '1px solid #F1F5F9', marginTop: '6px', paddingTop: '6px' }}>
+                      <button
+                        onClick={() => handleNavClick('register')}
+                        className="sec1-dropdown-item"
+                        style={{ color: '#EA580C', fontWeight: '700' }}
+                      >
+                        <Sparkles size={15} className="item-icon" color="#EA580C" />
+                        <span>Register Enterprise Account</span>
+                        <ArrowRight size={14} className="redirect-arrow" />
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Get a Quote */}
+              <button onClick={onQuoteClick} className="sec2-quote-btn">
+                <span>Get a Quote</span>
                 <div className="arrow-circle-icon">
-                  <ChevronDown
-                    size={12}
-                    strokeWidth={2.5}
-                    color="currentColor"
-                    style={{
-                      transform: sec1PortalDropdownOpen ? 'rotate(180deg)' : 'none',
-                      transition: 'transform 0.25s ease',
-                    }}
-                  />
+                  <ArrowRight size={12} strokeWidth={2.5} color="currentColor" />
                 </div>
               </button>
-
-              {sec1PortalDropdownOpen && (
-                <div className="sec1-dropdown-menu">
-                  <button onClick={() => handleNavClick('client-access')} className="sec1-dropdown-item">
-                    <User size={15} className="item-icon" />
-                    <span>Customer Access Portal</span>
-                    <ArrowRight size={14} className="redirect-arrow" />
-                  </button>
-                  <button onClick={() => handleNavClick('strategic-partners')} className="sec1-dropdown-item">
-                    <Briefcase size={15} className="item-icon" />
-                    <span>Strategic Partners Login</span>
-                    <ArrowRight size={14} className="redirect-arrow" />
-                  </button>
-                  <button onClick={() => handleNavClick('global-export')} className="sec1-dropdown-item">
-                    <ArrowUpRight size={15} className="item-icon" />
-                    <span>Global Export Portal</span>
-                    <ArrowRight size={14} className="redirect-arrow" />
-                  </button>
-                  <button onClick={() => handleNavClick('global-import')} className="sec1-dropdown-item">
-                    <ArrowDownLeft size={15} className="item-icon" />
-                    <span>Global Import Portal</span>
-                    <ArrowRight size={14} className="redirect-arrow" />
-                  </button>
-                  <button onClick={() => handleNavClick('supplier-network')} className="sec1-dropdown-item">
-                    <Truck size={15} className="item-icon" />
-                    <span>Supplier & Vendor Network</span>
-                    <ArrowRight size={14} className="redirect-arrow" />
-                  </button>
-                  <button onClick={() => handleNavClick('logistics-operations')} className="sec1-dropdown-item">
-                    <Settings size={15} className="item-icon" />
-                    <span>Logistics Operations</span>
-                    <ArrowRight size={14} className="redirect-arrow" />
-                  </button>
-                  <button onClick={() => handleNavClick('enterprise-employee')} className="sec1-dropdown-item">
-                    <Building size={15} className="item-icon" />
-                    <span>Enterprise Employee Portal</span>
-                    <ArrowRight size={14} className="redirect-arrow" />
-                  </button>
-                </div>
-              )}
             </div>
-
-            {/* Get a Quote */}
-            <button onClick={onQuoteClick} className="sec2-quote-btn">
-              <span>Get a Quote</span>
-              <div className="arrow-circle-icon">
-                <ArrowRight size={12} strokeWidth={2.5} color="currentColor" />
-              </div>
-            </button>
-          </div>
+          </nav>
         </div>
       </header>
 
@@ -1844,6 +1870,25 @@ export const Header = ({ onTrackClick, onQuoteClick, currentRoute = 'home', onNa
                 gap: '10px',
               }}
             >
+              <button
+                onClick={() => {
+                  handleNavClick('register');
+                  setMobileMenuOpen(false);
+                }}
+                style={{
+                  height: '36px',
+                  borderRadius: '6px',
+                  background: 'linear-gradient(135deg, #FF6F00 0%, #EA580C 100%)',
+                  color: '#FFFFFF',
+                  fontSize: '12px',
+                  fontWeight: '700',
+                  border: 'none',
+                  cursor: 'pointer',
+                  fontFamily: 'var(--font-body)',
+                }}
+              >
+                Register Account
+              </button>
               <button
                 onClick={() => {
                   onTrackClick();

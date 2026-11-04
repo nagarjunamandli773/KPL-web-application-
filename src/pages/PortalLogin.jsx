@@ -53,7 +53,7 @@ const portalConfig = {
   }
 };
 
-export const PortalLogin = ({ type = 'client-access' }) => {
+export const PortalLogin = ({ type = 'client-access', onNavigate }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -78,6 +78,40 @@ export const PortalLogin = ({ type = 'client-access' }) => {
       overflow: 'hidden',
       padding: '20px'
     }}>
+      {/* Return to Home link */}
+      <button
+        onClick={() => onNavigate && onNavigate('home')}
+        style={{
+          position: 'absolute',
+          top: '24px',
+          left: '24px',
+          zIndex: 20,
+          background: 'rgba(255, 255, 255, 0.9)',
+          border: '1px solid #E2E8F0',
+          borderRadius: '100px',
+          padding: '8px 16px',
+          fontSize: '13px',
+          fontWeight: '600',
+          color: '#082653',
+          cursor: 'pointer',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '6px',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
+          transition: 'all 0.15s ease'
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.background = '#FFFFFF';
+          e.currentTarget.style.transform = 'translateY(-1px)';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.background = 'rgba(255, 255, 255, 0.9)';
+          e.currentTarget.style.transform = 'translateY(0)';
+        }}
+      >
+        <span>← Return to Globalink Home</span>
+      </button>
+
       {/* Dynamic Background Blob */}
       <div style={{
         position: 'absolute',
@@ -274,6 +308,25 @@ export const PortalLogin = ({ type = 'client-access' }) => {
             transition: 'transform 0.3s ease'
           }} />
         </button>
+
+        {/* Register Account Link */}
+        <div style={{ marginTop: '20px', textAlign: 'center', fontSize: '13.5px', color: '#64748B' }}>
+          Don't have an enterprise account?{' '}
+          <button
+            onClick={() => onNavigate && onNavigate('register')}
+            style={{
+              background: 'none',
+              border: 'none',
+              color: config.color || '#EA580C',
+              fontWeight: '700',
+              cursor: 'pointer',
+              textDecoration: 'underline',
+              padding: 0
+            }}
+          >
+            Register here
+          </button>
+        </div>
 
         <div style={{ marginTop: '24px', display: 'flex', alignItems: 'center', gap: '6px', color: '#94A3B8' }}>
           <ShieldCheck size={14} />

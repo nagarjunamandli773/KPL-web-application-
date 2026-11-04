@@ -1,13 +1,18 @@
 import React from 'react';
 
-export const PortfolioStatsBanner = ({ statistics }) => {
+export const PortfolioStatsBanner = ({ statistics, variant = 'default' }) => {
+  const isWhite = variant === 'white';
+
   return (
     <div
-      className="portfolio-stats-banner"
+      className={`portfolio-stats-banner ${isWhite ? 'white-theme' : ''}`}
       style={{
-        backgroundColor: '#082653',
+        backgroundColor: isWhite ? '#FFFFFF' : '#082653',
         borderRadius: '18px',
-        boxShadow: '0 6px 20px rgba(8, 38, 83, 0.22)',
+        border: isWhite ? '1px solid #E2E8F0' : 'none',
+        boxShadow: isWhite
+          ? '0 4px 20px rgba(15, 23, 42, 0.06)'
+          : '0 6px 20px rgba(8, 38, 83, 0.22)',
         padding: '20px 14px',
         width: '100%',
         margin: '24px auto 0 auto',
@@ -34,20 +39,24 @@ export const PortfolioStatsBanner = ({ statistics }) => {
                 justifyContent: 'center',
                 gap: '12px',
                 padding: '4px 10px',
-                borderRight: isLast ? 'none' : '1px solid rgba(255, 255, 255, 0.3)',
+                borderRight: isLast
+                  ? 'none'
+                  : isWhite
+                  ? '1px solid #E2E8F0'
+                  : '1px solid rgba(255, 255, 255, 0.3)',
               }}
             >
-              {/* Gold Icon */}
+              {/* Icon */}
               <div
                 style={{
-                  color: '#F5B73A',
+                  color: isWhite ? '#EA580C' : '#F5B73A',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   flexShrink: 0,
                 }}
               >
-                <Icon size={34} strokeWidth={1.8} color="#F5B73A" />
+                <Icon size={34} strokeWidth={1.8} color={isWhite ? '#EA580C' : '#F5B73A'} />
               </div>
 
               {/* Value and Label */}
@@ -56,7 +65,7 @@ export const PortfolioStatsBanner = ({ statistics }) => {
                   style={{
                     fontSize: '23px',
                     fontWeight: '700',
-                    color: '#F5B73A',
+                    color: isWhite ? '#EA580C' : '#F5B73A',
                     lineHeight: '1.1',
                     letterSpacing: '-0.3px',
                     fontFamily: 'var(--font-body)',
@@ -67,10 +76,10 @@ export const PortfolioStatsBanner = ({ statistics }) => {
                 <span
                   style={{
                     fontSize: '13px',
-                    fontWeight: '400',
-                    color: '#FFFFFF',
+                    fontWeight: '500',
+                    color: isWhite ? '#334155' : '#FFFFFF',
                     lineHeight: '1.25',
-                    opacity: 0.95,
+                    opacity: isWhite ? 1 : 0.95,
                     fontFamily: 'var(--font-body)',
                     marginTop: '2px',
                   }}

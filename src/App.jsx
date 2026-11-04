@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Home } from './pages/Home';
 import { FreightServices } from './pages/FreightServices';
 import { FeaturedProducts } from './pages/FeaturedProducts';
@@ -16,16 +16,51 @@ import { WhyBusinessesChooseUs } from './pages/WhyBusinessesChooseUs';
 import { BusinessGlobal } from './pages/BusinessGlobal';
 import { TrustedBusinesses } from './pages/TrustedBusinesses';
 import { PortalLogin } from './pages/PortalLogin';
+import { Register } from './pages/Register';
+import { Support } from './pages/Support';
 
 import { AirplaneScrollbar } from './components/common/AirplaneScrollbar';
 
 export default function App() {
-  const [currentRoute, setCurrentRoute] = useState('home');
+  const getInitialRoute = () => {
+    if (typeof window !== 'undefined') {
+      const hash = window.location.hash.replace(/^#\/?/, '').trim();
+      if (hash) return hash;
+      const path = window.location.pathname.replace(/^\/+|\/+$/g, '').trim();
+      if (path && path !== 'index.html') return path;
+    }
+    return 'home';
+  };
+
+  const [currentRoute, setCurrentRoute] = useState(getInitialRoute);
 
   const handleNavigate = (route) => {
     setCurrentRoute(route);
+    if (typeof window !== 'undefined') {
+      if (route === 'home') {
+        history.replaceState(null, '', window.location.pathname);
+      } else {
+        window.location.hash = route;
+      }
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  useEffect(() => {
+    const handleUrlChange = () => {
+      const hash = window.location.hash.replace(/^#\/?/, '').trim();
+      const path = window.location.pathname.replace(/^\/+|\/+$/g, '').trim();
+      const target = hash || (path && path !== 'index.html' ? path : '') || 'home';
+      setCurrentRoute(target);
+    };
+
+    window.addEventListener('hashchange', handleUrlChange);
+    window.addEventListener('popstate', handleUrlChange);
+    return () => {
+      window.removeEventListener('hashchange', handleUrlChange);
+      window.removeEventListener('popstate', handleUrlChange);
+    };
+  }, []);
 
   const portalRoutes = [
     'client-access',
@@ -38,6 +73,12 @@ export default function App() {
   ];
 
   const renderContent = () => {
+    if (currentRoute === 'register' || currentRoute === 'signup' || currentRoute === 'create-account') {
+      return <Register onNavigate={handleNavigate} />;
+    }
+    if (currentRoute === 'support' || currentRoute === 'help' || currentRoute === 'help-center' || currentRoute === 'contact') {
+      return <Support onNavigate={handleNavigate} />;
+    }
     if (portalRoutes.includes(currentRoute)) {
       return <PortalLogin onNavigate={handleNavigate} type={currentRoute} />;
     }
@@ -94,7 +135,7 @@ export default function App() {
       return <FreightServices onNavigate={handleNavigate} />;
     }
 
-    if (currentRoute === 'products' || currentRoute === 'portfolio') {
+    if (currentRoute === 'products' || currentRoute === 'portfolio' || currentRoute === 'featured-products') {
       return <Products onNavigate={handleNavigate} />;
     }
 

@@ -212,6 +212,26 @@ export const Home = ({ onNavigate }) => {
           onQuoteClick={() => openModal('quote')}
           currentRoute="home"
           onNavigate={(route) => {
+            if (route === 'register' || route === 'signup' || route === 'create-account') {
+              if (onNavigate) onNavigate('register');
+              return;
+            }
+            if (route === 'support' || route === 'help' || route === 'help-center' || route === 'contact') {
+              if (onNavigate) onNavigate('support');
+              return;
+            }
+            if (
+              route === 'client-access' ||
+              route === 'strategic-partners' ||
+              route === 'global-export' ||
+              route === 'global-import' ||
+              route === 'supplier-network' ||
+              route === 'logistics-operations' ||
+              route === 'enterprise-employee'
+            ) {
+              if (onNavigate) onNavigate(route);
+              return;
+            }
             if (route === 'trusted-businesses' || route === 'testimonials') {
               scrollToSection('trusted-businesses-section');
             } else if (route === 'business-global' || route === 'cta') {
@@ -238,10 +258,18 @@ export const Home = ({ onNavigate }) => {
               scrollToSection('services-overview-section');
             } else if (route === 'logistics' || route === 'freight') {
               scrollToSection('services-section');
-            } else if (route === 'products' || route === 'portfolio') {
-              scrollToSection('global-portfolio-section');
+            } else if (route === 'products' || route === 'portfolio' || route === 'featured-products') {
+              if (onNavigate) {
+                onNavigate('products');
+              } else {
+                scrollToSection('global-portfolio-section');
+              }
             } else {
-              window.scrollTo({ top: 0, behavior: 'smooth' });
+              if (onNavigate && route && route !== 'home') {
+                onNavigate(route);
+              } else {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }
             }
           }}
         />
@@ -250,7 +278,10 @@ export const Home = ({ onNavigate }) => {
       {/* 2. Full-Width Hero Banner – OUTSIDE page-viewport, edge-to-edge with text overlay */}
       <HeroBanner
         onExploreServices={() => scrollToSection('services-overview-section')}
-        onExploreProducts={() => scrollToSection('products-section')}
+        onExploreProducts={() => {
+          if (onNavigate) onNavigate('products');
+          else scrollToSection('products-section');
+        }}
       />
 
       {/* ── All remaining content back inside page-viewport ── */}
@@ -497,7 +528,11 @@ export const Home = ({ onNavigate }) => {
         {/* Centered Explore Button */}
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '24px' }}>
           <button
-            onClick={() => openModal('quote')}
+            onClick={() => {
+              sessionStorage.setItem('selectedProductCategory', 'all');
+              if (onNavigate) onNavigate('products');
+              else openModal('quote');
+            }}
             style={{
               width: '345px',
               height: '48px',
@@ -617,13 +652,23 @@ export const Home = ({ onNavigate }) => {
         {/* 4 × 2 Product Category Grid */}
         <ProductCategoryGrid
           categories={globalProductCategories}
-          onCategoryClick={() => openModal('quote')}
+          onCategoryClick={(cat) => {
+            const cId = typeof cat === 'object' ? (cat.id || '') : cat;
+            sessionStorage.setItem('selectedProductCategory', cId);
+            window.dispatchEvent(new CustomEvent('filter-product-category', { detail: cId }));
+            if (onNavigate) onNavigate('products');
+            else openModal('quote');
+          }}
         />
 
         {/* Centered View All Products CTA */}
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '22px', marginBottom: '14px' }}>
           <button
-            onClick={() => openModal('quote')}
+            onClick={() => {
+              sessionStorage.setItem('selectedProductCategory', 'all');
+              if (onNavigate) onNavigate('products');
+              else openModal('quote');
+            }}
             className="portfolio-cta-btn"
             style={{
               width: '290px',

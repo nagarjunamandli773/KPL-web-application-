@@ -1,5 +1,18 @@
 import { Leaf, ShieldCheck, Sparkles, Shirt, Settings, Award, CheckCircle } from 'lucide-react';
 
+export {
+  agricultureProducts,
+  textilesProducts,
+  handicraftsProducts,
+  beveragesProducts,
+  automobilesProducts,
+  machineryProducts,
+  electronicsProducts,
+  fmcgProducts,
+  productCategories,
+  allProducts
+} from './allProductsData';
+
 export const featuredProducts = [
   {
     id: 'mangos',
