@@ -85,6 +85,20 @@ export const Header = ({ onTrackClick, onQuoteClick, currentRoute = 'home', onNa
         { label: 'Global Procurement Services', route: 'procurement' },
         { label: 'Customs & Trade Compliance', route: 'customs-compliance' },
         { label: 'Quality Assurance & Audits', route: 'quality' },
+        { label: 'Unified Digital Portal', route: 'unified-digital-portal' },
+        { label: 'KPL E-Commerce Logistics', route: 'kpl-ecommerce-logistics' },
+        { label: 'Cold Chain Logistics', route: 'cold-chain-logistics' },
+        { label: 'Lead Supply Chain (4PL) Partner', route: 'lead-supply-chain-4pl' },
+        { label: 'KPL Project Cargo Logistics', route: 'kpl-project-cargo-logistics' },
+        { label: 'Sustainable Logistics Systems', route: 'sustainable-logistics-systems' },
+        { label: 'Automotive Logistics', route: 'automotive-logistics' },
+        { label: 'Consumer Goods (FMCG)', route: 'consumer-goods-fmcg' },
+        { label: 'Fashion & Apparel', route: 'fashion-and-apparel' },
+        { label: 'Retail & Distribution', route: 'retail-and-distribution' },
+        { label: 'Chemical Cargo Handling', route: 'chemical-cargo-handling' },
+        { label: 'Technology & Electronics', route: 'technology-and-electronics' },
+        { label: 'Pharma & Healthcare', route: 'pharma-and-healthcare' },
+        { label: 'Perishable Shipments', route: 'perishable-shipments' },
       ],
     },
     { label: 'Products', route: 'products', hasDropdown: true, subItems: [] },
@@ -160,8 +174,173 @@ export const Header = ({ onTrackClick, onQuoteClick, currentRoute = 'home', onNa
         route === 'create-account' ||
         route === 'support' ||
         route === 'help' ||
-        route === 'contact'
+        route === 'contact' ||
+        route === 'unified-digital-portal' ||
+        route === 'unified-digital-potal' ||
+        route === 'digital-portal' ||
+        route === 'digital-potal' ||
+        route === 'unified-portal' ||
+        route === 'unified-potal' ||
+        route === 'logistics-portal' ||
+        route === 'logistics-potal' ||
+        route === 'potal' ||
+        route === 'kpl-ecommerce-logistics' ||
+        route === 'ecommerce-logistics' ||
+        route === 'e-commerce-logistics' ||
+        route === 'ecommerce' ||
+        route === 'e-commerce' ||
+        route === 'kpl-ecommerce' ||
+        route === 'cold-chain-logistics' ||
+        route === 'cold-chain' ||
+        route === 'coldchain' ||
+        route === 'coldchain-logistics' ||
+        route === 'reefer' ||
+        route === 'lead-supply-chain-4pl' ||
+        route === 'lead-supply-chain' ||
+        route === '4pl' ||
+        route === '4pl-logistics' ||
+        route === 'lead-logistics-partner' ||
+        route === 'lead-logistics' ||
+        route === 'kpl-project-cargo-logistics' ||
+        route === 'project-cargo-logistics' ||
+        route === 'project-cargo' ||
+        route === 'project-cagro' ||
+        route === 'project-cagro-logistics' ||
+        route === 'heavy-lift' ||
+        route === 'breakbulk' ||
+        route === 'industrial-projects' ||
+        route === 'sustainable-logistics-systems' ||
+        route === 'sustainable-logistics' ||
+        route === 'sustainable-logistics-system' ||
+        route === 'sustainable-logistic-s-system' ||
+        route === 'green-logistics' ||
+        route === 'sustainability' ||
+        route === 'carbon-neutral-logistics' ||
+        route === 'consumer-goods-fmcg' ||
+        route === 'consumers-goods-fmcg' ||
+        route === 'consumer-goods' ||
+        route === 'consumers-goods' ||
+        route === 'consumer-good' ||
+        route === 'fmcg' ||
+        route === 'fmcg-logistics' ||
+        route === 'consumer-goods-logistics' ||
+        route === 'consumers-goods-logistics' ||
+        route === 'consumer-packaged-goods' ||
+        route === 'cpg' ||
+        route === 'cpg-logistics' ||
+        route === 'consumer-products' ||
+        route === 'products/consumer-products' ||
+        route === 'fashion-and-apparel' ||
+        route === 'fashion-apparel' ||
+        route === 'fashion' ||
+        route === 'apparel' ||
+        route === 'fasion-and-apperal' ||
+        route === 'fasion-and-apparel' ||
+        route === 'fasion-apperal' ||
+        route === 'fasion-apparel' ||
+        route === 'fasion' ||
+        route === 'fashion-and-apperal' ||
+        route === 'fassion-and-apperal' ||
+        route === 'fassion-and-apparel' ||
+        route === 'fassion-apperal' ||
+        route === 'fassion-apparel' ||
+        route === 'fassion' ||
+        route === 'apperal' ||
+        route === 'textiles-and-apparel' ||
+        route === 'textile-and-apparel' ||
+        route === 'textiles' ||
+        route === 'garments' ||
+        route === 'garments-logistics' ||
+        route === 'goh' ||
+        route === 'garment-on-hanger' ||
+        route === 'retail-and-distribution' ||
+        route === 'retail-distribution' ||
+        route === 'retail' ||
+        route === 'distribution' ||
+        route === 'retails' ||
+        route === 'omnichannel-distribution' ||
+        route === 'retail-logistics' ||
+        route === 'store-replenishment' ||
+        route === 'retail-fulfillment' ||
+        route === 'b2b-retail' ||
+        route === 'retail-and-distrubution' ||
+        route === 'retail-distrubution' ||
+        route === 'distrubution' ||
+        route === 'chemical-cargo-handling' ||
+        route === 'chemical-cargo' ||
+        route === 'chemicals' ||
+        route === 'chemical-logistics' ||
+        route === 'chemical' ||
+        route === 'hazmat' ||
+        route === 'hazmat-logistics' ||
+        route === 'dangerous-goods' ||
+        route === 'dg-cargo' ||
+        route === 'iso-tank' ||
+        route === 'iso-tanks' ||
+        route === 'chemical-cagro-handling' ||
+        route === 'chemical-cagro' ||
+        route === 'automotive-logistics' ||
+        route === 'automotive' ||
+        route === 'auto-logistics' ||
+        route === 'auto' ||
+        route === 'vehicles' ||
+        route === 'vehicle-logistics' ||
+        route === 'car-logistics' ||
+        route === 'jit-logistics' ||
+        route === 'ev-battery-logistics' ||
+        route === 'automative-logistics' ||
+        route === 'automative' ||
+        route === 'automative-logistic' ||
+        route === 'automatives' ||
+        route === 'automaotive-logistics' ||
+        route === 'automaotive' ||
+        route === 'automaotive-logistic' ||
+        route === 'automotive-logistic' ||
+        route === 'automobile-logistics' ||
+        route === 'automobile' ||
+        route === 'automobiles' ||
+        route === 'automotive-logistics-page' ||
+        route === 'technology-and-electronics' ||
+        route === 'technology-electronics' ||
+        route === 'technology' ||
+        route === 'electronics' ||
+        route === 'tech-electronics' ||
+        route === 'tech-logistics' ||
+        route === 'tech' ||
+        route === 'semiconductor-logistics' ||
+        route === 'semiconductor' ||
+        route === 'semiconductors' ||
+        route === 'consumer-electronics' ||
+        route === 'high-tech-logistics' ||
+        route === 'electronics-logistics' ||
+        route === 'pharma-and-healthcare' ||
+        route === 'pharma-healthcare' ||
+        route === 'pharma' ||
+        route === 'healthcare' ||
+        route === 'pharmaceuticals' ||
+        route === 'pharmaceutical-logistics' ||
+        route === 'pharma-logistics' ||
+        route === 'health-care' ||
+        route === 'medical-logistics' ||
+        route === 'clinical-logistics' ||
+        route === 'life-sciences' ||
+        route === 'biopharma' ||
+        route === 'perishable-shipments' ||
+        route === 'perishable' ||
+        route === 'perishables' ||
+        route === 'perishable-cargo' ||
+        route === 'perishable-goods' ||
+        route === 'perishable-logistics' ||
+        route === 'fresh-produce' ||
+        route === 'fresh-cargo' ||
+        route === 'fresh-produce-logistics' ||
+        route === 'horticulture-logistics' ||
+        route === 'seafood-logistics' ||
+        route === 'controlled-atmosphere' ||
+        route === 'ca-logistics'
       ) {
+        onNavigate(route);
+      } else if (route) {
         onNavigate(route);
       } else {
         onNavigate('home');
@@ -175,7 +354,145 @@ export const Header = ({ onTrackClick, onQuoteClick, currentRoute = 'home', onNa
     if (item.route === 'buyers' && currentRoute === 'buyers') return true;
     if (item.route === 'track-shipment' && currentRoute === 'track-shipment') return true;
     if (item.route === 'freight' && currentRoute === 'freight') return true;
-    if (item.route === 'services' && (currentRoute === 'services' || currentRoute === 'procurement' || currentRoute === 'customs-compliance')) return true;
+    if (
+      item.route === 'services' &&
+      (currentRoute === 'services' ||
+        currentRoute === 'procurement' ||
+        currentRoute === 'customs-compliance' ||
+        currentRoute === 'unified-digital-portal' ||
+        currentRoute === 'unified-digital-potal' ||
+        currentRoute === 'digital-portal' ||
+        currentRoute === 'unified-portal' ||
+        currentRoute === 'kpl-ecommerce-logistics' ||
+        currentRoute === 'ecommerce-logistics' ||
+        currentRoute === 'e-commerce-logistics' ||
+        currentRoute === 'ecommerce' ||
+        currentRoute === 'cold-chain-logistics' ||
+        currentRoute === 'cold-chain' ||
+        currentRoute === 'coldchain' ||
+        currentRoute === 'lead-supply-chain-4pl' ||
+        currentRoute === 'lead-supply-chain' ||
+        currentRoute === '4pl' ||
+        currentRoute === '4pl-logistics' ||
+        currentRoute === 'kpl-project-cargo-logistics' ||
+        currentRoute === 'project-cargo-logistics' ||
+        currentRoute === 'project-cargo' ||
+        currentRoute === 'project-cagro' ||
+        currentRoute === 'sustainable-logistics-systems' ||
+        currentRoute === 'sustainable-logistics' ||
+        currentRoute === 'green-logistics' ||
+        currentRoute === 'consumer-goods-fmcg' ||
+        currentRoute === 'consumers-goods-fmcg' ||
+        currentRoute === 'consumer-goods' ||
+        currentRoute === 'consumers-goods' ||
+        currentRoute === 'consumer-good' ||
+        currentRoute === 'fmcg' ||
+        currentRoute === 'cpg' ||
+        currentRoute === 'fashion-and-apparel' ||
+        currentRoute === 'fashion-apparel' ||
+        currentRoute === 'fashion' ||
+        currentRoute === 'apparel' ||
+        currentRoute === 'fasion-and-apperal' ||
+        currentRoute === 'fasion-and-apparel' ||
+        currentRoute === 'fasion-apperal' ||
+        currentRoute === 'fasion-apparel' ||
+        currentRoute === 'fasion' ||
+        currentRoute === 'fashion-and-apperal' ||
+        currentRoute === 'fassion-and-apperal' ||
+        currentRoute === 'fassion-and-apparel' ||
+        currentRoute === 'fassion-apperal' ||
+        currentRoute === 'fassion-apparel' ||
+        currentRoute === 'fassion' ||
+        currentRoute === 'apperal' ||
+        currentRoute === 'textiles-and-apparel' ||
+        currentRoute === 'textile-and-apparel' ||
+        currentRoute === 'textiles' ||
+        currentRoute === 'garments' ||
+        currentRoute === 'garments-logistics' ||
+        currentRoute === 'goh' ||
+        currentRoute === 'retail-and-distribution' ||
+        currentRoute === 'retail-distribution' ||
+        currentRoute === 'retail' ||
+        currentRoute === 'distribution' ||
+        currentRoute === 'retails' ||
+        currentRoute === 'omnichannel-distribution' ||
+        currentRoute === 'retail-logistics' ||
+        currentRoute === 'store-replenishment' ||
+        currentRoute === 'retail-fulfillment' ||
+        currentRoute === 'b2b-retail' ||
+        currentRoute === 'retail-and-distrubution' ||
+        currentRoute === 'retail-distrubution' ||
+        currentRoute === 'distrubution' ||
+        currentRoute === 'chemical-cargo-handling' ||
+        currentRoute === 'chemical-cargo' ||
+        currentRoute === 'chemicals' ||
+        currentRoute === 'chemical-logistics' ||
+        currentRoute === 'chemical' ||
+        currentRoute === 'hazmat' ||
+        currentRoute === 'hazmat-logistics' ||
+        currentRoute === 'dangerous-goods' ||
+        currentRoute === 'dg-cargo' ||
+        currentRoute === 'iso-tank' ||
+        currentRoute === 'iso-tanks' ||
+        currentRoute === 'chemical-cagro-handling' ||
+        currentRoute === 'chemical-cagro' ||
+        currentRoute === 'automotive-logistics' ||
+        currentRoute === 'automotive' ||
+        currentRoute === 'auto-logistics' ||
+        currentRoute === 'auto' ||
+        currentRoute === 'vehicles' ||
+        currentRoute === 'vehicle-logistics' ||
+        currentRoute === 'car-logistics' ||
+        currentRoute === 'jit-logistics' ||
+        currentRoute === 'ev-battery-logistics' ||
+        currentRoute === 'automaotive-logistics' ||
+        currentRoute === 'automaotive' ||
+        currentRoute === 'automaotive-logistic' ||
+        currentRoute === 'automotive-logistic' ||
+        currentRoute === 'automobile-logistics' ||
+        currentRoute === 'automobile' ||
+        currentRoute === 'automobiles' ||
+        currentRoute === 'automotive-logistics-page' ||
+        currentRoute === 'technology-and-electronics' ||
+        currentRoute === 'technology-electronics' ||
+        currentRoute === 'technology' ||
+        currentRoute === 'electronics' ||
+        currentRoute === 'tech-electronics' ||
+        currentRoute === 'tech-logistics' ||
+        currentRoute === 'tech' ||
+        currentRoute === 'semiconductor-logistics' ||
+        currentRoute === 'semiconductor' ||
+        currentRoute === 'semiconductors' ||
+        currentRoute === 'consumer-electronics' ||
+        currentRoute === 'high-tech-logistics' ||
+        currentRoute === 'electronics-logistics' ||
+        currentRoute === 'pharma-and-healthcare' ||
+        currentRoute === 'pharma-healthcare' ||
+        currentRoute === 'pharma' ||
+        currentRoute === 'healthcare' ||
+        currentRoute === 'pharmaceuticals' ||
+        currentRoute === 'pharmaceutical-logistics' ||
+        currentRoute === 'pharma-logistics' ||
+        currentRoute === 'health-care' ||
+        currentRoute === 'medical-logistics' ||
+        currentRoute === 'clinical-logistics' ||
+        currentRoute === 'life-sciences' ||
+        currentRoute === 'biopharma' ||
+        currentRoute === 'perishable-shipments' ||
+        currentRoute === 'perishable' ||
+        currentRoute === 'perishables' ||
+        currentRoute === 'perishable-cargo' ||
+        currentRoute === 'perishable-goods' ||
+        currentRoute === 'perishable-logistics' ||
+        currentRoute === 'fresh-produce' ||
+        currentRoute === 'fresh-cargo' ||
+        currentRoute === 'fresh-produce-logistics' ||
+        currentRoute === 'horticulture-logistics' ||
+        currentRoute === 'seafood-logistics' ||
+        currentRoute === 'controlled-atmosphere' ||
+        currentRoute === 'ca-logistics')
+    )
+      return true;
     if (item.route === 'about' && (currentRoute === 'how-it-works' || currentRoute === 'why-choose-us' || currentRoute === 'trusted-businesses')) return true;
     if (item.route === 'careers' && currentRoute === 'careers') return true;
     return false;
@@ -183,8 +500,8 @@ export const Header = ({ onTrackClick, onQuoteClick, currentRoute = 'home', onNa
 
   return (
     <>
-      {/* Fixed Header Height Spacer (76px Top Section + 48px Bottom Section = 124px) */}
-      <div style={{ height: '124px', width: '100%', flexShrink: 0 }} />
+      {/* Fixed Header Height Spacer (76px Top Section + 50px Bottom Section = 126px) */}
+      <div style={{ height: '126px', width: '100%', flexShrink: 0 }} />
 
       <header
         style={{
@@ -652,7 +969,7 @@ export const Header = ({ onTrackClick, onQuoteClick, currentRoute = 'home', onNa
                         }}
                       >
                         {/* 4 Columns Wrapper */}
-                        <div className="ent-scroll-container" style={{ display: 'flex', padding: '28px', gap: '24px', maxHeight: '55vh', overflowY: 'auto' }}>
+                        <div className="ent-scroll-container" style={{ display: 'flex', padding: '28px', gap: '24px', maxHeight: '82vh', overflowY: 'auto' }}>
                           {/* Col 1: Transport */}
                           <div className="ent-col">
                             <h4 className="ent-col-title">
@@ -790,7 +1107,7 @@ export const Header = ({ onTrackClick, onQuoteClick, currentRoute = 'home', onNa
                               <span>Logistics Management</span>
                             </h4>
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                              <button onClick={(e) => { e.stopPropagation(); handleNavClick('services'); }} className="mega-menu-item">
+                              <button onClick={(e) => { e.stopPropagation(); handleNavClick('unified-digital-portal'); }} className="mega-menu-item">
                                 <div className="mega-menu-icon-wrapper fcl-icon" style={{ backgroundColor: 'rgba(0, 150, 136, 0.1)', color: '#009688' }}>
                                   <Cpu size={16} />
                                 </div>
@@ -801,7 +1118,7 @@ export const Header = ({ onTrackClick, onQuoteClick, currentRoute = 'home', onNa
                                 <ChevronRight size={12} className="mega-menu-arrow" />
                               </button>
 
-                              <button onClick={(e) => { e.stopPropagation(); handleNavClick('services'); }} className="mega-menu-item">
+                              <button onClick={(e) => { e.stopPropagation(); handleNavClick('kpl-ecommerce-logistics'); }} className="mega-menu-item">
                                 <div className="mega-menu-icon-wrapper lcl-icon" style={{ backgroundColor: 'rgba(156, 39, 176, 0.1)', color: '#9c27b0' }}>
                                   <ShoppingBag size={16} />
                                 </div>
@@ -812,7 +1129,7 @@ export const Header = ({ onTrackClick, onQuoteClick, currentRoute = 'home', onNa
                                 <ChevronRight size={12} className="mega-menu-arrow" />
                               </button>
 
-                              <button onClick={(e) => { e.stopPropagation(); handleNavClick('services'); }} className="mega-menu-item">
+                              <button onClick={(e) => { e.stopPropagation(); handleNavClick('cold-chain-logistics'); }} className="mega-menu-item">
                                 <div className="mega-menu-icon-wrapper air-icon" style={{ backgroundColor: 'rgba(0, 188, 212, 0.1)', color: '#00bcd4' }}>
                                   <Truck size={16} />
                                 </div>
@@ -823,7 +1140,7 @@ export const Header = ({ onTrackClick, onQuoteClick, currentRoute = 'home', onNa
                                 <ChevronRight size={12} className="mega-menu-arrow" />
                               </button>
 
-                              <button onClick={(e) => { e.stopPropagation(); handleNavClick('services'); }} className="mega-menu-item">
+                              <button onClick={(e) => { e.stopPropagation(); handleNavClick('lead-supply-chain-4pl'); }} className="mega-menu-item">
                                 <div className="mega-menu-icon-wrapper fcl-icon" style={{ backgroundColor: 'rgba(100, 116, 139, 0.1)', color: '#64748b' }}>
                                   <Network size={16} />
                                 </div>
@@ -834,7 +1151,7 @@ export const Header = ({ onTrackClick, onQuoteClick, currentRoute = 'home', onNa
                                 <ChevronRight size={12} className="mega-menu-arrow" />
                               </button>
 
-                              <button onClick={(e) => { e.stopPropagation(); handleNavClick('services'); }} className="mega-menu-item">
+                              <button onClick={(e) => { e.stopPropagation(); handleNavClick('kpl-project-cargo-logistics'); }} className="mega-menu-item">
                                 <div className="mega-menu-icon-wrapper lcl-icon" style={{ backgroundColor: 'rgba(255, 193, 7, 0.1)', color: '#ffc107' }}>
                                   <HardHat size={16} />
                                 </div>
@@ -845,7 +1162,7 @@ export const Header = ({ onTrackClick, onQuoteClick, currentRoute = 'home', onNa
                                 <ChevronRight size={12} className="mega-menu-arrow" />
                               </button>
 
-                              <button onClick={(e) => { e.stopPropagation(); handleNavClick('services'); }} className="mega-menu-item">
+                              <button onClick={(e) => { e.stopPropagation(); handleNavClick('sustainable-logistics-systems'); }} className="mega-menu-item">
                                 <div className="mega-menu-icon-wrapper air-icon">
                                   <Leaf size={16} />
                                 </div>
@@ -864,28 +1181,29 @@ export const Header = ({ onTrackClick, onQuoteClick, currentRoute = 'home', onNa
                               <Layers size={14} className="ent-header-icon" />
                               <span>By Industry Focus</span>
                             </h4>
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
                               {[
-                                { title: 'Consumer Goods (FMCG)', desc: 'Fast-moving inventory solutions and agile distribution.', icon: ShoppingBag, color: '#f57c00', bg: 'rgba(245, 124, 0, 0.1)' },
-                                { title: 'Fashion & Apparel', desc: 'Garment-on-hanger and seasonal retail supply chains.', icon: Shirt, color: '#9c27b0', bg: 'rgba(156, 39, 176, 0.1)' },
-                                { title: 'Retail & Distribution', desc: 'End-to-end retail fulfillment and omnichannel logistics.', icon: Store, color: '#0277bd', bg: 'rgba(2, 119, 189, 0.1)' },
-                                { title: 'Chemical Cargo Handling', desc: 'Safe transit of hazardous and specialized chemicals.', icon: FlaskConical, color: '#2e7d32', bg: 'rgba(46, 125, 50, 0.1)' },
-                                { title: 'Automotive Logistics', desc: 'Just-in-time delivery for vehicle parts and manufacturing.', icon: Car, color: '#3f51b5', bg: 'rgba(63, 81, 181, 0.1)' },
-                                { title: 'Technology & Electronics', desc: 'Secure transit for high-value sensitive electronics.', icon: Laptop, color: '#009688', bg: 'rgba(0, 150, 136, 0.1)' },
-                                { title: 'Pharma & Healthcare', desc: 'Temperature-controlled compliant healthcare transport.', icon: HeartPulse, color: '#00bcd4', bg: 'rgba(0, 188, 212, 0.1)' },
-                                { title: 'Perishable Shipments', desc: 'Cold-chain solutions for fresh and frozen consumables.', icon: Apple, color: '#d84315', bg: 'rgba(216, 67, 21, 0.1)' },
+                                { title: 'Consumer Goods (FMCG)', desc: 'Fast-moving inventory solutions and agile distribution.', icon: ShoppingBag, color: '#f57c00', bg: 'rgba(245, 124, 0, 0.1)', route: 'consumer-goods-fmcg' },
+                                { title: 'Fashion & Apparel', desc: 'Garment-on-hanger and seasonal retail supply chains.', icon: Shirt, color: '#9c27b0', bg: 'rgba(156, 39, 176, 0.1)', route: 'fashion-and-apparel' },
+                                { title: 'Retail & Distribution', desc: 'End-to-end retail fulfillment and omnichannel logistics.', icon: Store, color: '#0277bd', bg: 'rgba(2, 119, 189, 0.1)', route: 'retail-and-distribution' },
+                                { title: 'Chemical Cargo Handling', desc: 'Safe transit of hazardous and specialized chemicals.', icon: FlaskConical, color: '#2e7d32', bg: 'rgba(46, 125, 50, 0.1)', route: 'chemical-cargo-handling' },
+                                { title: 'Automotive Logistics', desc: 'Just-in-time delivery for vehicle parts and manufacturing.', icon: Car, color: '#3f51b5', bg: 'rgba(63, 81, 181, 0.1)', route: 'automotive-logistics' },
+                                { title: 'Technology & Electronics', desc: 'Secure transit for high-value sensitive electronics.', icon: Laptop, color: '#009688', bg: 'rgba(0, 150, 136, 0.1)', route: 'technology-and-electronics' },
+                                { title: 'Pharma & Healthcare', desc: 'Temperature-controlled compliant healthcare transport.', icon: HeartPulse, color: '#00bcd4', bg: 'rgba(0, 188, 212, 0.1)', route: 'pharma-and-healthcare' },
+                                { title: 'Perishable Shipments', desc: 'Cold-chain solutions for fresh and frozen consumables.', icon: Apple, color: '#d84315', bg: 'rgba(216, 67, 21, 0.1)', route: 'perishable-shipments' },
                               ].map((ind) => (
                                 <button
                                   key={ind.title}
-                                  onClick={(e) => { e.stopPropagation(); handleNavClick('why-choose-us'); }}
-                                  className="mega-menu-item"
+                                  onClick={(e) => { e.stopPropagation(); handleNavClick(ind.route || 'why-choose-us'); }}
+                                  className={`mega-menu-item ${currentRoute === ind.route ? 'active' : ''}`}
+                                  style={{ padding: '6px 8px' }}
                                 >
-                                  <div className="mega-menu-icon-wrapper industry-icon" style={{ '--base-bg': ind.bg, '--base-color': ind.color, width: '32px', height: '32px', borderRadius: '8px' }}>
+                                  <div className="mega-menu-icon-wrapper industry-icon" style={{ '--base-bg': ind.bg, '--base-color': ind.color, width: '30px', height: '30px', borderRadius: '7px' }}>
                                     <ind.icon size={14} />
                                   </div>
                                   <div className="mega-menu-text">
                                     <div className="mega-menu-title" style={{ fontSize: '13px', fontWeight: '700', whiteSpace: 'nowrap' }}>{ind.title}</div>
-                                    <div className="mega-menu-desc">{ind.desc}</div>
+                                    <div className="mega-menu-desc" style={{ fontSize: '11px', lineHeight: '1.3' }}>{ind.desc}</div>
                                   </div>
                                   <ChevronRight size={12} className="mega-menu-arrow" />
                                 </button>
@@ -1111,7 +1429,7 @@ export const Header = ({ onTrackClick, onQuoteClick, currentRoute = 'home', onNa
                               <ChevronRight size={14} className="mega-menu-arrow" />
                             </button>
 
-                            <button onClick={(e) => { e.stopPropagation(); handleNavClick('products'); }} className="mega-menu-item">
+                            <button onClick={(e) => { e.stopPropagation(); handleNavClick('fashion-and-apparel'); }} className="mega-menu-item">
                               <div className="mega-menu-icon-wrapper indigo-icon">
                                 <Shirt size={18} />
                               </div>
@@ -1149,7 +1467,7 @@ export const Header = ({ onTrackClick, onQuoteClick, currentRoute = 'home', onNa
                           <div style={{ flex: 1, backgroundColor: '#F8FAFC', padding: '24px', borderLeft: '1px solid #E2E8F0', display: 'flex', flexDirection: 'column', gap: '12px' }}>
                             <h4 style={{ fontSize: '11px', fontWeight: '700', color: '#64748B', letterSpacing: '0.08em', textTransform: 'uppercase', margin: '0 0 4px 0' }}>Industrial & Tech Imports</h4>
                             
-                            <button onClick={(e) => { e.stopPropagation(); handleNavClick('products'); }} className="mega-menu-item">
+                            <button onClick={(e) => { e.stopPropagation(); handleNavClick('automotive-logistics'); }} className="mega-menu-item">
                               <div className="mega-menu-icon-wrapper teal-icon">
                                 <Car size={18} />
                               </div>
@@ -1171,7 +1489,7 @@ export const Header = ({ onTrackClick, onQuoteClick, currentRoute = 'home', onNa
                               <ChevronRight size={14} className="mega-menu-arrow" />
                             </button>
 
-                            <button onClick={(e) => { e.stopPropagation(); handleNavClick('products'); }} className="mega-menu-item">
+                            <button onClick={(e) => { e.stopPropagation(); handleNavClick('technology-and-electronics'); }} className="mega-menu-item">
                               <div className="mega-menu-icon-wrapper indigo-icon">
                                 <Cpu size={18} />
                               </div>
@@ -1182,7 +1500,7 @@ export const Header = ({ onTrackClick, onQuoteClick, currentRoute = 'home', onNa
                               <ChevronRight size={14} className="mega-menu-arrow" />
                             </button>
                             
-                            <button onClick={(e) => { e.stopPropagation(); handleNavClick('products'); }} className="mega-menu-item">
+                            <button onClick={(e) => { e.stopPropagation(); handleNavClick('consumer-goods-fmcg'); }} className="mega-menu-item">
                               <div className="mega-menu-icon-wrapper lcl-icon">
                                 <Package size={18} />
                               </div>
@@ -1706,6 +2024,11 @@ export const Header = ({ onTrackClick, onQuoteClick, currentRoute = 'home', onNa
 
                 {sec1PortalDropdownOpen && (
                   <div className="sec1-dropdown-menu">
+                    <button onClick={() => handleNavClick('unified-digital-portal')} className="sec1-dropdown-item">
+                      <Cpu size={15} className="item-icon" />
+                      <span>Unified Digital Portal</span>
+                      <ArrowRight size={14} className="redirect-arrow" />
+                    </button>
                     <button onClick={() => handleNavClick('client-access')} className="sec1-dropdown-item">
                       <User size={15} className="item-icon" />
                       <span>Customer Access Portal</span>
