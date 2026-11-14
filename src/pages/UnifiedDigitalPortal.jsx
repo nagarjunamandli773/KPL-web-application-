@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Header } from '../components/layout/Header';
 import { Footer } from '../components/layout/Footer';
 import { TrackModal } from '../components/common/TrackModal';
+import Magnet, { CARD_MAGNET_PROPS, TILE_MAGNET_PROPS } from '../components/common/Magnet';
 import {
   portalHeroStats,
   corePillars,
@@ -105,6 +106,64 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
         overflowX: 'clip',
       }}
     >
+      <style>{`
+        .udp-4col-grid {
+          display: grid;
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+        .udp-3col-grid {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+        .udp-telemetry-grid {
+          display: grid;
+          grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+        }
+        .udp-carrier-quote-card {
+          display: grid;
+          grid-template-columns: minmax(0, 1.45fr) minmax(240px, 1fr) minmax(225px, auto);
+          align-items: center;
+          gap: 20px;
+        }
+        .udp-carrier-metrics {
+          display: grid;
+          grid-template-columns: 115px minmax(0, 1fr);
+          gap: 20px;
+        }
+        .udp-carrier-cta {
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          gap: 16px;
+        }
+        @media (max-width: 960px) {
+          .udp-4col-grid,
+          .udp-3col-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+          .udp-carrier-quote-card {
+            grid-template-columns: minmax(0, 1fr);
+            gap: 14px;
+          }
+          .udp-carrier-cta {
+            justify-content: space-between;
+          }
+        }
+        @media (max-width: 860px) {
+          .udp-telemetry-grid {
+            grid-template-columns: minmax(0, 1fr);
+          }
+        }
+        @media (max-width: 560px) {
+          .udp-4col-grid,
+          .udp-3col-grid {
+            grid-template-columns: minmax(0, 1fr);
+          }
+          .udp-carrier-metrics {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+        }
+      `}</style>
       {/* 1. Shared Global Link Header */}
       <Header
         onTrackClick={() => openModal('track')}
@@ -118,15 +177,15 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
         <div style={{ height: '24px', width: '100%', background: '#FAFBFD' }} />
 
         {/* =========================================================================
-            SECTION 1: HERO BANNER (Executive Deep Navy & Sunset Orange Glow)
+            SECTION 1: HERO BANNER (Clean White with Sunset Orange & Navy Accents)
             ========================================================================= */}
         <section
           style={{
             position: 'relative',
             padding: '50px 32px 50px 32px',
-            background: 'linear-gradient(145deg, #051A3B 0%, #082653 50%, #03132D 100%)',
-            borderTop: '1px solid rgba(8, 38, 83, 0.1)',
-            borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+            background: '#FFFFFF',
+            borderTop: '1px solid #E2E8F0',
+            borderBottom: '1px solid #E2E8F0',
             overflow: 'hidden',
           }}
         >
@@ -138,7 +197,7 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
               right: '-60px',
               width: '450px',
               height: '450px',
-              background: 'radial-gradient(circle, rgba(234, 88, 12, 0.15) 0%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(234, 88, 12, 0.07) 0%, transparent 70%)',
               pointerEvents: 'none',
               zIndex: 0,
             }}
@@ -150,7 +209,7 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
               left: '10%',
               width: '400px',
               height: '400px',
-              background: 'radial-gradient(circle, rgba(2, 132, 199, 0.12) 0%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(217, 119, 6, 0.06) 0%, transparent 70%)',
               pointerEvents: 'none',
               zIndex: 0,
             }}
@@ -165,8 +224,8 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
                 gap: '8px',
                 padding: '6px 14px',
                 borderRadius: '9999px',
-                background: 'rgba(234, 88, 12, 0.12)',
-                border: '1px solid rgba(234, 88, 12, 0.35)',
+                background: 'rgba(234, 88, 12, 0.08)',
+                border: '1px solid rgba(234, 88, 12, 0.25)',
                 marginBottom: '16px',
               }}
             >
@@ -175,7 +234,7 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
                   width: '20px',
                   height: '20px',
                   borderRadius: '5px',
-                  background: '#0284C7',
+                  background: '#EA580C',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -188,7 +247,7 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
                 style={{
                   fontSize: '11.5px',
                   fontWeight: '700',
-                  color: '#FB923C',
+                  color: '#EA580C',
                   letterSpacing: '0.08em',
                   textTransform: 'uppercase',
                   fontFamily: 'var(--font-body)',
@@ -204,11 +263,10 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
                 fontFamily: 'Georgia, "Times New Roman", serif',
                 fontSize: 'clamp(32px, 3.8vw, 44px)',
                 fontWeight: '700',
-                color: '#FFFFFF',
+                color: '#082653',
                 lineHeight: '1.15',
                 letterSpacing: '-0.5px',
                 marginBottom: '14px',
-                textShadow: '0 2px 10px rgba(0, 0, 0, 0.45)',
               }}
             >
               Unified Digital Portal
@@ -219,7 +277,7 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
               style={{
                 fontSize: '17px',
                 fontWeight: '400',
-                color: 'rgba(255, 255, 255, 0.88)',
+                color: '#475569',
                 lineHeight: '1.6',
                 maxWidth: '780px',
                 fontFamily: 'var(--font-body)',
@@ -252,18 +310,18 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
                   fontSize: '14px',
                   fontWeight: '700',
                   textDecoration: 'none',
-                  boxShadow: '0 6px 20px rgba(234, 88, 12, 0.4)',
+                  boxShadow: '0 6px 20px rgba(234, 88, 12, 0.3)',
                   transition: 'all 0.2s ease',
                   border: 'none',
                   cursor: 'pointer',
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-2px)';
-                  e.currentTarget.style.boxShadow = '0 8px 26px rgba(234, 88, 12, 0.55)';
+                  e.currentTarget.style.boxShadow = '0 8px 26px rgba(234, 88, 12, 0.45)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(234, 88, 12, 0.4)';
+                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(234, 88, 12, 0.3)';
                 }}
               >
                 <span>Launch Multi-Carrier Booking Engine</span>
@@ -278,26 +336,25 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
                   gap: '8px',
                   padding: '12px 22px',
                   borderRadius: '10px',
-                  background: 'rgba(255, 255, 255, 0.08)',
-                  color: '#FFFFFF',
+                  background: '#F8FAFC',
+                  color: '#082653',
                   fontSize: '14px',
                   fontWeight: '600',
                   textDecoration: 'none',
-                  border: '1px solid rgba(255, 255, 255, 0.22)',
-                  backdropFilter: 'blur(8px)',
+                  border: '1px solid #CBD5E1',
                   transition: 'all 0.2s ease',
                   cursor: 'pointer',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.16)';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)';
+                  e.currentTarget.style.background = '#F1F5F9';
+                  e.currentTarget.style.borderColor = '#94A3B8';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.22)';
+                  e.currentTarget.style.background = '#F8FAFC';
+                  e.currentTarget.style.borderColor = '#CBD5E1';
                 }}
               >
-                <Radio size={16} color="#38BDF8" />
+                <Radio size={16} color="#EA580C" />
                 <span>Live Fleet Radar Telemetry</span>
               </a>
 
@@ -310,7 +367,7 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
                   padding: '12px 20px',
                   borderRadius: '10px',
                   background: 'transparent',
-                  color: '#FFE082',
+                  color: '#D97706',
                   fontSize: '13.5px',
                   fontWeight: '600',
                   border: 'none',
@@ -327,70 +384,73 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
 
             {/* KPI Metrics Quick Bar */}
             <div
+              className="udp-4col-grid"
               style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
                 gap: '14px',
                 paddingTop: '20px',
-                borderTop: '1px solid rgba(255, 255, 255, 0.12)',
+                borderTop: '1px solid #E2E8F0',
+                alignItems: 'stretch',
               }}
             >
               {portalHeroStats.map((stat, idx) => {
                 const IconComponent = stat.icon;
                 return (
-                  <div
-                    key={idx}
-                    style={{
-                      background: 'rgba(255, 255, 255, 0.04)',
-                      backdropFilter: 'blur(10px)',
-                      border: '1px solid rgba(255, 255, 255, 0.08)',
-                      borderRadius: '12px',
-                      padding: '14px 16px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '12px',
-                    }}
-                  >
+                  <Magnet key={idx} {...TILE_MAGNET_PROPS}>
                     <div
                       style={{
-                        width: '38px',
-                        height: '38px',
-                        borderRadius: '8px',
-                        background: 'rgba(234, 88, 12, 0.15)',
-                        border: '1px solid rgba(234, 88, 12, 0.3)',
+                        background: '#F8FAFC',
+                        border: '1px solid #E2E8F0',
+                        borderRadius: '12px',
+                        padding: '14px 16px',
                         display: 'flex',
                         alignItems: 'center',
-                        justifyContent: 'center',
-                        color: '#FB923C',
-                        flexShrink: 0,
+                        gap: '12px',
+                        height: '100%',
+                        minWidth: 0,
+                        boxSizing: 'border-box',
                       }}
                     >
-                      <IconComponent size={18} strokeWidth={2.2} />
-                    </div>
-                    <div>
                       <div
                         style={{
-                          fontSize: '20px',
-                          fontWeight: '800',
-                          color: '#FFFFFF',
-                          fontFamily: 'var(--font-heading)',
-                          lineHeight: '1.1',
+                          width: '38px',
+                          height: '38px',
+                          borderRadius: '8px',
+                          background: 'rgba(234, 88, 12, 0.1)',
+                          border: '1px solid rgba(234, 88, 12, 0.25)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          color: '#EA580C',
+                          flexShrink: 0,
                         }}
                       >
-                        {stat.value}
+                        <IconComponent size={18} strokeWidth={2.2} />
                       </div>
-                      <div
-                        style={{
-                          fontSize: '11.5px',
-                          color: 'rgba(255, 255, 255, 0.75)',
-                          fontWeight: '500',
-                          marginTop: '2px',
-                        }}
-                      >
-                        {stat.label}
+                      <div style={{ minWidth: 0 }}>
+                        <div
+                          style={{
+                            fontSize: '20px',
+                            fontWeight: '800',
+                            color: '#082653',
+                            fontFamily: 'var(--font-heading)',
+                            lineHeight: '1.1',
+                          }}
+                        >
+                          {stat.value}
+                        </div>
+                        <div
+                          style={{
+                            fontSize: '11.5px',
+                            color: '#64748B',
+                            fontWeight: '500',
+                            marginTop: '2px',
+                          }}
+                        >
+                          {stat.label}
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </Magnet>
                 );
               })}
             </div>
@@ -563,15 +623,14 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
 
               {/* Selector Inputs Grid */}
               <div
+                className="udp-4col-grid"
                 style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
                   gap: '16px',
                   alignItems: 'flex-end',
                 }}
               >
                 {/* Origin Selector */}
-                <div>
+                <div style={{ minWidth: 0 }}>
                   <label
                     style={{
                       display: 'block',
@@ -602,6 +661,7 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
                         cursor: 'pointer',
                         fontFamily: 'var(--font-body)',
                         outline: 'none',
+                        boxSizing: 'border-box',
                       }}
                     >
                       {availableOrigins.map((orig) => (
@@ -614,7 +674,7 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
                 </div>
 
                 {/* Destination Selector */}
-                <div>
+                <div style={{ minWidth: 0 }}>
                   <label
                     style={{
                       display: 'block',
@@ -645,6 +705,7 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
                         cursor: 'pointer',
                         fontFamily: 'var(--font-body)',
                         outline: 'none',
+                        boxSizing: 'border-box',
                       }}
                     >
                       {availableDestinations.map((dest) => (
@@ -657,7 +718,7 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
                 </div>
 
                 {/* Cargo Ready Date */}
-                <div>
+                <div style={{ minWidth: 0 }}>
                   <label
                     style={{
                       display: 'block',
@@ -679,20 +740,27 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
                       border: '1.5px solid #CBD5E1',
                       background: '#FFFFFF',
                       color: '#0F172A',
-                      fontSize: '13.5px',
+                      fontSize: '13px',
                       fontWeight: '600',
                       display: 'flex',
                       alignItems: 'center',
                       gap: '8px',
+                      boxSizing: 'border-box',
+                      minWidth: 0,
                     }}
                   >
-                    <Calendar size={16} color="#64748B" />
-                    <span>Next Available Departure (Immediate)</span>
+                    <Calendar size={16} color="#64748B" style={{ flexShrink: 0 }} />
+                    <span
+                      title="Next Available Departure (Immediate)"
+                      style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                    >
+                      Next Available Departure (Immediate)
+                    </span>
                   </div>
                 </div>
 
                 {/* Search Rates Button */}
-                <div>
+                <div style={{ minWidth: 0 }}>
                   <button
                     onClick={() => {
                       // Trigger a quick visual bounce/refresh
@@ -706,7 +774,7 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
                       width: '100%',
                       height: '46px',
                       borderRadius: '8px',
-                      background: 'linear-gradient(135deg, #082653 0%, #03132D 100%)',
+                      background: 'linear-gradient(135deg, #FF6F00 0%, #EA580C 100%)',
                       color: '#FFFFFF',
                       fontSize: '14px',
                       fontWeight: '700',
@@ -716,11 +784,11 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
                       alignItems: 'center',
                       justifyContent: 'center',
                       gap: '8px',
-                      boxShadow: '0 4px 12px rgba(8, 38, 83, 0.25)',
+                      boxShadow: '0 4px 12px rgba(234, 88, 12, 0.25)',
                       transition: 'all 0.15s ease',
                     }}
-                    onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#051A3B')}
-                    onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#082653')}
+                    onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#C2410C')}
+                    onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#EA580C')}
                   >
                     <Search size={16} />
                     <span>Query 350+ Live Carriers</span>
@@ -733,25 +801,27 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
             {bookingConfirmed && (
               <div
                 style={{
-                  background: 'linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%)',
-                  border: '1.5px solid #86EFAC',
+                  background: 'linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%)',
+                  border: '1.5px solid #FDBA74',
                   borderRadius: '12px',
                   padding: '16px 20px',
                   marginBottom: '24px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
-                  boxShadow: '0 4px 16px rgba(22, 101, 52, 0.1)',
+                  flexWrap: 'wrap',
+                  gap: '16px',
+                  boxShadow: '0 4px 16px rgba(234, 88, 12, 0.1)',
                   animation: 'slideUp 0.3s ease',
                 }}
               >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '14px', minWidth: 0 }}>
                   <div
                     style={{
                       width: '40px',
                       height: '40px',
                       borderRadius: '50%',
-                      background: '#16A34A',
+                      background: '#EA580C',
                       color: '#FFFFFF',
                       display: 'flex',
                       alignItems: 'center',
@@ -761,23 +831,23 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
                   >
                     <CheckCircle2 size={22} />
                   </div>
-                  <div>
-                    <div style={{ fontSize: '15px', fontWeight: '800', color: '#14532D' }}>
+                  <div style={{ minWidth: 0 }}>
+                    <div style={{ fontSize: '15px', fontWeight: '800', color: '#082653' }}>
                       Spot Booking Confirmed: {bookingConfirmed.bookingRef}
                     </div>
-                    <div style={{ fontSize: '12.5px', color: '#166534', marginTop: '2px' }}>
+                    <div style={{ fontSize: '12.5px', color: '#9A3412', marginTop: '2px' }}>
                       Carrier: <strong>{bookingConfirmed.carrier}</strong> | Rate: <strong>{bookingConfirmed.rate}</strong> | Route: {bookingConfirmed.originName} → {bookingConfirmed.destName}
                     </div>
                   </div>
                 </div>
 
-                <div style={{ display: 'flex', gap: '10px' }}>
+                <div style={{ display: 'flex', gap: '10px', flexShrink: 0 }}>
                   <button
                     onClick={() => openModal('quote')}
                     style={{
                       padding: '8px 16px',
                       borderRadius: '6px',
-                      background: '#16A34A',
+                      background: '#EA580C',
                       color: '#FFFFFF',
                       fontSize: '12.5px',
                       fontWeight: '700',
@@ -793,10 +863,10 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
                       padding: '8px 12px',
                       borderRadius: '6px',
                       background: 'transparent',
-                      color: '#166534',
+                      color: '#C2410C',
                       fontSize: '12px',
                       fontWeight: '600',
-                      border: '1px solid #86EFAC',
+                      border: '1px solid #FDBA74',
                       cursor: 'pointer',
                     }}
                   >
@@ -809,141 +879,140 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
             {/* Carrier Comparison Cards List */}
             <div id="quotes-container" style={{ display: 'flex', flexDirection: 'column', gap: '14px', transition: 'opacity 0.2s ease' }}>
               {mockCarrierQuotes.map((q) => (
-                <div
-                  key={q.id}
-                  style={{
-                    background: '#FFFFFF',
-                    border: '1px solid #E2E8F0',
-                    borderRadius: '12px',
-                    padding: '18px 22px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    flexWrap: 'wrap',
-                    gap: '16px',
-                    boxShadow: '0 2px 10px rgba(0, 0, 0, 0.03)',
-                    transition: 'all 0.2s ease',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = '#EA580C';
-                    e.currentTarget.style.boxShadow = '0 6px 20px rgba(234, 88, 12, 0.12)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = '#E2E8F0';
-                    e.currentTarget.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.03)';
-                  }}
-                >
-                  {/* Left: Carrier Identity & Route */}
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '16px', minWidth: '260px' }}>
-                    <div
-                      style={{
-                        width: '52px',
-                        height: '52px',
-                        borderRadius: '10px',
-                        background: '#082653',
-                        color: '#FFFFFF',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        fontWeight: '900',
-                        fontSize: '11px',
-                        letterSpacing: '0.05em',
-                        textAlign: 'center',
-                        padding: '4px',
-                        flexShrink: 0,
-                      }}
-                    >
-                      {q.logoText}
+                <Magnet key={q.id} {...CARD_MAGNET_PROPS} maxOffset={4} tilt={0.8}>
+                  <div
+                    className="udp-carrier-quote-card"
+                    style={{
+                      background: '#FFFFFF',
+                      border: '1px solid #E2E8F0',
+                      borderRadius: '12px',
+                      padding: '18px 22px',
+                      boxShadow: '0 2px 10px rgba(0, 0, 0, 0.03)',
+                      transition: 'all 0.2s ease',
+                      boxSizing: 'border-box',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = '#EA580C';
+                      e.currentTarget.style.boxShadow = '0 6px 20px rgba(234, 88, 12, 0.12)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = '#E2E8F0';
+                      e.currentTarget.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.03)';
+                    }}
+                  >
+                    {/* Left: Carrier Identity & Route */}
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '16px', minWidth: 0 }}>
+                      <div
+                        style={{
+                          width: '52px',
+                          height: '52px',
+                          borderRadius: '10px',
+                          background: '#082653',
+                          color: '#FFFFFF',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          fontWeight: '900',
+                          fontSize: '11px',
+                          letterSpacing: '0.05em',
+                          textAlign: 'center',
+                          padding: '4px',
+                          flexShrink: 0,
+                        }}
+                      >
+                        {q.logoText}
+                      </div>
+
+                      <div style={{ minWidth: 0 }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+                          <span style={{ fontSize: '16px', fontWeight: '800', color: '#0F172A' }}>
+                            {q.carrier}
+                          </span>
+                          <span
+                            style={{
+                              fontSize: '10.5px',
+                              fontWeight: '700',
+                              padding: '2px 8px',
+                              borderRadius: '9999px',
+                              background: '#FFF7ED',
+                              color: '#C2410C',
+                              border: '1px solid #FED7AA',
+                              whiteSpace: 'nowrap',
+                            }}
+                          >
+                            {q.badge}
+                          </span>
+                        </div>
+                        <div style={{ fontSize: '12.5px', color: '#64748B', marginTop: '3px' }}>
+                          Service: <strong>{q.vesselService}</strong> • {q.routeType}
+                        </div>
+                      </div>
                     </div>
 
-                    <div>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <span style={{ fontSize: '16px', fontWeight: '800', color: '#0F172A' }}>
-                          {q.carrier}
-                        </span>
-                        <span
-                          style={{
-                            fontSize: '10.5px',
-                            fontWeight: '700',
-                            padding: '2px 8px',
-                            borderRadius: '9999px',
-                            background: '#EFF6FF',
-                            color: '#1D4ED8',
-                            border: '1px solid #BFDBFE',
-                          }}
-                        >
-                          {q.badge}
-                        </span>
+                    {/* Middle: Transit & Schedule */}
+                    <div className="udp-carrier-metrics">
+                      <div style={{ minWidth: 0 }}>
+                        <div style={{ fontSize: '11px', fontWeight: '700', color: '#94A3B8', textTransform: 'uppercase' }}>
+                          Transit Time
+                        </div>
+                        <div style={{ fontSize: '14px', fontWeight: '700', color: '#0F172A', marginTop: '2px' }}>
+                          {q.transitDays}
+                        </div>
+                        <div style={{ fontSize: '11px', color: '#EA580C', fontWeight: '600' }}>
+                          {q.reliability} On-Time
+                        </div>
                       </div>
-                      <div style={{ fontSize: '12.5px', color: '#64748B', marginTop: '2px' }}>
-                        Service: <strong>{q.vesselService}</strong> • {q.routeType}
+
+                      <div style={{ minWidth: 0 }}>
+                        <div style={{ fontSize: '11px', fontWeight: '700', color: '#94A3B8', textTransform: 'uppercase' }}>
+                          Departure
+                        </div>
+                        <div style={{ fontSize: '13.5px', fontWeight: '600', color: '#334155', marginTop: '2px' }}>
+                          {q.departure}
+                        </div>
+                        <div style={{ fontSize: '11px', color: '#64748B' }}>
+                          {q.carbonCO2}
+                        </div>
                       </div>
+                    </div>
+
+                    {/* Right: Price & Instant Book */}
+                    <div className="udp-carrier-cta">
+                      <div style={{ textAlign: 'right' }}>
+                        <div style={{ fontSize: '11px', color: '#94A3B8', textDecoration: 'line-through' }}>
+                          {q.originalRate}
+                        </div>
+                        <div style={{ fontSize: '22px', fontWeight: '900', color: '#EA580C', lineHeight: '1.1' }}>
+                          {q.rate}
+                        </div>
+                        <div style={{ fontSize: '10.5px', color: '#C2410C', fontWeight: '700' }}>
+                          Guaranteed Spot Rate
+                        </div>
+                      </div>
+
+                      <button
+                        onClick={() => handleBookCarrier(q)}
+                        style={{
+                          padding: '10px 18px',
+                          borderRadius: '8px',
+                          background: 'linear-gradient(135deg, #FF6F00 0%, #EA580C 100%)',
+                          color: '#FFFFFF',
+                          fontSize: '13px',
+                          fontWeight: '700',
+                          border: 'none',
+                          cursor: 'pointer',
+                          boxShadow: '0 3px 10px rgba(234, 88, 12, 0.3)',
+                          transition: 'all 0.15s ease',
+                          whiteSpace: 'nowrap',
+                        }}
+                        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#C2410C')}
+                        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#EA580C')}
+                      >
+                        Book Carrier
+                      </button>
                     </div>
                   </div>
-
-                  {/* Middle: Transit & Schedule */}
-                  <div style={{ display: 'flex', gap: '28px', flexWrap: 'wrap' }}>
-                    <div>
-                      <div style={{ fontSize: '11px', fontWeight: '700', color: '#94A3B8', textTransform: 'uppercase' }}>
-                        Transit Time
-                      </div>
-                      <div style={{ fontSize: '14px', fontWeight: '700', color: '#0F172A', marginTop: '2px' }}>
-                        {q.transitDays}
-                      </div>
-                      <div style={{ fontSize: '11px', color: '#16A34A', fontWeight: '600' }}>
-                        {q.reliability} On-Time
-                      </div>
-                    </div>
-
-                    <div>
-                      <div style={{ fontSize: '11px', fontWeight: '700', color: '#94A3B8', textTransform: 'uppercase' }}>
-                        Departure
-                      </div>
-                      <div style={{ fontSize: '13.5px', fontWeight: '600', color: '#334155', marginTop: '2px' }}>
-                        {q.departure}
-                      </div>
-                      <div style={{ fontSize: '11px', color: '#64748B' }}>
-                        {q.carbonCO2}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Right: Price & Instant Book */}
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '16px', minWidth: '200px', justifyContent: 'flex-end' }}>
-                    <div style={{ textAlign: 'right' }}>
-                      <div style={{ fontSize: '11px', color: '#94A3B8', textDecoration: 'line-through' }}>
-                        {q.originalRate}
-                      </div>
-                      <div style={{ fontSize: '22px', fontWeight: '900', color: '#EA580C', lineHeight: '1.1' }}>
-                        {q.rate}
-                      </div>
-                      <div style={{ fontSize: '10.5px', color: '#16A34A', fontWeight: '700' }}>
-                        Guaranteed Spot Rate
-                      </div>
-                    </div>
-
-                    <button
-                      onClick={() => handleBookCarrier(q)}
-                      style={{
-                        padding: '10px 18px',
-                        borderRadius: '8px',
-                        background: 'linear-gradient(135deg, #FF6F00 0%, #EA580C 100%)',
-                        color: '#FFFFFF',
-                        fontSize: '13px',
-                        fontWeight: '700',
-                        border: 'none',
-                        cursor: 'pointer',
-                        boxShadow: '0 3px 10px rgba(234, 88, 12, 0.3)',
-                        transition: 'all 0.15s ease',
-                        whiteSpace: 'nowrap',
-                      }}
-                      onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#C2410C')}
-                      onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#EA580C')}
-                    >
-                      Book Carrier
-                    </button>
-                  </div>
-                </div>
+                </Magnet>
               ))}
             </div>
           </div>
@@ -969,7 +1038,7 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '6px',
-                    color: '#0284C7',
+                    color: '#EA580C',
                     fontSize: '12.5px',
                     fontWeight: '700',
                     textTransform: 'uppercase',
@@ -993,7 +1062,7 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
               </div>
 
               {/* Live Status indicator */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
                 <div
                   style={{
                     display: 'flex',
@@ -1001,11 +1070,11 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
                     gap: '6px',
                     padding: '6px 12px',
                     borderRadius: '9999px',
-                    background: '#ECFDF5',
-                    border: '1px solid #A7F3D0',
+                    background: '#FFF7ED',
+                    border: '1px solid #FED7AA',
                     fontSize: '12px',
                     fontWeight: '700',
-                    color: '#059669',
+                    color: '#C2410C',
                   }}
                 >
                   <span
@@ -1013,8 +1082,8 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
                       width: '8px',
                       height: '8px',
                       borderRadius: '50%',
-                      background: '#10B981',
-                      boxShadow: '0 0 0 3px rgba(16, 185, 129, 0.25)',
+                      background: '#EA580C',
+                      boxShadow: '0 0 0 3px rgba(234, 88, 12, 0.2)',
                     }}
                   />
                   <span>Live Satellite Telemetry Polling (Every 1.2s)</span>
@@ -1045,59 +1114,63 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
 
             {/* Telemetry Layout: Left (Shipment List) & Right (Active Telemetry Cockpit) */}
             <div
+              className="udp-telemetry-grid"
               style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
                 gap: '20px',
+                alignItems: 'stretch',
               }}
             >
               {/* Left Column: Shipment Selectors */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', minWidth: 0 }}>
                 {liveTelemetryShipments.map((shipment) => {
                   const isSelected = shipment.id === selectedShipmentId;
                   return (
-                    <div
-                      key={shipment.id}
-                      onClick={() => setSelectedShipmentId(shipment.id)}
-                      style={{
-                        padding: '16px',
-                        borderRadius: '12px',
-                        background: isSelected ? '#FFFFFF' : '#F8FAFC',
-                        border: '1.5px solid',
-                        borderColor: isSelected ? '#EA580C' : '#E2E8F0',
-                        boxShadow: isSelected ? '0 6px 18px rgba(234, 88, 12, 0.15)' : 'none',
-                        cursor: 'pointer',
-                        transition: 'all 0.15s ease',
-                      }}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '6px' }}>
-                        <span style={{ fontSize: '14px', fontWeight: '800', color: '#082653' }}>
-                          {shipment.id}
-                        </span>
-                        <span
-                          style={{
-                            fontSize: '11px',
-                            fontWeight: '700',
-                            padding: '3px 8px',
-                            borderRadius: '9999px',
-                            background: `${shipment.statusColor}15`,
-                            color: shipment.statusColor,
-                            border: `1px solid ${shipment.statusColor}30`,
-                          }}
-                        >
-                          {shipment.status}
-                        </span>
-                      </div>
+                    <Magnet key={shipment.id} {...TILE_MAGNET_PROPS} style={{ display: 'block', width: '100%' }}>
+                      <div
+                        onClick={() => setSelectedShipmentId(shipment.id)}
+                        style={{
+                          padding: '16px',
+                          borderRadius: '12px',
+                          background: isSelected ? '#FFFFFF' : '#F8FAFC',
+                          border: '1.5px solid',
+                          borderColor: isSelected ? '#EA580C' : '#E2E8F0',
+                          boxShadow: isSelected ? '0 6px 18px rgba(234, 88, 12, 0.15)' : 'none',
+                          cursor: 'pointer',
+                          transition: 'all 0.15s ease',
+                          boxSizing: 'border-box',
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px', marginBottom: '6px' }}>
+                          <span style={{ fontSize: '14px', fontWeight: '800', color: '#082653' }}>
+                            {shipment.id}
+                          </span>
+                          <span
+                            style={{
+                              fontSize: '11px',
+                              fontWeight: '700',
+                              padding: '3px 8px',
+                              borderRadius: '9999px',
+                              background: `${shipment.statusColor}15`,
+                              color: shipment.statusColor,
+                              border: `1px solid ${shipment.statusColor}30`,
+                              whiteSpace: 'nowrap',
+                              flexShrink: 0,
+                            }}
+                          >
+                            {shipment.status}
+                          </span>
+                        </div>
 
-                      <div style={{ fontSize: '13px', fontWeight: '600', color: '#1E293B' }}>
-                        {shipment.origin.split(',')[0]} → {shipment.destination.split(',')[0]}
-                      </div>
+                        <div style={{ fontSize: '13px', fontWeight: '600', color: '#1E293B' }}>
+                          {shipment.origin.split(',')[0]} → {shipment.destination.split(',')[0]}
+                        </div>
 
-                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '8px', fontSize: '11.5px', color: '#64748B' }}>
-                        <span>Carrier: <strong>{shipment.carrier}</strong></span>
-                        <span>ETA: <strong>{shipment.eta.split('(')[0]}</strong></span>
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px', flexWrap: 'wrap', marginTop: '8px', fontSize: '11.5px', color: '#64748B' }}>
+                          <span>Carrier: <strong>{shipment.carrier}</strong></span>
+                          <span>ETA: <strong>{shipment.eta.split('(')[0]}</strong></span>
+                        </div>
                       </div>
-                    </div>
+                    </Magnet>
                   );
                 })}
               </div>
@@ -1113,12 +1186,14 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
+                  minWidth: 0,
+                  boxSizing: 'border-box',
                 }}
               >
                 <div>
                   {/* Cockpit Header */}
-                  <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', borderBottom: '1px solid #F1F5F9', paddingBottom: '16px', marginBottom: '18px' }}>
-                    <div>
+                  <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '12px', flexWrap: 'wrap', borderBottom: '1px solid #F1F5F9', paddingBottom: '16px', marginBottom: '18px' }}>
+                    <div style={{ minWidth: 0 }}>
                       <div style={{ fontSize: '12px', fontWeight: '700', color: '#EA580C', textTransform: 'uppercase' }}>
                         Active Satellite Telemetry Feed
                       </div>
@@ -1139,6 +1214,8 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
                         color: '#EA580C',
                         fontSize: '12px',
                         fontWeight: '700',
+                        whiteSpace: 'nowrap',
+                        flexShrink: 0,
                       }}
                     >
                       {selectedShipment.lastPing}
@@ -1147,7 +1224,7 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
 
                   {/* Visual Journey Progress Bar */}
                   <div style={{ marginBottom: '20px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '12px', fontWeight: '600', color: '#475569', marginBottom: '6px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px', flexWrap: 'wrap', fontSize: '12px', fontWeight: '600', color: '#475569', marginBottom: '6px' }}>
                       <span>Origin: {selectedShipment.origin}</span>
                       <span>Progress: {selectedShipment.progress}%</span>
                       <span>Destination: {selectedShipment.destination}</span>
@@ -1177,63 +1254,72 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
                   <div
                     style={{
                       display: 'grid',
-                      gridTemplateColumns: 'repeat(2, 1fr)',
+                      gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
                       gap: '12px',
                       marginBottom: '20px',
+                      alignItems: 'stretch',
                     }}
                   >
-                    <div style={{ background: '#F8FAFC', padding: '12px', borderRadius: '10px', border: '1px solid #E2E8F0' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '11px', fontWeight: '700', color: '#64748B' }}>
-                        <Compass size={14} color="#0284C7" />
-                        <span>GPS Coordinates</span>
+                    <Magnet {...TILE_MAGNET_PROPS}>
+                      <div style={{ background: '#F8FAFC', padding: '12px', borderRadius: '10px', border: '1px solid #E2E8F0', height: '100%', boxSizing: 'border-box', minWidth: 0 }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '11px', fontWeight: '700', color: '#64748B' }}>
+                          <Compass size={14} color="#EA580C" style={{ flexShrink: 0 }} />
+                          <span>GPS Coordinates</span>
+                        </div>
+                        <div style={{ fontSize: '13px', fontWeight: '700', color: '#0F172A', marginTop: '4px' }}>
+                          {selectedShipment.coordinates}
+                        </div>
                       </div>
-                      <div style={{ fontSize: '13px', fontWeight: '700', color: '#0F172A', marginTop: '4px' }}>
-                        {selectedShipment.coordinates}
-                      </div>
-                    </div>
+                    </Magnet>
 
-                    <div style={{ background: '#F8FAFC', padding: '12px', borderRadius: '10px', border: '1px solid #E2E8F0' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '11px', fontWeight: '700', color: '#64748B' }}>
-                        <Radio size={14} color="#16A34A" />
-                        <span>Cruising Speed</span>
+                    <Magnet {...TILE_MAGNET_PROPS}>
+                      <div style={{ background: '#F8FAFC', padding: '12px', borderRadius: '10px', border: '1px solid #E2E8F0', height: '100%', boxSizing: 'border-box', minWidth: 0 }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '11px', fontWeight: '700', color: '#64748B' }}>
+                          <Radio size={14} color="#D97706" style={{ flexShrink: 0 }} />
+                          <span>Cruising Speed</span>
+                        </div>
+                        <div style={{ fontSize: '13px', fontWeight: '700', color: '#0F172A', marginTop: '4px' }}>
+                          {selectedShipment.speed}
+                        </div>
                       </div>
-                      <div style={{ fontSize: '13px', fontWeight: '700', color: '#0F172A', marginTop: '4px' }}>
-                        {selectedShipment.speed}
-                      </div>
-                    </div>
+                    </Magnet>
 
-                    <div style={{ background: '#F8FAFC', padding: '12px', borderRadius: '10px', border: '1px solid #E2E8F0' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '11px', fontWeight: '700', color: '#64748B' }}>
-                        <Thermometer size={14} color="#EA580C" />
-                        <span>Internal Container Temp</span>
+                    <Magnet {...TILE_MAGNET_PROPS}>
+                      <div style={{ background: '#F8FAFC', padding: '12px', borderRadius: '10px', border: '1px solid #E2E8F0', height: '100%', boxSizing: 'border-box', minWidth: 0 }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '11px', fontWeight: '700', color: '#64748B' }}>
+                          <Thermometer size={14} color="#EA580C" style={{ flexShrink: 0 }} />
+                          <span>Internal Container Temp</span>
+                        </div>
+                        <div style={{ fontSize: '13px', fontWeight: '700', color: '#0F172A', marginTop: '4px' }}>
+                          {selectedShipment.temperature}
+                        </div>
                       </div>
-                      <div style={{ fontSize: '13px', fontWeight: '700', color: '#0F172A', marginTop: '4px' }}>
-                        {selectedShipment.temperature}
-                      </div>
-                    </div>
+                    </Magnet>
 
-                    <div style={{ background: '#F8FAFC', padding: '12px', borderRadius: '10px', border: '1px solid #E2E8F0' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '11px', fontWeight: '700', color: '#64748B' }}>
-                        <ShieldCheck size={14} color="#7C3AED" />
-                        <span>Container Integrity & Shock</span>
+                    <Magnet {...TILE_MAGNET_PROPS}>
+                      <div style={{ background: '#F8FAFC', padding: '12px', borderRadius: '10px', border: '1px solid #E2E8F0', height: '100%', boxSizing: 'border-box', minWidth: 0 }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '11px', fontWeight: '700', color: '#64748B' }}>
+                          <ShieldCheck size={14} color="#082653" style={{ flexShrink: 0 }} />
+                          <span>Container Integrity & Shock</span>
+                        </div>
+                        <div style={{ fontSize: '13px', fontWeight: '700', color: '#0F172A', marginTop: '4px' }}>
+                          {selectedShipment.shock} (Zero Breach)
+                        </div>
                       </div>
-                      <div style={{ fontSize: '13px', fontWeight: '700', color: '#0F172A', marginTop: '4px' }}>
-                        {selectedShipment.shock} (Zero Breach)
-                      </div>
-                    </div>
+                    </Magnet>
                   </div>
 
                   {/* Current Active Milestone Note */}
                   <div
                     style={{
-                      background: 'rgba(2, 132, 199, 0.06)',
-                      borderLeft: '4px solid #0284C7',
+                      background: 'rgba(234, 88, 12, 0.06)',
+                      borderLeft: '4px solid #EA580C',
                       padding: '12px 14px',
                       borderRadius: '0 8px 8px 0',
                       marginBottom: '16px',
                     }}
                   >
-                    <div style={{ fontSize: '11.5px', fontWeight: '700', color: '#0369A1' }}>
+                    <div style={{ fontSize: '11.5px', fontWeight: '700', color: '#C2410C' }}>
                       Current Live Milestone:
                     </div>
                     <div style={{ fontSize: '13px', color: '#0F172A', marginTop: '2px', fontWeight: '500' }}>
@@ -1322,121 +1408,125 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
             </div>
 
             <div
+              className="udp-4col-grid"
               style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
                 gap: '20px',
+                alignItems: 'stretch',
               }}
             >
               {corePillars.map((pillar) => {
                 const IconComp = pillar.icon;
                 return (
-                  <div
-                    key={pillar.id}
-                    style={{
-                      background: '#F8FAFC',
-                      border: '1px solid #E2E8F0',
-                      borderRadius: '16px',
-                      padding: '24px 20px',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      justifyContent: 'space-between',
-                      transition: 'all 0.2s ease',
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.transform = 'translateY(-3px)';
-                      e.currentTarget.style.boxShadow = '0 12px 28px rgba(15, 23, 42, 0.08)';
-                      e.currentTarget.style.borderColor = pillar.accent;
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.transform = 'translateY(0)';
-                      e.currentTarget.style.boxShadow = 'none';
-                      e.currentTarget.style.borderColor = '#E2E8F0';
-                    }}
-                  >
-                    <div>
-                      {/* Icon */}
-                      <div
-                        style={{
-                          width: '46px',
-                          height: '46px',
-                          borderRadius: '12px',
-                          background: `${pillar.accent}15`,
-                          color: pillar.accent,
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          marginBottom: '16px',
-                        }}
-                      >
-                        <IconComp size={22} strokeWidth={2.2} />
+                  <Magnet key={pillar.id} {...CARD_MAGNET_PROPS}>
+                    <div
+                      style={{
+                        background: '#F8FAFC',
+                        border: '1px solid #E2E8F0',
+                        borderRadius: '16px',
+                        padding: '24px 20px',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'space-between',
+                        height: '100%',
+                        minWidth: 0,
+                        boxSizing: 'border-box',
+                        transition: 'all 0.2s ease',
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.transform = 'translateY(-3px)';
+                        e.currentTarget.style.boxShadow = '0 12px 28px rgba(15, 23, 42, 0.08)';
+                        e.currentTarget.style.borderColor = pillar.accent;
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = 'translateY(0)';
+                        e.currentTarget.style.boxShadow = 'none';
+                        e.currentTarget.style.borderColor = '#E2E8F0';
+                      }}
+                    >
+                      <div>
+                        {/* Icon */}
+                        <div
+                          style={{
+                            width: '46px',
+                            height: '46px',
+                            borderRadius: '12px',
+                            background: `${pillar.accent}15`,
+                            color: pillar.accent,
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            marginBottom: '16px',
+                          }}
+                        >
+                          <IconComp size={22} strokeWidth={2.2} />
+                        </div>
+
+                        <h3
+                          style={{
+                            fontSize: '18px',
+                            fontWeight: '800',
+                            color: '#082653',
+                            marginBottom: '8px',
+                            lineHeight: '1.25',
+                          }}
+                        >
+                          {pillar.title}
+                        </h3>
+
+                        <p
+                          style={{
+                            fontSize: '13px',
+                            color: '#64748B',
+                            lineHeight: '1.5',
+                            marginBottom: '16px',
+                          }}
+                        >
+                          {pillar.tagline}
+                        </p>
+
+                        {/* Feature Bullet points */}
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                          {pillar.features.map((feat, fIdx) => (
+                            <div
+                              key={fIdx}
+                              style={{
+                                display: 'flex',
+                                alignItems: 'flex-start',
+                                gap: '8px',
+                                fontSize: '12.5px',
+                                color: '#334155',
+                                lineHeight: '1.45',
+                              }}
+                            >
+                              <Check size={14} color={pillar.accent} style={{ flexShrink: 0, marginTop: '2px' }} />
+                              <span>{feat}</span>
+                            </div>
+                          ))}
+                        </div>
                       </div>
 
-                      <h3
-                        style={{
-                          fontSize: '18px',
-                          fontWeight: '800',
-                          color: '#082653',
-                          marginBottom: '8px',
-                          lineHeight: '1.25',
-                        }}
-                      >
-                        {pillar.title}
-                      </h3>
-
-                      <p
-                        style={{
-                          fontSize: '13px',
-                          color: '#64748B',
-                          lineHeight: '1.5',
-                          marginBottom: '16px',
-                        }}
-                      >
-                        {pillar.tagline}
-                      </p>
-
-                      {/* Feature Bullet points */}
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                        {pillar.features.map((feat, fIdx) => (
-                          <div
-                            key={fIdx}
-                            style={{
-                              display: 'flex',
-                              alignItems: 'flex-start',
-                              gap: '8px',
-                              fontSize: '12.5px',
-                              color: '#334155',
-                              lineHeight: '1.45',
-                            }}
-                          >
-                            <Check size={14} color={pillar.accent} style={{ flexShrink: 0, marginTop: '2px' }} />
-                            <span>{feat}</span>
-                          </div>
-                        ))}
+                      <div style={{ marginTop: '20px', paddingTop: '14px', borderTop: '1px solid #E2E8F0' }}>
+                        <button
+                          onClick={() => openModal('quote')}
+                          style={{
+                            background: 'none',
+                            border: 'none',
+                            padding: 0,
+                            color: pillar.accent,
+                            fontSize: '13px',
+                            fontWeight: '700',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '6px',
+                            cursor: 'pointer',
+                          }}
+                        >
+                          <span>Explore Capabilities</span>
+                          <ChevronRight size={14} />
+                        </button>
                       </div>
                     </div>
-
-                    <div style={{ marginTop: '20px', paddingTop: '14px', borderTop: '1px solid #E2E8F0' }}>
-                      <button
-                        onClick={() => openModal('quote')}
-                        style={{
-                          background: 'none',
-                          border: 'none',
-                          padding: 0,
-                          color: pillar.accent,
-                          fontSize: '13px',
-                          fontWeight: '700',
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '6px',
-                          cursor: 'pointer',
-                        }}
-                      >
-                        <span>Explore Capabilities</span>
-                        <ChevronRight size={14} />
-                      </button>
-                    </div>
-                  </div>
+                  </Magnet>
                 );
               })}
             </div>
@@ -1449,13 +1539,14 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
         <section
           style={{
             padding: '44px 28px 44px 28px',
-            background: 'linear-gradient(145deg, #051A3B 0%, #082653 100%)',
-            color: '#FFFFFF',
+            background: '#FFFFFF',
+            color: '#082653',
+            borderBottom: '1px solid #E2E8F0',
           }}
         >
           <div style={{ maxWidth: '1080px', margin: '0 auto' }}>
             <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-              <span style={{ color: '#FB923C', fontSize: '12.5px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+              <span style={{ color: '#EA580C', fontSize: '12.5px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
                 Seamless System Connectivity
               </span>
               <h2
@@ -1463,7 +1554,7 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
                   fontFamily: 'Georgia, "Times New Roman", serif',
                   fontSize: '32px',
                   fontWeight: '700',
-                  color: '#FFFFFF',
+                  color: '#082653',
                   marginTop: '6px',
                   marginBottom: '10px',
                 }}
@@ -1473,7 +1564,7 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
               <p
                 style={{
                   fontSize: '15px',
-                  color: 'rgba(255, 255, 255, 0.82)',
+                  color: '#64748B',
                   maxWidth: '680px',
                   margin: '0 auto',
                   lineHeight: '1.5',
@@ -1484,66 +1575,80 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
             </div>
 
             <div
+              className="udp-3col-grid"
               style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
                 gap: '16px',
+                alignItems: 'stretch',
               }}
             >
               {platformIntegrations.map((item, idx) => (
-                <div
-                  key={idx}
-                  style={{
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    backdropFilter: 'blur(10px)',
-                    border: '1px solid rgba(255, 255, 255, 0.12)',
-                    borderRadius: '12px',
-                    padding: '18px 20px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                  }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                <Magnet key={idx} {...CARD_MAGNET_PROPS}>
+                  <div
+                    style={{
+                      background: '#F8FAFC',
+                      border: '1px solid #E2E8F0',
+                      borderRadius: '12px',
+                      padding: '18px 20px',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'flex-start',
+                      minWidth: 0,
+                      height: '100%',
+                      boxSizing: 'border-box',
+                    }}
+                  >
                     <div
                       style={{
-                        width: '36px',
-                        height: '36px',
-                        borderRadius: '8px',
-                        background: 'rgba(2, 132, 199, 0.2)',
                         display: 'flex',
                         alignItems: 'center',
-                        justifyContent: 'center',
-                        color: '#38BDF8',
+                        justifyContent: 'space-between',
+                        gap: '10px',
+                        marginBottom: '12px',
                       }}
                     >
-                      <Database size={18} />
+                      <div
+                        style={{
+                          width: '36px',
+                          height: '36px',
+                          borderRadius: '8px',
+                          background: 'rgba(234, 88, 12, 0.1)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          color: '#EA580C',
+                          flexShrink: 0,
+                        }}
+                      >
+                        <Database size={18} />
+                      </div>
+
+                      <span
+                        style={{
+                          fontSize: '11px',
+                          fontWeight: '700',
+                          padding: '4px 10px',
+                          borderRadius: '9999px',
+                          background: 'rgba(234, 88, 12, 0.1)',
+                          color: '#EA580C',
+                          border: '1px solid rgba(234, 88, 12, 0.25)',
+                          whiteSpace: 'nowrap',
+                          flexShrink: 0,
+                        }}
+                      >
+                        {item.badge}
+                      </span>
                     </div>
-                    <div>
-                      <div style={{ fontSize: '15px', fontWeight: '800', color: '#FFFFFF' }}>
+
+                    <div style={{ minWidth: 0 }}>
+                      <div style={{ fontSize: '15px', fontWeight: '800', color: '#082653', marginBottom: '4px', lineHeight: '1.25' }}>
                         {item.name}
                       </div>
-                      <div style={{ fontSize: '12px', color: 'rgba(255, 255, 255, 0.7)' }}>
+                      <div style={{ fontSize: '12px', color: '#64748B', lineHeight: '1.45' }}>
                         {item.type}
                       </div>
                     </div>
                   </div>
-
-                  <span
-                    style={{
-                      fontSize: '11px',
-                      fontWeight: '700',
-                      padding: '4px 8px',
-                      borderRadius: '9999px',
-                      background: 'rgba(234, 88, 12, 0.2)',
-                      color: '#FB923C',
-                      border: '1px solid rgba(234, 88, 12, 0.35)',
-                      whiteSpace: 'nowrap',
-                    }}
-                  >
-                    {item.badge}
-                  </span>
-                </div>
+                </Magnet>
               ))}
             </div>
           </div>
@@ -1653,11 +1758,11 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
         <section
           style={{
             padding: '48px 28px',
-            background: 'linear-gradient(135deg, #082653 0%, #03132D 100%)',
+            background: '#FFFFFF',
             textAlign: 'center',
-            color: '#FFFFFF',
+            color: '#082653',
             position: 'relative',
-            borderBottom: '1px solid rgba(8, 38, 83, 0.12)',
+            borderBottom: '1px solid #E2E8F0',
           }}
         >
           <div style={{ maxWidth: '780px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
@@ -1666,7 +1771,7 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
                 fontFamily: 'Georgia, "Times New Roman", serif',
                 fontSize: '34px',
                 fontWeight: '700',
-                color: '#FFFFFF',
+                color: '#082653',
                 marginBottom: '12px',
                 lineHeight: '1.2',
               }}
@@ -1677,7 +1782,7 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
             <p
               style={{
                 fontSize: '15.5px',
-                color: 'rgba(255, 255, 255, 0.85)',
+                color: '#475569',
                 lineHeight: '1.6',
                 marginBottom: '26px',
               }}
@@ -1697,7 +1802,7 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
                   fontWeight: '700',
                   border: 'none',
                   cursor: 'pointer',
-                  boxShadow: '0 6px 20px rgba(234, 88, 12, 0.45)',
+                  boxShadow: '0 6px 20px rgba(234, 88, 12, 0.35)',
                   display: 'flex',
                   alignItems: 'center',
                   gap: '8px',
@@ -1712,11 +1817,11 @@ export const UnifiedDigitalPortal = ({ onNavigate }) => {
                 style={{
                   padding: '12px 24px',
                   borderRadius: '10px',
-                  background: 'rgba(255, 255, 255, 0.1)',
-                  color: '#FFFFFF',
+                  background: '#F8FAFC',
+                  color: '#082653',
                   fontSize: '14px',
                   fontWeight: '600',
-                  border: '1px solid rgba(255, 255, 255, 0.25)',
+                  border: '1px solid #CBD5E1',
                   cursor: 'pointer',
                 }}
               >

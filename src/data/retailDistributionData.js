@@ -27,14 +27,14 @@ export const retailHeroStats = [
     value: '99.8%',
     sub: 'Strict Big-Box Retail Compliance & Zero Chargebacks',
     icon: CheckCircle2,
-    accent: '#0284C7',
+    accent: '#EA580C',
   },
   {
     label: 'Active Retail Doors Served',
     value: '45,000+',
     sub: 'Direct Supermarket, Department & Mall Drop Delivery',
     icon: Store,
-    accent: '#082653',
+    accent: '#C2410C',
   },
   {
     label: 'Dock-to-Floor Cross-Dock Speed',
@@ -48,7 +48,7 @@ export const retailHeroStats = [
     value: '99.95%',
     sub: 'Unified Single-Pool Inventory Across Store & DTC',
     icon: Tag,
-    accent: '#10B981',
+    accent: '#D97706',
   },
 ];
 
@@ -63,8 +63,8 @@ export const retailFulfillmentTiers = [
     description: 'Scheduled point-to-point delivery directly to retail store receiving docks, supermarkets, and boutique doors with off-peak silent night-drop capabilities.',
     image: '/land-freight.jpg',
     badge: 'Scheduled Morning & Night Drops',
-    badgeColor: '#0284C7',
-    badgeBg: '#E0F2FE',
+    badgeColor: '#C2410C',
+    badgeBg: '#FFF7ED',
     highlights: [
       'Tail-lift equipped box trucks with electric pallet jacks and roll-cage ramps',
       'Automated store staff ETA notification via live geofenced telemetry',
@@ -82,8 +82,8 @@ export const retailFulfillmentTiers = [
     description: 'Rapid inbound deconsolidation of 40ft/53ft ocean and intermodal containers directly into store-sorted mixed pallets for Walmart, Target, Costco, and Carrefour regional DCs.',
     image: '/hero-logistics.jpg',
     badge: 'Sub-6h Zero-Warehousing Flow',
-    badgeColor: '#059669',
-    badgeBg: '#ECFDF5',
+    badgeColor: '#C2410C',
+    badgeBg: '#FFF7ED',
     highlights: [
       'Zero intermediate storage fees; cargo flows through dock in under 6 hours',
       'Automated slip-sheet and pallet inversion conforming to retail DC heights',
@@ -101,8 +101,8 @@ export const retailFulfillmentTiers = [
     description: 'Urban micro-fulfillment centers positioned within 30 minutes of major shopping centers, unifying boutique store replenishment with rapid last-mile DTC customer delivery.',
     image: '/track-shipment-hero.jpg',
     badge: 'Unified Store + E-Commerce Pool',
-    badgeColor: '#7C3AED',
-    badgeBg: '#F3E8FF',
+    badgeColor: '#B45309',
+    badgeBg: '#FFFBEB',
     highlights: [
       'Single inventory pool preventing costly split-stock buffers and dead capital',
       'Click-and-Collect (BOPIS) real-time automated reservation and staging',
@@ -121,7 +121,7 @@ export const retailFulfillmentTiers = [
     image: '/consumer.jpg',
     badge: 'Autonomous POS-Triggered Restock',
     badgeColor: '#EA580C',
-    badgeBg: '#FFF7ED',
+    badgeBg: '#FFEDD5',
     highlights: [
       'Automated EDI 852 (Product Activity) and EDI 855 (PO Acknowledgment) exchange',
       'Zero out-of-stock risk with proprietary dynamic reorder point forecasting',
@@ -194,7 +194,7 @@ export const retailPillars = [
       'Supports Click & Collect (BOPIS), Ship-from-Store, and direct showroom replenishment seamlessly',
       'Reduces total safety stock buffer requirements by an average of 34% across all SKUs'
     ],
-    accentColor: '#0284C7',
+    accentColor: '#EA580C',
     badgeText: 'Inventory Efficiency'
   },
   {
@@ -211,7 +211,7 @@ export const retailPillars = [
       'Pallet height, overhang, and banding precisely tailored to retailer-specific DC receiving criteria',
       'Dedicated compliance auditing desk providing photographic loading logs for every outbound trailer'
     ],
-    accentColor: '#059669',
+    accentColor: '#EA580C',
     badgeText: 'Chargeback Immunity'
   },
   {
@@ -228,7 +228,7 @@ export const retailPillars = [
       'Multi-temperature zones accommodating dry ambient goods, consumer electronics, and packaged foods',
       'Direct linehaul injection into regional parcel networks, store replenishment routes, and wholesale depots'
     ],
-    accentColor: '#7C3AED',
+    accentColor: '#D97706',
     badgeText: 'Velocity Acceleration'
   },
   {
@@ -245,7 +245,7 @@ export const retailPillars = [
       'Immediate return-to-vendor (RTV) consolidation, markdown channel routing, or active inventory restock',
       'Automated credit memo issuance and serial status tracking across your enterprise ERP'
     ],
-    accentColor: '#EA580C',
+    accentColor: '#D84315',
     badgeText: 'Revenue Recovery'
   }
 ];

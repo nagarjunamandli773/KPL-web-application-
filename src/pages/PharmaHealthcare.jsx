@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Header } from '../components/layout/Header';
 import { Footer } from '../components/layout/Footer';
 import { TrackModal } from '../components/common/TrackModal';
+import Magnet, { CARD_MAGNET_PROPS, TILE_MAGNET_PROPS } from '../components/common/Magnet';
 import {
   pharmaHeroStats,
   pharmaTempRanges,
@@ -148,18 +149,19 @@ export const PharmaHealthcare = ({ onNavigate }) => {
         <div style={{ height: '24px', width: '100%', background: '#FAFBFD' }} />
 
         {/* =========================================================================
-            SECTION 1: HERO BANNER (Clinical Split-Hero with Medical Cyan / Deep Navy Glow)
+            SECTION 1: HERO BANNER (Light Orange with Medical Cyan Accents)
             ========================================================================= */}
         <section
           style={{
             position: 'relative',
-            background: 'linear-gradient(135deg, #03172E 0%, #07284F 50%, #08376E 100%)',
-            color: '#FFFFFF',
+            background: 'linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 50%, #FFF7ED 100%)',
+            color: '#082653',
             borderRadius: '16px',
             margin: '0 24px',
             padding: '52px 44px 44px',
             overflow: 'hidden',
-            boxShadow: '0 20px 50px rgba(7, 40, 79, 0.28)',
+            border: '1px solid #FED7AA',
+            boxShadow: '0 20px 50px rgba(234, 88, 12, 0.08)',
           }}
         >
           {/* Ambient Clinical Lighting Orbs */}
@@ -171,7 +173,7 @@ export const PharmaHealthcare = ({ onNavigate }) => {
               width: '540px',
               height: '540px',
               borderRadius: '50%',
-              background: 'radial-gradient(circle, rgba(0, 188, 212, 0.16) 0%, rgba(6, 182, 212, 0.04) 50%, transparent 75%)',
+              background: 'radial-gradient(circle, rgba(234, 88, 12, 0.1) 0%, rgba(234, 88, 12, 0.04) 50%, transparent 75%)',
               filter: 'blur(50px)',
               pointerEvents: 'none',
             }}
@@ -184,7 +186,7 @@ export const PharmaHealthcare = ({ onNavigate }) => {
               width: '480px',
               height: '480px',
               borderRadius: '50%',
-              background: 'radial-gradient(circle, rgba(2, 132, 199, 0.18) 0%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(251, 146, 60, 0.12) 0%, transparent 70%)',
               filter: 'blur(60px)',
               pointerEvents: 'none',
             }}
@@ -195,9 +197,9 @@ export const PharmaHealthcare = ({ onNavigate }) => {
             style={{
               position: 'absolute',
               inset: 0,
-              backgroundImage: 'radial-gradient(rgba(0, 188, 212, 0.08) 1px, transparent 1px)',
+              backgroundImage: 'radial-gradient(rgba(234, 88, 12, 0.06) 1px, transparent 1px)',
               backgroundSize: '24px 24px',
-              opacity: 0.6,
+              opacity: 0.5,
               pointerEvents: 'none',
             }}
           />
@@ -222,10 +224,10 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                   gap: '8px',
                   padding: '6px 14px',
                   borderRadius: '24px',
-                  background: 'rgba(0, 188, 212, 0.12)',
-                  border: '1px solid rgba(0, 188, 212, 0.35)',
+                  background: 'rgba(255, 255, 255, 0.75)',
+                  border: '1px solid rgba(234, 88, 12, 0.35)',
                   marginBottom: '20px',
-                  boxShadow: '0 2px 12px rgba(0, 188, 212, 0.15)',
+                  boxShadow: '0 2px 10px rgba(234, 88, 12, 0.08)',
                 }}
               >
                 <span
@@ -233,15 +235,15 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                     width: '8px',
                     height: '8px',
                     borderRadius: '50%',
-                    background: '#00BCD4',
-                    boxShadow: '0 0 10px #00BCD4',
+                    background: '#C2410C',
+                    boxShadow: '0 0 8px rgba(234, 88, 12, 0.45)',
                     display: 'inline-block',
                     animation: 'pulse 2s infinite',
                   }}
                 />
                 <span
                   style={{
-                    color: '#67E8F9',
+                    color: '#C2410C',
                     fontSize: '11px',
                     fontWeight: '800',
                     letterSpacing: '0.08em',
@@ -258,7 +260,7 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                   fontSize: '38px',
                   fontWeight: '800',
                   lineHeight: '1.18',
-                  color: '#FFFFFF',
+                  color: '#082653',
                   margin: '0 0 18px',
                   letterSpacing: '-0.02em',
                 }}
@@ -266,7 +268,7 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                 Life-Saving Cold Chain,{' '}
                 <span
                   style={{
-                    background: 'linear-gradient(90deg, #67E8F9 0%, #38BDF8 50%, #A5F3FC 100%)',
+                    background: 'linear-gradient(90deg, #FF6F00 0%, #EA580C 50%, #D97706 100%)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
                   }}
@@ -281,7 +283,7 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                 style={{
                   fontSize: '15px',
                   lineHeight: '1.65',
-                  color: '#CBD5E1',
+                  color: '#334155',
                   margin: '0 0 24px',
                   maxWidth: '560px',
                 }}
@@ -299,10 +301,10 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                 }}
               >
                 {[
-                  { text: 'Cryogenic LN2 to CRT (+25°C)', icon: Snowflake, color: '#38BDF8' },
-                  { text: 'Live NIST IoT Telemetry', icon: Activity, color: '#00BCD4' },
-                  { text: 'WHO GDP TRS 961 Audited', icon: ShieldCheck, color: '#10B981' },
-                  { text: '<30m Tarmac Green Lane', icon: Clock, color: '#F59E0B' },
+                  { text: 'Cryogenic LN2 to CRT (+25°C)', icon: Snowflake, color: '#EA580C' },
+                  { text: 'Live NIST IoT Telemetry', icon: Activity, color: '#C2410C' },
+                  { text: 'WHO GDP TRS 961 Audited', icon: ShieldCheck, color: '#EA580C' },
+                  { text: '<30m Tarmac Green Lane', icon: Clock, color: '#D97706' },
                 ].map((pill, idx) => (
                   <div
                     key={idx}
@@ -312,10 +314,10 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                       gap: '6px',
                       padding: '5px 12px',
                       borderRadius: '8px',
-                      background: 'rgba(255, 255, 255, 0.06)',
-                      border: '1px solid rgba(255, 255, 255, 0.12)',
+                      background: '#FFFFFF',
+                      border: '1px solid #FED7AA',
                       fontSize: '12px',
-                      color: '#E2E8F0',
+                      color: '#082653',
                       fontWeight: '600',
                     }}
                   >
@@ -348,16 +350,16 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                     fontWeight: '700',
                     border: 'none',
                     cursor: 'pointer',
-                    boxShadow: '0 8px 24px rgba(234, 88, 12, 0.35)',
+                    boxShadow: '0 8px 24px rgba(234, 88, 12, 0.3)',
                     transition: 'all 0.2s ease',
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'translateY(-2px)';
-                    e.currentTarget.style.boxShadow = '0 12px 30px rgba(234, 88, 12, 0.45)';
+                    e.currentTarget.style.boxShadow = '0 12px 30px rgba(234, 88, 12, 0.42)';
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = '0 8px 24px rgba(234, 88, 12, 0.35)';
+                    e.currentTarget.style.boxShadow = '0 8px 24px rgba(234, 88, 12, 0.3)';
                   }}
                 >
                   <Thermometer size={17} />
@@ -373,24 +375,25 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                     gap: '8px',
                     padding: '13px 22px',
                     borderRadius: '12px',
-                    background: 'rgba(255, 255, 255, 0.08)',
-                    color: '#FFFFFF',
+                    background: '#FFFFFF',
+                    color: '#082653',
                     fontSize: '14px',
                     fontWeight: '700',
-                    border: '1px solid rgba(0, 188, 212, 0.3)',
+                    border: '1px solid #FDBA74',
                     cursor: 'pointer',
+                    boxShadow: '0 2px 8px rgba(234, 88, 12, 0.08)',
                     transition: 'all 0.2s ease',
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.background = 'rgba(0, 188, 212, 0.15)';
-                    e.currentTarget.style.borderColor = '#00BCD4';
+                    e.currentTarget.style.background = '#FFFBEB';
+                    e.currentTarget.style.borderColor = '#C2410C';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
-                    e.currentTarget.style.borderColor = 'rgba(0, 188, 212, 0.3)';
+                    e.currentTarget.style.background = '#FFFFFF';
+                    e.currentTarget.style.borderColor = '#FDBA74';
                   }}
                 >
-                  <Radio size={15} color="#00BCD4" />
+                  <Radio size={15} color="#C2410C" />
                   <span>Live Consignment HUD</span>
                 </button>
               </div>
@@ -402,9 +405,9 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                 position: 'relative',
                 borderRadius: '16px',
                 overflow: 'hidden',
-                border: '1px solid rgba(255, 255, 255, 0.25)',
-                boxShadow: '0 20px 45px rgba(0, 0, 0, 0.35)',
-                background: '#041B2E',
+                border: '1px solid #FED7AA',
+                boxShadow: '0 20px 45px rgba(234, 88, 12, 0.15)',
+                background: '#FFF7ED',
                 height: '380px',
               }}
             >
@@ -416,17 +419,7 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                   height: '100%',
                   objectFit: 'cover',
                   objectPosition: 'center 35%',
-                  filter: 'brightness(1.02) contrast(1.03)',
-                }}
-              />
-              {/* Subtle edge-only vignette for maximum clarity while ensuring HUD legibility */}
-              <div
-                style={{
-                  position: 'absolute',
-                  inset: 0,
-                  background:
-                    'linear-gradient(180deg, rgba(3, 23, 46, 0.4) 0%, transparent 22%, transparent 72%, rgba(3, 23, 46, 0.5) 100%)',
-                  pointerEvents: 'none',
+                  filter: 'brightness(1.04) contrast(1.03)',
                 }}
               />
 
@@ -437,16 +430,16 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                   top: '16px',
                   left: '16px',
                   right: '16px',
-                  background: 'rgba(3, 23, 46, 0.88)',
+                  background: 'rgba(255, 247, 237, 0.95)',
                   backdropFilter: 'blur(12px)',
                   WebkitBackdropFilter: 'blur(12px)',
-                  border: '1px solid rgba(0, 188, 212, 0.45)',
+                  border: '1px solid #FDBA74',
                   borderRadius: '12px',
                   padding: '12px 16px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
-                  boxShadow: '0 8px 24px rgba(0, 0, 0, 0.3)',
+                  boxShadow: '0 8px 24px rgba(28, 25, 23, 0.16)',
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -455,25 +448,25 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                       width: '10px',
                       height: '10px',
                       borderRadius: '50%',
-                      background: '#10B981',
-                      boxShadow: '0 0 10px #10B981',
+                      background: '#EA580C',
+                      boxShadow: '0 0 10px rgba(234, 88, 12, 0.5)',
                     }}
                   />
                   <div>
-                    <div style={{ fontSize: '12px', fontWeight: '800', color: '#FFFFFF' }}>
+                    <div style={{ fontSize: '12px', fontWeight: '800', color: '#0F172A' }}>
                       GLK-PHARMA COLD-CHAIN #98214
                     </div>
-                    <div style={{ fontSize: '10px', color: '#94A3B8' }}>
+                    <div style={{ fontSize: '10px', color: '#475569' }}>
                       CARGO: Active Biologics & Vaccines (Flight GLK-902)
                     </div>
                   </div>
                 </div>
 
                 <div style={{ textAlign: 'right' }}>
-                  <div style={{ fontSize: '14px', fontWeight: '900', color: '#67E8F9' }}>
+                  <div style={{ fontSize: '14px', fontWeight: '900', color: '#C2410C' }}>
                     +{telemetryTemp}°C
                   </div>
-                  <div style={{ fontSize: '10px', color: '#34D399' }}>
+                  <div style={{ fontSize: '10px', color: '#EA580C', fontWeight: '700' }}>
                     RH: {telemetryHumidity}% • GxP PASS
                   </div>
                 </div>
@@ -486,25 +479,25 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                   bottom: '16px',
                   left: '16px',
                   right: '16px',
-                  background: 'rgba(3, 23, 46, 0.86)',
+                  background: 'rgba(255, 247, 237, 0.95)',
                   backdropFilter: 'blur(12px)',
                   WebkitBackdropFilter: 'blur(12px)',
-                  border: '1px solid rgba(255, 255, 255, 0.18)',
+                  border: '1px solid #FDBA74',
                   borderRadius: '10px',
                   padding: '10px 14px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
-                  boxShadow: '0 8px 24px rgba(0, 0, 0, 0.3)',
+                  boxShadow: '0 8px 24px rgba(28, 25, 23, 0.16)',
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <ShieldCheck size={16} color="#00BCD4" />
-                  <span style={{ fontSize: '11px', color: '#E2E8F0', fontWeight: '600' }}>
+                  <ShieldCheck size={16} color="#EA580C" />
+                  <span style={{ fontSize: '11px', color: '#0F172A', fontWeight: '600' }}>
                     WHO GDP TRS 961 • Zero Thermal Excursion Active
                   </span>
                 </div>
-                <span style={{ fontSize: '10px', color: '#34D399', fontWeight: '800' }}>
+                <span style={{ fontSize: '10px', color: '#C2410C', fontWeight: '800' }}>
                   CHAIN SECURE
                 </span>
               </div>
@@ -519,97 +512,113 @@ export const PharmaHealthcare = ({ onNavigate }) => {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(4, 1fr)',
+              gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
               gap: '16px',
+              alignItems: 'stretch',
             }}
           >
             {pharmaHeroStats.map((stat, idx) => (
-              <div
-                key={idx}
-                style={{
-                  background: '#FFFFFF',
-                  borderRadius: '12px',
-                  padding: '22px 20px',
-                  border: '1px solid #E2E8F0',
-                  boxShadow: '0 4px 16px rgba(8, 38, 83, 0.04)',
-                  position: 'relative',
-                  overflow: 'hidden',
-                  transition: 'all 0.2s ease',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-3px)';
-                  e.currentTarget.style.borderColor = '#00BCD4';
-                  e.currentTarget.style.boxShadow = '0 10px 24px rgba(0, 188, 212, 0.12)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.borderColor = '#E2E8F0';
-                  e.currentTarget.style.boxShadow = '0 4px 16px rgba(8, 38, 83, 0.04)';
-                }}
-              >
-                {/* Top Glowing Pill */}
+              <Magnet key={idx} {...TILE_MAGNET_PROPS}>
                 <div
                   style={{
-                    display: 'inline-block',
-                    padding: '3px 8px',
-                    borderRadius: '4px',
-                    background: 'rgba(0, 188, 212, 0.08)',
-                    color: '#0891B2',
-                    fontSize: '10px',
-                    fontWeight: '800',
-                    letterSpacing: '0.04em',
-                    marginBottom: '8px',
+                    background: '#FFFFFF',
+                    borderRadius: '12px',
+                    padding: '22px 20px 24px',
+                    border: '1.5px solid #FDBA74',
+                    boxShadow: '0 4px 16px rgba(234, 88, 12, 0.06)',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'flex-start',
+                    height: '100%',
+                    boxSizing: 'border-box',
+                    transition: 'all 0.2s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-3px)';
+                    e.currentTarget.style.borderColor = '#EA580C';
+                    e.currentTarget.style.boxShadow = '0 10px 24px rgba(234, 88, 12, 0.14)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.borderColor = '#FDBA74';
+                    e.currentTarget.style.boxShadow = '0 4px 16px rgba(234, 88, 12, 0.06)';
                   }}
                 >
-                  {stat.badge}
-                </div>
+                  {/* Top Glowing Pill */}
+                  <div
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      alignSelf: 'flex-start',
+                      padding: '3px 8px',
+                      borderRadius: '4px',
+                      background: 'rgba(234, 88, 12, 0.08)',
+                      color: '#C2410C',
+                      fontSize: '10px',
+                      fontWeight: '800',
+                      letterSpacing: '0.04em',
+                      marginBottom: '10px',
+                    }}
+                  >
+                    {stat.badge}
+                  </div>
 
-                <div
-                  style={{
-                    fontSize: '28px',
-                    fontWeight: '900',
-                    color: '#082653',
-                    marginBottom: '4px',
-                    letterSpacing: '-0.02em',
-                  }}
-                >
-                  {stat.value}
-                </div>
+                  <div
+                    style={{
+                      fontSize: 'clamp(21px, 2vw, 27px)',
+                      fontWeight: '900',
+                      color: '#082653',
+                      marginBottom: '6px',
+                      letterSpacing: '-0.02em',
+                      lineHeight: '1.15',
+                      minHeight: '32px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      whiteSpace: 'nowrap',
+                    }}
+                  >
+                    {stat.value}
+                  </div>
 
-                <div
-                  style={{
-                    fontSize: '13px',
-                    fontWeight: '700',
-                    color: '#1E293B',
-                    marginBottom: '6px',
-                  }}
-                >
-                  {stat.label}
-                </div>
+                  <div
+                    style={{
+                      fontSize: '13px',
+                      fontWeight: '700',
+                      color: '#1E293B',
+                      marginBottom: '6px',
+                      minHeight: '36px',
+                      lineHeight: '1.35',
+                    }}
+                  >
+                    {stat.label}
+                  </div>
 
-                <div
-                  style={{
-                    fontSize: '11px',
-                    color: '#64748B',
-                    lineHeight: '1.45',
-                  }}
-                >
-                  {stat.desc}
-                </div>
+                  <div
+                    style={{
+                      fontSize: '11px',
+                      color: '#64748B',
+                      lineHeight: '1.45',
+                    }}
+                  >
+                    {stat.desc}
+                  </div>
 
-                {/* Subtle bottom accent line */}
-                <div
-                  style={{
-                    position: 'absolute',
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    height: '3px',
-                    background: 'linear-gradient(90deg, #00BCD4 0%, #0284C7 100%)',
-                    opacity: 0.8,
-                  }}
-                />
-              </div>
+                  {/* Subtle bottom accent line */}
+                  <div
+                    style={{
+                      position: 'absolute',
+                      bottom: 0,
+                      left: 0,
+                      right: 0,
+                      height: '3px',
+                      background: 'linear-gradient(90deg, #EA580C 0%, #D97706 100%)',
+                      opacity: 0.8,
+                    }}
+                  />
+                </div>
+              </Magnet>
             ))}
           </div>
         </section>
@@ -622,9 +631,9 @@ export const PharmaHealthcare = ({ onNavigate }) => {
             margin: '36px 24px 0',
             background: '#FFFFFF',
             borderRadius: '16px',
-            border: '1px solid #E2E8F0',
+            border: '1px solid #FDBA74',
             padding: '36px',
-            boxShadow: '0 8px 30px rgba(8, 38, 83, 0.05)',
+            boxShadow: '0 8px 30px rgba(28, 25, 23, 0.05)',
           }}
         >
           {/* Header */}
@@ -646,7 +655,7 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                   gap: '6px',
                   fontSize: '11px',
                   fontWeight: '800',
-                  color: '#0891B2',
+                  color: '#C2410C',
                   letterSpacing: '0.08em',
                   textTransform: 'uppercase',
                   marginBottom: '6px',
@@ -674,13 +683,13 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                 gap: '8px',
                 padding: '6px 14px',
                 borderRadius: '8px',
-                background: 'rgba(0, 188, 212, 0.08)',
-                color: '#00838F',
+                background: 'rgba(234, 88, 12, 0.08)',
+                color: '#C2410C',
                 fontSize: '12px',
                 fontWeight: '700',
               }}
             >
-              <Activity size={14} color="#00BCD4" />
+              <Activity size={14} color="#EA580C" />
               <span>WHO TRS 961 Validated Logic</span>
             </div>
           </div>
@@ -689,7 +698,7 @@ export const PharmaHealthcare = ({ onNavigate }) => {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
+              gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
               gap: '24px',
               marginBottom: '28px',
             }}
@@ -712,31 +721,32 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                 {pharmaCargoCategories.map((cat) => {
                   const isSelected = selectedCatId === cat.id;
                   return (
-                    <div
-                      key={cat.id}
-                      onClick={() => {
-                        setSelectedCatId(cat.id);
-                        if (cat.defaultTemp) setSelectedTempId(cat.defaultTemp);
-                      }}
-                      style={{
-                        padding: '12px 14px',
-                        borderRadius: '10px',
-                        border: isSelected ? '2px solid #00BCD4' : '1px solid #E2E8F0',
-                        background: isSelected ? 'rgba(0, 188, 212, 0.06)' : '#FAFCFF',
-                        cursor: 'pointer',
-                        transition: 'all 0.15s ease',
-                      }}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                        <span style={{ fontSize: '13px', fontWeight: '700', color: isSelected ? '#082653' : '#334155' }}>
-                          {cat.name}
-                        </span>
-                        {isSelected && <CheckCircle2 size={16} color="#00BCD4" />}
+                    <Magnet key={cat.id} {...TILE_MAGNET_PROPS} style={{ display: 'block', width: '100%' }}>
+                      <div
+                        onClick={() => {
+                          setSelectedCatId(cat.id);
+                          if (cat.defaultTemp) setSelectedTempId(cat.defaultTemp);
+                        }}
+                        style={{
+                          padding: '12px 14px',
+                          borderRadius: '10px',
+                          border: isSelected ? '2px solid #EA580C' : '1px solid #FDBA74',
+                          background: isSelected ? 'rgba(234, 88, 12, 0.06)' : '#FAFCFF',
+                          cursor: 'pointer',
+                          transition: 'all 0.15s ease',
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                          <span style={{ fontSize: '13px', fontWeight: '700', color: isSelected ? '#082653' : '#334155' }}>
+                            {cat.name}
+                          </span>
+                          {isSelected && <CheckCircle2 size={16} color="#EA580C" />}
+                        </div>
+                        <div style={{ fontSize: '11px', color: '#64748B', marginTop: '4px', lineHeight: '1.4' }}>
+                          {cat.desc}
+                        </div>
                       </div>
-                      <div style={{ fontSize: '11px', color: '#64748B', marginTop: '4px', lineHeight: '1.4' }}>
-                        {cat.desc}
-                      </div>
-                    </div>
+                    </Magnet>
                   );
                 })}
               </div>
@@ -760,40 +770,41 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                 {pharmaTempRanges.map((range) => {
                   const isSelected = selectedTempId === range.id;
                   return (
-                    <div
-                      key={range.id}
-                      onClick={() => setSelectedTempId(range.id)}
-                      style={{
-                        padding: '12px 14px',
-                        borderRadius: '10px',
-                        border: isSelected ? `2px solid ${range.color}` : '1px solid #E2E8F0',
-                        background: isSelected ? range.bg : '#FAFCFF',
-                        cursor: 'pointer',
-                        transition: 'all 0.15s ease',
-                      }}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                        <span style={{ fontSize: '13px', fontWeight: '700', color: '#082653' }}>
-                          {range.name}
-                        </span>
-                        <span
-                          style={{
-                            fontSize: '12px',
-                            fontWeight: '800',
-                            color: range.color,
-                            background: '#FFFFFF',
-                            padding: '2px 6px',
-                            borderRadius: '4px',
-                            border: `1px solid ${range.borderColor}`,
-                          }}
-                        >
-                          {range.tempDisplay}
-                        </span>
+                    <Magnet key={range.id} {...TILE_MAGNET_PROPS} style={{ display: 'block', width: '100%' }}>
+                      <div
+                        onClick={() => setSelectedTempId(range.id)}
+                        style={{
+                          padding: '12px 14px',
+                          borderRadius: '10px',
+                          border: isSelected ? `2px solid ${range.color}` : '1px solid #FDBA74',
+                          background: isSelected ? range.bg : '#FAFCFF',
+                          cursor: 'pointer',
+                          transition: 'all 0.15s ease',
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                          <span style={{ fontSize: '13px', fontWeight: '700', color: '#082653' }}>
+                            {range.name}
+                          </span>
+                          <span
+                            style={{
+                              fontSize: '12px',
+                              fontWeight: '800',
+                              color: range.color,
+                              background: '#FFFFFF',
+                              padding: '2px 6px',
+                              borderRadius: '4px',
+                              border: `1px solid ${range.borderColor}`,
+                            }}
+                          >
+                            {range.tempDisplay}
+                          </span>
+                        </div>
+                        <div style={{ fontSize: '11px', color: '#64748B', marginTop: '4px', lineHeight: '1.4' }}>
+                          {range.description}
+                        </div>
                       </div>
-                      <div style={{ fontSize: '11px', color: '#64748B', marginTop: '4px', lineHeight: '1.4' }}>
-                        {range.description}
-                      </div>
-                    </div>
+                    </Magnet>
                   );
                 })}
               </div>
@@ -817,31 +828,32 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                 {pharmaTransportProtocols.map((proto) => {
                   const isSelected = selectedProtoId === proto.id;
                   return (
-                    <div
-                      key={proto.id}
-                      onClick={() => setSelectedProtoId(proto.id)}
-                      style={{
-                        padding: '12px 14px',
-                        borderRadius: '10px',
-                        border: isSelected ? '2px solid #0284C7' : '1px solid #E2E8F0',
-                        background: isSelected ? 'rgba(2, 132, 199, 0.06)' : '#FAFCFF',
-                        cursor: 'pointer',
-                        transition: 'all 0.15s ease',
-                      }}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                        <span style={{ fontSize: '13px', fontWeight: '700', color: isSelected ? '#082653' : '#334155' }}>
-                          {proto.name}
-                        </span>
-                        {isSelected && <CheckCircle2 size={16} color="#0284C7" />}
+                    <Magnet key={proto.id} {...TILE_MAGNET_PROPS} style={{ display: 'block', width: '100%' }}>
+                      <div
+                        onClick={() => setSelectedProtoId(proto.id)}
+                        style={{
+                          padding: '12px 14px',
+                          borderRadius: '10px',
+                          border: isSelected ? '2px solid #EA580C' : '1px solid #FDBA74',
+                          background: isSelected ? 'rgba(234, 88, 12, 0.06)' : '#FAFCFF',
+                          cursor: 'pointer',
+                          transition: 'all 0.15s ease',
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                          <span style={{ fontSize: '13px', fontWeight: '700', color: isSelected ? '#082653' : '#334155' }}>
+                            {proto.name}
+                          </span>
+                          {isSelected && <CheckCircle2 size={16} color="#EA580C" />}
+                        </div>
+                        <div style={{ fontSize: '11px', color: '#C2410C', fontWeight: '600', marginTop: '2px' }}>
+                          Transit: {proto.transitTime} • {proto.type}
+                        </div>
+                        <div style={{ fontSize: '11px', color: '#64748B', marginTop: '4px', lineHeight: '1.3' }}>
+                          Coverage: {proto.coverage}
+                        </div>
                       </div>
-                      <div style={{ fontSize: '11px', color: '#0891B2', fontWeight: '600', marginTop: '2px' }}>
-                        Transit: {proto.transitTime} • {proto.type}
-                      </div>
-                      <div style={{ fontSize: '11px', color: '#64748B', marginTop: '4px', lineHeight: '1.3' }}>
-                        Coverage: {proto.coverage}
-                      </div>
-                    </div>
+                    </Magnet>
                   );
                 })}
               </div>
@@ -851,8 +863,9 @@ export const PharmaHealthcare = ({ onNavigate }) => {
           {/* Simulator Result Output Bar */}
           <div
             style={{
-              background: 'linear-gradient(135deg, #051A3B 0%, #082653 100%)',
-              color: '#FFFFFF',
+              background: 'linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%)',
+              border: '1px solid #FED7AA',
+              color: '#082653',
               borderRadius: '12px',
               padding: '20px 24px',
               display: 'flex',
@@ -863,13 +876,13 @@ export const PharmaHealthcare = ({ onNavigate }) => {
             }}
           >
             <div>
-              <div style={{ fontSize: '11px', color: '#67E8F9', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+              <div style={{ fontSize: '11px', color: '#C2410C', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
                 CONFIGURED GxP CLINICAL PROTOCOL
               </div>
-              <div style={{ fontSize: '16px', fontWeight: '800', marginTop: '2px' }}>
+              <div style={{ fontSize: '16px', fontWeight: '800', marginTop: '2px', color: '#082653' }}>
                 {selectedCat.name} • <span style={{ color: selectedTemp.color }}>{selectedTemp.tempDisplay}</span> • {selectedProto.name}
               </div>
-              <div style={{ fontSize: '12px', color: '#94A3B8', marginTop: '4px' }}>
+              <div style={{ fontSize: '12px', color: '#475569', marginTop: '4px' }}>
                 Packaging: {selectedTemp.keyPackaging}
               </div>
             </div>
@@ -883,13 +896,13 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                   gap: '8px',
                   padding: '11px 20px',
                   borderRadius: '10px',
-                  background: 'linear-gradient(135deg, #00BCD4 0%, #0891B2 100%)',
+                  background: 'linear-gradient(135deg, #FF6F00 0%, #EA580C 100%)',
                   color: '#FFFFFF',
                   fontSize: '13px',
                   fontWeight: '700',
                   border: 'none',
                   cursor: 'pointer',
-                  boxShadow: '0 4px 14px rgba(0, 188, 212, 0.4)',
+                  boxShadow: '0 4px 14px rgba(234, 88, 12, 0.4)',
                 }}
               >
                 <FileCheck2 size={15} />
@@ -904,11 +917,11 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                   gap: '6px',
                   padding: '11px 18px',
                   borderRadius: '10px',
-                  background: 'rgba(255, 255, 255, 0.1)',
-                  color: '#FFFFFF',
+                  background: '#FFFFFF',
+                  color: '#082653',
                   fontSize: '13px',
                   fontWeight: '700',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  border: '1px solid #FED7AA',
                   cursor: 'pointer',
                 }}
               >
@@ -925,9 +938,9 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                 marginTop: '16px',
                 padding: '12px 18px',
                 borderRadius: '8px',
-                background: '#ECFEFF',
-                border: '1px solid #A5F3FC',
-                color: '#0891B2',
+                background: '#FFF7ED',
+                border: '1px solid #FDE68A',
+                color: '#C2410C',
                 fontSize: '13px',
                 fontWeight: '600',
                 display: 'flex',
@@ -935,7 +948,7 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                 gap: '10px',
               }}
             >
-              <CheckCheck size={16} color="#0891B2" />
+              <CheckCheck size={16} color="#C2410C" />
               <span>{simulatorToast}</span>
             </div>
           )}
@@ -953,13 +966,13 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                 gap: '6px',
                 fontSize: '11px',
                 fontWeight: '800',
-                color: '#00838F',
+                color: '#C2410C',
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase',
                 marginBottom: '8px',
               }}
             >
-              <ShieldCheck size={14} color="#00BCD4" />
+              <ShieldCheck size={14} color="#EA580C" />
               <span>ENTERPRISE HEALTHCARE CAPABILITIES</span>
             </div>
             <h2
@@ -988,43 +1001,44 @@ export const PharmaHealthcare = ({ onNavigate }) => {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(2, 1fr)',
+              gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
               gap: '24px',
             }}
           >
             {pharmaPillars.map((pillar) => {
               const featuresList = pillar.features || pillar.points || [];
               return (
-                <div
-                  key={pillar.id}
-                  style={{
-                    background: '#FFFFFF',
-                    borderRadius: '16px',
-                    border: '1px solid #E2E8F0',
-                    overflow: 'hidden',
-                    boxShadow: '0 8px 24px rgba(8, 38, 83, 0.04)',
-                    transition: 'all 0.25s ease',
-                    display: 'flex',
-                    flexDirection: 'column',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = 'translateY(-4px)';
-                    e.currentTarget.style.borderColor = '#00BCD4';
-                    e.currentTarget.style.boxShadow = '0 16px 36px rgba(0, 188, 212, 0.12)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.borderColor = '#E2E8F0';
-                    e.currentTarget.style.boxShadow = '0 8px 24px rgba(8, 38, 83, 0.04)';
-                  }}
-                >
+                <Magnet key={pillar.id} {...CARD_MAGNET_PROPS}>
+                  <div
+                    style={{
+                      background: '#FFFFFF',
+                      borderRadius: '16px',
+                      border: '1px solid #FDBA74',
+                      overflow: 'hidden',
+                      boxShadow: '0 8px 24px rgba(28, 25, 23, 0.04)',
+                      transition: 'all 0.25s ease',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      height: '100%',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-4px)';
+                      e.currentTarget.style.borderColor = '#EA580C';
+                      e.currentTarget.style.boxShadow = '0 16px 36px rgba(234, 88, 12, 0.12)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.borderColor = '#FDBA74';
+                      e.currentTarget.style.boxShadow = '0 8px 24px rgba(28, 25, 23, 0.04)';
+                    }}
+                  >
                   {/* Photo Header */}
                   <div
                     style={{
                       height: '180px',
                       position: 'relative',
                       overflow: 'hidden',
-                      background: '#07284F',
+                      background: '#FFF7ED',
                     }}
                   >
                     <img
@@ -1034,7 +1048,7 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                         width: '100%',
                         height: '100%',
                         objectFit: 'cover',
-                        filter: 'brightness(0.9)',
+                        filter: 'brightness(1.05) contrast(1.04)',
                         transition: 'transform 0.4s ease',
                       }}
                       onMouseEnter={(e) => {
@@ -1048,7 +1062,7 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                       style={{
                         position: 'absolute',
                         inset: 0,
-                        background: 'linear-gradient(180deg, rgba(3, 23, 46, 0.2) 0%, rgba(3, 23, 46, 0.85) 100%)',
+                        background: 'linear-gradient(180deg, transparent 62%, rgba(0, 0, 0, 0.25) 82%, rgba(0, 0, 0, 0.5) 100%)',
                       }}
                     />
                     {/* Top Metric Pill */}
@@ -1059,8 +1073,8 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                         right: '14px',
                         background: 'rgba(0, 0, 0, 0.65)',
                         backdropFilter: 'blur(8px)',
-                        border: '1px solid rgba(0, 188, 212, 0.4)',
-                        color: '#67E8F9',
+                        border: '1px solid rgba(234, 88, 12, 0.4)',
+                        color: '#FED7AA',
                         fontSize: '11px',
                         fontWeight: '800',
                         padding: '4px 10px',
@@ -1079,10 +1093,10 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                         right: '16px',
                       }}
                     >
-                      <div style={{ fontSize: '11px', fontWeight: '700', color: '#A5F3FC', letterSpacing: '0.04em' }}>
+                      <div style={{ fontSize: '11px', fontWeight: '700', color: '#FDE68A', letterSpacing: '0.04em', textShadow: '0 1px 3px rgba(0, 0, 0, 0.65)' }}>
                         {pillar.subtitle}
                       </div>
-                      <div style={{ fontSize: '18px', fontWeight: '800', color: '#FFFFFF', marginTop: '2px' }}>
+                      <div style={{ fontSize: '18px', fontWeight: '800', color: '#FFFFFF', marginTop: '2px', textShadow: '0 1px 4px rgba(0, 0, 0, 0.65)' }}>
                         {pillar.title}
                       </div>
                     </div>
@@ -1119,8 +1133,8 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                               width: '16px',
                               height: '16px',
                               borderRadius: '50%',
-                              background: 'rgba(0, 188, 212, 0.12)',
-                              color: '#0891B2',
+                              background: 'rgba(234, 88, 12, 0.12)',
+                              color: '#C2410C',
                               display: 'flex',
                               alignItems: 'center',
                               justifyContent: 'center',
@@ -1136,6 +1150,7 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                     </div>
                   </div>
                 </div>
+                </Magnet>
               );
             })}
           </div>
@@ -1149,9 +1164,9 @@ export const PharmaHealthcare = ({ onNavigate }) => {
             margin: '48px 24px 0',
             background: '#FFFFFF',
             borderRadius: '16px',
-            border: '1px solid #E2E8F0',
+            border: '1px solid #FDBA74',
             padding: '36px',
-            boxShadow: '0 8px 30px rgba(8, 38, 83, 0.04)',
+            boxShadow: '0 8px 30px rgba(28, 25, 23, 0.04)',
           }}
         >
           {/* Header & Tabs */}
@@ -1173,13 +1188,13 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                   gap: '6px',
                   fontSize: '11px',
                   fontWeight: '800',
-                  color: '#00838F',
+                  color: '#C2410C',
                   letterSpacing: '0.08em',
                   textTransform: 'uppercase',
                   marginBottom: '6px',
                 }}
               >
-                <Package size={13} color="#00BCD4" />
+                <Package size={13} color="#EA580C" />
                 <span>PHARMACEUTICAL CARGO & ASEPTIC SYSTEMS SHOWCASE</span>
               </div>
               <h2
@@ -1213,8 +1228,8 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                       borderRadius: '8px',
                       fontSize: '12px',
                       fontWeight: '700',
-                      border: isActive ? '1px solid #00BCD4' : '1px solid #E2E8F0',
-                      background: isActive ? 'linear-gradient(135deg, #00BCD4 0%, #0891B2 100%)' : '#FAFBFD',
+                      border: isActive ? '1px solid #EA580C' : '1px solid #FDBA74',
+                      background: isActive ? 'linear-gradient(135deg, #FF6F00 0%, #EA580C 100%)' : '#FAFBFD',
                       color: isActive ? '#FFFFFF' : '#475569',
                       cursor: 'pointer',
                       transition: 'all 0.15s ease',
@@ -1231,35 +1246,36 @@ export const PharmaHealthcare = ({ onNavigate }) => {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(4, 1fr)',
+              gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
               gap: '20px',
             }}
           >
             {filteredGallery.map((item) => (
-              <div
-                key={item.id}
-                onClick={() => setPreviewImage(item)}
-                style={{
-                  background: '#FAFBFD',
-                  borderRadius: '12px',
-                  border: '1px solid #E2E8F0',
-                  overflow: 'hidden',
-                  cursor: 'pointer',
-                  transition: 'all 0.2s ease',
-                  display: 'flex',
-                  flexDirection: 'column',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-3px)';
-                  e.currentTarget.style.borderColor = '#00BCD4';
-                  e.currentTarget.style.boxShadow = '0 10px 24px rgba(0, 188, 212, 0.12)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.borderColor = '#E2E8F0';
-                  e.currentTarget.style.boxShadow = 'none';
-                }}
-              >
+              <Magnet key={item.id} {...CARD_MAGNET_PROPS}>
+                <div
+                  onClick={() => setPreviewImage(item)}
+                  style={{
+                    background: '#FAFBFD',
+                    borderRadius: '12px',
+                    border: '1px solid #FDBA74',
+                    overflow: 'hidden',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s ease',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    height: '100%',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-3px)';
+                    e.currentTarget.style.borderColor = '#EA580C';
+                    e.currentTarget.style.boxShadow = '0 10px 24px rgba(234, 88, 12, 0.12)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.borderColor = '#FDBA74';
+                    e.currentTarget.style.boxShadow = 'none';
+                  }}
+                >
                 {/* Image Frame */}
                 <div
                   style={{
@@ -1289,9 +1305,9 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                       position: 'absolute',
                       top: '10px',
                       left: '10px',
-                      background: 'rgba(3, 23, 46, 0.88)',
+                      background: 'rgba(234, 88, 12, 0.92)',
                       backdropFilter: 'blur(8px)',
-                      border: '1px solid rgba(255, 255, 255, 0.15)',
+                      border: '1px solid rgba(255, 255, 255, 0.25)',
                       color: '#FFFFFF',
                       fontSize: '10.5px',
                       fontWeight: '700',
@@ -1311,11 +1327,11 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                       height: '28px',
                       borderRadius: '50%',
                       background: 'rgba(255, 255, 255, 0.95)',
-                      border: '1px solid #E2E8F0',
+                      border: '1px solid #FDBA74',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      color: '#0891B2',
+                      color: '#C2410C',
                       boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
                     }}
                   >
@@ -1356,15 +1372,15 @@ export const PharmaHealthcare = ({ onNavigate }) => {
 
                   <div style={{ marginTop: 'auto', borderTop: '1px solid #E2E8F0', paddingTop: '10px' }}>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                      <span style={{ fontSize: '10.5px', color: '#0891B2', fontWeight: '700' }}>
+                      <span style={{ fontSize: '10.5px', color: '#C2410C', fontWeight: '700' }}>
                         {item.tempReq}
                       </span>
                       <span
                         style={{
                           fontSize: '10px',
-                          color: '#10B981',
+                          color: '#EA580C',
                           fontWeight: '800',
-                          background: 'rgba(16, 185, 129, 0.1)',
+                          background: 'rgba(234, 88, 12, 0.1)',
                           padding: '2px 6px',
                           borderRadius: '4px',
                         }}
@@ -1375,6 +1391,7 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                   </div>
                 </div>
               </div>
+              </Magnet>
             ))}
           </div>
         </section>
@@ -1386,7 +1403,7 @@ export const PharmaHealthcare = ({ onNavigate }) => {
             style={{
               position: 'fixed',
               inset: 0,
-              background: 'rgba(3, 23, 46, 0.82)',
+              background: 'rgba(28, 25, 23, 0.78)',
               backdropFilter: 'blur(8px)',
               WebkitBackdropFilter: 'blur(8px)',
               zIndex: 99999,
@@ -1407,7 +1424,7 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                 maxHeight: 'min(90vh, 660px)',
                 display: 'flex',
                 flexDirection: 'column',
-                boxShadow: '0 25px 60px -15px rgba(3, 23, 46, 0.4), 0 0 0 1px rgba(226, 232, 240, 0.8)',
+                boxShadow: '0 25px 60px -15px rgba(28, 25, 23, 0.4), 0 0 0 1px rgba(226, 232, 240, 0.8)',
                 position: 'relative',
                 overflow: 'hidden',
                 margin: 'auto',
@@ -1426,7 +1443,7 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                   borderRadius: '50%',
                   background: 'rgba(255, 255, 255, 0.95)',
                   backdropFilter: 'blur(4px)',
-                  border: '1px solid #E2E8F0',
+                  border: '1px solid #FDBA74',
                   boxShadow: '0 4px 12px rgba(0, 0, 0, 0.12)',
                   display: 'flex',
                   alignItems: 'center',
@@ -1443,7 +1460,7 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                 style={{
                   padding: '20px 24px 16px',
                   textAlign: 'center',
-                  background: 'radial-gradient(ellipse at center, #F8FAFC 0%, #EEF2F6 100%)',
+                  background: 'radial-gradient(ellipse at center, #F8FAFC 0%, #F1F5F9 100%)',
                   borderBottom: '1px solid #F1F5F9',
                   display: 'flex',
                   alignItems: 'center',
@@ -1480,8 +1497,8 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                     gap: '6px',
                     padding: '4px 10px',
                     borderRadius: '6px',
-                    background: 'rgba(0, 188, 212, 0.1)',
-                    color: '#0891B2',
+                    background: 'rgba(234, 88, 12, 0.1)',
+                    color: '#C2410C',
                     fontSize: '11px',
                     fontWeight: '800',
                     letterSpacing: '0.04em',
@@ -1520,11 +1537,11 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                 <div
                   style={{
                     background: '#F8FAFC',
-                    border: '1px solid #E2E8F0',
+                    border: '1px solid #FDBA74',
                     borderRadius: '12px',
                     padding: '14px 18px',
                     display: 'grid',
-                    gridTemplateColumns: '1fr 1fr',
+                    gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)',
                     gap: '16px',
                     marginBottom: '20px',
                   }}
@@ -1547,7 +1564,7 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                       style={{
                         fontSize: '13.5px',
                         fontWeight: '700',
-                        color: '#0891B2',
+                        color: '#C2410C',
                         fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                       }}
                     >
@@ -1572,7 +1589,7 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                       style={{
                         fontSize: '13.5px',
                         fontWeight: '700',
-                        color: '#10B981',
+                        color: '#EA580C',
                         fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                       }}
                     >
@@ -1591,13 +1608,13 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                       flex: 1,
                       padding: '12px 20px',
                       borderRadius: '10px',
-                      background: 'linear-gradient(135deg, #00BCD4 0%, #0891B2 100%)',
+                      background: 'linear-gradient(135deg, #FF6F00 0%, #EA580C 100%)',
                       color: '#FFFFFF',
                       fontSize: '13px',
                       fontWeight: '700',
                       border: 'none',
                       cursor: 'pointer',
-                      boxShadow: '0 4px 14px rgba(0, 188, 212, 0.3)',
+                      boxShadow: '0 4px 14px rgba(234, 88, 12, 0.3)',
                       fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                       transition: 'all 0.2s ease',
                     }}
@@ -1613,7 +1630,7 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                       color: '#475569',
                       fontSize: '13px',
                       fontWeight: '700',
-                      border: '1px solid #E2E8F0',
+                      border: '1px solid #FDBA74',
                       cursor: 'pointer',
                       fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                       transition: 'all 0.2s ease',
@@ -1635,9 +1652,9 @@ export const PharmaHealthcare = ({ onNavigate }) => {
             margin: '48px 24px 0',
             background: '#FFFFFF',
             borderRadius: '16px',
-            border: '1px solid #E2E8F0',
+            border: '1px solid #FDBA74',
             padding: '36px',
-            boxShadow: '0 8px 30px rgba(8, 38, 83, 0.04)',
+            boxShadow: '0 8px 30px rgba(28, 25, 23, 0.04)',
           }}
         >
           <div style={{ marginBottom: '24px' }}>
@@ -1648,13 +1665,13 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                 gap: '6px',
                 fontSize: '11px',
                 fontWeight: '800',
-                color: '#00838F',
+                color: '#C2410C',
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase',
                 marginBottom: '6px',
               }}
             >
-              <Award size={14} color="#00BCD4" />
+              <Award size={14} color="#EA580C" />
               <span>GxP AUDIT & QUALITY ASSURANCE FRAMEWORK</span>
             </div>
             <h2
@@ -1699,7 +1716,7 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                       transition: 'background 0.15s ease',
                     }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.background = '#F0FDFA';
+                      e.currentTarget.style.background = '#FFF7ED';
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.background = 'transparent';
@@ -1708,7 +1725,7 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                     <td style={{ padding: '14px 16px', fontSize: '13px', fontWeight: '800', color: '#082653' }}>
                       {item.standard}
                     </td>
-                    <td style={{ padding: '14px 16px', fontSize: '12px', color: '#0891B2', fontWeight: '700' }}>
+                    <td style={{ padding: '14px 16px', fontSize: '12px', color: '#C2410C', fontWeight: '700' }}>
                       {item.authority}
                     </td>
                     <td style={{ padding: '14px 16px', fontSize: '12px', color: '#475569', maxWidth: '280px', lineHeight: '1.4' }}>
@@ -1725,8 +1742,8 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                           gap: '4px',
                           padding: '3px 8px',
                           borderRadius: '4px',
-                          background: 'rgba(16, 185, 129, 0.1)',
-                          color: '#059669',
+                          background: 'rgba(234, 88, 12, 0.1)',
+                          color: '#EA580C',
                           fontSize: '11px',
                           fontWeight: '800',
                         }}
@@ -1754,13 +1771,13 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                 gap: '6px',
                 fontSize: '11px',
                 fontWeight: '800',
-                color: '#00838F',
+                color: '#C2410C',
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase',
                 marginBottom: '8px',
               }}
             >
-              <BarChart2 size={14} color="#00BCD4" />
+              <BarChart2 size={14} color="#EA580C" />
               <span>PROVEN GxP PERFORMANCE METRICS</span>
             </div>
             <h2
@@ -1778,83 +1795,85 @@ export const PharmaHealthcare = ({ onNavigate }) => {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
+              gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
               gap: '24px',
             }}
           >
             {pharmaCaseStudies.map((study) => (
-              <div
-                key={study.id}
-                style={{
-                  background: '#FFFFFF',
-                  borderRadius: '16px',
-                  border: '1px solid #E2E8F0',
-                  padding: '24px',
-                  boxShadow: '0 8px 24px rgba(8, 38, 83, 0.04)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  transition: 'all 0.2s ease',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-3px)';
-                  e.currentTarget.style.borderColor = '#00BCD4';
-                  e.currentTarget.style.boxShadow = '0 12px 30px rgba(0, 188, 212, 0.1)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.borderColor = '#E2E8F0';
-                  e.currentTarget.style.boxShadow = '0 8px 24px rgba(8, 38, 83, 0.04)';
-                }}
-              >
-                <div>
-                  <div style={{ fontSize: '11px', color: '#0891B2', fontWeight: '800', letterSpacing: '0.04em', textTransform: 'uppercase' }}>
-                    {study.client}
-                  </div>
-                  <h3 style={{ fontSize: '16px', fontWeight: '800', color: '#082653', margin: '8px 0 10px', lineHeight: '1.35', minHeight: '44px' }}>
-                    {study.headline}
-                  </h3>
-                  <p style={{ fontSize: '12px', color: '#64748B', lineHeight: '1.55', margin: '0 0 20px' }}>
-                    {study.summary}
-                  </p>
-                </div>
-
-                <div>
-                  {/* Results Metric Pills */}
-                  <div
-                    style={{
-                      display: 'grid',
-                      gridTemplateColumns: 'repeat(3, 1fr)',
-                      gap: '8px',
-                      background: '#F8FAFC',
-                      borderRadius: '10px',
-                      padding: '12px',
-                      marginBottom: '16px',
-                    }}
-                  >
-                    {study.results.map((res, rIdx) => (
-                      <div key={rIdx} style={{ textAlign: 'center' }}>
-                        <div style={{ fontSize: '14px', fontWeight: '900', color: '#082653' }}>{res.val}</div>
-                        <div style={{ fontSize: '10px', color: '#64748B', marginTop: '2px' }}>{res.label}</div>
-                      </div>
-                    ))}
+              <Magnet key={study.id} {...CARD_MAGNET_PROPS}>
+                <div
+                  style={{
+                    background: '#FFFFFF',
+                    borderRadius: '16px',
+                    border: '1px solid #FDBA74',
+                    padding: '24px',
+                    boxShadow: '0 8px 24px rgba(28, 25, 23, 0.04)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    height: '100%',
+                    transition: 'all 0.2s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-3px)';
+                    e.currentTarget.style.borderColor = '#EA580C';
+                    e.currentTarget.style.boxShadow = '0 12px 30px rgba(234, 88, 12, 0.1)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.borderColor = '#FDBA74';
+                    e.currentTarget.style.boxShadow = '0 8px 24px rgba(28, 25, 23, 0.04)';
+                  }}
+                >
+                  <div>
+                    <div style={{ fontSize: '11px', color: '#C2410C', fontWeight: '800', letterSpacing: '0.04em', textTransform: 'uppercase' }}>
+                      {study.client}
+                    </div>
+                    <h3 style={{ fontSize: '16px', fontWeight: '800', color: '#082653', margin: '8px 0 10px', lineHeight: '1.35', minHeight: '44px' }}>
+                      {study.headline}
+                    </h3>
+                    <p style={{ fontSize: '12px', color: '#64748B', lineHeight: '1.55', margin: '0 0 20px' }}>
+                      {study.summary}
+                    </p>
                   </div>
 
-                  <div
-                    style={{
-                      fontSize: '11px',
-                      color: '#0891B2',
-                      background: 'rgba(0, 188, 212, 0.08)',
-                      padding: '10px 12px',
-                      borderRadius: '8px',
-                      lineHeight: '1.45',
-                      fontWeight: '600',
-                    }}
-                  >
-                    <strong>Validation Highlight:</strong> {study.highlight}
+                  <div>
+                    {/* Results Metric Pills */}
+                    <div
+                      style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
+                        gap: '8px',
+                        background: '#F8FAFC',
+                        borderRadius: '10px',
+                        padding: '12px',
+                        marginBottom: '16px',
+                      }}
+                    >
+                      {study.results.map((res, rIdx) => (
+                        <div key={rIdx} style={{ textAlign: 'center' }}>
+                          <div style={{ fontSize: '14px', fontWeight: '900', color: '#082653' }}>{res.val}</div>
+                          <div style={{ fontSize: '10px', color: '#64748B', marginTop: '2px' }}>{res.label}</div>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div
+                      style={{
+                        fontSize: '11px',
+                        color: '#C2410C',
+                        background: 'rgba(234, 88, 12, 0.08)',
+                        padding: '10px 12px',
+                        borderRadius: '8px',
+                        lineHeight: '1.45',
+                        fontWeight: '600',
+                      }}
+                    >
+                      <strong>Validation Highlight:</strong> {study.highlight}
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Magnet>
             ))}
           </div>
         </section>
@@ -1865,10 +1884,11 @@ export const PharmaHealthcare = ({ onNavigate }) => {
         <section
           style={{
             margin: '48px 24px 0',
-            background: 'linear-gradient(135deg, #03172E 0%, #07284F 100%)',
+            background: 'linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 50%, #FFF7ED 100%)',
+            border: '1px solid #FED7AA',
             borderRadius: '16px',
             padding: '28px 36px',
-            color: '#FFFFFF',
+            color: '#082653',
           }}
         >
           <div
@@ -1881,34 +1901,35 @@ export const PharmaHealthcare = ({ onNavigate }) => {
             }}
           >
             <div>
-              <div style={{ fontSize: '11px', color: '#67E8F9', fontWeight: '800', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+              <div style={{ fontSize: '11px', color: '#C2410C', fontWeight: '800', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
                 CERTIFIED HEALTHCARE NETWORK ACCREDITATIONS
               </div>
-              <div style={{ fontSize: '18px', fontWeight: '800', marginTop: '4px' }}>
+              <div style={{ fontSize: '18px', fontWeight: '800', marginTop: '4px', color: '#082653' }}>
                 Fully Qualified Under International Life-Science Frameworks
               </div>
             </div>
 
             <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
               {pharmaStandards.map((std, idx) => (
-                <div
-                  key={idx}
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                    padding: '8px 14px',
-                    borderRadius: '8px',
-                    background: 'rgba(255, 255, 255, 0.08)',
-                    border: '1px solid rgba(0, 188, 212, 0.3)',
-                    fontSize: '11px',
-                    fontWeight: '700',
-                    color: '#E0F2FE',
-                  }}
-                >
-                  <CheckCircle2 size={13} color="#00BCD4" />
-                  <span>{std}</span>
-                </div>
+                <Magnet key={idx} padding={14} magnetStrength={12} maxOffset={3} scale={1.015} tilt={0.8}>
+                  <div
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      padding: '8px 14px',
+                      borderRadius: '8px',
+                      background: '#FFFFFF',
+                      border: '1px solid #FED7AA',
+                      fontSize: '11px',
+                      fontWeight: '700',
+                      color: '#082653',
+                    }}
+                  >
+                    <CheckCircle2 size={13} color="#C2410C" />
+                    <span>{std}</span>
+                  </div>
+                </Magnet>
               ))}
             </div>
           </div>
@@ -1922,9 +1943,9 @@ export const PharmaHealthcare = ({ onNavigate }) => {
             margin: '48px 24px 0',
             background: '#FFFFFF',
             borderRadius: '16px',
-            border: '1px solid #E2E8F0',
+            border: '1px solid #FDBA74',
             padding: '36px',
-            boxShadow: '0 8px 30px rgba(8, 38, 83, 0.04)',
+            boxShadow: '0 8px 30px rgba(28, 25, 23, 0.04)',
           }}
         >
           <div style={{ textAlign: 'center', marginBottom: '28px' }}>
@@ -1935,13 +1956,13 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                 gap: '6px',
                 fontSize: '11px',
                 fontWeight: '800',
-                color: '#00838F',
+                color: '#C2410C',
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase',
                 marginBottom: '6px',
               }}
             >
-              <AlertCircle size={14} color="#00BCD4" />
+              <AlertCircle size={14} color="#EA580C" />
               <span>FREQUENTLY ASKED QUESTIONS</span>
             </div>
             <h2
@@ -1964,8 +1985,8 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                   key={idx}
                   style={{
                     borderRadius: '12px',
-                    border: isOpen ? '1px solid #00BCD4' : '1px solid #E2E8F0',
-                    background: isOpen ? '#F0FDFA' : '#FAFBFD',
+                    border: isOpen ? '1px solid #EA580C' : '1px solid #FDBA74',
+                    background: isOpen ? '#FFF7ED' : '#FAFBFD',
                     overflow: 'hidden',
                     transition: 'all 0.2s ease',
                   }}
@@ -1993,7 +2014,7 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                         width: '24px',
                         height: '24px',
                         borderRadius: '50%',
-                        background: isOpen ? '#00BCD4' : '#E2E8F0',
+                        background: isOpen ? '#EA580C' : '#E2E8F0',
                         color: isOpen ? '#FFFFFF' : '#475569',
                         display: 'flex',
                         alignItems: 'center',
@@ -2013,7 +2034,7 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                         fontSize: '13px',
                         lineHeight: '1.65',
                         color: '#475569',
-                        borderTop: '1px solid rgba(0, 188, 212, 0.15)',
+                        borderTop: '1px solid rgba(234, 88, 12, 0.15)',
                         paddingTop: '12px',
                       }}
                     >
@@ -2032,13 +2053,14 @@ export const PharmaHealthcare = ({ onNavigate }) => {
         <section
           style={{
             margin: '48px 24px 0',
-            background: 'linear-gradient(135deg, #03172E 0%, #07284F 50%, #08376E 100%)',
-            color: '#FFFFFF',
+            background: 'linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 50%, #FFF7ED 100%)',
+            border: '1px solid #FED7AA',
+            color: '#082653',
             borderRadius: '16px',
             padding: '48px 40px',
             position: 'relative',
             overflow: 'hidden',
-            boxShadow: '0 20px 50px rgba(7, 40, 79, 0.25)',
+            boxShadow: '0 20px 50px rgba(234, 88, 12, 0.08)',
           }}
         >
           <div
@@ -2049,7 +2071,7 @@ export const PharmaHealthcare = ({ onNavigate }) => {
               width: '420px',
               height: '420px',
               borderRadius: '50%',
-              background: 'radial-gradient(circle, rgba(0, 188, 212, 0.2) 0%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(234, 88, 12, 0.1) 0%, transparent 70%)',
               filter: 'blur(50px)',
               pointerEvents: 'none',
             }}
@@ -2074,13 +2096,13 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                   gap: '6px',
                   fontSize: '11px',
                   fontWeight: '800',
-                  color: '#67E8F9',
+                  color: '#C2410C',
                   letterSpacing: '0.08em',
                   textTransform: 'uppercase',
                   marginBottom: '8px',
                 }}
               >
-                <HeartPulse size={14} color="#00BCD4" />
+                <HeartPulse size={14} color="#C2410C" />
                 <span>EXPEDITED CLINICAL LOGISTICS ON-DEMAND</span>
               </div>
               <h2
@@ -2088,7 +2110,7 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                   fontSize: '28px',
                   fontWeight: '800',
                   margin: '0 0 10px',
-                  color: '#FFFFFF',
+                  color: '#082653',
                 }}
               >
                 Ready to Secure Your Critical Pharmaceutical Supply Chain?
@@ -2097,7 +2119,7 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                 style={{
                   fontSize: '14px',
                   lineHeight: '1.6',
-                  color: '#CBD5E1',
+                  color: '#334155',
                   margin: 0,
                 }}
               >
@@ -2145,24 +2167,24 @@ export const PharmaHealthcare = ({ onNavigate }) => {
                   gap: '8px',
                   padding: '13px 22px',
                   borderRadius: '12px',
-                  background: 'rgba(255, 255, 255, 0.08)',
-                  color: '#FFFFFF',
+                  background: '#FFFFFF',
+                  color: '#082653',
                   fontSize: '14px',
                   fontWeight: '700',
-                  border: '1px solid rgba(0, 188, 212, 0.35)',
+                  border: '1px solid #FED7AA',
                   cursor: 'pointer',
                   transition: 'all 0.2s ease',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'rgba(0, 188, 212, 0.15)';
-                  e.currentTarget.style.borderColor = '#00BCD4';
+                  e.currentTarget.style.background = '#FFF7ED';
+                  e.currentTarget.style.borderColor = '#C2410C';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
-                  e.currentTarget.style.borderColor = 'rgba(0, 188, 212, 0.35)';
+                  e.currentTarget.style.background = '#FFFFFF';
+                  e.currentTarget.style.borderColor = '#FED7AA';
                 }}
               >
-                <Radio size={15} color="#00BCD4" />
+                <Radio size={15} color="#C2410C" />
                 <span>Track Active Consignment</span>
               </button>
             </div>

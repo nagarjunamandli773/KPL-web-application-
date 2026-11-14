@@ -27,28 +27,28 @@ export const chemicalHeroStats = [
     value: '99.99%',
     sub: 'Over 280,000 MT Transported Safely Worldwide',
     icon: ShieldCheck,
-    accent: '#059669',
+    accent: '#EA580C',
   },
   {
     label: 'Dedicated ISO Tank Fleet',
     value: '4,200+',
     sub: 'T11 – T50 Stainless & PTFE/Rubber-Lined Tanks',
     icon: FlaskConical,
-    accent: '#0284C7',
+    accent: '#C2410C',
   },
   {
     label: 'Emergency Hazmat Response',
     value: '< 15 mins',
     sub: '24/7 Global ChemTel & Spill Response Dispatch',
     icon: AlertTriangle,
-    accent: '#EA580C',
+    accent: '#D84315',
   },
   {
     label: 'Regulatory Audit Compliance',
     value: '100%',
     sub: 'IMDG, ADR, IATA DGR, OSHA & SQAS Certified',
     icon: CheckCircle2,
-    accent: '#10B981',
+    accent: '#D97706',
   },
 ];
 
@@ -82,8 +82,8 @@ export const chemicalHazmatClasses = [
     description: 'Sulfuric acid, hydrochloric acid, caustic soda, phosphoric acid, and etching chemicals handled in specially lined acid-grade tanks preventing container degradation.',
     image: '/ocean-freight.jpg',
     badge: 'PTFE/Rubber Anti-Acid Lining',
-    badgeColor: '#0284C7',
-    badgeBg: '#E0F2FE',
+    badgeColor: '#C2410C',
+    badgeBg: '#FFF7ED',
     highlights: [
       'Seamless PTFE fluoropolymer or vulcanized natural rubber protective lining',
       'Top-only discharge siphon tubes eliminating bottom-valve leak exposure',
@@ -101,8 +101,8 @@ export const chemicalHazmatClasses = [
     description: 'Agrochemicals, technical active ingredients, organic peroxides, and specialty industrial biocides requiring hermetic sealing and complete marine pollutant containment.',
     image: '/quality-assurance-hero.jpg',
     badge: 'Hermetic Zero-Emission Vaults',
-    badgeColor: '#7C3AED',
-    badgeBg: '#F3E8FF',
+    badgeColor: '#B45309',
+    badgeBg: '#FFFBEB',
     highlights: [
       'UN-certified 1A1 tight-head steel drums and heavy-duty composite IBC totes',
       'Reinforced poly-pallet bunding with 110% total spill volume capacity',
@@ -120,8 +120,8 @@ export const chemicalHazmatClasses = [
     description: 'Vegetable fatty acids, glycerine, technical white oils, bio-lubricants, and cosmetic surfactants requiring steam-coil heating prior to discharge and zero cross-contamination.',
     image: '/track-shipment-hero.jpg',
     badge: '316L Stainless Steam-Heated',
-    badgeColor: '#059669',
-    badgeBg: '#ECFDF5',
+    badgeColor: '#C2410C',
+    badgeBg: '#FFEDD5',
     highlights: [
       'High-grade 316L mirror-finish electropolished stainless steel vessels',
       'Integrated longitudinal heating conduits for viscous oil liquefaction',
@@ -194,7 +194,7 @@ export const chemicalPillars = [
       'Steam-heating and electric warming systems for temperature-sensitive solidification control',
       'Dual top-and-bottom airline connections for safe nitrogen-pressurized closed-loop unloading'
     ],
-    accentColor: '#0284C7',
+    accentColor: '#EA580C',
     badgeText: 'Bulk Intermodal'
   },
   {
@@ -211,7 +211,7 @@ export const chemicalPillars = [
       'Strict container compatibility matrix verification preventing reactive chemical co-loading',
       'International UN certification markings and weather-proof high-contrast hazard diamond labeling'
     ],
-    accentColor: '#059669',
+    accentColor: '#D97706',
     badgeText: 'Global Compliance'
   },
   {
@@ -228,7 +228,7 @@ export const chemicalPillars = [
       'Real-time IoT cloud temperature telemetry reporting temperature readings every 3 minutes',
       'Automated geofenced alarms alerting control centers to temperature deviations before critical thresholds'
     ],
-    accentColor: '#7C3AED',
+    accentColor: '#D84315',
     badgeText: 'Active Thermal Control'
   },
   {

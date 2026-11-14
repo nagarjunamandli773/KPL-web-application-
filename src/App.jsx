@@ -316,6 +316,9 @@ export default function App() {
     if (currentRoute === 'support' || currentRoute === 'help' || currentRoute === 'help-center' || currentRoute === 'contact') {
       return <Support onNavigate={handleNavigate} />;
     }
+    if (currentRoute === 'client-access-forgot' || currentRoute === 'forgot-password') {
+      return <PortalLogin onNavigate={handleNavigate} type="client-access" initialForgot={true} />;
+    }
     if (portalRoutes.includes(currentRoute)) {
       return <PortalLogin onNavigate={handleNavigate} type={currentRoute} />;
     }

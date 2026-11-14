@@ -27,21 +27,21 @@ export const techHeroStats = [
     value: '100% Level A',
     sub: 'Armed Escort & Biometric Telematics Tracking',
     icon: ShieldCheck,
-    accent: '#009688',
+    accent: '#EA580C',
   },
   {
     label: 'High-Value Cargo Moved',
     value: '$4.8B+ / yr',
     sub: 'Microchips, AI Server Racks & Consumer Tech',
     icon: Laptop,
-    accent: '#082653',
+    accent: '#C2410C',
   },
   {
     label: 'Cleanroom ESD Control',
     value: '0.00% Defect',
     sub: 'ANSI/ESD S20.20-2021 Nitrogen Purge Sealed',
     icon: Zap,
-    accent: '#0284C7',
+    accent: '#D97706',
   },
   {
     label: 'Tarmac Direct Air SLA',
@@ -63,8 +63,8 @@ export const techServiceTiers = [
     description: 'Ultra-pure transportation of unpatterned and patterned silicon wafers, photolithography reticles, and microchip packaging between foundries and testing plants in Taiwan, Korea, Japan, and the USA.',
     image: '/electronics.jpg',
     badge: 'Class 100 Cleanroom & Nitrogen Sealed',
-    badgeColor: '#009688',
-    badgeBg: '#E0F2F1',
+    badgeColor: '#C2410C',
+    badgeBg: '#FFF7ED',
     highlights: [
       'FOUP and FOSB wafer carriers secured in active vibration-damped pneumatic cradles',
       'Continuous dry nitrogen purge maintaining <5% relative humidity preventing crystal oxidation',
@@ -82,8 +82,8 @@ export const techServiceTiers = [
     description: 'Pre-racked, pre-cabled NVIDIA HGX GPU clusters, high-density blade servers, and modular enterprise storage arrays delivered directly onto live datacenter raised flooring with zero transit strain.',
     image: '/industrial.jpg',
     badge: 'White-Glove AI Server Deployment',
-    badgeColor: '#0284C7',
-    badgeBg: '#F0F9FF',
+    badgeColor: '#C2410C',
+    badgeBg: '#FFF7ED',
     highlights: [
       'Pneumatic air-ride van trailers equipped with internal overhead gantry rigging',
       'Real-time tilt, humidity, and temperature IoT sensor beacons linked to client portal',
@@ -101,8 +101,8 @@ export const techServiceTiers = [
     description: 'Synchronized worldwide product launch distribution for smartphones, laptops, smart audio devices, and consumer wearables from Tier-1 contract manufacturing hubs to international retail channels.',
     image: '/air-freight.jpg',
     badge: 'Tamper-Evident GPS Biometric Seals',
-    badgeColor: '#7C3AED',
-    badgeBg: '#F3E8FF',
+    badgeColor: '#B45309',
+    badgeBg: '#FFFBEB',
     highlights: [
       'Dedicated scheduled freighter charters for peak Q4 holiday and worldwide announcement launches',
       'Bonded electronic customs pre-clearance with EDI pre-lodgment eliminating port dwell',
@@ -213,7 +213,7 @@ export const techPillars = [
       'Secondary covert cellular and satellite beacons embedded inside master carton packaging',
       '24/7 real-time monitoring of trailer door sensors, route adherence, and unauthorized stops'
     ],
-    accentColor: '#009688',
+    accentColor: '#EA580C',
     badgeText: 'TAPA Level-A Certified'
   },
   {
@@ -237,7 +237,7 @@ export const techPillars = [
       'Triaxial accelerometer data loggers reporting shock, vibration, and angular tilt in real time',
       'Class 100 cleanroom air filtration for inspection, re-kitting, and packaging changeovers'
     ],
-    accentColor: '#0284C7',
+    accentColor: '#C2410C',
     badgeText: 'ANSI/ESD S20.20 Protected'
   },
   {
@@ -261,7 +261,7 @@ export const techPillars = [
       'White-glove uncrating, raised-floor placement, and packaging removal inside datacenter suites',
       'Pre-booked off-peak security window management with global hyperscale operators'
     ],
-    accentColor: '#7C3AED',
+    accentColor: '#D97706',
     badgeText: 'AI Infrastructure Transport'
   },
   {

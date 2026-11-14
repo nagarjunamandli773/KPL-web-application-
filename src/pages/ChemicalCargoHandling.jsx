@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Header } from '../components/layout/Header';
 import { Footer } from '../components/layout/Footer';
 import { TrackModal } from '../components/common/TrackModal';
+import Magnet, { CARD_MAGNET_PROPS, TILE_MAGNET_PROPS } from '../components/common/Magnet';
 import {
   chemicalHeroStats,
   chemicalHazmatClasses,
@@ -109,6 +110,76 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
         overflowX: 'clip',
       }}
     >
+      <style>{`
+        .chem-hero-grid {
+          display: grid;
+          grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+          gap: 36px;
+          align-items: center;
+        }
+        .chem-sim-grid {
+          display: grid;
+          grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+          gap: 32px;
+          align-items: start;
+        }
+        .chem-4col-grid {
+          display: grid;
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+        .chem-3col-grid {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+        .chem-5col-grid {
+          display: grid;
+          grid-template-columns: repeat(5, minmax(0, 1fr));
+        }
+        .chem-scale-grid {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 10px;
+        }
+        .chem-matrix-row {
+          display: grid;
+          grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) minmax(0, 1.3fr);
+          gap: 18px;
+          align-items: center;
+        }
+        @media (max-width: 1024px) {
+          .chem-4col-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+          .chem-5col-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+          }
+        }
+        @media (max-width: 960px) {
+          .chem-3col-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+        }
+        @media (max-width: 900px) {
+          .chem-hero-grid,
+          .chem-sim-grid {
+            grid-template-columns: minmax(0, 1fr);
+          }
+        }
+        @media (max-width: 780px) {
+          .chem-matrix-row {
+            grid-template-columns: minmax(0, 1fr);
+            gap: 12px;
+          }
+        }
+        @media (max-width: 580px) {
+          .chem-4col-grid,
+          .chem-3col-grid,
+          .chem-5col-grid,
+          .chem-scale-grid {
+            grid-template-columns: minmax(0, 1fr);
+          }
+        }
+      `}</style>
       {/* 1. Shared Global Link Header */}
       <Header
         onTrackClick={() => openModal('track')}
@@ -122,18 +193,19 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
         <div style={{ height: '24px', width: '100%', background: '#FAFBFD' }} />
 
         {/* =========================================================================
-            SECTION 1: HERO BANNER (Luxury Deep Navy with Chemical Emerald Ambient Glow)
+            SECTION 1: HERO BANNER (Light Orange with Chemical Emerald Accents)
             ========================================================================= */}
         <section
           style={{
             position: 'relative',
-            background: 'linear-gradient(135deg, #061836 0%, #082653 45%, #033220 100%)',
-            color: '#FFFFFF',
+            background: 'linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 50%, #FFF7ED 100%)',
+            color: '#082653',
             borderRadius: '16px',
             margin: '0 24px',
             padding: '56px 48px 48px',
             overflow: 'hidden',
-            boxShadow: '0 20px 50px rgba(8, 38, 83, 0.25)',
+            border: '1px solid #FED7AA',
+            boxShadow: '0 20px 50px rgba(234, 88, 12, 0.08)',
           }}
         >
           {/* Subtle Ambient Radial Lighting */}
@@ -144,7 +216,7 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
               right: '-8%',
               width: '560px',
               height: '560px',
-              background: 'radial-gradient(circle, rgba(16, 185, 129, 0.22) 0%, rgba(5, 150, 105, 0.12) 45%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(234, 88, 12, 0.1) 0%, rgba(234, 88, 12, 0.06) 45%, transparent 70%)',
               borderRadius: '50%',
               pointerEvents: 'none',
               filter: 'blur(35px)',
@@ -157,7 +229,7 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
               left: '-10%',
               width: '480px',
               height: '480px',
-              background: 'radial-gradient(circle, rgba(2, 132, 199, 0.18) 0%, transparent 65%)',
+              background: 'radial-gradient(circle, rgba(251, 146, 60, 0.12) 0%, transparent 65%)',
               borderRadius: '50%',
               pointerEvents: 'none',
               filter: 'blur(40px)',
@@ -165,13 +237,10 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
           />
 
           <div
+            className="chem-hero-grid"
             style={{
               position: 'relative',
               zIndex: 2,
-              display: 'grid',
-              gridTemplateColumns: '1.25fr 0.75fr',
-              gap: '36px',
-              alignItems: 'center',
             }}
           >
             {/* Left Column: Hero Content */}
@@ -184,8 +253,8 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                   gap: '8px',
                   padding: '6px 14px',
                   borderRadius: '30px',
-                  background: 'rgba(16, 185, 129, 0.15)',
-                  border: '1px solid rgba(16, 185, 129, 0.45)',
+                  background: 'rgba(255, 255, 255, 0.75)',
+                  border: '1px solid rgba(234, 88, 12, 0.35)',
                   marginBottom: '20px',
                 }}
               >
@@ -194,8 +263,8 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                     width: '8px',
                     height: '8px',
                     borderRadius: '50%',
-                    background: '#34D399',
-                    boxShadow: '0 0 10px #34D399',
+                    background: '#EA580C',
+                    boxShadow: '0 0 8px rgba(234, 88, 12, 0.45)',
                     display: 'inline-block',
                   }}
                 />
@@ -205,7 +274,7 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                     fontWeight: '700',
                     letterSpacing: '0.08em',
                     textTransform: 'uppercase',
-                    color: '#A7F3D0',
+                    color: '#C2410C',
                   }}
                 >
                   ENTERPRISE LOGISTICS • INDUSTRY FOCUS: CHEMICAL CARGO HANDLING
@@ -219,7 +288,7 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                   fontSize: '38px',
                   lineHeight: '1.2',
                   fontWeight: '700',
-                  color: '#FFFFFF',
+                  color: '#082653',
                   margin: '0 0 16px 0',
                   letterSpacing: '-0.02em',
                 }}
@@ -232,7 +301,7 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                 style={{
                   fontSize: '15.5px',
                   lineHeight: '1.6',
-                  color: 'rgba(255, 255, 255, 0.88)',
+                  color: '#334155',
                   margin: '0 0 28px 0',
                   fontWeight: '400',
                 }}
@@ -264,7 +333,7 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                     fontWeight: '700',
                     border: 'none',
                     cursor: 'pointer',
-                    boxShadow: '0 6px 18px rgba(234, 88, 12, 0.35)',
+                    boxShadow: '0 6px 18px rgba(234, 88, 12, 0.3)',
                     transition: 'all 0.15s ease',
                   }}
                   onMouseEnter={(e) => (e.currentTarget.style.transform = 'translateY(-2px)')}
@@ -282,19 +351,20 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                     gap: '8px',
                     padding: '13px 22px',
                     borderRadius: '8px',
-                    background: 'rgba(255, 255, 255, 0.08)',
-                    color: '#FFFFFF',
+                    background: '#FFFFFF',
+                    color: '#082653',
                     fontSize: '14px',
                     fontWeight: '600',
-                    border: '1px solid rgba(255, 255, 255, 0.25)',
+                    border: '1px solid #FDBA74',
                     textDecoration: 'none',
                     cursor: 'pointer',
+                    boxShadow: '0 2px 8px rgba(234, 88, 12, 0.08)',
                     transition: 'all 0.15s ease',
                   }}
-                  onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(255, 255, 255, 0.16)')}
-                  onMouseLeave={(e) => (e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)')}
+                  onMouseEnter={(e) => (e.currentTarget.style.background = '#FFFBEB')}
+                  onMouseLeave={(e) => (e.currentTarget.style.background = '#FFFFFF')}
                 >
-                  <SlidersHorizontal size={14} color="#34D399" />
+                  <SlidersHorizontal size={14} color="#EA580C" />
                   <span>Configure Hazmat Containment</span>
                 </a>
               </div>
@@ -306,20 +376,20 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                   alignItems: 'center',
                   gap: '20px',
                   fontSize: '12px',
-                  color: 'rgba(255, 255, 255, 0.75)',
+                  color: '#334155',
                   flexWrap: 'wrap',
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <ShieldCheck size={15} color="#34D399" />
+                  <ShieldCheck size={15} color="#EA580C" />
                   <span>IMDG, ADR & IATA DGR Certified</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <AlertTriangle size={15} color="#FBBF24" />
+                  <AlertTriangle size={15} color="#D97706" />
                   <span>24/7 Global ChemTel Response</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <FlaskConical size={15} color="#38BDF8" />
+                  <FlaskConical size={15} color="#EA580C" />
                   <span>T11 - T50 ISO Tank Equipment</span>
                 </div>
               </div>
@@ -332,9 +402,9 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                   position: 'relative',
                   borderRadius: '16px',
                   overflow: 'hidden',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
-                  boxShadow: '0 24px 60px rgba(0, 0, 0, 0.45)',
-                  background: '#0B192C',
+                  border: '1px solid #FED7AA',
+                  boxShadow: '0 20px 45px rgba(234, 88, 12, 0.15)',
+                  background: '#FFF7ED',
                 }}
               >
                 <img
@@ -345,15 +415,7 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                     height: '340px',
                     objectFit: 'cover',
                     display: 'block',
-                    filter: 'brightness(0.95)',
-                  }}
-                />
-                <div
-                  style={{
-                    position: 'absolute',
-                    inset: 0,
-                    background: 'linear-gradient(to top, rgba(6, 24, 54, 0.9) 0%, rgba(6, 24, 54, 0.2) 60%, transparent 100%)',
-                    pointerEvents: 'none',
+                    filter: 'brightness(1.04) contrast(1.03)',
                   }}
                 />
 
@@ -363,9 +425,9 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                     position: 'absolute',
                     top: '16px',
                     right: '16px',
-                    background: 'rgba(6, 24, 54, 0.85)',
+                    background: 'rgba(255, 247, 237, 0.95)',
                     backdropFilter: 'blur(10px)',
-                    border: '1px solid rgba(16, 185, 129, 0.45)',
+                    border: '1px solid #FDBA74',
                     borderRadius: '10px',
                     padding: '8px 14px',
                     display: 'flex',
@@ -373,12 +435,12 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                     gap: '8px',
                   }}
                 >
-                  <FlaskConical size={14} color="#34D399" />
+                  <FlaskConical size={14} color="#EA580C" />
                   <div>
-                    <div style={{ fontSize: '10px', color: '#94A3B8', fontWeight: '600', textTransform: 'uppercase' }}>
+                    <div style={{ fontSize: '10px', color: '#475569', fontWeight: '600', textTransform: 'uppercase' }}>
                       Fleet Capacity
                     </div>
-                    <div style={{ fontSize: '13px', color: '#FFFFFF', fontWeight: '800' }}>
+                    <div style={{ fontSize: '13px', color: '#0F172A', fontWeight: '800' }}>
                       4,200+ ISO Tanks
                     </div>
                   </div>
@@ -391,9 +453,9 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                     bottom: '16px',
                     left: '16px',
                     right: '16px',
-                    background: 'rgba(8, 38, 83, 0.92)',
+                    background: 'rgba(255, 247, 237, 0.95)',
                     backdropFilter: 'blur(12px)',
-                    border: '1px solid rgba(255, 255, 255, 0.18)',
+                    border: '1px solid #FDBA74',
                     borderRadius: '12px',
                     padding: '12px 16px',
                     display: 'flex',
@@ -407,19 +469,19 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                         width: '34px',
                         height: '34px',
                         borderRadius: '8px',
-                        background: 'rgba(16, 185, 129, 0.2)',
+                        background: 'rgba(234, 88, 12, 0.14)',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
                       }}
                     >
-                      <ShieldCheck size={18} color="#10B981" />
+                      <ShieldCheck size={18} color="#EA580C" />
                     </div>
                     <div>
-                      <div style={{ fontSize: '11px', color: '#94A3B8', fontWeight: '600' }}>
+                      <div style={{ fontSize: '11px', color: '#475569', fontWeight: '600' }}>
                         Safety Record
                       </div>
-                      <div style={{ fontSize: '13px', fontWeight: '800', color: '#FFFFFF' }}>
+                      <div style={{ fontSize: '13px', fontWeight: '800', color: '#0F172A' }}>
                         99.99% Incident-Free
                       </div>
                     </div>
@@ -430,9 +492,9 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                       fontWeight: '700',
                       padding: '4px 8px',
                       borderRadius: '6px',
-                      background: 'rgba(16, 185, 129, 0.2)',
-                      color: '#34D399',
-                      border: '1px solid rgba(16, 185, 129, 0.35)',
+                      background: '#FFEDD5',
+                      color: '#C2410C',
+                      border: '1px solid #FDBA74',
                     }}
                   >
                     SQAS Audited
@@ -448,74 +510,97 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
             ========================================================================= */}
         <section style={{ margin: '24px 24px 0 24px' }}>
           <div
+            className="chem-4col-grid"
             style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
               gap: '16px',
+              alignItems: 'stretch',
             }}
           >
             {chemicalHeroStats.map((stat, sIdx) => {
               const IconComp = stat.icon;
               return (
-                <div
-                  key={sIdx}
-                  style={{
-                    background: '#FFFFFF',
-                    border: '1.5px solid #E2E8F0',
-                    borderRadius: '14px',
-                    padding: '20px 22px',
-                    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.03)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between',
-                    transition: 'all 0.2s ease',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = stat.accent;
-                    e.currentTarget.style.transform = 'translateY(-2px)';
-                    e.currentTarget.style.boxShadow = `0 10px 24px ${stat.accent}18`;
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = '#E2E8F0';
-                    e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.03)';
-                  }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
-                    <span style={{ fontSize: '12px', fontWeight: '700', color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-                      {stat.label}
-                    </span>
+                <Magnet key={sIdx} {...TILE_MAGNET_PROPS}>
+                  <div
+                    style={{
+                      background: '#FFFFFF',
+                      border: '1.5px solid #FDBA74',
+                      borderRadius: '14px',
+                      padding: '20px 22px',
+                      boxShadow: '0 4px 16px rgba(234, 88, 12, 0.06)',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'flex-start',
+                      height: '100%',
+                      minWidth: 0,
+                      boxSizing: 'border-box',
+                      transition: 'all 0.2s ease',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = '#EA580C';
+                      e.currentTarget.style.boxShadow = '0 10px 24px rgba(234, 88, 12, 0.14)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = '#FDBA74';
+                      e.currentTarget.style.boxShadow = '0 4px 16px rgba(234, 88, 12, 0.06)';
+                    }}
+                  >
                     <div
                       style={{
-                        width: '32px',
-                        height: '32px',
-                        borderRadius: '8px',
-                        background: `${stat.accent}12`,
                         display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
+                        alignItems: 'flex-start',
+                        justifyContent: 'space-between',
+                        gap: '10px',
+                        minHeight: '44px',
+                        marginBottom: '10px',
                       }}
                     >
-                      <IconComp size={16} color={stat.accent} />
+                      <span
+                        style={{
+                          fontSize: '12px',
+                          fontWeight: '700',
+                          color: '#64748B',
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.04em',
+                          lineHeight: '1.35',
+                          minWidth: 0,
+                        }}
+                      >
+                        {stat.label}
+                      </span>
+                      <div
+                        style={{
+                          width: '32px',
+                          height: '32px',
+                          borderRadius: '8px',
+                          background: `${stat.accent}12`,
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          flexShrink: 0,
+                        }}
+                      >
+                        <IconComp size={16} color={stat.accent} />
+                      </div>
                     </div>
-                  </div>
-                  <div>
                     <div
                       style={{
                         fontSize: '28px',
                         fontWeight: '800',
                         color: '#082653',
                         fontFamily: 'Georgia, serif',
-                        lineHeight: '1.1',
+                        fontVariantNumeric: 'lining-nums tabular-nums',
+                        lineHeight: '1.15',
+                        minHeight: '34px',
+                        marginBottom: '6px',
                       }}
                     >
                       {stat.value}
                     </div>
-                    <div style={{ fontSize: '11.5px', color: '#64748B', marginTop: '4px', fontWeight: '500' }}>
+                    <div style={{ fontSize: '11.5px', color: '#64748B', lineHeight: '1.45', fontWeight: '500' }}>
                       {stat.sub}
                     </div>
                   </div>
-                </div>
+                </Magnet>
               );
             })}
           </div>
@@ -529,7 +614,7 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
           style={{
             margin: '36px 24px 0 24px',
             background: '#FFFFFF',
-            border: '1.5px solid #E2E8F0',
+            border: '1.5px solid #FDBA74',
             borderRadius: '16px',
             padding: '36px 32px',
             boxShadow: '0 8px 30px rgba(0, 0, 0, 0.04)',
@@ -541,7 +626,7 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '6px',
-                color: '#059669',
+                color: '#EA580C',
                 fontSize: '12px',
                 fontWeight: '700',
                 textTransform: 'uppercase',
@@ -569,59 +654,63 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
           </div>
 
           <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: '1.15fr 0.85fr',
-              gap: '32px',
-              alignItems: 'start',
-            }}
+            className="chem-sim-grid"
           >
             {/* Left Column: Interactive Selectors */}
-            <div>
+            <div style={{ minWidth: 0 }}>
               {/* Step 1: Select Hazmat Class */}
               <div style={{ marginBottom: '24px' }}>
                 <div style={{ fontSize: '13px', fontWeight: '700', color: '#082653', marginBottom: '10px' }}>
                   Step 1: Select Substance Classification & Containment Specification
                 </div>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '10px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '10px', alignItems: 'stretch' }}>
                   {chemicalHazmatClasses.map((item) => {
                     const isSelected = item.id === selectedClassId;
                     return (
-                      <div
-                        key={item.id}
-                        onClick={() => setSelectedClassId(item.id)}
-                        style={{
-                          padding: '14px 16px',
-                          borderRadius: '10px',
-                          border: isSelected ? '2px solid #059669' : '1px solid #E2E8F0',
-                          background: isSelected ? 'rgba(5, 150, 105, 0.05)' : '#FAFBFD',
-                          cursor: 'pointer',
-                          transition: 'all 0.15s ease',
-                        }}
-                      >
-                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '6px' }}>
-                          <span
-                            style={{
-                              fontSize: '10.5px',
-                              fontWeight: '700',
-                              padding: '2px 8px',
-                              borderRadius: '9999px',
-                              background: item.badgeBg,
-                              color: item.badgeColor,
-                              border: `1px solid ${item.badgeColor}35`,
-                            }}
-                          >
-                            {item.badge}
-                          </span>
-                          {isSelected && <Check size={14} color="#059669" strokeWidth={3} />}
+                      <Magnet key={item.id} {...TILE_MAGNET_PROPS}>
+                        <div
+                          onClick={() => setSelectedClassId(item.id)}
+                          style={{
+                            padding: '14px 16px',
+                            borderRadius: '10px',
+                            border: isSelected ? '2px solid #EA580C' : '1px solid #FDBA74',
+                            background: isSelected ? 'rgba(234, 88, 12, 0.05)' : '#FAFBFD',
+                            cursor: 'pointer',
+                            transition: 'all 0.15s ease',
+                            height: '100%',
+                            minWidth: 0,
+                            boxSizing: 'border-box',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'space-between',
+                          }}
+                        >
+                          <div>
+                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px', flexWrap: 'wrap', minHeight: '24px', marginBottom: '6px' }}>
+                              <span
+                                style={{
+                                  fontSize: '10.5px',
+                                  fontWeight: '700',
+                                  padding: '2px 8px',
+                                  borderRadius: '9999px',
+                                  background: item.badgeBg,
+                                  color: item.badgeColor,
+                                  border: `1px solid ${item.badgeColor}35`,
+                                }}
+                              >
+                                {item.badge}
+                              </span>
+                              {isSelected && <Check size={14} color="#EA580C" strokeWidth={3} style={{ flexShrink: 0 }} />}
+                            </div>
+                            <div style={{ fontSize: '13.5px', fontWeight: '800', color: '#082653', minHeight: '36px', lineHeight: '1.3' }}>
+                              {item.name}
+                            </div>
+                          </div>
+                          <div style={{ fontSize: '11.5px', color: '#64748B', marginTop: '6px' }}>
+                            {item.classCode}
+                          </div>
                         </div>
-                        <div style={{ fontSize: '13.5px', fontWeight: '800', color: '#082653' }}>
-                          {item.name}
-                        </div>
-                        <div style={{ fontSize: '11.5px', color: '#64748B', marginTop: '4px' }}>
-                          {item.classCode}
-                        </div>
-                      </div>
+                      </Magnet>
                     );
                   })}
                 </div>
@@ -636,33 +725,36 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                   {chemicalTransportModes.map((mode) => {
                     const isSelected = mode.id === selectedModeId;
                     return (
-                      <div
-                        key={mode.id}
-                        onClick={() => setSelectedModeId(mode.id)}
-                        style={{
-                          padding: '12px 16px',
-                          borderRadius: '8px',
-                          border: isSelected ? '2px solid #059669' : '1px solid #E2E8F0',
-                          background: isSelected ? '#ECFDF5' : '#FFFFFF',
-                          cursor: 'pointer',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'space-between',
-                          gap: '12px',
-                        }}
-                      >
-                        <div>
-                          <div style={{ fontSize: '13px', fontWeight: '700', color: isSelected ? '#065F46' : '#0F172A' }}>
-                            {mode.name}
+                      <Magnet key={mode.id} {...TILE_MAGNET_PROPS} style={{ display: 'block', width: '100%' }}>
+                        <div
+                          onClick={() => setSelectedModeId(mode.id)}
+                          style={{
+                            padding: '12px 16px',
+                            borderRadius: '8px',
+                            border: isSelected ? '2px solid #EA580C' : '1px solid #FDBA74',
+                            background: isSelected ? '#FFF7ED' : '#FFFFFF',
+                            cursor: 'pointer',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                            gap: '12px',
+                            boxSizing: 'border-box',
+                            minWidth: 0,
+                          }}
+                        >
+                          <div style={{ minWidth: 0 }}>
+                            <div style={{ fontSize: '13px', fontWeight: '700', color: isSelected ? '#9A3412' : '#0F172A' }}>
+                              {mode.name}
+                            </div>
+                            <div style={{ fontSize: '11.5px', color: '#64748B', marginTop: '2px' }}>
+                              {mode.desc}
+                            </div>
                           </div>
-                          <div style={{ fontSize: '11.5px', color: '#64748B', marginTop: '2px' }}>
-                            {mode.desc}
-                          </div>
+                          <span style={{ fontSize: '11px', fontWeight: '700', color: '#EA580C', whiteSpace: 'nowrap', flexShrink: 0 }}>
+                            {mode.safetyGrade}
+                          </span>
                         </div>
-                        <span style={{ fontSize: '11px', fontWeight: '700', color: '#059669', whiteSpace: 'nowrap' }}>
-                          {mode.safetyGrade}
-                        </span>
-                      </div>
+                      </Magnet>
                     );
                   })}
                 </div>
@@ -673,28 +765,35 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                 <div style={{ fontSize: '13px', fontWeight: '700', color: '#082653', marginBottom: '10px' }}>
                   Step 3: Select Chemical Volume Scale
                 </div>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '10px' }}>
+                <div className="chem-scale-grid" style={{ alignItems: 'stretch' }}>
                   {chemicalVolumeScales.map((vol) => {
                     const isSelected = vol.id === selectedVolId;
                     return (
-                      <div
-                        key={vol.id}
-                        onClick={() => setSelectedVolId(vol.id)}
-                        style={{
-                          padding: '12px 14px',
-                          borderRadius: '8px',
-                          border: isSelected ? '2px solid #082653' : '1px solid #E2E8F0',
-                          background: isSelected ? '#082653' : '#FFFFFF',
-                          color: isSelected ? '#FFFFFF' : '#0F172A',
-                          cursor: 'pointer',
-                          textAlign: 'center',
-                        }}
-                      >
-                        <div style={{ fontSize: '12px', fontWeight: '700' }}>{vol.label}</div>
-                        <div style={{ fontSize: '11px', color: isSelected ? '#93C5FD' : '#64748B', marginTop: '3px' }}>
-                          {vol.volumeCapacity}
+                      <Magnet key={vol.id} {...TILE_MAGNET_PROPS}>
+                        <div
+                          onClick={() => setSelectedVolId(vol.id)}
+                          style={{
+                            padding: '12px 14px',
+                            borderRadius: '8px',
+                            border: isSelected ? '2px solid #EA580C' : '1px solid #FDBA74',
+                            background: isSelected ? '#FFF7ED' : '#FFFFFF',
+                            color: isSelected ? '#9A3412' : '#0F172A',
+                            cursor: 'pointer',
+                            textAlign: 'center',
+                            height: '100%',
+                            minWidth: 0,
+                            boxSizing: 'border-box',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'center',
+                          }}
+                        >
+                          <div style={{ fontSize: '12px', fontWeight: '700' }}>{vol.label}</div>
+                          <div style={{ fontSize: '11px', color: isSelected ? '#EA580C' : '#64748B', marginTop: '3px' }}>
+                            {vol.volumeCapacity}
+                          </div>
                         </div>
-                      </div>
+                      </Magnet>
                     );
                   })}
                 </div>
@@ -705,10 +804,12 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
             <div
               style={{
                 background: '#FAFBFD',
-                border: '1.5px solid #CBD5E1',
+                border: '1.5px solid #FDBA74',
                 borderRadius: '14px',
                 padding: '28px 24px',
                 boxShadow: '0 8px 24px rgba(15, 23, 42, 0.05)',
+                minWidth: 0,
+                boxSizing: 'border-box',
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
@@ -717,16 +818,17 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                     width: '38px',
                     height: '38px',
                     borderRadius: '8px',
-                    background: '#059669',
+                    background: '#EA580C',
                     color: '#FFFFFF',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
+                    flexShrink: 0,
                   }}
                 >
                   <ShieldCheck size={20} />
                 </div>
-                <div>
+                <div style={{ minWidth: 0 }}>
                   <div style={{ fontSize: '11px', fontWeight: '700', color: '#64748B', textTransform: 'uppercase' }}>
                     Calculated Hazmat Specification
                   </div>
@@ -738,21 +840,21 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
 
               {/* Metric Breakdown Rows */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '22px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '10px 12px', background: '#FFFFFF', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
-                  <span style={{ fontSize: '12.5px', color: '#64748B', fontWeight: '600' }}>Containment Vessel:</span>
-                  <span style={{ fontSize: '13px', fontWeight: '800', color: '#0F172A' }}>{selectedClass.containment}</span>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px', padding: '10px 12px', background: '#FFFFFF', borderRadius: '8px', border: '1px solid #FDBA74' }}>
+                  <span style={{ fontSize: '12.5px', color: '#64748B', fontWeight: '600', flexShrink: 0 }}>Containment Vessel:</span>
+                  <span style={{ fontSize: '13px', fontWeight: '800', color: '#0F172A', textAlign: 'right' }}>{selectedClass.containment}</span>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '10px 12px', background: '#FFFFFF', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
-                  <span style={{ fontSize: '12.5px', color: '#64748B', fontWeight: '600' }}>Thermal Stability:</span>
-                  <span style={{ fontSize: '13px', fontWeight: '800', color: '#0284C7' }}>{selectedClass.tempStability}</span>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px', padding: '10px 12px', background: '#FFFFFF', borderRadius: '8px', border: '1px solid #FDBA74' }}>
+                  <span style={{ fontSize: '12.5px', color: '#64748B', fontWeight: '600', flexShrink: 0 }}>Thermal Stability:</span>
+                  <span style={{ fontSize: '13px', fontWeight: '800', color: '#EA580C', textAlign: 'right' }}>{selectedClass.tempStability}</span>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '10px 12px', background: '#FFFFFF', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
-                  <span style={{ fontSize: '12.5px', color: '#64748B', fontWeight: '600' }}>Safety Rating:</span>
-                  <span style={{ fontSize: '13px', fontWeight: '800', color: '#059669' }}>{selectedMode.safetyGrade}</span>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px', padding: '10px 12px', background: '#FFFFFF', borderRadius: '8px', border: '1px solid #FDBA74' }}>
+                  <span style={{ fontSize: '12.5px', color: '#64748B', fontWeight: '600', flexShrink: 0 }}>Safety Rating:</span>
+                  <span style={{ fontSize: '13px', fontWeight: '800', color: '#EA580C', textAlign: 'right' }}>{selectedMode.safetyGrade}</span>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '10px 12px', background: '#FFFFFF', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
-                  <span style={{ fontSize: '12.5px', color: '#64748B', fontWeight: '600' }}>Campaign Benefit:</span>
-                  <span style={{ fontSize: '13px', fontWeight: '800', color: '#EA580C' }}>{selectedVol.protocolBenefit}</span>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px', padding: '10px 12px', background: '#FFFFFF', borderRadius: '8px', border: '1px solid #FDBA74' }}>
+                  <span style={{ fontSize: '12.5px', color: '#64748B', fontWeight: '600', flexShrink: 0 }}>Campaign Benefit:</span>
+                  <span style={{ fontSize: '13px', fontWeight: '800', color: '#EA580C', textAlign: 'right' }}>{selectedVol.protocolBenefit}</span>
                 </div>
               </div>
 
@@ -764,7 +866,7 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
                   {selectedClass.highlights.map((h, hIdx) => (
                     <div key={hIdx} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '12px', color: '#334155', lineHeight: '1.4' }}>
-                      <CheckCircle2 size={14} color="#059669" style={{ flexShrink: 0, marginTop: '2px' }} />
+                      <CheckCircle2 size={14} color="#EA580C" style={{ flexShrink: 0, marginTop: '2px' }} />
                       <span>{h}</span>
                     </div>
                   ))}
@@ -802,10 +904,10 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                     marginTop: '16px',
                     padding: '12px 14px',
                     borderRadius: '8px',
-                    background: '#ECFDF5',
-                    border: '1px solid #10B981',
+                    background: '#FFF7ED',
+                    border: '1px solid #EA580C',
                     fontSize: '12px',
-                    color: '#065F46',
+                    color: '#9A3412',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
@@ -816,7 +918,7 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                   </div>
                   <button
                     onClick={() => setSimulatorToast(null)}
-                    style={{ background: 'none', border: 'none', color: '#047857', cursor: 'pointer' }}
+                    style={{ background: 'none', border: 'none', color: '#C2410C', cursor: 'pointer' }}
                   >
                     <X size={14} />
                   </button>
@@ -836,7 +938,7 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '6px',
-                color: '#059669',
+                color: '#EA580C',
                 fontSize: '12px',
                 fontWeight: '700',
                 textTransform: 'uppercase',
@@ -863,35 +965,36 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px' }}>
+          <div className="chem-4col-grid" style={{ gap: '20px', alignItems: 'stretch' }}>
             {chemicalPillars.map((pillar) => {
               const IconComp = pillar.icon;
               return (
-                <div
-                  key={pillar.id}
-                  style={{
-                    background: '#FFFFFF',
-                    border: '1.5px solid #E2E8F0',
-                    borderRadius: '16px',
-                    overflow: 'hidden',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between',
-                    boxShadow: '0 4px 18px rgba(0, 0, 0, 0.04)',
-                    transition: 'all 0.2s ease',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = pillar.accentColor;
-                    e.currentTarget.style.transform = 'translateY(-3px)';
-                    e.currentTarget.style.boxShadow = `0 14px 30px ${pillar.accentColor}20`;
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = '#E2E8F0';
-                    e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = '0 4px 18px rgba(0, 0, 0, 0.04)';
-                  }}
-                >
-                  <div>
+                <Magnet key={pillar.id} {...CARD_MAGNET_PROPS}>
+                  <div
+                    style={{
+                      background: '#FFFFFF',
+                      border: '1.5px solid #FDBA74',
+                      borderRadius: '16px',
+                      overflow: 'hidden',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'space-between',
+                      height: '100%',
+                      minWidth: 0,
+                      boxSizing: 'border-box',
+                      boxShadow: '0 4px 18px rgba(0, 0, 0, 0.04)',
+                      transition: 'all 0.2s ease',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = '#EA580C';
+                      e.currentTarget.style.boxShadow = `0 14px 30px ${pillar.accentColor}20`;
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = '#FDBA74';
+                      e.currentTarget.style.boxShadow = '0 4px 18px rgba(0, 0, 0, 0.04)';
+                    }}
+                  >
+                  <div style={{ minWidth: 0 }}>
                     {/* Pillar Card Image Banner */}
                     <div style={{ position: 'relative', height: '170px', overflow: 'hidden' }}>
                       <img
@@ -902,13 +1005,7 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                           height: '100%',
                           objectFit: 'cover',
                           display: 'block',
-                        }}
-                      />
-                      <div
-                        style={{
-                          position: 'absolute',
-                          inset: 0,
-                          background: 'linear-gradient(to top, rgba(8, 38, 83, 0.85) 0%, transparent 60%)',
+                          filter: 'brightness(1.04) contrast(1.03)',
                         }}
                       />
                       <div
@@ -916,14 +1013,14 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                           position: 'absolute',
                           top: '12px',
                           left: '12px',
-                          background: 'rgba(8, 38, 83, 0.85)',
+                          background: 'rgba(234, 88, 12, 0.92)',
                           backdropFilter: 'blur(8px)',
                           borderRadius: '6px',
                           padding: '4px 10px',
                           fontSize: '11px',
                           fontWeight: '700',
                           color: '#FFFFFF',
-                          border: `1px solid ${pillar.accentColor}60`,
+                          border: '1px solid rgba(255, 255, 255, 0.25)',
                         }}
                       >
                         {pillar.badgeText}
@@ -947,7 +1044,7 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
 
                     {/* Pillar Content Body */}
                     <div style={{ padding: '22px 20px 14px 20px' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                      <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', minHeight: '82px', marginBottom: '10px' }}>
                         <div
                           style={{
                             width: '28px',
@@ -957,18 +1054,20 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
+                            flexShrink: 0,
+                            marginTop: '1px',
                           }}
                         >
                           <IconComp size={15} color={pillar.accentColor} />
                         </div>
-                        <h3 style={{ fontSize: '17px', fontWeight: '800', color: '#082653', margin: 0 }}>
+                        <h3 style={{ fontSize: '16px', fontWeight: '800', color: '#082653', margin: 0, lineHeight: '1.25', minWidth: 0 }}>
                           {pillar.title}
                         </h3>
                       </div>
-                      <div style={{ fontSize: '12px', fontWeight: '600', color: pillar.accentColor, marginBottom: '10px' }}>
+                      <div style={{ fontSize: '12px', fontWeight: '600', color: pillar.accentColor, marginBottom: '10px', minHeight: '56px', lineHeight: '1.45' }}>
                         {pillar.tagline}
                       </div>
-                      <p style={{ fontSize: '13px', color: '#475569', lineHeight: '1.5', marginBottom: '14px' }}>
+                      <p style={{ fontSize: '13px', color: '#475569', lineHeight: '1.5', marginBottom: '14px', minHeight: '138px' }}>
                         {pillar.description}
                       </p>
 
@@ -993,7 +1092,7 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                         padding: '10px',
                         borderRadius: '6px',
                         background: '#FAFBFD',
-                        border: '1px solid #CBD5E1',
+                        border: '1px solid #FDBA74',
                         color: '#082653',
                         fontSize: '12.5px',
                         fontWeight: '700',
@@ -1007,12 +1106,12 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                       onMouseEnter={(e) => {
                         e.currentTarget.style.background = pillar.accentColor;
                         e.currentTarget.style.color = '#FFFFFF';
-                        e.currentTarget.style.borderColor = pillar.accentColor;
+                        e.currentTarget.style.borderColor = '#EA580C';
                       }}
                       onMouseLeave={(e) => {
                         e.currentTarget.style.background = '#FAFBFD';
                         e.currentTarget.style.color = '#082653';
-                        e.currentTarget.style.borderColor = '#CBD5E1';
+                        e.currentTarget.style.borderColor = '#FDBA74';
                       }}
                     >
                       <span>Inquire About {pillar.title.split(' ')[0]}</span>
@@ -1020,6 +1119,7 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                     </button>
                   </div>
                 </div>
+                </Magnet>
               );
             })}
           </div>
@@ -1035,7 +1135,7 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '6px',
-                color: '#059669',
+                color: '#EA580C',
                 fontSize: '12px',
                 fontWeight: '700',
                 textTransform: 'uppercase',
@@ -1090,9 +1190,9 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                     borderRadius: '9999px',
                     fontSize: '12.5px',
                     fontWeight: active ? '700' : '600',
-                    background: active ? '#082653' : '#FFFFFF',
+                    background: active ? '#EA580C' : '#FFFFFF',
                     color: active ? '#FFFFFF' : '#475569',
-                    border: active ? '1px solid #082653' : '1px solid #E2E8F0',
+                    border: active ? '1px solid #EA580C' : '1px solid #FDBA74',
                     cursor: 'pointer',
                     transition: 'all 0.15s ease',
                   }}
@@ -1105,34 +1205,35 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
 
           {/* 8-Card Grid */}
           <div
+            className="chem-4col-grid"
             style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
               gap: '20px',
+              alignItems: 'stretch',
             }}
           >
             {filteredGallery.map((item, gIdx) => (
-              <div
-                key={gIdx}
-                style={{
-                  background: '#FFFFFF',
-                  borderRadius: '14px',
-                  border: '1px solid #E2E8F0',
-                  overflow: 'hidden',
-                  boxShadow: '0 4px 16px rgba(0, 0, 0, 0.04)',
-                  transition: 'all 0.2s ease',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-3px)';
-                  e.currentTarget.style.boxShadow = '0 12px 28px rgba(15, 23, 42, 0.1)';
-                  e.currentTarget.style.borderColor = '#059669';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.04)';
-                  e.currentTarget.style.borderColor = '#E2E8F0';
-                }}
-              >
+              <Magnet key={gIdx} {...CARD_MAGNET_PROPS}>
+                <div
+                  style={{
+                    background: '#FFFFFF',
+                    borderRadius: '14px',
+                    border: '1px solid #FDBA74',
+                    overflow: 'hidden',
+                    height: '100%',
+                    minWidth: 0,
+                    boxSizing: 'border-box',
+                    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.04)',
+                    transition: 'all 0.2s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.boxShadow = '0 12px 28px rgba(15, 23, 42, 0.1)';
+                    e.currentTarget.style.borderColor = '#EA580C';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.04)';
+                    e.currentTarget.style.borderColor = '#FDBA74';
+                  }}
+                >
                 <div style={{ position: 'relative', height: '180px', overflow: 'hidden' }}>
                   <img
                     src={item.image}
@@ -1150,7 +1251,7 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                       position: 'absolute',
                       top: '10px',
                       left: '10px',
-                      background: 'rgba(8, 38, 83, 0.85)',
+                      background: 'rgba(234, 88, 12, 0.92)',
                       backdropFilter: 'blur(6px)',
                       color: '#FFFFFF',
                       fontSize: '10.5px',
@@ -1167,7 +1268,7 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                       bottom: '10px',
                       right: '10px',
                       background: '#FFFFFF',
-                      color: '#059669',
+                      color: '#EA580C',
                       fontSize: '10.5px',
                       fontWeight: '700',
                       padding: '3px 8px',
@@ -1179,7 +1280,7 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                 </div>
 
                 <div style={{ padding: '16px 18px' }}>
-                  <h4 style={{ fontSize: '15px', fontWeight: '800', color: '#082653', margin: '0 0 6px 0' }}>
+                  <h4 style={{ fontSize: '15px', fontWeight: '800', color: '#082653', margin: '0 0 6px 0', minHeight: '40px', lineHeight: '1.3' }}>
                     {item.title}
                   </h4>
                   <p style={{ fontSize: '12.5px', color: '#64748B', lineHeight: '1.45', margin: 0 }}>
@@ -1187,6 +1288,7 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                   </p>
                 </div>
               </div>
+              </Magnet>
             ))}
           </div>
         </section>
@@ -1199,7 +1301,7 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
             margin: '36px 24px 0 24px',
             background: '#FFFFFF',
             borderRadius: '16px',
-            border: '1.5px solid #E2E8F0',
+            border: '1.5px solid #FDBA74',
             padding: '36px 32px',
             boxShadow: '0 6px 24px rgba(0, 0, 0, 0.03)',
           }}
@@ -1210,7 +1312,7 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '6px',
-                color: '#059669',
+                color: '#EA580C',
                 fontSize: '12px',
                 fontWeight: '700',
                 textTransform: 'uppercase',
@@ -1241,24 +1343,22 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
             {chemicalComplianceMatrix.map((item, cIdx) => (
               <div
                 key={cIdx}
+                className="chem-matrix-row"
                 style={{
                   background: '#FAFBFD',
-                  border: '1px solid #E2E8F0',
+                  border: '1px solid #FDBA74',
                   borderRadius: '12px',
                   padding: '16px 20px',
-                  display: 'grid',
-                  gridTemplateColumns: '1fr 1.3fr 1.3fr',
-                  gap: '18px',
-                  alignItems: 'center',
+                  boxSizing: 'border-box',
                 }}
               >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <ShieldCheck size={16} color="#059669" />
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', minWidth: 0 }}>
+                  <ShieldCheck size={16} color="#EA580C" style={{ flexShrink: 0 }} />
                   <span style={{ fontSize: '13.5px', fontWeight: '800', color: '#082653' }}>
                     {item.protocol}
                   </span>
                 </div>
-                <div>
+                <div style={{ minWidth: 0 }}>
                   <div style={{ fontSize: '10.5px', fontWeight: '700', color: '#64748B', textTransform: 'uppercase' }}>
                     Regulatory Requirement:
                   </div>
@@ -1266,11 +1366,11 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                     {item.requirement}
                   </div>
                 </div>
-                <div style={{ borderLeft: '2px solid #059669', paddingLeft: '14px' }}>
-                  <div style={{ fontSize: '10.5px', fontWeight: '700', color: '#059669', textTransform: 'uppercase' }}>
+                <div style={{ borderLeft: '2px solid #EA580C', paddingLeft: '14px', minWidth: 0 }}>
+                  <div style={{ fontSize: '10.5px', fontWeight: '700', color: '#EA580C', textTransform: 'uppercase' }}>
                     KPL Compliance Capability:
                   </div>
-                  <div style={{ fontSize: '12px', color: '#065F46', marginTop: '2px', lineHeight: '1.4', fontWeight: '500' }}>
+                  <div style={{ fontSize: '12px', color: '#9A3412', marginTop: '2px', lineHeight: '1.4', fontWeight: '500' }}>
                     {item.kplCapability}
                   </div>
                 </div>
@@ -1289,7 +1389,7 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '6px',
-                color: '#059669',
+                color: '#EA580C',
                 fontSize: '12px',
                 fontWeight: '700',
                 textTransform: 'uppercase',
@@ -1316,50 +1416,54 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
+          <div className="chem-3col-grid" style={{ gap: '20px', alignItems: 'stretch' }}>
             {chemicalCaseStudies.map((cs, csIdx) => (
-              <div
-                key={csIdx}
-                style={{
-                  background: '#FFFFFF',
-                  borderRadius: '14px',
-                  border: '1.5px solid #E2E8F0',
-                  padding: '24px',
-                  boxShadow: '0 4px 16px rgba(0, 0, 0, 0.03)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                }}
-              >
-                <div>
-                  <div style={{ display: 'inline-block', fontSize: '11px', fontWeight: '700', color: '#059669', background: '#ECFDF5', padding: '3px 8px', borderRadius: '4px', marginBottom: '8px' }}>
-                    {cs.scale}
+              <Magnet key={csIdx} {...CARD_MAGNET_PROPS}>
+                <div
+                  style={{
+                    background: '#FFFFFF',
+                    borderRadius: '14px',
+                    border: '1.5px solid #FDBA74',
+                    padding: '24px',
+                    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.03)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    height: '100%',
+                    minWidth: 0,
+                    boxSizing: 'border-box',
+                  }}
+                >
+                  <div style={{ minWidth: 0 }}>
+                    <div style={{ display: 'inline-block', fontSize: '11px', fontWeight: '700', color: '#EA580C', background: '#FFF7ED', padding: '3px 8px', borderRadius: '4px', marginBottom: '8px' }}>
+                      {cs.scale}
+                    </div>
+                    <h3 style={{ fontSize: '17px', fontWeight: '800', color: '#082653', margin: '0 0 10px 0', minHeight: '44px', lineHeight: '1.3' }}>
+                      {cs.client}
+                    </h3>
+                    <div style={{ fontSize: '12.5px', color: '#475569', marginBottom: '14px', lineHeight: '1.45', minHeight: '62px' }}>
+                      <strong>Challenge:</strong> {cs.challenge}
+                    </div>
+                    <div style={{ fontSize: '12.5px', color: '#334155', marginBottom: '16px', lineHeight: '1.45', minHeight: '62px' }}>
+                      <strong>Solution:</strong> {cs.solution}
+                    </div>
                   </div>
-                  <h3 style={{ fontSize: '17px', fontWeight: '800', color: '#082653', margin: '0 0 10px 0' }}>
-                    {cs.client}
-                  </h3>
-                  <div style={{ fontSize: '12.5px', color: '#475569', marginBottom: '14px', lineHeight: '1.45' }}>
-                    <strong>Challenge:</strong> {cs.challenge}
-                  </div>
-                  <div style={{ fontSize: '12.5px', color: '#334155', marginBottom: '16px', lineHeight: '1.45' }}>
-                    <strong>Solution:</strong> {cs.solution}
-                  </div>
-                </div>
 
-                <div style={{ borderTop: '1px solid #F1F5F9', paddingTop: '14px' }}>
-                  <div style={{ fontSize: '11px', fontWeight: '700', color: '#059669', textTransform: 'uppercase', marginBottom: '6px' }}>
-                    Verified Results:
-                  </div>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                    {cs.results.map((r, rIdx) => (
-                      <div key={rIdx} style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: '600', color: '#0F172A' }}>
-                        <CheckCheck size={14} color="#059669" />
-                        <span>{r}</span>
-                      </div>
-                    ))}
+                  <div style={{ borderTop: '1px solid #F1F5F9', paddingTop: '14px' }}>
+                    <div style={{ fontSize: '11px', fontWeight: '700', color: '#EA580C', textTransform: 'uppercase', marginBottom: '6px' }}>
+                      Verified Results:
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                      {cs.results.map((r, rIdx) => (
+                        <div key={rIdx} style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: '600', color: '#0F172A' }}>
+                          <CheckCheck size={14} color="#EA580C" style={{ flexShrink: 0 }} />
+                          <span>{r}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Magnet>
             ))}
           </div>
         </section>
@@ -1372,7 +1476,7 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
             margin: '36px 24px 0 24px',
             background: '#FAFBFD',
             borderRadius: '16px',
-            border: '1px solid #E2E8F0',
+            border: '1px solid #FDBA74',
             padding: '28px',
           }}
         >
@@ -1384,23 +1488,32 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
               Certified global safety, emergency dispatch hotlines, and environmental management systems.
             </p>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '14px' }}>
+          <div className="chem-5col-grid" style={{ gap: '14px', alignItems: 'stretch' }}>
             {chemicalStandards.map((std, idx) => (
-              <div
-                key={idx}
-                style={{
-                  background: '#FFFFFF',
-                  borderRadius: '10px',
-                  border: '1px solid #E2E8F0',
-                  padding: '16px',
-                  textAlign: 'center',
-                }}
-              >
-                <div style={{ fontSize: '14px', fontWeight: '800', color: '#082653' }}>{std.name}</div>
-                <div style={{ fontSize: '11.5px', color: '#64748B', marginTop: '4px', lineHeight: '1.35' }}>
-                  {std.desc}
+              <Magnet key={idx} {...TILE_MAGNET_PROPS}>
+                <div
+                  style={{
+                    background: '#FFFFFF',
+                    borderRadius: '10px',
+                    border: '1px solid #FDBA74',
+                    padding: '16px',
+                    textAlign: 'center',
+                    height: '100%',
+                    minWidth: 0,
+                    boxSizing: 'border-box',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'flex-start',
+                  }}
+                >
+                  <div style={{ fontSize: '14px', fontWeight: '800', color: '#082653', minHeight: '38px', display: 'flex', alignItems: 'center', justifyContent: 'center', lineHeight: '1.25' }}>
+                    {std.name}
+                  </div>
+                  <div style={{ fontSize: '11.5px', color: '#64748B', marginTop: '6px', lineHeight: '1.35' }}>
+                    {std.desc}
+                  </div>
                 </div>
-              </div>
+              </Magnet>
             ))}
           </div>
         </section>
@@ -1413,7 +1526,7 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
             margin: '36px 24px 0 24px',
             background: '#FFFFFF',
             borderRadius: '16px',
-            border: '1.5px solid #E2E8F0',
+            border: '1.5px solid #FDBA74',
             padding: '36px 32px',
           }}
         >
@@ -1423,7 +1536,7 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '6px',
-                color: '#059669',
+                color: '#EA580C',
                 fontSize: '12px',
                 fontWeight: '700',
                 textTransform: 'uppercase',
@@ -1453,7 +1566,7 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                 <div
                   key={fIdx}
                   style={{
-                    border: '1px solid #E2E8F0',
+                    border: '1px solid #FDBA74',
                     borderRadius: '10px',
                     overflow: 'hidden',
                     background: isOpen ? '#FAFBFD' : '#FFFFFF',
@@ -1476,7 +1589,7 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                     <span style={{ fontSize: '14.5px', fontWeight: '700', color: '#082653' }}>
                       {faq.q}
                     </span>
-                    {isOpen ? <ChevronUp size={16} color="#059669" /> : <ChevronDown size={16} color="#94A3B8" />}
+                    {isOpen ? <ChevronUp size={16} color="#EA580C" /> : <ChevronDown size={16} color="#94A3B8" />}
                   </button>
                   {isOpen && (
                     <div style={{ padding: '0 20px 16px 20px', fontSize: '13px', color: '#475569', lineHeight: '1.6' }}>
@@ -1495,15 +1608,15 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
         <section
           style={{
             margin: '36px 24px 0 24px',
-            background: 'linear-gradient(135deg, #082653 0%, #033220 100%)',
+            background: 'linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 50%, #FFF7ED 100%)',
+            border: '1px solid #FED7AA',
             borderRadius: '16px',
             padding: '48px 36px',
-            color: '#FFFFFF',
+            color: '#082653',
             textAlign: 'center',
             position: 'relative',
             overflow: 'hidden',
-            boxShadow: '0 16px 40px rgba(8, 38, 83, 0.25)',
-            borderBottom: '1px solid rgba(8, 38, 83, 0.12)',
+            boxShadow: '0 16px 40px rgba(234, 88, 12, 0.08)',
           }}
         >
           <div style={{ position: 'relative', zIndex: 1, maxWidth: '780px', margin: '0 auto' }}>
@@ -1512,7 +1625,7 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                 fontFamily: 'Georgia, serif',
                 fontSize: '32px',
                 fontWeight: '700',
-                color: '#FFFFFF',
+                color: '#082653',
                 margin: '0 0 14px 0',
               }}
             >
@@ -1521,7 +1634,7 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
             <p
               style={{
                 fontSize: '15px',
-                color: 'rgba(255, 255, 255, 0.85)',
+                color: '#334155',
                 lineHeight: '1.6',
                 margin: '0 0 28px 0',
               }}
@@ -1559,11 +1672,11 @@ export const ChemicalCargoHandling = ({ onNavigate }) => {
                   gap: '8px',
                   padding: '13px 24px',
                   borderRadius: '8px',
-                  background: 'rgba(255, 255, 255, 0.1)',
-                  color: '#FFFFFF',
+                  background: '#FFFFFF',
+                  color: '#082653',
                   fontSize: '14px',
                   fontWeight: '600',
-                  border: '1px solid rgba(255, 255, 255, 0.25)',
+                  border: '1px solid #FED7AA',
                   cursor: 'pointer',
                 }}
               >

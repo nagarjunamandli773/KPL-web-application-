@@ -31,7 +31,7 @@ export const fmcgHeroStats = [
     value: '99.4%',
     sub: 'Walmart SQEP & Amazon 1P Benchmark',
     icon: CheckCircle2,
-    accent: '#10B981',
+    accent: '#EA580C',
   },
   {
     label: 'Active FMCG SKUs Mobilized',
@@ -45,14 +45,14 @@ export const fmcgHeroStats = [
     value: '24 - 48 hrs',
     sub: 'Sub-24h Flow-Through Turnaround',
     icon: Zap,
-    accent: '#3B82F6',
+    accent: '#C2410C',
   },
   {
     label: 'Inventory Shrink & Spoilage',
     value: '< 0.02%',
     sub: 'Automated FEFO / FIFO Batch Precision',
     icon: ShieldCheck,
-    accent: '#8B5CF6',
+    accent: '#D84315',
   },
 ];
 
@@ -199,7 +199,7 @@ export const fmcgPillars = [
       'Weigh-in-motion scanning detects weight discrepancies immediately to prevent retailer refusal',
       'Real-time dock appointment scheduling with geofenced yard management'
     ],
-    accentColor: '#3B82F6',
+    accentColor: '#C2410C',
     badgeText: 'Speed & Agility'
   },
   {
@@ -215,7 +215,7 @@ export const fmcgPillars = [
       'Instant digital quarantine isolation capable of halting recalled lots in under 30 seconds',
       'Pre-expiry alerts trigger automated promotional channel redirection before aging occurs'
     ],
-    accentColor: '#10B981',
+    accentColor: '#EA580C',
     badgeText: 'Quality Assurance'
   },
   {
@@ -247,7 +247,7 @@ export const fmcgPillars = [
       'Amazon SIOC (Ships-in-Own-Container) certification testing and prep repackaging',
       'Multilingual country-specific overlabeling and ingredient compliance re-tagging'
     ],
-    accentColor: '#8B5CF6',
+    accentColor: '#D84315',
     badgeText: 'Value-Added Services'
   }
 ];

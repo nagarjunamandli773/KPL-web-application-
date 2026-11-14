@@ -125,7 +125,7 @@ export const sustainablePillars = [
     title: 'ISO 14083 & GLEC Scope 3 Carbon Accounting',
     subtitle: 'Audit-Ready Digital Emissions Intelligence',
     icon: 'BarChart3',
-    accentColor: '#059669',
+    accentColor: '#EA580C',
     points: [
       'Well-to-Wheel (WTW) per-shipment emissions calculated down to the specific vessel, aircraft tail, and tractor engine.',
       'Fully compliant with the EU Corporate Sustainability Due Diligence Directive (CSDDD) and CSRD reporting.',
@@ -139,7 +139,7 @@ export const sustainablePillars = [
     title: 'Low-Carbon Fuel Insetting (SAF, Bio-LNG & HVO100)',
     subtitle: 'Direct Supply Chain Decarbonization',
     icon: 'Droplets',
-    accentColor: '#10B981',
+    accentColor: '#D97706',
     points: [
       'Book & Claim mechanism: Buy and retire verified bio-fuel attributes without altering physical operational carriers.',
       'Sustainable Aviation Fuel (SAF) sourced exclusively from non-food waste oils and certified by RSB and ISCC-EU.',
@@ -153,7 +153,7 @@ export const sustainablePillars = [
     title: 'Algorithmic Eco-Routing & Multimodal Shift',
     subtitle: 'Optimizing Transit Times Against Carbon Footprints',
     icon: 'RefreshCw',
-    accentColor: '#0284C7',
+    accentColor: '#C2410C',
     points: [
       'Smart Sea-Air Hybrid routing delivers 60% carbon reduction compared to pure air at 35% of the freight cost.',
       'Electric rail intermodal connection directly into inland container depots, replacing long-distance diesel trucking.',
@@ -167,7 +167,7 @@ export const sustainablePillars = [
     title: 'Circular Packaging & Net-Zero Green Warehousing',
     subtitle: 'Zero-Waste Facilities & Returnable Assets',
     icon: 'Recycle',
-    accentColor: '#16A34A',
+    accentColor: '#EA580C',
     points: [
       'LEED Platinum and BREEAM-certified fulfillment centers powered by on-site solar photovoltaic arrays.',
       '100% reusable smart IoT temperature-controlled totes and collapsible pallet sleeves eliminating single-use plastics.',

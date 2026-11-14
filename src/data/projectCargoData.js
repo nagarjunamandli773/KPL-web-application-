@@ -52,9 +52,9 @@ export const heavyCargoCategories = [
     title: 'Renewables & Offshore Wind',
     tagline: 'Extra-Long Rotor Blades & Monopiles',
     icon: 'Wind',
-    accentColor: '#059669',
-    bgLight: 'rgba(5, 150, 105, 0.08)',
-    borderColor: 'rgba(5, 150, 105, 0.25)',
+    accentColor: '#EA580C',
+    bgLight: 'rgba(234, 88, 12, 0.08)',
+    borderColor: 'rgba(234, 88, 12, 0.25)',
     description:
       'Specialized transport configurations for 75m–95m composite rotor blades, tower segments (up to 6.5m base diameter), nacelles, and offshore transition pieces.',
     keySpecs: [
@@ -70,9 +70,9 @@ export const heavyCargoCategories = [
     title: 'Oil, Gas & Petrochemical',
     tagline: 'Reactors, Fractionation Columns & Pre-Assembled Units',
     icon: 'Flame',
-    accentColor: '#EA580C',
-    bgLight: 'rgba(234, 88, 12, 0.08)',
-    borderColor: 'rgba(234, 88, 12, 0.25)',
+    accentColor: '#C2410C',
+    bgLight: 'rgba(194, 65, 12, 0.08)',
+    borderColor: 'rgba(194, 65, 12, 0.25)',
     description:
       'Ocean breakbulk chartering, deep-water roll-on/roll-off (Ro-Ro) barge operations, and SPMT transport of giant hydrocrackers, distillation columns, and cryogenic heat exchangers.',
     keySpecs: [
@@ -88,9 +88,9 @@ export const heavyCargoCategories = [
     title: 'Mining, Metals & Heavy EPC',
     tagline: 'Autoclaves, Ball Mills & Primary Gyratory Crushers',
     icon: 'Pickaxe',
-    accentColor: '#7C3AED',
-    bgLight: 'rgba(124, 58, 237, 0.08)',
-    borderColor: 'rgba(124, 58, 237, 0.25)',
+    accentColor: '#D97706',
+    bgLight: 'rgba(217, 119, 6, 0.08)',
+    borderColor: 'rgba(217, 119, 6, 0.25)',
     description:
       'Overcoming extreme geographical challenges to deliver oversized mineral processing machinery, dragline components, and smelter crucibles to remote, high-altitude mine sites.',
     keySpecs: [
@@ -106,9 +106,9 @@ export const heavyCargoCategories = [
     title: 'Civil Infrastructure & Rail',
     tagline: 'Tunnel Boring Machines (TBM) & Steel Bridge Girders',
     icon: 'Train',
-    accentColor: '#0284C7',
-    bgLight: 'rgba(2, 132, 199, 0.08)',
-    borderColor: 'rgba(2, 132, 199, 0.25)',
+    accentColor: '#082653',
+    bgLight: 'rgba(8, 38, 83, 0.08)',
+    borderColor: 'rgba(8, 38, 83, 0.25)',
     description:
       'Precision urban midnight staging for mega infrastructure projects, subway expansions, metro train sets, and pre-stressed steel bridge arch segments.',
     keySpecs: [
@@ -124,9 +124,9 @@ export const heavyCargoCategories = [
     title: 'Advanced Industrial Machinery',
     tagline: 'Hydraulic Forging Presses & Precision Extruders',
     icon: 'Cog',
-    accentColor: '#475569',
-    bgLight: 'rgba(71, 85, 105, 0.08)',
-    borderColor: 'rgba(71, 85, 105, 0.25)',
+    accentColor: '#EA580C',
+    bgLight: 'rgba(234, 88, 12, 0.08)',
+    borderColor: 'rgba(234, 88, 12, 0.25)',
     description:
       'Cleanroom-compatible indoor plant installation, specialized air-bearing skidding, and foundation anchoring of massive automotive stamping presses and aerospace machinery.',
     keySpecs: [
@@ -252,7 +252,7 @@ export const projectCargoPillars = [
     title: 'Heavy Lift & Marine Stowage Engineering',
     subtitle: 'IMO CSS & DNV MWS Certified Standards',
     icon: 'Anchor',
-    color: '#0284C7',
+    color: '#EA580C',
     points: [
       'Custom 3D stowage plans, deck load calculations, and ballasting sequences for geared ocean vessels and barges.',
       'Rigging geometry analysis: Lifting lugs, spreader beam sizing, sling angle stresses, and center-of-gravity (CoG) verification.',
@@ -265,7 +265,7 @@ export const projectCargoPillars = [
     title: 'Multi-Axle SPMT & Specialized Fleet Rigging',
     subtitle: 'Heavy Modular Ground Movement',
     icon: 'Truck',
-    color: '#059669',
+    color: '#EA580C',
     points: [
       'Self-Propelled Modular Transporters (SPMTs) capable of 360-degree carousel steering and crab-crawling.',
       'Hydraulic platform trailers (Goldhofer, Scheuerle) configurable up to 48 lines with side-by-side coupling.',
@@ -278,7 +278,7 @@ export const projectCargoPillars = [
     title: 'Quayside Ro-Ro & Intermodal Transshipment',
     subtitle: 'Seamless Waterway to Land Transition',
     icon: 'Ship',
-    color: '#7C3AED',
+    color: '#C2410C',
     points: [
       'Deep-water Roll-on/Roll-off (Ro-Ro) barge operations eliminating the need for expensive high-tonnage shore cranes.',
       'Internal ballast pumping synchronized with incoming tidal swells during vehicle roll-on / roll-off.',

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Header } from '../components/layout/Header';
 import { Footer } from '../components/layout/Footer';
 import { TrackModal } from '../components/common/TrackModal';
+import Magnet, { CARD_MAGNET_PROPS, TILE_MAGNET_PROPS } from '../components/common/Magnet';
 import {
   perishableHeroStats,
   perishableCommodityTiers,
@@ -135,13 +136,14 @@ export const PerishableShipments = ({ onNavigate }) => {
         <section
           style={{
             position: 'relative',
-            background: 'linear-gradient(135deg, #04142B 0%, #082653 50%, #1A1208 100%)',
-            color: '#FFFFFF',
+            background: 'linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 50%, #FFF7ED 100%)',
+            color: '#082653',
             borderRadius: '16px',
             margin: '0 24px',
             padding: '56px 48px 48px',
             overflow: 'hidden',
-            boxShadow: '0 20px 50px rgba(8, 38, 83, 0.28)',
+            border: '1px solid #FED7AA',
+            boxShadow: '0 20px 50px rgba(234, 88, 12, 0.08)',
           }}
         >
           {/* Subtle Ambient Radial Lighting */}
@@ -153,7 +155,7 @@ export const PerishableShipments = ({ onNavigate }) => {
               width: '580px',
               height: '580px',
               borderRadius: '50%',
-              background: 'radial-gradient(circle, rgba(216, 67, 21, 0.22) 0%, rgba(234, 88, 12, 0.08) 50%, transparent 75%)',
+              background: 'radial-gradient(circle, rgba(216, 67, 21, 0.1) 0%, rgba(234, 88, 12, 0.05) 50%, transparent 75%)',
               filter: 'blur(55px)',
               pointerEvents: 'none',
             }}
@@ -166,7 +168,7 @@ export const PerishableShipments = ({ onNavigate }) => {
               width: '450px',
               height: '450px',
               borderRadius: '50%',
-              background: 'radial-gradient(circle, rgba(22, 163, 74, 0.16) 0%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(251, 146, 60, 0.12) 0%, transparent 70%)',
               filter: 'blur(60px)',
               pointerEvents: 'none',
             }}
@@ -192,16 +194,16 @@ export const PerishableShipments = ({ onNavigate }) => {
                   gap: '8px',
                   padding: '6px 14px',
                   borderRadius: '24px',
-                  background: 'rgba(216, 67, 21, 0.14)',
-                  border: '1px solid rgba(216, 67, 21, 0.35)',
+                  background: 'rgba(255, 255, 255, 0.75)',
+                  border: '1px solid #FDBA74',
                   marginBottom: '20px',
-                  boxShadow: '0 2px 12px rgba(216, 67, 21, 0.15)',
+                  boxShadow: '0 2px 10px rgba(216, 67, 21, 0.08)',
                 }}
               >
-                <Apple size={14} color="#FF7043" />
+                <Apple size={14} color="#D84315" />
                 <span
                   style={{
-                    color: '#FFAB91',
+                    color: '#C2410C',
                     fontSize: '11px',
                     fontWeight: '800',
                     letterSpacing: '0.08em',
@@ -218,7 +220,7 @@ export const PerishableShipments = ({ onNavigate }) => {
                   fontSize: '40px',
                   fontWeight: '800',
                   lineHeight: '1.16',
-                  color: '#FFFFFF',
+                  color: '#082653',
                   margin: '0 0 18px',
                   letterSpacing: '-0.02em',
                 }}
@@ -226,7 +228,7 @@ export const PerishableShipments = ({ onNavigate }) => {
                 Orchard & Ocean Freshness,{' '}
                 <span
                   style={{
-                    background: 'linear-gradient(90deg, #FF8A65 0%, #FFB74D 50%, #81C784 100%)',
+                    background: 'linear-gradient(90deg, #C2410C 0%, #EA580C 50%, #D97706 100%)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
                   }}
@@ -241,7 +243,7 @@ export const PerishableShipments = ({ onNavigate }) => {
                 style={{
                   fontSize: '15px',
                   lineHeight: '1.65',
-                  color: '#CBD5E1',
+                  color: '#334155',
                   margin: '0 0 24px',
                   maxWidth: '560px',
                 }}
@@ -259,10 +261,10 @@ export const PerishableShipments = ({ onNavigate }) => {
                 }}
               >
                 {[
-                  { text: 'Controlled Atmosphere (CA) O2/CO2', icon: Wind, color: '#FF7043' },
-                  { text: 'Active Ethylene Gas Scrubbing', icon: Leaf, color: '#4ADE80' },
-                  { text: 'USDA Cold-Treatment (CT)', icon: ShieldCheck, color: '#38BDF8' },
-                  { text: 'Tarmac Cool-Dollies <35m', icon: Clock, color: '#FBBF24' },
+                  { text: 'Controlled Atmosphere (CA) O2/CO2', icon: Wind, color: '#D84315' },
+                  { text: 'Active Ethylene Gas Scrubbing', icon: Leaf, color: '#EA580C' },
+                  { text: 'USDA Cold-Treatment (CT)', icon: ShieldCheck, color: '#EA580C' },
+                  { text: 'Tarmac Cool-Dollies <35m', icon: Clock, color: '#D97706' },
                 ].map((pill, idx) => (
                   <div
                     key={idx}
@@ -272,10 +274,10 @@ export const PerishableShipments = ({ onNavigate }) => {
                       gap: '6px',
                       padding: '5px 12px',
                       borderRadius: '8px',
-                      background: 'rgba(255, 255, 255, 0.06)',
-                      border: '1px solid rgba(255, 255, 255, 0.12)',
+                      background: '#FFFFFF',
+                      border: '1px solid #FED7AA',
                       fontSize: '12px',
-                      color: '#E2E8F0',
+                      color: '#082653',
                       fontWeight: '600',
                     }}
                   >
@@ -308,16 +310,16 @@ export const PerishableShipments = ({ onNavigate }) => {
                     fontWeight: '700',
                     border: 'none',
                     cursor: 'pointer',
-                    boxShadow: '0 8px 24px rgba(216, 67, 21, 0.35)',
+                    boxShadow: '0 8px 24px rgba(216, 67, 21, 0.3)',
                     transition: 'all 0.2s ease',
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'translateY(-2px)';
-                    e.currentTarget.style.boxShadow = '0 12px 30px rgba(216, 67, 21, 0.45)';
+                    e.currentTarget.style.boxShadow = '0 12px 30px rgba(216, 67, 21, 0.42)';
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = '0 8px 24px rgba(216, 67, 21, 0.35)';
+                    e.currentTarget.style.boxShadow = '0 8px 24px rgba(216, 67, 21, 0.3)';
                   }}
                 >
                   <Thermometer size={17} />
@@ -333,24 +335,25 @@ export const PerishableShipments = ({ onNavigate }) => {
                     gap: '8px',
                     padding: '13px 22px',
                     borderRadius: '12px',
-                    background: 'rgba(255, 255, 255, 0.08)',
-                    color: '#FFFFFF',
+                    background: '#FFFFFF',
+                    color: '#082653',
                     fontSize: '14px',
                     fontWeight: '700',
-                    border: '1px solid rgba(255, 255, 255, 0.2)',
+                    border: '1px solid #FDBA74',
                     cursor: 'pointer',
+                    boxShadow: '0 2px 8px rgba(234, 88, 12, 0.08)',
                     transition: 'all 0.2s ease',
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.15)';
-                    e.currentTarget.style.borderColor = '#FF7043';
+                    e.currentTarget.style.background = '#FFFBEB';
+                    e.currentTarget.style.borderColor = '#D84315';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
-                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                    e.currentTarget.style.background = '#FFFFFF';
+                    e.currentTarget.style.borderColor = '#FDBA74';
                   }}
                 >
-                  <Radio size={15} color="#FF7043" />
+                  <Radio size={15} color="#D84315" />
                   <span>Track Live Reefer Telemetry</span>
                 </button>
               </div>
@@ -362,9 +365,9 @@ export const PerishableShipments = ({ onNavigate }) => {
                 position: 'relative',
                 borderRadius: '16px',
                 overflow: 'hidden',
-                border: '1px solid rgba(255, 255, 255, 0.25)',
-                boxShadow: '0 20px 45px rgba(0, 0, 0, 0.35)',
-                background: '#04142B',
+                border: '1px solid #FED7AA',
+                boxShadow: '0 20px 45px rgba(234, 88, 12, 0.15)',
+                background: '#FFF7ED',
                 height: '380px',
               }}
             >
@@ -376,16 +379,7 @@ export const PerishableShipments = ({ onNavigate }) => {
                   height: '100%',
                   objectFit: 'cover',
                   objectPosition: 'center 45%',
-                  filter: 'brightness(1.02) contrast(1.03)',
-                }}
-              />
-              {/* Subtle top & bottom vignette to guarantee HUD readability while keeping the fruit 100% clear and bright */}
-              <div
-                style={{
-                  position: 'absolute',
-                  inset: 0,
-                  background: 'linear-gradient(180deg, rgba(4, 20, 43, 0.4) 0%, transparent 22%, transparent 72%, rgba(4, 20, 43, 0.5) 100%)',
-                  pointerEvents: 'none',
+                  filter: 'brightness(1.04) contrast(1.03)',
                 }}
               />
 
@@ -396,16 +390,16 @@ export const PerishableShipments = ({ onNavigate }) => {
                   top: '16px',
                   left: '16px',
                   right: '16px',
-                  background: 'rgba(4, 20, 43, 0.88)',
+                  background: 'rgba(255, 247, 237, 0.95)',
                   backdropFilter: 'blur(12px)',
                   WebkitBackdropFilter: 'blur(12px)',
-                  border: '1px solid rgba(216, 67, 21, 0.45)',
+                  border: '1px solid #FDBA74',
                   borderRadius: '12px',
                   padding: '12px 16px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
-                  boxShadow: '0 8px 24px rgba(0, 0, 0, 0.3)',
+                  boxShadow: '0 8px 24px rgba(28, 25, 23, 0.16)',
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -414,25 +408,25 @@ export const PerishableShipments = ({ onNavigate }) => {
                       width: '10px',
                       height: '10px',
                       borderRadius: '50%',
-                      background: '#22C55E',
-                      boxShadow: '0 0 10px #22C55E',
+                      background: '#FF6F00',
+                      boxShadow: '0 0 10px rgba(234, 88, 12, 0.5)',
                     }}
                   />
                   <div>
-                    <div style={{ fontSize: '12px', fontWeight: '800', color: '#FFFFFF' }}>
+                    <div style={{ fontSize: '12px', fontWeight: '800', color: '#0F172A' }}>
                       SMART REEFER #GLK-9410-CA
                     </div>
-                    <div style={{ fontSize: '10px', color: '#94A3B8' }}>
+                    <div style={{ fontSize: '10px', color: '#475569' }}>
                       CARGO: Fresh Alphonso Mangoes (FEU #882)
                     </div>
                   </div>
                 </div>
 
                 <div style={{ textAlign: 'right' }}>
-                  <div style={{ fontSize: '14px', fontWeight: '900', color: '#FFAB91' }}>
+                  <div style={{ fontSize: '14px', fontWeight: '900', color: '#C2410C' }}>
                     +12.4°C
                   </div>
-                  <div style={{ fontSize: '10px', color: '#4ADE80' }}>
+                  <div style={{ fontSize: '10px', color: '#EA580C', fontWeight: '700' }}>
                     O2: 3.8% • CO2: 4.5%
                   </div>
                 </div>
@@ -445,25 +439,25 @@ export const PerishableShipments = ({ onNavigate }) => {
                   bottom: '16px',
                   left: '16px',
                   right: '16px',
-                  background: 'rgba(4, 20, 43, 0.86)',
+                  background: 'rgba(255, 247, 237, 0.95)',
                   backdropFilter: 'blur(12px)',
                   WebkitBackdropFilter: 'blur(12px)',
-                  border: '1px solid rgba(255, 255, 255, 0.18)',
+                  border: '1px solid #FDBA74',
                   borderRadius: '10px',
                   padding: '10px 14px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
-                  boxShadow: '0 8px 24px rgba(0, 0, 0, 0.3)',
+                  boxShadow: '0 8px 24px rgba(28, 25, 23, 0.16)',
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <Leaf size={16} color="#4ADE80" />
-                  <span style={{ fontSize: '11px', color: '#E2E8F0', fontWeight: '600' }}>
+                  <Leaf size={16} color="#EA580C" />
+                  <span style={{ fontSize: '11px', color: '#0F172A', fontWeight: '600' }}>
                     Ethylene Scavenger: 0.01 PPM (Ripening Halted)
                   </span>
                 </div>
-                <span style={{ fontSize: '10px', color: '#81C784', fontWeight: '800' }}>
+                <span style={{ fontSize: '10px', color: '#C2410C', fontWeight: '800' }}>
                   ACTIVE CA
                 </span>
               </div>
@@ -478,95 +472,111 @@ export const PerishableShipments = ({ onNavigate }) => {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(4, 1fr)',
+              gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
               gap: '16px',
+              alignItems: 'stretch',
             }}
           >
             {perishableHeroStats.map((stat, idx) => (
-              <div
-                key={idx}
-                style={{
-                  background: '#FFFFFF',
-                  borderRadius: '12px',
-                  padding: '22px 20px',
-                  border: '1px solid #E2E8F0',
-                  boxShadow: '0 4px 16px rgba(8, 38, 83, 0.04)',
-                  position: 'relative',
-                  overflow: 'hidden',
-                  transition: 'all 0.2s ease',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-3px)';
-                  e.currentTarget.style.borderColor = '#D84315';
-                  e.currentTarget.style.boxShadow = '0 10px 24px rgba(216, 67, 21, 0.12)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.borderColor = '#E2E8F0';
-                  e.currentTarget.style.boxShadow = '0 4px 16px rgba(8, 38, 83, 0.04)';
-                }}
-              >
+              <Magnet key={idx} {...TILE_MAGNET_PROPS}>
                 <div
                   style={{
-                    display: 'inline-block',
-                    padding: '3px 8px',
-                    borderRadius: '4px',
-                    background: 'rgba(216, 67, 21, 0.08)',
-                    color: '#D84315',
-                    fontSize: '10px',
-                    fontWeight: '800',
-                    letterSpacing: '0.04em',
-                    marginBottom: '8px',
+                    background: '#FFFFFF',
+                    borderRadius: '12px',
+                    padding: '22px 20px 24px',
+                    border: '1.5px solid #FDBA74',
+                    boxShadow: '0 4px 16px rgba(234, 88, 12, 0.06)',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'flex-start',
+                    height: '100%',
+                    boxSizing: 'border-box',
+                    transition: 'all 0.2s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-3px)';
+                    e.currentTarget.style.borderColor = '#D84315';
+                    e.currentTarget.style.boxShadow = '0 10px 24px rgba(216, 67, 21, 0.14)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.borderColor = '#FDBA74';
+                    e.currentTarget.style.boxShadow = '0 4px 16px rgba(234, 88, 12, 0.06)';
                   }}
                 >
-                  {stat.badge}
-                </div>
+                  <div
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      alignSelf: 'flex-start',
+                      padding: '3px 8px',
+                      borderRadius: '4px',
+                      background: 'rgba(216, 67, 21, 0.08)',
+                      color: '#D84315',
+                      fontSize: '10px',
+                      fontWeight: '800',
+                      letterSpacing: '0.04em',
+                      marginBottom: '10px',
+                    }}
+                  >
+                    {stat.badge}
+                  </div>
 
-                <div
-                  style={{
-                    fontSize: '28px',
-                    fontWeight: '900',
-                    color: '#082653',
-                    marginBottom: '4px',
-                    letterSpacing: '-0.02em',
-                  }}
-                >
-                  {stat.value}
-                </div>
+                  <div
+                    style={{
+                      fontSize: 'clamp(21px, 2vw, 27px)',
+                      fontWeight: '900',
+                      color: '#082653',
+                      marginBottom: '6px',
+                      letterSpacing: '-0.02em',
+                      lineHeight: '1.15',
+                      minHeight: '32px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      whiteSpace: 'nowrap',
+                    }}
+                  >
+                    {stat.value}
+                  </div>
 
-                <div
-                  style={{
-                    fontSize: '13px',
-                    fontWeight: '700',
-                    color: '#1E293B',
-                    marginBottom: '6px',
-                  }}
-                >
-                  {stat.label}
-                </div>
+                  <div
+                    style={{
+                      fontSize: '13px',
+                      fontWeight: '700',
+                      color: '#1E293B',
+                      marginBottom: '6px',
+                      minHeight: '36px',
+                      lineHeight: '1.35',
+                    }}
+                  >
+                    {stat.label}
+                  </div>
 
-                <div
-                  style={{
-                    fontSize: '11px',
-                    color: '#64748B',
-                    lineHeight: '1.45',
-                  }}
-                >
-                  {stat.desc}
-                </div>
+                  <div
+                    style={{
+                      fontSize: '11px',
+                      color: '#64748B',
+                      lineHeight: '1.45',
+                    }}
+                  >
+                    {stat.desc}
+                  </div>
 
-                <div
-                  style={{
-                    position: 'absolute',
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    height: '3px',
-                    background: 'linear-gradient(90deg, #D84315 0%, #16A34A 100%)',
-                    opacity: 0.8,
-                  }}
-                />
-              </div>
+                  <div
+                    style={{
+                      position: 'absolute',
+                      bottom: 0,
+                      left: 0,
+                      right: 0,
+                      height: '3px',
+                      background: 'linear-gradient(90deg, #D84315 0%, #D97706 100%)',
+                      opacity: 0.8,
+                    }}
+                  />
+                </div>
+              </Magnet>
             ))}
           </div>
         </section>
@@ -579,9 +589,9 @@ export const PerishableShipments = ({ onNavigate }) => {
             margin: '36px 24px 0',
             background: '#FFFFFF',
             borderRadius: '16px',
-            border: '1px solid #E2E8F0',
+            border: '1px solid #FDBA74',
             padding: '36px',
-            boxShadow: '0 8px 30px rgba(8, 38, 83, 0.05)',
+            boxShadow: '0 8px 30px rgba(28, 25, 23, 0.05)',
           }}
         >
           <div
@@ -644,7 +654,7 @@ export const PerishableShipments = ({ onNavigate }) => {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
+              gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
               gap: '24px',
               marginBottom: '28px',
             }}
@@ -667,31 +677,32 @@ export const PerishableShipments = ({ onNavigate }) => {
                 {perishableCommodityTiers.map((tier) => {
                   const isSelected = selectedTierId === tier.id;
                   return (
-                    <div
-                      key={tier.id}
-                      onClick={() => setSelectedTierId(tier.id)}
-                      style={{
-                        padding: '12px 14px',
-                        borderRadius: '10px',
-                        border: isSelected ? '2px solid #D84315' : '1px solid #E2E8F0',
-                        background: isSelected ? 'rgba(216, 67, 21, 0.06)' : '#FAFCFF',
-                        cursor: 'pointer',
-                        transition: 'all 0.15s ease',
-                      }}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                        <span style={{ fontSize: '13px', fontWeight: '700', color: isSelected ? '#082653' : '#334155' }}>
-                          {tier.name}
-                        </span>
-                        {isSelected && <CheckCircle2 size={16} color="#D84315" />}
+                    <Magnet key={tier.id} {...TILE_MAGNET_PROPS} style={{ display: 'block', width: '100%' }}>
+                      <div
+                        onClick={() => setSelectedTierId(tier.id)}
+                        style={{
+                          padding: '12px 14px',
+                          borderRadius: '10px',
+                          border: isSelected ? '2px solid #D84315' : '1px solid #FDBA74',
+                          background: isSelected ? 'rgba(216, 67, 21, 0.06)' : '#FAFCFF',
+                          cursor: 'pointer',
+                          transition: 'all 0.15s ease',
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                          <span style={{ fontSize: '13px', fontWeight: '700', color: isSelected ? '#082653' : '#334155' }}>
+                            {tier.name}
+                          </span>
+                          {isSelected && <CheckCircle2 size={16} color="#D84315" />}
+                        </div>
+                        <div style={{ fontSize: '11px', color: '#D84315', fontWeight: '700', marginTop: '2px' }}>
+                          Set Temp: {tier.tempDisplay}
+                        </div>
+                        <div style={{ fontSize: '11px', color: '#64748B', marginTop: '3px', lineHeight: '1.3' }}>
+                          {tier.desc}
+                        </div>
                       </div>
-                      <div style={{ fontSize: '11px', color: '#D84315', fontWeight: '700', marginTop: '2px' }}>
-                        Set Temp: {tier.tempDisplay}
-                      </div>
-                      <div style={{ fontSize: '11px', color: '#64748B', marginTop: '3px', lineHeight: '1.3' }}>
-                        {tier.desc}
-                      </div>
-                    </div>
+                    </Magnet>
                   );
                 })}
               </div>
@@ -715,31 +726,32 @@ export const PerishableShipments = ({ onNavigate }) => {
                 {perishableAtmosphereTech.map((tech) => {
                   const isSelected = selectedTechId === tech.id;
                   return (
-                    <div
-                      key={tech.id}
-                      onClick={() => setSelectedTechId(tech.id)}
-                      style={{
-                        padding: '12px 14px',
-                        borderRadius: '10px',
-                        border: isSelected ? '2px solid #16A34A' : '1px solid #E2E8F0',
-                        background: isSelected ? 'rgba(22, 163, 74, 0.06)' : '#FAFCFF',
-                        cursor: 'pointer',
-                        transition: 'all 0.15s ease',
-                      }}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                        <span style={{ fontSize: '13px', fontWeight: '700', color: '#082653' }}>
-                          {tech.name}
-                        </span>
-                        {isSelected && <CheckCircle2 size={16} color="#16A34A" />}
+                    <Magnet key={tech.id} {...TILE_MAGNET_PROPS} style={{ display: 'block', width: '100%' }}>
+                      <div
+                        onClick={() => setSelectedTechId(tech.id)}
+                        style={{
+                          padding: '12px 14px',
+                          borderRadius: '10px',
+                          border: isSelected ? '2px solid #EA580C' : '1px solid #FDBA74',
+                          background: isSelected ? 'rgba(234, 88, 12, 0.06)' : '#FAFCFF',
+                          cursor: 'pointer',
+                          transition: 'all 0.15s ease',
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                          <span style={{ fontSize: '13px', fontWeight: '700', color: '#082653' }}>
+                            {tech.name}
+                          </span>
+                          {isSelected && <CheckCircle2 size={16} color="#EA580C" />}
+                        </div>
+                        <div style={{ fontSize: '11px', color: '#EA580C', fontWeight: '700', marginTop: '2px' }}>
+                          Mode: {tech.mode} • Transit: {tech.transitWindow}
+                        </div>
+                        <div style={{ fontSize: '11px', color: '#64748B', marginTop: '4px', lineHeight: '1.35' }}>
+                          {tech.summary}
+                        </div>
                       </div>
-                      <div style={{ fontSize: '11px', color: '#16A34A', fontWeight: '700', marginTop: '2px' }}>
-                        Mode: {tech.mode} • Transit: {tech.transitWindow}
-                      </div>
-                      <div style={{ fontSize: '11px', color: '#64748B', marginTop: '4px', lineHeight: '1.35' }}>
-                        {tech.summary}
-                      </div>
-                    </div>
+                    </Magnet>
                   );
                 })}
               </div>
@@ -763,31 +775,32 @@ export const PerishableShipments = ({ onNavigate }) => {
                 {perishableVolumeScales.map((vol) => {
                   const isSelected = selectedVolId === vol.id;
                   return (
-                    <div
-                      key={vol.id}
-                      onClick={() => setSelectedVolId(vol.id)}
-                      style={{
-                        padding: '12px 14px',
-                        borderRadius: '10px',
-                        border: isSelected ? '2px solid #0284C7' : '1px solid #E2E8F0',
-                        background: isSelected ? 'rgba(2, 132, 199, 0.06)' : '#FAFCFF',
-                        cursor: 'pointer',
-                        transition: 'all 0.15s ease',
-                      }}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                        <span style={{ fontSize: '13px', fontWeight: '700', color: isSelected ? '#082653' : '#334155' }}>
-                          {vol.name}
-                        </span>
-                        {isSelected && <CheckCircle2 size={16} color="#0284C7" />}
+                    <Magnet key={vol.id} {...TILE_MAGNET_PROPS} style={{ display: 'block', width: '100%' }}>
+                      <div
+                        onClick={() => setSelectedVolId(vol.id)}
+                        style={{
+                          padding: '12px 14px',
+                          borderRadius: '10px',
+                          border: isSelected ? '2px solid #EA580C' : '1px solid #FDBA74',
+                          background: isSelected ? 'rgba(234, 88, 12, 0.06)' : '#FAFCFF',
+                          cursor: 'pointer',
+                          transition: 'all 0.15s ease',
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                          <span style={{ fontSize: '13px', fontWeight: '700', color: isSelected ? '#082653' : '#334155' }}>
+                            {vol.name}
+                          </span>
+                          {isSelected && <CheckCircle2 size={16} color="#EA580C" />}
+                        </div>
+                        <div style={{ fontSize: '11px', color: '#EA580C', fontWeight: '700', marginTop: '2px' }}>
+                          Payload: {vol.capacity} • {vol.turnaround}
+                        </div>
+                        <div style={{ fontSize: '11px', color: '#64748B', marginTop: '4px', lineHeight: '1.3' }}>
+                          {vol.description}
+                        </div>
                       </div>
-                      <div style={{ fontSize: '11px', color: '#0284C7', fontWeight: '700', marginTop: '2px' }}>
-                        Payload: {vol.capacity} • {vol.turnaround}
-                      </div>
-                      <div style={{ fontSize: '11px', color: '#64748B', marginTop: '4px', lineHeight: '1.3' }}>
-                        {vol.description}
-                      </div>
-                    </div>
+                    </Magnet>
                   );
                 })}
               </div>
@@ -797,8 +810,9 @@ export const PerishableShipments = ({ onNavigate }) => {
           {/* Simulator Result Output Bar */}
           <div
             style={{
-              background: 'linear-gradient(135deg, #051A3B 0%, #082653 100%)',
-              color: '#FFFFFF',
+              background: 'linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%)',
+              border: '1px solid #FED7AA',
+              color: '#082653',
               borderRadius: '12px',
               padding: '20px 24px',
               display: 'flex',
@@ -809,13 +823,13 @@ export const PerishableShipments = ({ onNavigate }) => {
             }}
           >
             <div>
-              <div style={{ fontSize: '11px', color: '#FFAB91', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+              <div style={{ fontSize: '11px', color: '#D84315', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
                 CONFIGURED PERISHABLE COLD-CHAIN SPECIFICATION
               </div>
-              <div style={{ fontSize: '16px', fontWeight: '800', marginTop: '2px' }}>
-                {selectedTier.name} • <span style={{ color: '#FFAB91' }}>{selectedTier.tempDisplay}</span> • {selectedTech.name}
+              <div style={{ fontSize: '16px', fontWeight: '800', marginTop: '2px', color: '#082653' }}>
+                {selectedTier.name} • <span style={{ color: '#D84315' }}>{selectedTier.tempDisplay}</span> • {selectedTech.name}
               </div>
-              <div style={{ fontSize: '12px', color: '#94A3B8', marginTop: '4px' }}>
+              <div style={{ fontSize: '12px', color: '#475569', marginTop: '4px' }}>
                 Capacity: {selectedVol.name} ({selectedVol.capacity}) • O2: {selectedTech.oxygenControl} • CO2: {selectedTech.carbonControl}
               </div>
             </div>
@@ -850,11 +864,11 @@ export const PerishableShipments = ({ onNavigate }) => {
                   gap: '6px',
                   padding: '11px 18px',
                   borderRadius: '10px',
-                  background: 'rgba(255, 255, 255, 0.1)',
-                  color: '#FFFFFF',
+                  background: '#FFFFFF',
+                  color: '#082653',
                   fontSize: '13px',
                   fontWeight: '700',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  border: '1px solid #FED7AA',
                   cursor: 'pointer',
                 }}
               >
@@ -934,43 +948,44 @@ export const PerishableShipments = ({ onNavigate }) => {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(2, 1fr)',
+              gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
               gap: '24px',
             }}
           >
             {perishablePillars.map((pillar) => {
               const featuresList = pillar.features || pillar.points || [];
               return (
-                <div
-                  key={pillar.id}
-                  style={{
-                    background: '#FFFFFF',
-                    borderRadius: '16px',
-                    border: '1px solid #E2E8F0',
-                    overflow: 'hidden',
-                    boxShadow: '0 8px 24px rgba(8, 38, 83, 0.04)',
-                    transition: 'all 0.25s ease',
-                    display: 'flex',
-                    flexDirection: 'column',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = 'translateY(-4px)';
-                    e.currentTarget.style.borderColor = '#D84315';
-                    e.currentTarget.style.boxShadow = '0 16px 36px rgba(216, 67, 21, 0.12)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.borderColor = '#E2E8F0';
-                    e.currentTarget.style.boxShadow = '0 8px 24px rgba(8, 38, 83, 0.04)';
-                  }}
-                >
+                <Magnet key={pillar.id} {...CARD_MAGNET_PROPS}>
+                  <div
+                    style={{
+                      background: '#FFFFFF',
+                      borderRadius: '16px',
+                      border: '1px solid #FDBA74',
+                      overflow: 'hidden',
+                      boxShadow: '0 8px 24px rgba(28, 25, 23, 0.04)',
+                      transition: 'all 0.25s ease',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      height: '100%',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-4px)';
+                      e.currentTarget.style.borderColor = '#D84315';
+                      e.currentTarget.style.boxShadow = '0 16px 36px rgba(216, 67, 21, 0.12)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.borderColor = '#FDBA74';
+                      e.currentTarget.style.boxShadow = '0 8px 24px rgba(28, 25, 23, 0.04)';
+                    }}
+                  >
                   {/* Image Header */}
                   <div
                     style={{
                       height: '180px',
                       position: 'relative',
                       overflow: 'hidden',
-                      background: '#04142B',
+                      background: '#FFF7ED',
                     }}
                   >
                     <img
@@ -980,7 +995,7 @@ export const PerishableShipments = ({ onNavigate }) => {
                         width: '100%',
                         height: '100%',
                         objectFit: 'cover',
-                        filter: 'brightness(1.02) contrast(1.02)',
+                        filter: 'brightness(1.05) contrast(1.04)',
                         transition: 'transform 0.4s ease',
                       }}
                       onMouseEnter={(e) => {
@@ -994,7 +1009,7 @@ export const PerishableShipments = ({ onNavigate }) => {
                       style={{
                         position: 'absolute',
                         inset: 0,
-                        background: 'linear-gradient(180deg, rgba(4, 20, 43, 0.05) 0%, transparent 40%, rgba(4, 20, 43, 0.5) 100%)',
+                        background: 'linear-gradient(180deg, transparent 62%, rgba(0, 0, 0, 0.25) 82%, rgba(0, 0, 0, 0.5) 100%)',
                       }}
                     />
                     {/* Top Metric Pill */}
@@ -1006,7 +1021,7 @@ export const PerishableShipments = ({ onNavigate }) => {
                         background: 'rgba(0, 0, 0, 0.65)',
                         backdropFilter: 'blur(8px)',
                         border: '1px solid rgba(216, 67, 21, 0.4)',
-                        color: '#FFAB91',
+                        color: '#FED7AA',
                         fontSize: '11px',
                         fontWeight: '800',
                         padding: '4px 10px',
@@ -1025,10 +1040,10 @@ export const PerishableShipments = ({ onNavigate }) => {
                         right: '16px',
                       }}
                     >
-                      <div style={{ fontSize: '11px', fontWeight: '700', color: '#FFCCBC', letterSpacing: '0.04em' }}>
+                      <div style={{ fontSize: '11px', fontWeight: '700', color: '#FDE68A', letterSpacing: '0.04em', textShadow: '0 1px 3px rgba(0, 0, 0, 0.65)' }}>
                         {pillar.subtitle}
                       </div>
-                      <div style={{ fontSize: '18px', fontWeight: '800', color: '#FFFFFF', marginTop: '2px' }}>
+                      <div style={{ fontSize: '18px', fontWeight: '800', color: '#FFFFFF', marginTop: '2px', textShadow: '0 1px 4px rgba(0, 0, 0, 0.65)' }}>
                         {pillar.title}
                       </div>
                     </div>
@@ -1082,6 +1097,7 @@ export const PerishableShipments = ({ onNavigate }) => {
                     </div>
                   </div>
                 </div>
+                </Magnet>
               );
             })}
           </div>
@@ -1095,9 +1111,9 @@ export const PerishableShipments = ({ onNavigate }) => {
             margin: '48px 24px 0',
             background: '#FFFFFF',
             borderRadius: '16px',
-            border: '1px solid #E2E8F0',
+            border: '1px solid #FDBA74',
             padding: '36px',
-            boxShadow: '0 8px 30px rgba(8, 38, 83, 0.04)',
+            boxShadow: '0 8px 30px rgba(28, 25, 23, 0.04)',
           }}
         >
           {/* Header & Tabs */}
@@ -1159,7 +1175,7 @@ export const PerishableShipments = ({ onNavigate }) => {
                       borderRadius: '8px',
                       fontSize: '12px',
                       fontWeight: '700',
-                      border: isActive ? '1px solid #D84315' : '1px solid #E2E8F0',
+                      border: isActive ? '1px solid #D84315' : '1px solid #FDBA74',
                       background: isActive ? 'linear-gradient(135deg, #D84315 0%, #EA580C 100%)' : '#FAFBFD',
                       color: isActive ? '#FFFFFF' : '#475569',
                       cursor: 'pointer',
@@ -1177,35 +1193,36 @@ export const PerishableShipments = ({ onNavigate }) => {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(4, 1fr)',
+              gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
               gap: '20px',
             }}
           >
             {filteredGallery.map((item) => (
-              <div
-                key={item.id}
-                onClick={() => setPreviewImage(item)}
-                style={{
-                  background: '#FAFBFD',
-                  borderRadius: '12px',
-                  border: '1px solid #E2E8F0',
-                  overflow: 'hidden',
-                  cursor: 'pointer',
-                  transition: 'all 0.2s ease',
-                  display: 'flex',
-                  flexDirection: 'column',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-3px)';
-                  e.currentTarget.style.borderColor = '#D84315';
-                  e.currentTarget.style.boxShadow = '0 10px 24px rgba(216, 67, 21, 0.12)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.borderColor = '#E2E8F0';
-                  e.currentTarget.style.boxShadow = 'none';
-                }}
-              >
+              <Magnet key={item.id} {...CARD_MAGNET_PROPS}>
+                <div
+                  onClick={() => setPreviewImage(item)}
+                  style={{
+                    background: '#FAFBFD',
+                    borderRadius: '12px',
+                    border: '1px solid #FDBA74',
+                    overflow: 'hidden',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s ease',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    height: '100%',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-3px)';
+                    e.currentTarget.style.borderColor = '#D84315';
+                    e.currentTarget.style.boxShadow = '0 10px 24px rgba(216, 67, 21, 0.12)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.borderColor = '#FDBA74';
+                    e.currentTarget.style.boxShadow = 'none';
+                  }}
+                >
                 {/* Image Frame with Ultra-High Resolution Rendering */}
                 <div
                   style={{
@@ -1235,7 +1252,7 @@ export const PerishableShipments = ({ onNavigate }) => {
                       position: 'absolute',
                       top: '10px',
                       left: '10px',
-                      background: 'rgba(8, 38, 83, 0.85)',
+                      background: 'rgba(234, 88, 12, 0.92)',
                       color: '#FFFFFF',
                       fontSize: '10px',
                       fontWeight: '700',
@@ -1282,13 +1299,14 @@ export const PerishableShipments = ({ onNavigate }) => {
                       <span style={{ fontSize: '10px', color: '#D84315', fontWeight: '700' }}>
                         {item.tempReq}
                       </span>
-                      <span style={{ fontSize: '10px', color: '#16A34A', fontWeight: '700' }}>
+                      <span style={{ fontSize: '10px', color: '#EA580C', fontWeight: '700' }}>
                         QC PASSED
                       </span>
                     </div>
                   </div>
                 </div>
               </div>
+              </Magnet>
             ))}
           </div>
         </section>
@@ -1300,7 +1318,7 @@ export const PerishableShipments = ({ onNavigate }) => {
             style={{
               position: 'fixed',
               inset: 0,
-              background: 'rgba(4, 20, 43, 0.82)',
+              background: 'rgba(28, 25, 23, 0.78)',
               backdropFilter: 'blur(8px)',
               WebkitBackdropFilter: 'blur(8px)',
               zIndex: 99999,
@@ -1321,7 +1339,7 @@ export const PerishableShipments = ({ onNavigate }) => {
                 maxHeight: 'min(90vh, 660px)',
                 display: 'flex',
                 flexDirection: 'column',
-                boxShadow: '0 25px 60px -15px rgba(4, 20, 43, 0.4), 0 0 0 1px rgba(226, 232, 240, 0.8)',
+                boxShadow: '0 25px 60px -15px rgba(28, 25, 23, 0.4), 0 0 0 1px rgba(226, 232, 240, 0.8)',
                 position: 'relative',
                 overflow: 'hidden',
                 margin: 'auto',
@@ -1339,7 +1357,7 @@ export const PerishableShipments = ({ onNavigate }) => {
                   borderRadius: '50%',
                   background: 'rgba(255, 255, 255, 0.95)',
                   backdropFilter: 'blur(4px)',
-                  border: '1px solid #E2E8F0',
+                  border: '1px solid #FDBA74',
                   boxShadow: '0 4px 12px rgba(0, 0, 0, 0.12)',
                   display: 'flex',
                   alignItems: 'center',
@@ -1356,7 +1374,7 @@ export const PerishableShipments = ({ onNavigate }) => {
                 style={{
                   padding: '20px 24px 16px',
                   textAlign: 'center',
-                  background: 'radial-gradient(ellipse at center, #F8FAFC 0%, #EEF2F6 100%)',
+                  background: 'radial-gradient(ellipse at center, #F8FAFC 0%, #F1F5F9 100%)',
                   borderBottom: '1px solid #F1F5F9',
                   display: 'flex',
                   alignItems: 'center',
@@ -1433,11 +1451,11 @@ export const PerishableShipments = ({ onNavigate }) => {
                 <div
                   style={{
                     background: '#F8FAFC',
-                    border: '1px solid #E2E8F0',
+                    border: '1px solid #FDBA74',
                     borderRadius: '12px',
                     padding: '14px 18px',
                     display: 'grid',
-                    gridTemplateColumns: '1fr 1fr',
+                    gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)',
                     gap: '16px',
                     marginBottom: '20px',
                   }}
@@ -1485,7 +1503,7 @@ export const PerishableShipments = ({ onNavigate }) => {
                       style={{
                         fontSize: '13.5px',
                         fontWeight: '700',
-                        color: '#16A34A',
+                        color: '#EA580C',
                         fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                       }}
                     >
@@ -1526,7 +1544,7 @@ export const PerishableShipments = ({ onNavigate }) => {
                       color: '#475569',
                       fontSize: '13px',
                       fontWeight: '700',
-                      border: '1px solid #E2E8F0',
+                      border: '1px solid #FDBA74',
                       cursor: 'pointer',
                       fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                       transition: 'all 0.2s ease',
@@ -1548,9 +1566,9 @@ export const PerishableShipments = ({ onNavigate }) => {
             margin: '48px 24px 0',
             background: '#FFFFFF',
             borderRadius: '16px',
-            border: '1px solid #E2E8F0',
+            border: '1px solid #FDBA74',
             padding: '36px',
-            boxShadow: '0 8px 30px rgba(8, 38, 83, 0.04)',
+            boxShadow: '0 8px 30px rgba(28, 25, 23, 0.04)',
           }}
         >
           <div style={{ marginBottom: '24px' }}>
@@ -1638,8 +1656,8 @@ export const PerishableShipments = ({ onNavigate }) => {
                           gap: '4px',
                           padding: '3px 8px',
                           borderRadius: '4px',
-                          background: 'rgba(22, 163, 74, 0.1)',
-                          color: '#15803D',
+                          background: 'rgba(234, 88, 12, 0.1)',
+                          color: '#C2410C',
                           fontSize: '11px',
                           fontWeight: '800',
                         }}
@@ -1691,82 +1709,84 @@ export const PerishableShipments = ({ onNavigate }) => {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
+              gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
               gap: '24px',
             }}
           >
             {perishableCaseStudies.map((study) => (
-              <div
-                key={study.id}
-                style={{
-                  background: '#FFFFFF',
-                  borderRadius: '16px',
-                  border: '1px solid #E2E8F0',
-                  padding: '24px',
-                  boxShadow: '0 8px 24px rgba(8, 38, 83, 0.04)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  transition: 'all 0.2s ease',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-3px)';
-                  e.currentTarget.style.borderColor = '#D84315';
-                  e.currentTarget.style.boxShadow = '0 12px 30px rgba(216, 67, 21, 0.1)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.borderColor = '#E2E8F0';
-                  e.currentTarget.style.boxShadow = '0 8px 24px rgba(8, 38, 83, 0.04)';
-                }}
-              >
-                <div>
-                  <div style={{ fontSize: '11px', color: '#D84315', fontWeight: '800', letterSpacing: '0.04em', textTransform: 'uppercase' }}>
-                    {study.client}
-                  </div>
-                  <h3 style={{ fontSize: '16px', fontWeight: '800', color: '#082653', margin: '8px 0 10px', lineHeight: '1.35' }}>
-                    {study.headline}
-                  </h3>
-                  <p style={{ fontSize: '12px', color: '#64748B', lineHeight: '1.55', margin: '0 0 20px' }}>
-                    {study.summary}
-                  </p>
-                </div>
-
-                <div>
-                  <div
-                    style={{
-                      display: 'grid',
-                      gridTemplateColumns: 'repeat(3, 1fr)',
-                      gap: '8px',
-                      background: '#F8FAFC',
-                      borderRadius: '10px',
-                      padding: '12px',
-                      marginBottom: '16px',
-                    }}
-                  >
-                    {study.metrics.map((res, rIdx) => (
-                      <div key={rIdx} style={{ textAlign: 'center' }}>
-                        <div style={{ fontSize: '14px', fontWeight: '900', color: '#082653' }}>{res.val}</div>
-                        <div style={{ fontSize: '10px', color: '#64748B', marginTop: '2px' }}>{res.label}</div>
-                      </div>
-                    ))}
+              <Magnet key={study.id} {...CARD_MAGNET_PROPS}>
+                <div
+                  style={{
+                    background: '#FFFFFF',
+                    borderRadius: '16px',
+                    border: '1px solid #FDBA74',
+                    padding: '24px',
+                    boxShadow: '0 8px 24px rgba(28, 25, 23, 0.04)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    height: '100%',
+                    transition: 'all 0.2s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-3px)';
+                    e.currentTarget.style.borderColor = '#D84315';
+                    e.currentTarget.style.boxShadow = '0 12px 30px rgba(216, 67, 21, 0.1)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.borderColor = '#FDBA74';
+                    e.currentTarget.style.boxShadow = '0 8px 24px rgba(28, 25, 23, 0.04)';
+                  }}
+                >
+                  <div>
+                    <div style={{ fontSize: '11px', color: '#D84315', fontWeight: '800', letterSpacing: '0.04em', textTransform: 'uppercase' }}>
+                      {study.client}
+                    </div>
+                    <h3 style={{ fontSize: '16px', fontWeight: '800', color: '#082653', margin: '8px 0 10px', lineHeight: '1.35' }}>
+                      {study.headline}
+                    </h3>
+                    <p style={{ fontSize: '12px', color: '#64748B', lineHeight: '1.55', margin: '0 0 20px' }}>
+                      {study.summary}
+                    </p>
                   </div>
 
-                  <div
-                    style={{
-                      fontSize: '11px',
-                      color: '#D84315',
-                      background: 'rgba(216, 67, 21, 0.08)',
-                      padding: '10px 12px',
-                      borderRadius: '8px',
-                      lineHeight: '1.45',
-                      fontWeight: '600',
-                    }}
-                  >
-                    <strong>Key Advantage:</strong> {study.takeaway}
+                  <div>
+                    <div
+                      style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
+                        gap: '8px',
+                        background: '#F8FAFC',
+                        borderRadius: '10px',
+                        padding: '12px',
+                        marginBottom: '16px',
+                      }}
+                    >
+                      {study.metrics.map((res, rIdx) => (
+                        <div key={rIdx} style={{ textAlign: 'center' }}>
+                          <div style={{ fontSize: '14px', fontWeight: '900', color: '#082653' }}>{res.val}</div>
+                          <div style={{ fontSize: '10px', color: '#64748B', marginTop: '2px' }}>{res.label}</div>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div
+                      style={{
+                        fontSize: '11px',
+                        color: '#D84315',
+                        background: 'rgba(216, 67, 21, 0.08)',
+                        padding: '10px 12px',
+                        borderRadius: '8px',
+                        lineHeight: '1.45',
+                        fontWeight: '600',
+                      }}
+                    >
+                      <strong>Key Advantage:</strong> {study.takeaway}
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Magnet>
             ))}
           </div>
         </section>
@@ -1777,10 +1797,11 @@ export const PerishableShipments = ({ onNavigate }) => {
         <section
           style={{
             margin: '48px 24px 0',
-            background: 'linear-gradient(135deg, #04142B 0%, #082653 100%)',
+            background: 'linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 50%, #FFF7ED 100%)',
+            border: '1px solid #FED7AA',
             borderRadius: '16px',
             padding: '28px 36px',
-            color: '#FFFFFF',
+            color: '#082653',
           }}
         >
           <div
@@ -1793,34 +1814,35 @@ export const PerishableShipments = ({ onNavigate }) => {
             }}
           >
             <div>
-              <div style={{ fontSize: '11px', color: '#FFAB91', fontWeight: '800', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+              <div style={{ fontSize: '11px', color: '#D84315', fontWeight: '800', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
                 CERTIFIED PERISHABLE COLD-CHAIN NETWORK
               </div>
-              <div style={{ fontSize: '18px', fontWeight: '800', marginTop: '4px' }}>
+              <div style={{ fontSize: '18px', fontWeight: '800', marginTop: '4px', color: '#082653' }}>
                 Accredited Under Global Food Safety & Quarantine Authorities
               </div>
             </div>
 
             <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
               {perishableStandards.map((std, idx) => (
-                <div
-                  key={idx}
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                    padding: '8px 14px',
-                    borderRadius: '8px',
-                    background: 'rgba(255, 255, 255, 0.08)',
-                    border: '1px solid rgba(216, 67, 21, 0.3)',
-                    fontSize: '11px',
-                    fontWeight: '700',
-                    color: '#FFE0B2',
-                  }}
-                >
-                  <CheckCircle2 size={13} color="#FF7043" />
-                  <span>{std}</span>
-                </div>
+                <Magnet key={idx} padding={14} magnetStrength={12} maxOffset={3} scale={1.015} tilt={0.8}>
+                  <div
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      padding: '8px 14px',
+                      borderRadius: '8px',
+                      background: '#FFFFFF',
+                      border: '1px solid #FED7AA',
+                      fontSize: '11px',
+                      fontWeight: '700',
+                      color: '#082653',
+                    }}
+                  >
+                    <CheckCircle2 size={13} color="#D84315" />
+                    <span>{std}</span>
+                  </div>
+                </Magnet>
               ))}
             </div>
           </div>
@@ -1834,9 +1856,9 @@ export const PerishableShipments = ({ onNavigate }) => {
             margin: '48px 24px 0',
             background: '#FFFFFF',
             borderRadius: '16px',
-            border: '1px solid #E2E8F0',
+            border: '1px solid #FDBA74',
             padding: '36px',
-            boxShadow: '0 8px 30px rgba(8, 38, 83, 0.04)',
+            boxShadow: '0 8px 30px rgba(28, 25, 23, 0.04)',
           }}
         >
           <div style={{ textAlign: 'center', marginBottom: '28px' }}>
@@ -1876,7 +1898,7 @@ export const PerishableShipments = ({ onNavigate }) => {
                   key={idx}
                   style={{
                     borderRadius: '12px',
-                    border: isOpen ? '1px solid #D84315' : '1px solid #E2E8F0',
+                    border: isOpen ? '1px solid #D84315' : '1px solid #FDBA74',
                     background: isOpen ? '#FFF7ED' : '#FAFBFD',
                     overflow: 'hidden',
                     transition: 'all 0.2s ease',
@@ -1944,13 +1966,14 @@ export const PerishableShipments = ({ onNavigate }) => {
         <section
           style={{
             margin: '48px 24px 0',
-            background: 'linear-gradient(135deg, #04142B 0%, #082653 50%, #1A1208 100%)',
-            color: '#FFFFFF',
+            background: 'linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 50%, #FFF7ED 100%)',
+            border: '1px solid #FED7AA',
+            color: '#082653',
             borderRadius: '16px',
             padding: '48px 40px',
             position: 'relative',
             overflow: 'hidden',
-            boxShadow: '0 20px 50px rgba(8, 38, 83, 0.25)',
+            boxShadow: '0 20px 50px rgba(234, 88, 12, 0.08)',
           }}
         >
           <div
@@ -1961,7 +1984,7 @@ export const PerishableShipments = ({ onNavigate }) => {
               width: '420px',
               height: '420px',
               borderRadius: '50%',
-              background: 'radial-gradient(circle, rgba(216, 67, 21, 0.22) 0%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(216, 67, 21, 0.1) 0%, transparent 70%)',
               filter: 'blur(50px)',
               pointerEvents: 'none',
             }}
@@ -1986,13 +2009,13 @@ export const PerishableShipments = ({ onNavigate }) => {
                   gap: '6px',
                   fontSize: '11px',
                   fontWeight: '800',
-                  color: '#FFAB91',
+                  color: '#D84315',
                   letterSpacing: '0.08em',
                   textTransform: 'uppercase',
                   marginBottom: '8px',
                 }}
               >
-                <Apple size={14} color="#FF7043" />
+                <Apple size={14} color="#D84315" />
                 <span>CONNECT WITH REEFER SPECIALISTS</span>
               </div>
               <h2
@@ -2000,7 +2023,7 @@ export const PerishableShipments = ({ onNavigate }) => {
                   fontSize: '28px',
                   fontWeight: '800',
                   margin: '0 0 10px',
-                  color: '#FFFFFF',
+                  color: '#082653',
                 }}
               >
                 Ready to Ship Fresh Produce with Zero Spoilage?
@@ -2009,7 +2032,7 @@ export const PerishableShipments = ({ onNavigate }) => {
                 style={{
                   fontSize: '14px',
                   lineHeight: '1.6',
-                  color: '#CBD5E1',
+                  color: '#334155',
                   margin: 0,
                 }}
               >
@@ -2057,24 +2080,24 @@ export const PerishableShipments = ({ onNavigate }) => {
                   gap: '8px',
                   padding: '13px 22px',
                   borderRadius: '12px',
-                  background: 'rgba(255, 255, 255, 0.08)',
-                  color: '#FFFFFF',
+                  background: '#FFFFFF',
+                  color: '#082653',
                   fontSize: '14px',
                   fontWeight: '700',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  border: '1px solid #FED7AA',
                   cursor: 'pointer',
                   transition: 'all 0.2s ease',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.15)';
-                  e.currentTarget.style.borderColor = '#FF7043';
+                  e.currentTarget.style.background = '#FFF7ED';
+                  e.currentTarget.style.borderColor = '#D84315';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                  e.currentTarget.style.background = '#FFFFFF';
+                  e.currentTarget.style.borderColor = '#FED7AA';
                 }}
               >
-                <Radio size={15} color="#FF7043" />
+                <Radio size={15} color="#D84315" />
                 <span>Track Cargo Telematics</span>
               </button>
             </div>

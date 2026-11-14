@@ -117,7 +117,7 @@ export const fourPlPillars = [
     title: 'Global Control Tower & Unified Visibility',
     tagline: 'A single, real-time command cockpit orchestrating every vendor, carrier, terminal, and custom house.',
     icon: Radio,
-    accent: '#082653',
+    accent: '#EA580C',
     features: [
       'Single pane of glass integrating telematics across 350+ carriers and 100+ ports',
       'AI predictive ETA modeling incorporating geopolitical choke points, weather, and terminal dwell',
@@ -130,7 +130,7 @@ export const fourPlPillars = [
     title: 'Carrier Procurement & Neutral Rate Tendering',
     tagline: 'Leverage $4.2B in aggregated buying power to secure tier-1 institutional shipping rates.',
     icon: Scale,
-    accent: '#0284C7',
+    accent: '#EA580C',
     features: [
       '100% asset-neutral carrier selection: we don\'t own ships or trucks, so we only select best price & SLA',
       'Quarterly automated mini-bids and spot rate indexing preventing carrier market price gouging',
@@ -143,7 +143,7 @@ export const fourPlPillars = [
     title: 'Machine-Learning Freight Audit & Settlement',
     tagline: 'Stop losing 3% to 7% of annual freight spend to duplicate billings and erroneous accessorial charges.',
     icon: FileCheck2,
-    accent: '#059669',
+    accent: '#D97706',
     features: [
       'Automated 8-way matching: Purchase Order, Carrier Rate Card, Bill of Lading, Weight, and Invoice',
       'Pre-payment algorithmic invoice dispute: erroneous charges rejected before money leaves your account',
@@ -156,7 +156,7 @@ export const fourPlPillars = [
     title: 'Network Optimization & Kaizen Engineering',
     tagline: 'Continuous structural supply chain redesign to unlock working capital and eliminate waste.',
     icon: Network,
-    accent: '#EA580C',
+    accent: '#C2410C',
     features: [
       'Digital Twin network simulation modeling optimal warehouse locations and safety stock levels',
       'Algorithmic modal shift strategies: transition expensive air freight to premium expedited ocean lanes',

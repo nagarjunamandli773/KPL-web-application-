@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Header } from '../components/layout/Header';
 import { Footer } from '../components/layout/Footer';
 import { TrackModal } from '../components/common/TrackModal';
+import Magnet, { CARD_MAGNET_PROPS, TILE_MAGNET_PROPS } from '../components/common/Magnet';
 import {
   ecommerceHeroStats,
   ecomOriginCountries,
@@ -57,6 +58,7 @@ export const EcommerceLogistics = ({ onNavigate }) => {
   const [parcelWeight, setParcelWeight] = useState('1kg'); // 500g, 1kg, 2kg, 5kg
   const [selectedTierId, setSelectedTierId] = useState('postal-injection');
   const [bookingToast, setBookingToast] = useState(null);
+  const bookingConfirmRef = useRef(null);
 
   // Hub Cockpit State
   const [selectedHubId, setSelectedHubId] = useState('hub-lax');
@@ -86,13 +88,19 @@ export const EcommerceLogistics = ({ onNavigate }) => {
   };
 
   const handleBookService = (tier) => {
+    setSelectedTierId(tier.id);
     setBookingToast({
+      tierId: tier.id,
       tierName: tier.name,
       origin: selectedOrigin.name.split('(')[0].trim(),
       destination: selectedDest.name,
       weight: parcelWeight,
       rate: getTierPrice(tier),
+      transitDays: tier.transitDays,
       trackingNo: `KPL-ECOM-${Math.floor(10000000 + Math.random() * 90000000)}`,
+    });
+    requestAnimationFrame(() => {
+      bookingConfirmRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     });
   };
 
@@ -110,6 +118,44 @@ export const EcommerceLogistics = ({ onNavigate }) => {
         overflowX: 'clip',
       }}
     >
+      <style>{`
+        .ecom-4col-grid {
+          display: grid;
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          align-items: stretch;
+        }
+        .ecom-3col-grid {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          align-items: stretch;
+        }
+        .ecom-hubs-grid {
+          display: grid;
+          grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+          align-items: stretch;
+        }
+        @media (max-width: 1080px) {
+          .ecom-4col-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+        }
+        @media (max-width: 960px) {
+          .ecom-3col-grid {
+            grid-template-columns: minmax(0, 1fr);
+          }
+        }
+        @media (max-width: 860px) {
+          .ecom-hubs-grid {
+            grid-template-columns: minmax(0, 1fr);
+          }
+        }
+        @media (max-width: 560px) {
+          .ecom-4col-grid,
+          .ecom-3col-grid {
+            grid-template-columns: minmax(0, 1fr);
+          }
+        }
+      `}</style>
       {/* 1. Shared Global Link Header */}
       <Header
         onTrackClick={() => openModal('track')}
@@ -123,15 +169,15 @@ export const EcommerceLogistics = ({ onNavigate }) => {
         <div style={{ height: '24px', width: '100%', background: '#FAFBFD' }} />
 
         {/* =========================================================================
-            SECTION 1: HERO BANNER (Deep Navy & Imperial Purple / Sunset Orange Accents)
+            SECTION 1: HERO BANNER (Clean White with Imperial Purple & Sunset Orange Accents)
             ========================================================================= */}
         <section
           style={{
             position: 'relative',
             padding: '50px 32px 50px 32px',
-            background: 'linear-gradient(145deg, #051A3B 0%, #082653 50%, #03132D 100%)',
-            borderTop: '1px solid rgba(8, 38, 83, 0.1)',
-            borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+            background: '#FFFFFF',
+            borderTop: '1px solid #E2E8F0',
+            borderBottom: '1px solid #E2E8F0',
             overflow: 'hidden',
           }}
         >
@@ -143,7 +189,7 @@ export const EcommerceLogistics = ({ onNavigate }) => {
               right: '-60px',
               width: '450px',
               height: '450px',
-              background: 'radial-gradient(circle, rgba(156, 39, 176, 0.18) 0%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(217, 119, 6, 0.07) 0%, transparent 70%)',
               pointerEvents: 'none',
               zIndex: 0,
             }}
@@ -155,7 +201,7 @@ export const EcommerceLogistics = ({ onNavigate }) => {
               left: '10%',
               width: '400px',
               height: '400px',
-              background: 'radial-gradient(circle, rgba(234, 88, 12, 0.14) 0%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(234, 88, 12, 0.06) 0%, transparent 70%)',
               pointerEvents: 'none',
               zIndex: 0,
             }}
@@ -170,8 +216,8 @@ export const EcommerceLogistics = ({ onNavigate }) => {
                 gap: '8px',
                 padding: '6px 14px',
                 borderRadius: '9999px',
-                background: 'rgba(156, 39, 176, 0.15)',
-                border: '1px solid rgba(156, 39, 176, 0.4)',
+                background: 'rgba(234, 88, 12, 0.08)',
+                border: '1px solid rgba(234, 88, 12, 0.25)',
                 marginBottom: '16px',
               }}
             >
@@ -180,7 +226,7 @@ export const EcommerceLogistics = ({ onNavigate }) => {
                   width: '20px',
                   height: '20px',
                   borderRadius: '5px',
-                  background: 'linear-gradient(135deg, #9C27B0 0%, #7B1FA2 100%)',
+                  background: 'linear-gradient(135deg, #FF6F00 0%, #EA580C 100%)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -193,7 +239,7 @@ export const EcommerceLogistics = ({ onNavigate }) => {
                 style={{
                   fontSize: '11.5px',
                   fontWeight: '700',
-                  color: '#E9D5FF',
+                  color: '#EA580C',
                   letterSpacing: '0.08em',
                   textTransform: 'uppercase',
                   fontFamily: 'var(--font-body)',
@@ -209,11 +255,10 @@ export const EcommerceLogistics = ({ onNavigate }) => {
                 fontFamily: 'Georgia, "Times New Roman", serif',
                 fontSize: 'clamp(32px, 3.8vw, 44px)',
                 fontWeight: '700',
-                color: '#FFFFFF',
+                color: '#082653',
                 lineHeight: '1.15',
                 letterSpacing: '-0.5px',
                 marginBottom: '14px',
-                textShadow: '0 2px 10px rgba(0, 0, 0, 0.45)',
               }}
             >
               KPL E-Commerce Logistics
@@ -224,7 +269,7 @@ export const EcommerceLogistics = ({ onNavigate }) => {
               style={{
                 fontSize: '17px',
                 fontWeight: '400',
-                color: 'rgba(255, 255, 255, 0.88)',
+                color: '#475569',
                 lineHeight: '1.6',
                 maxWidth: '780px',
                 fontFamily: 'var(--font-body)',
@@ -257,18 +302,18 @@ export const EcommerceLogistics = ({ onNavigate }) => {
                   fontSize: '14px',
                   fontWeight: '700',
                   textDecoration: 'none',
-                  boxShadow: '0 6px 20px rgba(234, 88, 12, 0.4)',
+                  boxShadow: '0 6px 20px rgba(234, 88, 12, 0.3)',
                   transition: 'all 0.2s ease',
                   border: 'none',
                   cursor: 'pointer',
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-2px)';
-                  e.currentTarget.style.boxShadow = '0 8px 26px rgba(234, 88, 12, 0.55)';
+                  e.currentTarget.style.boxShadow = '0 8px 26px rgba(234, 88, 12, 0.45)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(234, 88, 12, 0.4)';
+                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(234, 88, 12, 0.3)';
                 }}
               >
                 <span>Calculate Cross-Border Parcel Rates</span>
@@ -283,26 +328,25 @@ export const EcommerceLogistics = ({ onNavigate }) => {
                   gap: '8px',
                   padding: '12px 22px',
                   borderRadius: '10px',
-                  background: 'rgba(255, 255, 255, 0.08)',
-                  color: '#FFFFFF',
+                  background: '#F8FAFC',
+                  color: '#082653',
                   fontSize: '14px',
                   fontWeight: '600',
                   textDecoration: 'none',
-                  border: '1px solid rgba(255, 255, 255, 0.22)',
-                  backdropFilter: 'blur(8px)',
+                  border: '1px solid #CBD5E1',
                   transition: 'all 0.2s ease',
                   cursor: 'pointer',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.16)';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)';
+                  e.currentTarget.style.background = '#F1F5F9';
+                  e.currentTarget.style.borderColor = '#94A3B8';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.22)';
+                  e.currentTarget.style.background = '#F8FAFC';
+                  e.currentTarget.style.borderColor = '#CBD5E1';
                 }}
               >
-                <Warehouse size={16} color="#C084FC" />
+                <Warehouse size={16} color="#EA580C" />
                 <span>Explore Global Fulfillment Network</span>
               </a>
 
@@ -315,7 +359,7 @@ export const EcommerceLogistics = ({ onNavigate }) => {
                   padding: '12px 20px',
                   borderRadius: '10px',
                   background: 'transparent',
-                  color: '#FFE082',
+                  color: '#D97706',
                   fontSize: '13.5px',
                   fontWeight: '600',
                   border: 'none',
@@ -325,73 +369,78 @@ export const EcommerceLogistics = ({ onNavigate }) => {
                 onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.8')}
                 onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
               >
-                <Sparkles size={15} />
+                <CreditCard size={15} />
                 <span>Request Custom Enterprise Volume Card</span>
               </button>
             </div>
 
             {/* KPI Metrics Quick Bar */}
             <div
+              className="ecom-4col-grid"
               style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
                 gap: '14px',
                 paddingTop: '20px',
-                borderTop: '1px solid rgba(255, 255, 255, 0.12)',
+                borderTop: '1px solid #E2E8F0',
+                alignItems: 'stretch',
               }}
             >
               {ecommerceHeroStats.map((stat, idx) => {
                 const IconComponent = stat.icon;
                 return (
-                  <div
-                    key={idx}
-                    style={{
-                      background: 'rgba(255, 255, 255, 0.04)',
-                      backdropFilter: 'blur(10px)',
-                      border: '1px solid rgba(255, 255, 255, 0.08)',
-                      borderRadius: '12px',
-                      padding: '14px 16px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '12px',
-                    }}
-                  >
+                  <Magnet key={idx} {...TILE_MAGNET_PROPS} axis="x" scale={1} padding={12} maxOffset={3} tilt={0.8}>
                     <div
                       style={{
-                        width: '38px',
-                        height: '38px',
-                        borderRadius: '10px',
-                        background: 'rgba(156, 39, 176, 0.25)',
-                        border: '1px solid rgba(156, 39, 176, 0.45)',
+                        background: '#F8FAFC',
+                        border: '1px solid #E2E8F0',
+                        borderRadius: '12px',
+                        padding: '14px 16px',
                         display: 'flex',
                         alignItems: 'center',
-                        justifyContent: 'center',
-                        color: '#E9D5FF',
-                        flexShrink: 0,
+                        gap: '12px',
+                        height: '100%',
+                        minWidth: 0,
+                        boxSizing: 'border-box',
                       }}
                     >
-                      <IconComponent size={19} />
-                    </div>
-                    <div>
                       <div
                         style={{
-                          fontSize: '19px',
-                          fontWeight: '800',
-                          color: '#FFFFFF',
-                          lineHeight: '1.2',
-                          fontFamily: 'var(--font-heading)',
+                          width: '38px',
+                          height: '38px',
+                          borderRadius: '10px',
+                          background: 'rgba(234, 88, 12, 0.1)',
+                          border: '1px solid rgba(234, 88, 12, 0.25)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          color: '#EA580C',
+                          flexShrink: 0,
                         }}
                       >
-                        {stat.value}
+                        <IconComponent size={19} />
                       </div>
-                      <div style={{ fontSize: '12px', fontWeight: '700', color: '#CBD5E1', marginTop: '1px' }}>
-                        {stat.label}
-                      </div>
-                      <div style={{ fontSize: '11px', color: 'rgba(255, 255, 255, 0.65)' }}>
-                        {stat.sub}
+                      <div style={{ minWidth: 0 }}>
+                        <div
+                          style={{
+                            fontSize: 'clamp(17px, 1.65vw, 19px)',
+                            fontWeight: '800',
+                            color: '#082653',
+                            lineHeight: '1.2',
+                            fontFamily: 'var(--font-heading)',
+                            fontVariantNumeric: 'lining-nums tabular-nums',
+                            whiteSpace: 'nowrap',
+                          }}
+                        >
+                          {stat.value}
+                        </div>
+                        <div style={{ fontSize: '12px', fontWeight: '700', color: '#475569', lineHeight: '1.3', marginTop: '2px' }}>
+                          {stat.label}
+                        </div>
+                        <div style={{ fontSize: '11px', color: '#64748B', lineHeight: '1.35', marginTop: '1px' }}>
+                          {stat.sub}
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </Magnet>
                 );
               })}
             </div>
@@ -416,7 +465,7 @@ export const EcommerceLogistics = ({ onNavigate }) => {
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '6px',
-                  color: '#9C27B0',
+                  color: '#EA580C',
                   fontSize: '12.5px',
                   fontWeight: '700',
                   textTransform: 'uppercase',
@@ -464,15 +513,15 @@ export const EcommerceLogistics = ({ onNavigate }) => {
             >
               {/* Controls Row */}
               <div
+                className="ecom-3col-grid"
                 style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
                   gap: '18px',
                   marginBottom: '20px',
+                  alignItems: 'end',
                 }}
               >
                 {/* 1. Origin Dropdown */}
-                <div>
+                <div style={{ minWidth: 0 }}>
                   <label
                     style={{
                       display: 'block',
@@ -501,6 +550,7 @@ export const EcommerceLogistics = ({ onNavigate }) => {
                       fontWeight: '600',
                       cursor: 'pointer',
                       outline: 'none',
+                      boxSizing: 'border-box',
                     }}
                   >
                     {ecomOriginCountries.map((o) => (
@@ -512,7 +562,7 @@ export const EcommerceLogistics = ({ onNavigate }) => {
                 </div>
 
                 {/* 2. Destination Dropdown */}
-                <div>
+                <div style={{ minWidth: 0 }}>
                   <label
                     style={{
                       display: 'block',
@@ -541,6 +591,7 @@ export const EcommerceLogistics = ({ onNavigate }) => {
                       fontWeight: '600',
                       cursor: 'pointer',
                       outline: 'none',
+                      boxSizing: 'border-box',
                     }}
                   >
                     {ecomDestinationCountries.map((d) => (
@@ -552,7 +603,7 @@ export const EcommerceLogistics = ({ onNavigate }) => {
                 </div>
 
                 {/* 3. Weight Pill Switcher */}
-                <div>
+                <div style={{ minWidth: 0 }}>
                   <label
                     style={{
                       display: 'block',
@@ -580,9 +631,9 @@ export const EcommerceLogistics = ({ onNavigate }) => {
                           height: '46px',
                           borderRadius: '8px',
                           border: '1.5px solid',
-                          borderColor: parcelWeight === w.key ? '#9C27B0' : '#CBD5E1',
-                          background: parcelWeight === w.key ? '#F3E8FF' : '#FFFFFF',
-                          color: parcelWeight === w.key ? '#7B1FA2' : '#475569',
+                          borderColor: parcelWeight === w.key ? '#EA580C' : '#CBD5E1',
+                          background: parcelWeight === w.key ? '#FFF7ED' : '#FFFFFF',
+                          color: parcelWeight === w.key ? '#C2410C' : '#475569',
                           fontWeight: '700',
                           fontSize: '13px',
                           cursor: 'pointer',
@@ -613,48 +664,283 @@ export const EcommerceLogistics = ({ onNavigate }) => {
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <Truck size={15} color="#059669" />
+                  <Truck size={15} color="#EA580C" />
                   <span>
                     Last-Mile Carrier: <strong>{selectedDest.courier}</strong>
                   </span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <ShieldCheck size={15} color="#0284C7" />
+                  <ShieldCheck size={15} color="#D97706" />
                   <span>
                     Duty-Free / Tax Rule: <strong>{selectedDest.deMinimis}</strong>
                   </span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#16A34A', fontWeight: '700' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#C2410C', fontWeight: '700' }}>
                   <CheckCircle2 size={15} />
                   <span>Pre-Lodged DDP Enabled</span>
                 </div>
               </div>
             </div>
 
-            {/* Instant Booking Confirmation Toast */}
+            {/* Service Tiers Rate Grid */}
+            <div
+              className="ecom-4col-grid"
+              style={{
+                gap: '20px',
+                alignItems: 'stretch',
+              }}
+            >
+              {ecomServiceTiers.map((tier) => {
+                const currentPrice = getTierPrice(tier);
+                const isBooked = bookingToast?.tierId === tier.id && selectedTierId === tier.id;
+                return (
+                  <Magnet key={tier.id} {...CARD_MAGNET_PROPS} axis="x" scale={1} padding={12} maxOffset={3} tilt={0.8}>
+                    <div
+                      style={{
+                        background: '#FFFFFF',
+                        border: '1.5px solid',
+                        borderColor: isBooked ? tier.badgeColor : '#E2E8F0',
+                        borderRadius: '16px',
+                        padding: '24px 20px',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'space-between',
+                        height: '100%',
+                        minWidth: 0,
+                        boxSizing: 'border-box',
+                        boxShadow: isBooked ? `0 12px 28px ${tier.badgeColor}20` : '0 4px 16px rgba(0, 0, 0, 0.04)',
+                        transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
+                        position: 'relative',
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.borderColor = tier.badgeColor;
+                        e.currentTarget.style.boxShadow = `0 12px 28px ${tier.badgeColor}20`;
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.borderColor = isBooked ? tier.badgeColor : '#E2E8F0';
+                        e.currentTarget.style.boxShadow = isBooked ? `0 12px 28px ${tier.badgeColor}20` : '0 4px 16px rgba(0, 0, 0, 0.04)';
+                      }}
+                    >
+                      <div style={{ minWidth: 0 }}>
+                        {/* 1. Category Status Badge (Strict minHeight for horizontal alignment) */}
+                        <div
+                          style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'flex-start',
+                            minHeight: '28px',
+                            marginBottom: '12px',
+                          }}
+                        >
+                          <span
+                            style={{
+                              fontSize: '11px',
+                              fontWeight: '700',
+                              padding: '4px 12px',
+                              borderRadius: '9999px',
+                              background: tier.badgeBg,
+                              color: tier.badgeColor,
+                              border: `1px solid ${tier.badgeColor}40`,
+                              display: 'inline-flex',
+                              alignItems: 'center',
+                              whiteSpace: 'nowrap',
+                              letterSpacing: '0.01em',
+                              boxShadow: `0 1px 3px ${tier.badgeColor}15`,
+                            }}
+                          >
+                            {tier.badge}
+                          </span>
+                        </div>
+
+                        {/* 2. Tier Title (Uniform minHeight fits 3-line titles so Transit bar aligns across all 4 cards) */}
+                        <h3
+                          style={{
+                            fontSize: '16.5px',
+                            fontWeight: '800',
+                            color: '#082653',
+                            marginBottom: '12px',
+                            lineHeight: '1.35',
+                            minHeight: '70px',
+                            display: 'flex',
+                            alignItems: 'flex-start',
+                            fontVariantNumeric: 'lining-nums tabular-nums',
+                          }}
+                        >
+                          {tier.name}
+                        </h3>
+
+                        {/* 3. Dedicated Transit Schedule Banner (Single-line alignment with Clock icon) */}
+                        <div
+                          style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                            gap: '6px',
+                            padding: '8px 10px',
+                            borderRadius: '8px',
+                            background: '#F8FAFC',
+                            border: '1px solid #E2E8F0',
+                            marginBottom: '16px',
+                            minHeight: '36px',
+                            boxSizing: 'border-box',
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: 'inline-flex',
+                              alignItems: 'center',
+                              gap: '5px',
+                              fontSize: '11px',
+                              color: '#64748B',
+                              fontWeight: '600',
+                              whiteSpace: 'nowrap',
+                              flexShrink: 0,
+                            }}
+                          >
+                            <Clock size={12} color="#64748B" style={{ flexShrink: 0 }} />
+                            <span>Transit Time:</span>
+                          </div>
+                          <span
+                            style={{
+                              fontSize: '11.5px',
+                              fontWeight: '800',
+                              color: '#0F172A',
+                              whiteSpace: 'nowrap',
+                              fontVariantNumeric: 'lining-nums tabular-nums',
+                            }}
+                          >
+                            {tier.transitDays}
+                          </span>
+                        </div>
+
+                        {/* 4. Estimated Price Display Box */}
+                        <div
+                          style={{
+                            background: '#F8FAFC',
+                            borderRadius: '10px',
+                            padding: '12px 14px',
+                            border: '1px solid #E2E8F0',
+                            marginBottom: '16px',
+                            minHeight: '96px',
+                            boxSizing: 'border-box',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'center',
+                          }}
+                        >
+                          <div style={{ fontSize: '11px', color: '#64748B', fontWeight: '600', textTransform: 'uppercase', lineHeight: '1.35', minHeight: '30px', fontVariantNumeric: 'lining-nums tabular-nums' }}>
+                            Estimated Doorstep Landed Rate ({parcelWeight})
+                          </div>
+                          <div
+                            style={{
+                              fontSize: 'clamp(20px, 2vw, 25px)',
+                              fontWeight: '900',
+                              color: tier.badgeColor,
+                              lineHeight: '1.15',
+                              marginTop: '3px',
+                              fontFamily: 'var(--font-heading)',
+                              fontVariantNumeric: 'lining-nums tabular-nums',
+                            }}
+                          >
+                            {currentPrice}
+                          </div>
+                          <div style={{ fontSize: '11px', color: '#C2410C', fontWeight: '700', marginTop: '3px', lineHeight: '1.35' }}>
+                            Includes Linehaul & Last-Mile Delivery
+                          </div>
+                        </div>
+
+                        {/* 5. Feature Checklist */}
+                        <div
+                          style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '8px',
+                            marginBottom: '18px',
+                            minHeight: '144px',
+                          }}
+                        >
+                          {tier.features.map((feat, fIdx) => (
+                            <div
+                              key={fIdx}
+                              style={{
+                                display: 'flex',
+                                alignItems: 'flex-start',
+                                gap: '8px',
+                                fontSize: '12px',
+                                color: '#334155',
+                                lineHeight: '1.4',
+                              }}
+                            >
+                              <Check size={14} color={tier.badgeColor} style={{ flexShrink: 0, marginTop: '2px' }} />
+                              <span>{feat}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* 6. Book Button */}
+                      <button
+                        type="button"
+                        onClick={() => handleBookService(tier)}
+                        style={{
+                          width: '100%',
+                          padding: '11px',
+                          borderRadius: '8px',
+                          background: 'linear-gradient(135deg, #FF6F00 0%, #EA580C 100%)',
+                          color: '#FFFFFF',
+                          fontSize: '13px',
+                          fontWeight: '700',
+                          border: 'none',
+                          cursor: 'pointer',
+                          boxShadow: '0 3px 12px rgba(234, 88, 12, 0.3)',
+                          transition: 'filter 0.15s ease, box-shadow 0.15s ease',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          gap: '6px',
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.filter = 'brightness(1.06)';
+                          e.currentTarget.style.boxShadow = '0 6px 18px rgba(234, 88, 12, 0.4)';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.filter = 'none';
+                          e.currentTarget.style.boxShadow = '0 3px 12px rgba(234, 88, 12, 0.3)';
+                        }}
+                      >
+                        {isBooked ? '✓ Dispatch Tier Selected' : 'Book Dispatch Tier'}
+                      </button>
+                    </div>
+                  </Magnet>
+                );
+              })}
+            </div>
+
+            {/* Instant Booking Confirmation Toast (Directly visible beneath clicked tier card) */}
             {bookingToast && (
               <div
+                ref={bookingConfirmRef}
                 style={{
-                  marginBottom: '24px',
+                  marginTop: '24px',
                   padding: '16px 20px',
                   borderRadius: '12px',
-                  background: 'linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%)',
-                  border: '1.5px solid #10B981',
+                  background: 'linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%)',
+                  border: '1.5px solid #FDBA74',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
                   flexWrap: 'wrap',
                   gap: '12px',
-                  boxShadow: '0 6px 18px rgba(16, 185, 129, 0.15)',
+                  boxShadow: '0 6px 18px rgba(234, 88, 12, 0.12)',
                 }}
               >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', minWidth: 0 }}>
                   <div
                     style={{
                       width: '36px',
                       height: '36px',
                       borderRadius: '50%',
-                      background: '#10B981',
+                      background: '#EA580C',
                       color: '#FFFFFF',
                       display: 'flex',
                       alignItems: 'center',
@@ -664,23 +950,24 @@ export const EcommerceLogistics = ({ onNavigate }) => {
                   >
                     <CheckCircle2 size={20} />
                   </div>
-                  <div>
-                    <div style={{ fontSize: '15px', fontWeight: '800', color: '#065F46' }}>
+                  <div style={{ minWidth: 0 }}>
+                    <div style={{ fontSize: '15px', fontWeight: '800', color: '#082653', fontVariantNumeric: 'lining-nums tabular-nums' }}>
                       E-Commerce Dispatch Confirmed • Ref #{bookingToast.trackingNo}
                     </div>
-                    <div style={{ fontSize: '12.5px', color: '#047857', marginTop: '2px' }}>
-                      Tier: <strong>{bookingToast.tierName}</strong> | Route: <strong>{bookingToast.origin} → {bookingToast.destination}</strong> ({bookingToast.weight}) | Rate: <strong>{bookingToast.rate}</strong>
+                    <div style={{ fontSize: '12.5px', color: '#9A3412', marginTop: '2px', fontVariantNumeric: 'lining-nums tabular-nums' }}>
+                      Tier: <strong>{bookingToast.tierName}</strong> | Route: <strong>{bookingToast.origin} → {bookingToast.destination}</strong> ({bookingToast.weight}) | Transit: <strong>{bookingToast.transitDays}</strong> | Rate: <strong>{bookingToast.rate}</strong>
                     </div>
                   </div>
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0 }}>
                   <button
+                    type="button"
                     onClick={() => openModal('track')}
                     style={{
                       padding: '8px 16px',
                       borderRadius: '6px',
-                      background: '#047857',
+                      background: '#EA580C',
                       color: '#FFFFFF',
                       fontSize: '12px',
                       fontWeight: '700',
@@ -691,13 +978,14 @@ export const EcommerceLogistics = ({ onNavigate }) => {
                     Track Dispatch
                   </button>
                   <button
+                    type="button"
                     onClick={() => setBookingToast(null)}
                     style={{
                       padding: '8px 12px',
                       borderRadius: '6px',
                       background: 'none',
-                      border: '1px solid #059669',
-                      color: '#065F46',
+                      border: '1px solid #FDBA74',
+                      color: '#C2410C',
                       fontSize: '12px',
                       fontWeight: '600',
                       cursor: 'pointer',
@@ -708,218 +996,6 @@ export const EcommerceLogistics = ({ onNavigate }) => {
                 </div>
               </div>
             )}
-
-            {/* Service Tiers Rate Grid */}
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-                gap: '20px',
-              }}
-            >
-              {ecomServiceTiers.map((tier) => {
-                const currentPrice = getTierPrice(tier);
-                return (
-                  <div
-                    key={tier.id}
-                    style={{
-                      background: '#FFFFFF',
-                      border: '1.5px solid #E2E8F0',
-                      borderRadius: '16px',
-                      padding: '24px 20px',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      justifyContent: 'space-between',
-                      boxShadow: '0 4px 16px rgba(0, 0, 0, 0.04)',
-                      transition: 'all 0.2s ease',
-                      position: 'relative',
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.borderColor = tier.badgeColor;
-                      e.currentTarget.style.transform = 'translateY(-3px)';
-                      e.currentTarget.style.boxShadow = `0 12px 28px ${tier.badgeColor}20`;
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.borderColor = '#E2E8F0';
-                      e.currentTarget.style.transform = 'translateY(0)';
-                      e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.04)';
-                    }}
-                  >
-                    <div>
-                      {/* 1. Category Status Badge (Strict minHeight for horizontal alignment) */}
-                      <div
-                        style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'flex-start',
-                          minHeight: '28px',
-                          marginBottom: '12px',
-                        }}
-                      >
-                        <span
-                          style={{
-                            fontSize: '11px',
-                            fontWeight: '700',
-                            padding: '4px 12px',
-                            borderRadius: '9999px',
-                            background: tier.badgeBg,
-                            color: tier.badgeColor,
-                            border: `1px solid ${tier.badgeColor}40`,
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            whiteSpace: 'nowrap',
-                            letterSpacing: '0.01em',
-                            boxShadow: `0 1px 3px ${tier.badgeColor}15`,
-                          }}
-                        >
-                          {tier.badge}
-                        </span>
-                      </div>
-
-                      {/* 2. Tier Title (Uniform minHeight aligns transit schedule bar across all cards) */}
-                      <h3
-                        style={{
-                          fontSize: '17px',
-                          fontWeight: '800',
-                          color: '#082653',
-                          marginBottom: '12px',
-                          lineHeight: '1.35',
-                          minHeight: '46px',
-                          display: 'flex',
-                          alignItems: 'flex-start',
-                        }}
-                      >
-                        {tier.name}
-                      </h3>
-
-                      {/* 3. Dedicated Transit Schedule Banner (Crisp status strip with Clock icon) */}
-                      <div
-                        style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'space-between',
-                          padding: '8px 12px',
-                          borderRadius: '8px',
-                          background: '#F8FAFC',
-                          border: '1px solid #E2E8F0',
-                          marginBottom: '16px',
-                          minHeight: '36px',
-                          boxSizing: 'border-box',
-                        }}
-                      >
-                        <div
-                          style={{
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            gap: '6px',
-                            fontSize: '11.5px',
-                            color: '#64748B',
-                            fontWeight: '600',
-                          }}
-                        >
-                          <Clock size={13} color="#64748B" />
-                          <span>Transit Time:</span>
-                        </div>
-                        <span
-                          style={{
-                            fontSize: '12px',
-                            fontWeight: '800',
-                            color: '#0F172A',
-                            whiteSpace: 'nowrap',
-                          }}
-                        >
-                          {tier.transitDays}
-                        </span>
-                      </div>
-
-                      {/* 4. Estimated Price Display Box */}
-                      <div
-                        style={{
-                          background: '#F8FAFC',
-                          borderRadius: '10px',
-                          padding: '12px 14px',
-                          border: '1px solid #E2E8F0',
-                          marginBottom: '16px',
-                          minHeight: '88px',
-                          display: 'flex',
-                          flexDirection: 'column',
-                          justifyContent: 'center',
-                        }}
-                      >
-                        <div style={{ fontSize: '11px', color: '#64748B', fontWeight: '600', textTransform: 'uppercase' }}>
-                          Estimated Doorstep Landed Rate ({parcelWeight})
-                        </div>
-                        <div
-                          style={{
-                            fontSize: '26px',
-                            fontWeight: '900',
-                            color: tier.badgeColor,
-                            lineHeight: '1.1',
-                            marginTop: '2px',
-                            fontFamily: 'var(--font-heading)',
-                          }}
-                        >
-                          {currentPrice}
-                        </div>
-                        <div style={{ fontSize: '11px', color: '#059669', fontWeight: '700', marginTop: '2px' }}>
-                          Includes Linehaul & Last-Mile Delivery
-                        </div>
-                      </div>
-
-                      {/* 5. Feature Checklist */}
-                      <div
-                        style={{
-                          display: 'flex',
-                          flexDirection: 'column',
-                          gap: '8px',
-                          marginBottom: '18px',
-                          minHeight: '144px',
-                        }}
-                      >
-                        {tier.features.map((feat, fIdx) => (
-                          <div
-                            key={fIdx}
-                            style={{
-                              display: 'flex',
-                              alignItems: 'flex-start',
-                              gap: '8px',
-                              fontSize: '12px',
-                              color: '#334155',
-                              lineHeight: '1.4',
-                            }}
-                          >
-                            <Check size={14} color={tier.badgeColor} style={{ flexShrink: 0, marginTop: '2px' }} />
-                            <span>{feat}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* 6. Book Button */}
-                    <button
-                      onClick={() => handleBookService(tier)}
-                      style={{
-                        width: '100%',
-                        padding: '11px',
-                        borderRadius: '8px',
-                        background: 'linear-gradient(135deg, #FF6F00 0%, #EA580C 100%)',
-                        color: '#FFFFFF',
-                        fontSize: '13px',
-                        fontWeight: '700',
-                        border: 'none',
-                        cursor: 'pointer',
-                        boxShadow: '0 3px 12px rgba(234, 88, 12, 0.3)',
-                        transition: 'all 0.15s ease',
-                      }}
-                      onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#C2410C')}
-                      onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#EA580C')}
-                    >
-                      Book Dispatch Tier
-                    </button>
-                  </div>
-                );
-              })}
-            </div>
           </div>
         </section>
 
@@ -941,7 +1017,7 @@ export const EcommerceLogistics = ({ onNavigate }) => {
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '6px',
-                  color: '#9C27B0',
+                  color: '#EA580C',
                   fontSize: '12.5px',
                   fontWeight: '700',
                   textTransform: 'uppercase',
@@ -978,56 +1054,60 @@ export const EcommerceLogistics = ({ onNavigate }) => {
 
             {/* Hub Selector Grid & Active Showcase */}
             <div
+              className="ecom-hubs-grid"
               style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
                 gap: '20px',
+                alignItems: 'stretch',
               }}
             >
               {/* Left Column: Hub Selector List */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', minWidth: 0 }}>
                 {fulfillmentHubs.map((hub) => {
                   const isSelected = hub.id === selectedHubId;
                   return (
-                    <div
-                      key={hub.id}
-                      onClick={() => setSelectedHubId(hub.id)}
-                      style={{
-                        padding: '16px 18px',
-                        borderRadius: '12px',
-                        background: isSelected ? '#FFFFFF' : '#F8FAFC',
-                        border: '1.5px solid',
-                        borderColor: isSelected ? '#9C27B0' : '#E2E8F0',
-                        boxShadow: isSelected ? '0 6px 18px rgba(156, 39, 176, 0.15)' : 'none',
-                        cursor: 'pointer',
-                        transition: 'all 0.15s ease',
-                      }}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '4px' }}>
-                        <span style={{ fontSize: '14.5px', fontWeight: '800', color: '#082653' }}>
-                          {hub.name}
-                        </span>
-                        <span
-                          style={{
-                            fontSize: '11px',
-                            fontWeight: '700',
-                            padding: '3px 8px',
-                            borderRadius: '9999px',
-                            background: `${hub.accent}15`,
-                            color: hub.accent,
-                            border: `1px solid ${hub.accent}30`,
-                          }}
-                        >
-                          {hub.size}
-                        </span>
+                    <Magnet key={hub.id} {...TILE_MAGNET_PROPS} axis="x" scale={1} padding={10} maxOffset={3} tilt={0.8} style={{ display: 'block', width: '100%' }}>
+                      <div
+                        onClick={() => setSelectedHubId(hub.id)}
+                        style={{
+                          padding: '16px 18px',
+                          borderRadius: '12px',
+                          background: isSelected ? '#FFFFFF' : '#F8FAFC',
+                          border: '1.5px solid',
+                          borderColor: isSelected ? '#EA580C' : '#E2E8F0',
+                          boxShadow: isSelected ? '0 6px 18px rgba(234, 88, 12, 0.15)' : 'none',
+                          cursor: 'pointer',
+                          transition: 'all 0.15s ease',
+                          boxSizing: 'border-box',
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px', marginBottom: '4px' }}>
+                          <span style={{ fontSize: '14.5px', fontWeight: '800', color: '#082653' }}>
+                            {hub.name}
+                          </span>
+                          <span
+                            style={{
+                              fontSize: '11px',
+                              fontWeight: '700',
+                              padding: '3px 8px',
+                              borderRadius: '9999px',
+                              background: `${hub.accent}15`,
+                              color: hub.accent,
+                              border: `1px solid ${hub.accent}30`,
+                              whiteSpace: 'nowrap',
+                              flexShrink: 0,
+                            }}
+                          >
+                            {hub.size}
+                          </span>
+                        </div>
+                        <div style={{ fontSize: '13px', color: '#475569', fontWeight: '600' }}>
+                          {hub.location}
+                        </div>
+                        <div style={{ fontSize: '11.5px', color: '#C2410C', fontWeight: '600', marginTop: '6px' }}>
+                          {hub.cutoff}
+                        </div>
                       </div>
-                      <div style={{ fontSize: '13px', color: '#475569', fontWeight: '600' }}>
-                        {hub.location}
-                      </div>
-                      <div style={{ fontSize: '11.5px', color: '#059669', fontWeight: '600', marginTop: '6px' }}>
-                        {hub.cutoff}
-                      </div>
-                    </div>
+                    </Magnet>
                   );
                 })}
               </div>
@@ -1043,6 +1123,8 @@ export const EcommerceLogistics = ({ onNavigate }) => {
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
+                  minWidth: 0,
+                  boxSizing: 'border-box',
                 }}
               >
                 <div>
@@ -1082,14 +1164,14 @@ export const EcommerceLogistics = ({ onNavigate }) => {
                       <div style={{ fontSize: '11.5px', fontWeight: '700', color: '#64748B', textTransform: 'uppercase' }}>
                         Security & Customs Certifications:
                       </div>
-                      <div style={{ fontSize: '13px', fontWeight: '600', color: '#059669', marginTop: '2px' }}>
+                      <div style={{ fontSize: '13px', fontWeight: '600', color: '#C2410C', marginTop: '2px' }}>
                         {selectedHub.certifications}
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '16px', borderTop: '1px solid #F1F5F9' }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px', flexWrap: 'wrap', paddingTop: '16px', borderTop: '1px solid #F1F5F9' }}>
                   <div style={{ fontSize: '13px', color: '#64748B' }}>
                     Facility Capacity: <strong>Active & Accepting Inventory</strong>
                   </div>
@@ -1132,7 +1214,7 @@ export const EcommerceLogistics = ({ onNavigate }) => {
             <div style={{ textAlign: 'center', marginBottom: '32px' }}>
               <span
                 style={{
-                  color: '#9C27B0',
+                  color: '#EA580C',
                   fontSize: '12.5px',
                   fontWeight: '700',
                   textTransform: 'uppercase',
@@ -1167,121 +1249,127 @@ export const EcommerceLogistics = ({ onNavigate }) => {
             </div>
 
             <div
+              className="ecom-4col-grid"
               style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
                 gap: '20px',
+                alignItems: 'stretch',
               }}
             >
               {ecommercePillars.map((pillar) => {
                 const IconComp = pillar.icon;
                 return (
-                  <div
-                    key={pillar.id}
-                    style={{
-                      background: '#F8FAFC',
-                      border: '1px solid #E2E8F0',
-                      borderRadius: '16px',
-                      padding: '24px 20px',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      justifyContent: 'space-between',
-                      transition: 'all 0.2s ease',
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.transform = 'translateY(-3px)';
-                      e.currentTarget.style.boxShadow = '0 12px 28px rgba(15, 23, 42, 0.08)';
-                      e.currentTarget.style.borderColor = pillar.accent;
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.transform = 'translateY(0)';
-                      e.currentTarget.style.boxShadow = 'none';
-                      e.currentTarget.style.borderColor = '#E2E8F0';
-                    }}
-                  >
-                    <div>
-                      {/* Icon */}
-                      <div
-                        style={{
-                          width: '46px',
-                          height: '46px',
-                          borderRadius: '12px',
-                          background: `${pillar.accent}15`,
-                          color: pillar.accent,
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          marginBottom: '16px',
-                        }}
-                      >
-                        <IconComp size={22} strokeWidth={2.2} />
+                  <Magnet key={pillar.id} {...CARD_MAGNET_PROPS} axis="x" scale={1} padding={12} maxOffset={3} tilt={0.8}>
+                    <div
+                      style={{
+                        background: '#F8FAFC',
+                        border: '1px solid #E2E8F0',
+                        borderRadius: '16px',
+                        padding: '24px 20px',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'space-between',
+                        height: '100%',
+                        minWidth: 0,
+                        boxSizing: 'border-box',
+                        transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.boxShadow = '0 12px 28px rgba(15, 23, 42, 0.08)';
+                        e.currentTarget.style.borderColor = pillar.accent;
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.boxShadow = 'none';
+                        e.currentTarget.style.borderColor = '#E2E8F0';
+                      }}
+                    >
+                      <div style={{ minWidth: 0 }}>
+                        {/* Icon */}
+                        <div
+                          style={{
+                            width: '46px',
+                            height: '46px',
+                            borderRadius: '12px',
+                            background: `${pillar.accent}15`,
+                            color: pillar.accent,
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            marginBottom: '16px',
+                            flexShrink: 0,
+                          }}
+                        >
+                          <IconComp size={22} strokeWidth={2.2} />
+                        </div>
+
+                        <h3
+                          style={{
+                            fontSize: '17.5px',
+                            fontWeight: '800',
+                            color: '#082653',
+                            marginBottom: '8px',
+                            lineHeight: '1.25',
+                            minHeight: '66px',
+                            fontVariantNumeric: 'lining-nums tabular-nums',
+                          }}
+                        >
+                          {pillar.title}
+                        </h3>
+
+                        <p
+                          style={{
+                            fontSize: '13px',
+                            color: '#64748B',
+                            lineHeight: '1.5',
+                            marginBottom: '16px',
+                            minHeight: '60px',
+                          }}
+                        >
+                          {pillar.tagline}
+                        </p>
+
+                        {/* Feature Bullet points */}
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                          {pillar.features.map((feat, fIdx) => (
+                            <div
+                              key={fIdx}
+                              style={{
+                                display: 'flex',
+                                alignItems: 'flex-start',
+                                gap: '8px',
+                                fontSize: '12.5px',
+                                color: '#334155',
+                                lineHeight: '1.45',
+                              }}
+                            >
+                              <Check size={14} color={pillar.accent} style={{ flexShrink: 0, marginTop: '2px' }} />
+                              <span>{feat}</span>
+                            </div>
+                          ))}
+                        </div>
                       </div>
 
-                      <h3
-                        style={{
-                          fontSize: '18px',
-                          fontWeight: '800',
-                          color: '#082653',
-                          marginBottom: '8px',
-                          lineHeight: '1.25',
-                        }}
-                      >
-                        {pillar.title}
-                      </h3>
-
-                      <p
-                        style={{
-                          fontSize: '13px',
-                          color: '#64748B',
-                          lineHeight: '1.5',
-                          marginBottom: '16px',
-                        }}
-                      >
-                        {pillar.tagline}
-                      </p>
-
-                      {/* Feature Bullet points */}
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                        {pillar.features.map((feat, fIdx) => (
-                          <div
-                            key={fIdx}
-                            style={{
-                              display: 'flex',
-                              alignItems: 'flex-start',
-                              gap: '8px',
-                              fontSize: '12.5px',
-                              color: '#334155',
-                              lineHeight: '1.45',
-                            }}
-                          >
-                            <Check size={14} color={pillar.accent} style={{ flexShrink: 0, marginTop: '2px' }} />
-                            <span>{feat}</span>
-                          </div>
-                        ))}
+                      <div style={{ marginTop: '20px', paddingTop: '14px', borderTop: '1px solid #E2E8F0' }}>
+                        <button
+                          onClick={() => openModal('quote')}
+                          style={{
+                            background: 'none',
+                            border: 'none',
+                            padding: 0,
+                            color: pillar.accent,
+                            fontSize: '13px',
+                            fontWeight: '700',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '6px',
+                            cursor: 'pointer',
+                          }}
+                        >
+                          <span>Learn More</span>
+                          <ChevronRight size={14} />
+                        </button>
                       </div>
                     </div>
-
-                    <div style={{ marginTop: '20px', paddingTop: '14px', borderTop: '1px solid #E2E8F0' }}>
-                      <button
-                        onClick={() => openModal('quote')}
-                        style={{
-                          background: 'none',
-                          border: 'none',
-                          padding: 0,
-                          color: pillar.accent,
-                          fontSize: '13px',
-                          fontWeight: '700',
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '6px',
-                          cursor: 'pointer',
-                        }}
-                      >
-                        <span>Learn More</span>
-                        <ChevronRight size={14} />
-                      </button>
-                    </div>
-                  </div>
+                  </Magnet>
                 );
               })}
             </div>
@@ -1294,13 +1382,14 @@ export const EcommerceLogistics = ({ onNavigate }) => {
         <section
           style={{
             padding: '44px 28px 44px 28px',
-            background: 'linear-gradient(145deg, #051A3B 0%, #082653 100%)',
-            color: '#FFFFFF',
+            background: '#FFFFFF',
+            color: '#082653',
+            borderBottom: '1px solid #E2E8F0',
           }}
         >
           <div style={{ maxWidth: '1140px', margin: '0 auto' }}>
             <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-              <span style={{ color: '#E9D5FF', fontSize: '12.5px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+              <span style={{ color: '#EA580C', fontSize: '12.5px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
                 One-Click Store Connectivity
               </span>
               <h2
@@ -1308,7 +1397,7 @@ export const EcommerceLogistics = ({ onNavigate }) => {
                   fontFamily: 'Georgia, "Times New Roman", serif',
                   fontSize: '32px',
                   fontWeight: '700',
-                  color: '#FFFFFF',
+                  color: '#082653',
                   marginTop: '6px',
                   marginBottom: '10px',
                 }}
@@ -1318,7 +1407,7 @@ export const EcommerceLogistics = ({ onNavigate }) => {
               <p
                 style={{
                   fontSize: '15px',
-                  color: 'rgba(255, 255, 255, 0.82)',
+                  color: '#64748B',
                   maxWidth: '680px',
                   margin: '0 auto',
                   lineHeight: '1.5',
@@ -1329,66 +1418,80 @@ export const EcommerceLogistics = ({ onNavigate }) => {
             </div>
 
             <div
+              className="ecom-4col-grid"
               style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
                 gap: '16px',
+                alignItems: 'stretch',
               }}
             >
               {marketplaceIntegrations.map((item, idx) => (
-                <div
-                  key={idx}
-                  style={{
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    backdropFilter: 'blur(10px)',
-                    border: '1px solid rgba(255, 255, 255, 0.12)',
-                    borderRadius: '12px',
-                    padding: '18px 20px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                  }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                <Magnet key={idx} {...CARD_MAGNET_PROPS} axis="x" scale={1} padding={12} maxOffset={3} tilt={0.8}>
+                  <div
+                    style={{
+                      background: '#F8FAFC',
+                      border: '1px solid #E2E8F0',
+                      borderRadius: '12px',
+                      padding: '18px 20px',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'flex-start',
+                      minWidth: 0,
+                      height: '100%',
+                      boxSizing: 'border-box',
+                    }}
+                  >
                     <div
                       style={{
-                        width: '36px',
-                        height: '36px',
-                        borderRadius: '8px',
-                        background: 'rgba(156, 39, 176, 0.25)',
                         display: 'flex',
                         alignItems: 'center',
-                        justifyContent: 'center',
-                        color: '#E9D5FF',
+                        justifyContent: 'space-between',
+                        gap: '10px',
+                        marginBottom: '12px',
                       }}
                     >
-                      <Store size={18} />
+                      <div
+                        style={{
+                          width: '36px',
+                          height: '36px',
+                          borderRadius: '8px',
+                          background: 'rgba(234, 88, 12, 0.1)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          color: '#EA580C',
+                          flexShrink: 0,
+                        }}
+                      >
+                        <Store size={18} />
+                      </div>
+
+                      <span
+                        style={{
+                          fontSize: '11px',
+                          fontWeight: '700',
+                          padding: '4px 10px',
+                          borderRadius: '9999px',
+                          background: 'rgba(234, 88, 12, 0.1)',
+                          color: '#EA580C',
+                          border: '1px solid rgba(234, 88, 12, 0.25)',
+                          whiteSpace: 'nowrap',
+                          flexShrink: 0,
+                        }}
+                      >
+                        {item.badge}
+                      </span>
                     </div>
-                    <div>
-                      <div style={{ fontSize: '15px', fontWeight: '800', color: '#FFFFFF' }}>
+
+                    <div style={{ minWidth: 0 }}>
+                      <div style={{ fontSize: '15px', fontWeight: '800', color: '#082653', marginBottom: '4px', lineHeight: '1.25', minHeight: '22px', fontVariantNumeric: 'lining-nums tabular-nums' }}>
                         {item.name}
                       </div>
-                      <div style={{ fontSize: '12px', color: 'rgba(255, 255, 255, 0.7)' }}>
+                      <div style={{ fontSize: '12px', color: '#64748B', lineHeight: '1.45' }}>
                         {item.category}
                       </div>
                     </div>
                   </div>
-
-                  <span
-                    style={{
-                      fontSize: '11px',
-                      fontWeight: '700',
-                      padding: '4px 8px',
-                      borderRadius: '9999px',
-                      background: 'rgba(234, 88, 12, 0.2)',
-                      color: '#FB923C',
-                      border: '1px solid rgba(234, 88, 12, 0.35)',
-                      whiteSpace: 'nowrap',
-                    }}
-                  >
-                    {item.badge}
-                  </span>
-                </div>
+                </Magnet>
               ))}
             </div>
           </div>
@@ -1408,7 +1511,7 @@ export const EcommerceLogistics = ({ onNavigate }) => {
             <div style={{ textAlign: 'center', marginBottom: '32px' }}>
               <span
                 style={{
-                  color: '#9C27B0',
+                  color: '#EA580C',
                   fontSize: '12.5px',
                   fontWeight: '700',
                   textTransform: 'uppercase',
@@ -1465,7 +1568,7 @@ export const EcommerceLogistics = ({ onNavigate }) => {
                         {faq.q}
                       </span>
                       {isOpen ? (
-                        <ChevronUp size={18} color="#9C27B0" style={{ flexShrink: 0 }} />
+                        <ChevronUp size={18} color="#EA580C" style={{ flexShrink: 0 }} />
                       ) : (
                         <ChevronDown size={18} color="#94A3B8" style={{ flexShrink: 0 }} />
                       )}
@@ -1498,11 +1601,11 @@ export const EcommerceLogistics = ({ onNavigate }) => {
         <section
           style={{
             padding: '48px 28px',
-            background: 'linear-gradient(135deg, #082653 0%, #03132D 100%)',
+            background: '#FFFFFF',
             textAlign: 'center',
-            color: '#FFFFFF',
+            color: '#082653',
             position: 'relative',
-            borderBottom: '1px solid rgba(8, 38, 83, 0.12)',
+            borderBottom: '1px solid #E2E8F0',
           }}
         >
           <div style={{ maxWidth: '780px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
@@ -1511,7 +1614,7 @@ export const EcommerceLogistics = ({ onNavigate }) => {
                 fontFamily: 'Georgia, "Times New Roman", serif',
                 fontSize: '34px',
                 fontWeight: '700',
-                color: '#FFFFFF',
+                color: '#082653',
                 marginBottom: '12px',
                 lineHeight: '1.2',
               }}
@@ -1522,7 +1625,7 @@ export const EcommerceLogistics = ({ onNavigate }) => {
             <p
               style={{
                 fontSize: '15.5px',
-                color: 'rgba(255, 255, 255, 0.85)',
+                color: '#475569',
                 lineHeight: '1.6',
                 marginBottom: '26px',
               }}
@@ -1542,7 +1645,7 @@ export const EcommerceLogistics = ({ onNavigate }) => {
                   fontWeight: '700',
                   border: 'none',
                   cursor: 'pointer',
-                  boxShadow: '0 6px 20px rgba(234, 88, 12, 0.45)',
+                  boxShadow: '0 6px 20px rgba(234, 88, 12, 0.35)',
                   display: 'flex',
                   alignItems: 'center',
                   gap: '8px',
@@ -1557,11 +1660,11 @@ export const EcommerceLogistics = ({ onNavigate }) => {
                 style={{
                   padding: '12px 24px',
                   borderRadius: '10px',
-                  background: 'rgba(255, 255, 255, 0.1)',
-                  color: '#FFFFFF',
+                  background: '#F8FAFC',
+                  color: '#082653',
                   fontSize: '14px',
                   fontWeight: '600',
-                  border: '1px solid rgba(255, 255, 255, 0.25)',
+                  border: '1px solid #CBD5E1',
                   cursor: 'pointer',
                 }}
               >

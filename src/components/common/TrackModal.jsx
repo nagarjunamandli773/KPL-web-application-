@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, Search, ShieldCheck } from 'lucide-react';
 import { fetchShipments } from '../../services/api';
 
@@ -7,6 +7,13 @@ export const TrackModal = ({ isOpen, onClose, defaultType = 'track' }) => {
   const [trackingId, setTrackingId] = useState('');
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      setActiveTab(defaultType);
+      setResult(null);
+    }
+  }, [defaultType, isOpen]);
 
   if (!isOpen) return null;
 

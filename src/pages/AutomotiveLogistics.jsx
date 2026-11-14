@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Header } from '../components/layout/Header';
 import { Footer } from '../components/layout/Footer';
 import { TrackModal } from '../components/common/TrackModal';
+import Magnet, { CARD_MAGNET_PROPS, TILE_MAGNET_PROPS } from '../components/common/Magnet';
 import {
   autoHeroStats,
   autoServiceTiers,
@@ -132,18 +133,19 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
         <div style={{ height: '24px', width: '100%', background: '#FAFBFD' }} />
 
         {/* =========================================================================
-            SECTION 1: HERO BANNER (Luxury Deep Navy with Automotive Performance Blue Glow)
+            SECTION 1: HERO BANNER (Light Orange with Automotive Performance Blue Accents)
             ========================================================================= */}
         <section
           style={{
             position: 'relative',
-            background: 'linear-gradient(135deg, #051838 0%, #082653 45%, #0C3675 100%)',
-            color: '#FFFFFF',
+            background: 'linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 50%, #FFF7ED 100%)',
+            color: '#082653',
             borderRadius: '16px',
             margin: '0 24px',
             padding: '56px 48px 48px',
             overflow: 'hidden',
-            boxShadow: '0 20px 50px rgba(8, 38, 83, 0.28)',
+            border: '1px solid #FED7AA',
+            boxShadow: '0 20px 50px rgba(234, 88, 12, 0.08)',
           }}
         >
           {/* Subtle Ambient Radial Lighting */}
@@ -154,7 +156,7 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
               right: '-8%',
               width: '560px',
               height: '560px',
-              background: 'radial-gradient(circle, rgba(37, 99, 235, 0.24) 0%, rgba(37, 99, 235, 0) 70%)',
+              background: 'radial-gradient(circle, rgba(234, 88, 12, 0.1) 0%, rgba(234, 88, 12, 0.05) 50%, transparent 70%)',
               borderRadius: '50%',
               pointerEvents: 'none',
               filter: 'blur(40px)',
@@ -167,7 +169,7 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
               left: '-10%',
               width: '480px',
               height: '480px',
-              background: 'radial-gradient(circle, rgba(59, 130, 246, 0.18) 0%, transparent 65%)',
+              background: 'radial-gradient(circle, rgba(251, 146, 60, 0.12) 0%, transparent 65%)',
               borderRadius: '50%',
               pointerEvents: 'none',
               filter: 'blur(45px)',
@@ -194,8 +196,8 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                   gap: '8px',
                   padding: '6px 14px',
                   borderRadius: '30px',
-                  background: 'rgba(37, 99, 235, 0.18)',
-                  border: '1px solid rgba(147, 197, 253, 0.35)',
+                  background: 'rgba(255, 255, 255, 0.75)',
+                  border: '1px solid rgba(234, 88, 12, 0.35)',
                   marginBottom: '20px',
                 }}
               >
@@ -204,8 +206,8 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                     width: '8px',
                     height: '8px',
                     borderRadius: '50%',
-                    background: '#60A5FA',
-                    boxShadow: '0 0 10px #60A5FA',
+                    background: '#EA580C',
+                    boxShadow: '0 0 8px rgba(234, 88, 12, 0.45)',
                     display: 'inline-block',
                   }}
                 />
@@ -215,7 +217,7 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                     fontWeight: '800',
                     letterSpacing: '0.08em',
                     textTransform: 'uppercase',
-                    color: '#93C5FD',
+                    color: '#C2410C',
                   }}
                 >
                   IATF 16949 CERTIFIED • INDUSTRY FOCUS: AUTOMOTIVE LOGISTICS
@@ -228,7 +230,7 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                   fontSize: '40px',
                   fontWeight: '800',
                   lineHeight: '1.16',
-                  color: '#FFFFFF',
+                  color: '#082653',
                   margin: '0 0 18px',
                   letterSpacing: '-0.02em',
                 }}
@@ -236,7 +238,7 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                 Precision Assembly Lineside,{' '}
                 <span
                   style={{
-                    background: 'linear-gradient(90deg, #93C5FD 0%, #60A5FA 50%, #34D399 100%)',
+                    background: 'linear-gradient(90deg, #FF6F00 0%, #EA580C 50%, #D97706 100%)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
                   }}
@@ -251,7 +253,7 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                 style={{
                   fontSize: '15px',
                   lineHeight: '1.65',
-                  color: '#CBD5E1',
+                  color: '#334155',
                   margin: '0 0 24px',
                   maxWidth: '560px',
                 }}
@@ -269,10 +271,10 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                 }}
               >
                 {[
-                  { text: 'Sub-15m Lineside Feeding Window', icon: Clock, color: '#60A5FA' },
-                  { text: 'EDI 866 MES Sequence Broadcast', icon: Cpu, color: '#34D399' },
-                  { text: 'Pure Car Carrier (RoRo) Vessels', icon: Ship, color: '#93C5FD' },
-                  { text: 'UN 38.3 EV Battery Corridors', icon: BatteryCharging, color: '#FBBF24' },
+                  { text: 'Sub-15m Lineside Feeding Window', icon: Clock, color: '#EA580C' },
+                  { text: 'EDI 866 MES Sequence Broadcast', icon: Cpu, color: '#EA580C' },
+                  { text: 'Pure Car Carrier (RoRo) Vessels', icon: Ship, color: '#C2410C' },
+                  { text: 'UN 38.3 EV Battery Corridors', icon: BatteryCharging, color: '#D97706' },
                 ].map((pill, idx) => (
                   <div
                     key={idx}
@@ -282,10 +284,10 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                       gap: '6px',
                       padding: '5px 12px',
                       borderRadius: '8px',
-                      background: 'rgba(255, 255, 255, 0.06)',
-                      border: '1px solid rgba(255, 255, 255, 0.12)',
+                      background: '#FFFFFF',
+                      border: '1px solid #FED7AA',
                       fontSize: '12px',
-                      color: '#E2E8F0',
+                      color: '#082653',
                       fontWeight: '600',
                     }}
                   >
@@ -318,16 +320,16 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                     fontWeight: '700',
                     border: 'none',
                     cursor: 'pointer',
-                    boxShadow: '0 8px 24px rgba(234, 88, 12, 0.35)',
+                    boxShadow: '0 8px 24px rgba(234, 88, 12, 0.3)',
                     transition: 'all 0.2s ease',
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'translateY(-2px)';
-                    e.currentTarget.style.boxShadow = '0 12px 30px rgba(234, 88, 12, 0.45)';
+                    e.currentTarget.style.boxShadow = '0 12px 30px rgba(234, 88, 12, 0.42)';
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = '0 8px 24px rgba(234, 88, 12, 0.35)';
+                    e.currentTarget.style.boxShadow = '0 8px 24px rgba(234, 88, 12, 0.3)';
                   }}
                 >
                   <Gauge size={17} />
@@ -343,24 +345,25 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                     gap: '8px',
                     padding: '13px 22px',
                     borderRadius: '12px',
-                    background: 'rgba(255, 255, 255, 0.08)',
-                    color: '#FFFFFF',
+                    background: '#FFFFFF',
+                    color: '#082653',
                     fontSize: '14px',
                     fontWeight: '700',
-                    border: '1px solid rgba(147, 197, 253, 0.3)',
+                    border: '1px solid #FDBA74',
                     cursor: 'pointer',
+                    boxShadow: '0 2px 8px rgba(234, 88, 12, 0.08)',
                     transition: 'all 0.2s ease',
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.15)';
-                    e.currentTarget.style.borderColor = '#60A5FA';
+                    e.currentTarget.style.background = '#FFFBEB';
+                    e.currentTarget.style.borderColor = '#EA580C';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
-                    e.currentTarget.style.borderColor = 'rgba(147, 197, 253, 0.3)';
+                    e.currentTarget.style.background = '#FFFFFF';
+                    e.currentTarget.style.borderColor = '#FDBA74';
                   }}
                 >
-                  <Radio size={15} color="#60A5FA" />
+                  <Radio size={15} color="#EA580C" />
                   <span>Track Live VIN Sequence</span>
                 </button>
               </div>
@@ -372,9 +375,9 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                 position: 'relative',
                 borderRadius: '16px',
                 overflow: 'hidden',
-                border: '1px solid rgba(255, 255, 255, 0.25)',
-                boxShadow: '0 20px 45px rgba(0, 0, 0, 0.35)',
-                background: '#07162C',
+                border: '1px solid #FED7AA',
+                boxShadow: '0 20px 45px rgba(234, 88, 12, 0.15)',
+                background: '#FFF7ED',
                 height: '380px',
               }}
             >
@@ -386,16 +389,7 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                   height: '100%',
                   objectFit: 'cover',
                   objectPosition: 'center 45%',
-                  filter: 'brightness(1.02) contrast(1.04)',
-                }}
-              />
-              {/* Subtle edge-only vignette for maximum clarity while ensuring HUD legibility */}
-              <div
-                style={{
-                  position: 'absolute',
-                  inset: 0,
-                  background: 'linear-gradient(180deg, rgba(7, 22, 44, 0.4) 0%, transparent 22%, transparent 72%, rgba(7, 22, 44, 0.5) 100%)',
-                  pointerEvents: 'none',
+                  filter: 'brightness(1.04) contrast(1.03)',
                 }}
               />
 
@@ -406,16 +400,16 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                   top: '16px',
                   left: '16px',
                   right: '16px',
-                  background: 'rgba(7, 22, 44, 0.88)',
+                  background: 'rgba(255, 247, 237, 0.95)',
                   backdropFilter: 'blur(12px)',
                   WebkitBackdropFilter: 'blur(12px)',
-                  border: '1px solid rgba(96, 165, 250, 0.45)',
+                  border: '1px solid #FDBA74',
                   borderRadius: '12px',
                   padding: '12px 16px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
-                  boxShadow: '0 8px 24px rgba(0, 0, 0, 0.3)',
+                  boxShadow: '0 8px 24px rgba(28, 25, 23, 0.16)',
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -424,25 +418,25 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                       width: '10px',
                       height: '10px',
                       borderRadius: '50%',
-                      background: '#34D399',
-                      boxShadow: '0 0 10px #34D399',
+                      background: '#EA580C',
+                      boxShadow: '0 0 10px rgba(234, 88, 12, 0.5)',
                     }}
                   />
                   <div>
-                    <div style={{ fontSize: '12px', fontWeight: '800', color: '#FFFFFF' }}>
+                    <div style={{ fontSize: '12px', fontWeight: '800', color: '#0F172A' }}>
                       BROADCAST: CHASSIS #GLK-AUTO-88492
                     </div>
-                    <div style={{ fontSize: '10px', color: '#94A3B8' }}>
+                    <div style={{ fontSize: '10px', color: '#475569' }}>
                       EDI 866 MES: Station 14 Trim Line (58s Takt)
                     </div>
                   </div>
                 </div>
 
                 <div style={{ textAlign: 'right' }}>
-                  <div style={{ fontSize: '14px', fontWeight: '900', color: '#93C5FD' }}>
+                  <div style={{ fontSize: '14px', fontWeight: '900', color: '#C2410C' }}>
                     99.98%
                   </div>
-                  <div style={{ fontSize: '10px', color: '#34D399' }}>
+                  <div style={{ fontSize: '10px', color: '#EA580C', fontWeight: '700' }}>
                     BUFFER: 14m 20s
                   </div>
                 </div>
@@ -455,25 +449,25 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                   bottom: '16px',
                   left: '16px',
                   right: '16px',
-                  background: 'rgba(7, 22, 44, 0.86)',
+                  background: 'rgba(255, 247, 237, 0.95)',
                   backdropFilter: 'blur(12px)',
                   WebkitBackdropFilter: 'blur(12px)',
-                  border: '1px solid rgba(255, 255, 255, 0.18)',
+                  border: '1px solid #FDBA74',
                   borderRadius: '10px',
                   padding: '10px 14px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
-                  boxShadow: '0 8px 24px rgba(0, 0, 0, 0.3)',
+                  boxShadow: '0 8px 24px rgba(28, 25, 23, 0.16)',
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <Activity size={16} color="#34D399" />
-                  <span style={{ fontSize: '11px', color: '#E2E8F0', fontWeight: '600' }}>
+                  <Activity size={16} color="#EA580C" />
+                  <span style={{ fontSize: '11px', color: '#0F172A', fontWeight: '600' }}>
                     Lineside Kitting Relay: Direct Plant Injection Active
                   </span>
                 </div>
-                <span style={{ fontSize: '10px', color: '#93C5FD', fontWeight: '800' }}>
+                <span style={{ fontSize: '10px', color: '#C2410C', fontWeight: '800' }}>
                   JIS ACTIVE
                 </span>
               </div>
@@ -488,95 +482,111 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(4, 1fr)',
+              gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
               gap: '16px',
+              alignItems: 'stretch',
             }}
           >
             {autoHeroStats.map((stat, idx) => (
-              <div
-                key={idx}
-                style={{
-                  background: '#FFFFFF',
-                  borderRadius: '12px',
-                  padding: '22px 20px',
-                  border: '1px solid #E2E8F0',
-                  boxShadow: '0 4px 16px rgba(8, 38, 83, 0.04)',
-                  position: 'relative',
-                  overflow: 'hidden',
-                  transition: 'all 0.2s ease',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-3px)';
-                  e.currentTarget.style.borderColor = '#2563EB';
-                  e.currentTarget.style.boxShadow = '0 10px 24px rgba(37, 99, 235, 0.12)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.borderColor = '#E2E8F0';
-                  e.currentTarget.style.boxShadow = '0 4px 16px rgba(8, 38, 83, 0.04)';
-                }}
-              >
+              <Magnet key={idx} {...TILE_MAGNET_PROPS}>
                 <div
                   style={{
-                    display: 'inline-block',
-                    padding: '3px 8px',
-                    borderRadius: '4px',
-                    background: 'rgba(37, 99, 235, 0.08)',
-                    color: '#2563EB',
-                    fontSize: '10px',
-                    fontWeight: '800',
-                    letterSpacing: '0.04em',
-                    marginBottom: '8px',
+                    background: '#FFFFFF',
+                    borderRadius: '12px',
+                    padding: '22px 20px 24px',
+                    border: '1.5px solid #FDBA74',
+                    boxShadow: '0 4px 16px rgba(234, 88, 12, 0.06)',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'flex-start',
+                    height: '100%',
+                    boxSizing: 'border-box',
+                    transition: 'all 0.2s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-3px)';
+                    e.currentTarget.style.borderColor = '#EA580C';
+                    e.currentTarget.style.boxShadow = '0 10px 24px rgba(234, 88, 12, 0.14)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.borderColor = '#FDBA74';
+                    e.currentTarget.style.boxShadow = '0 4px 16px rgba(234, 88, 12, 0.06)';
                   }}
                 >
-                  {stat.badge}
-                </div>
+                  <div
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      alignSelf: 'flex-start',
+                      padding: '3px 8px',
+                      borderRadius: '4px',
+                      background: 'rgba(234, 88, 12, 0.08)',
+                      color: '#EA580C',
+                      fontSize: '10px',
+                      fontWeight: '800',
+                      letterSpacing: '0.04em',
+                      marginBottom: '10px',
+                    }}
+                  >
+                    {stat.badge}
+                  </div>
 
-                <div
-                  style={{
-                    fontSize: '28px',
-                    fontWeight: '900',
-                    color: '#082653',
-                    marginBottom: '4px',
-                    letterSpacing: '-0.02em',
-                  }}
-                >
-                  {stat.value}
-                </div>
+                  <div
+                    style={{
+                      fontSize: 'clamp(22px, 2vw, 27px)',
+                      fontWeight: '900',
+                      color: '#082653',
+                      marginBottom: '6px',
+                      letterSpacing: '-0.02em',
+                      lineHeight: '1.15',
+                      minHeight: '32px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      whiteSpace: 'nowrap',
+                    }}
+                  >
+                    {stat.value}
+                  </div>
 
-                <div
-                  style={{
-                    fontSize: '13px',
-                    fontWeight: '700',
-                    color: '#1E293B',
-                    marginBottom: '6px',
-                  }}
-                >
-                  {stat.label}
-                </div>
+                  <div
+                    style={{
+                      fontSize: '13px',
+                      fontWeight: '700',
+                      color: '#1E293B',
+                      marginBottom: '6px',
+                      minHeight: '36px',
+                      lineHeight: '1.35',
+                    }}
+                  >
+                    {stat.label}
+                  </div>
 
-                <div
-                  style={{
-                    fontSize: '11px',
-                    color: '#64748B',
-                    lineHeight: '1.45',
-                  }}
-                >
-                  {stat.desc}
-                </div>
+                  <div
+                    style={{
+                      fontSize: '11px',
+                      color: '#64748B',
+                      lineHeight: '1.45',
+                    }}
+                  >
+                    {stat.desc}
+                  </div>
 
-                <div
-                  style={{
-                    position: 'absolute',
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    height: '3px',
-                    background: 'linear-gradient(90deg, #2563EB 0%, #34D399 100%)',
-                    opacity: 0.8,
-                  }}
-                />
-              </div>
+                  <div
+                    style={{
+                      position: 'absolute',
+                      bottom: 0,
+                      left: 0,
+                      right: 0,
+                      height: '3px',
+                      background: 'linear-gradient(90deg, #EA580C 0%, #D97706 100%)',
+                      opacity: 0.8,
+                    }}
+                  />
+                </div>
+              </Magnet>
             ))}
           </div>
         </section>
@@ -589,9 +599,9 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
             margin: '36px 24px 0',
             background: '#FFFFFF',
             borderRadius: '16px',
-            border: '1px solid #E2E8F0',
+            border: '1px solid #FDBA74',
             padding: '36px',
-            boxShadow: '0 8px 30px rgba(8, 38, 83, 0.05)',
+            boxShadow: '0 8px 30px rgba(28, 25, 23, 0.05)',
           }}
         >
           <div
@@ -612,7 +622,7 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                   gap: '6px',
                   fontSize: '11px',
                   fontWeight: '800',
-                  color: '#2563EB',
+                  color: '#EA580C',
                   letterSpacing: '0.08em',
                   textTransform: 'uppercase',
                   marginBottom: '6px',
@@ -640,13 +650,13 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                 gap: '8px',
                 padding: '6px 14px',
                 borderRadius: '8px',
-                background: 'rgba(37, 99, 235, 0.08)',
-                color: '#2563EB',
+                background: 'rgba(234, 88, 12, 0.08)',
+                color: '#EA580C',
                 fontSize: '12px',
                 fontWeight: '700',
               }}
             >
-              <Cpu size={14} color="#2563EB" />
+              <Cpu size={14} color="#EA580C" />
               <span>IATF 16949 / EDI 866 Validated Model</span>
             </div>
           </div>
@@ -654,7 +664,7 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
+              gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
               gap: '24px',
               marginBottom: '28px',
             }}
@@ -677,31 +687,32 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                 {autoServiceTiers.map((tier) => {
                   const isSelected = selectedTierId === tier.id;
                   return (
-                    <div
-                      key={tier.id}
-                      onClick={() => setSelectedTierId(tier.id)}
-                      style={{
-                        padding: '12px 14px',
-                        borderRadius: '10px',
-                        border: isSelected ? '2px solid #2563EB' : '1px solid #E2E8F0',
-                        background: isSelected ? 'rgba(37, 99, 235, 0.06)' : '#FAFCFF',
-                        cursor: 'pointer',
-                        transition: 'all 0.15s ease',
-                      }}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'center', justifySelf: 'stretch', justifyContent: 'space-between' }}>
-                        <span style={{ fontSize: '13px', fontWeight: '700', color: isSelected ? '#082653' : '#334155' }}>
-                          {tier.name}
-                        </span>
-                        {isSelected && <CheckCircle2 size={16} color="#2563EB" />}
+                    <Magnet key={tier.id} {...TILE_MAGNET_PROPS} style={{ display: 'block', width: '100%' }}>
+                      <div
+                        onClick={() => setSelectedTierId(tier.id)}
+                        style={{
+                          padding: '12px 14px',
+                          borderRadius: '10px',
+                          border: isSelected ? '2px solid #EA580C' : '1px solid #FDBA74',
+                          background: isSelected ? 'rgba(234, 88, 12, 0.06)' : '#FAFCFF',
+                          cursor: 'pointer',
+                          transition: 'all 0.15s ease',
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center', justifySelf: 'stretch', justifyContent: 'space-between' }}>
+                          <span style={{ fontSize: '13px', fontWeight: '700', color: isSelected ? '#082653' : '#334155' }}>
+                            {tier.name}
+                          </span>
+                          {isSelected && <CheckCircle2 size={16} color="#EA580C" />}
+                        </div>
+                        <div style={{ fontSize: '11px', color: '#EA580C', fontWeight: '700', marginTop: '2px' }}>
+                          {tier.turnaround}
+                        </div>
+                        <div style={{ fontSize: '11px', color: '#64748B', marginTop: '3px', lineHeight: '1.3' }}>
+                          {tier.description}
+                        </div>
                       </div>
-                      <div style={{ fontSize: '11px', color: '#2563EB', fontWeight: '700', marginTop: '2px' }}>
-                        {tier.turnaround}
-                      </div>
-                      <div style={{ fontSize: '11px', color: '#64748B', marginTop: '3px', lineHeight: '1.3' }}>
-                        {tier.description}
-                      </div>
-                    </div>
+                    </Magnet>
                   );
                 })}
               </div>
@@ -725,31 +736,32 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                 {autoProductionModes.map((mode) => {
                   const isSelected = selectedModeId === mode.id;
                   return (
-                    <div
-                      key={mode.id}
-                      onClick={() => setSelectedModeId(mode.id)}
-                      style={{
-                        padding: '12px 14px',
-                        borderRadius: '10px',
-                        border: isSelected ? '2px solid #059669' : '1px solid #E2E8F0',
-                        background: isSelected ? 'rgba(5, 150, 105, 0.06)' : '#FAFCFF',
-                        cursor: 'pointer',
-                        transition: 'all 0.15s ease',
-                      }}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                        <span style={{ fontSize: '13px', fontWeight: '700', color: '#082653' }}>
-                          {mode.name}
-                        </span>
-                        {isSelected && <CheckCircle2 size={16} color="#059669" />}
+                    <Magnet key={mode.id} {...TILE_MAGNET_PROPS} style={{ display: 'block', width: '100%' }}>
+                      <div
+                        onClick={() => setSelectedModeId(mode.id)}
+                        style={{
+                          padding: '12px 14px',
+                          borderRadius: '10px',
+                          border: isSelected ? '2px solid #EA580C' : '1px solid #FDBA74',
+                          background: isSelected ? 'rgba(234, 88, 12, 0.06)' : '#FAFCFF',
+                          cursor: 'pointer',
+                          transition: 'all 0.15s ease',
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                          <span style={{ fontSize: '13px', fontWeight: '700', color: '#082653' }}>
+                            {mode.name}
+                          </span>
+                          {isSelected && <CheckCircle2 size={16} color="#EA580C" />}
+                        </div>
+                        <div style={{ fontSize: '11px', color: '#EA580C', fontWeight: '700', marginTop: '2px' }}>
+                          Protocol: {mode.protocol}
+                        </div>
+                        <div style={{ fontSize: '11px', color: '#64748B', marginTop: '4px', lineHeight: '1.35' }}>
+                          {mode.desc}
+                        </div>
                       </div>
-                      <div style={{ fontSize: '11px', color: '#059669', fontWeight: '700', marginTop: '2px' }}>
-                        Protocol: {mode.protocol}
-                      </div>
-                      <div style={{ fontSize: '11px', color: '#64748B', marginTop: '4px', lineHeight: '1.35' }}>
-                        {mode.desc}
-                      </div>
-                    </div>
+                    </Magnet>
                   );
                 })}
               </div>
@@ -773,31 +785,32 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                 {autoProductionVolumes.map((vol) => {
                   const isSelected = selectedVolId === vol.id;
                   return (
-                    <div
-                      key={vol.id}
-                      onClick={() => setSelectedVolId(vol.id)}
-                      style={{
-                        padding: '12px 14px',
-                        borderRadius: '10px',
-                        border: isSelected ? '2px solid #FF6F00' : '1px solid #E2E8F0',
-                        background: isSelected ? 'rgba(255, 111, 0, 0.06)' : '#FAFCFF',
-                        cursor: 'pointer',
-                        transition: 'all 0.15s ease',
-                      }}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                        <span style={{ fontSize: '13px', fontWeight: '700', color: isSelected ? '#082653' : '#334155' }}>
-                          {vol.name}
-                        </span>
-                        {isSelected && <CheckCircle2 size={16} color="#FF6F00" />}
+                    <Magnet key={vol.id} {...TILE_MAGNET_PROPS} style={{ display: 'block', width: '100%' }}>
+                      <div
+                        onClick={() => setSelectedVolId(vol.id)}
+                        style={{
+                          padding: '12px 14px',
+                          borderRadius: '10px',
+                          border: isSelected ? '2px solid #FF6F00' : '1px solid #FDBA74',
+                          background: isSelected ? 'rgba(255, 111, 0, 0.06)' : '#FAFCFF',
+                          cursor: 'pointer',
+                          transition: 'all 0.15s ease',
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                          <span style={{ fontSize: '13px', fontWeight: '700', color: isSelected ? '#082653' : '#334155' }}>
+                            {vol.name}
+                          </span>
+                          {isSelected && <CheckCircle2 size={16} color="#FF6F00" />}
+                        </div>
+                        <div style={{ fontSize: '11px', color: '#FF6F00', fontWeight: '700', marginTop: '2px' }}>
+                          Volume: {vol.units} • {vol.costPerKit}
+                        </div>
+                        <div style={{ fontSize: '11px', color: '#64748B', marginTop: '4px', lineHeight: '1.3' }}>
+                          Throughput: {vol.throughputCapacity}
+                        </div>
                       </div>
-                      <div style={{ fontSize: '11px', color: '#FF6F00', fontWeight: '700', marginTop: '2px' }}>
-                        Volume: {vol.units} • {vol.costPerKit}
-                      </div>
-                      <div style={{ fontSize: '11px', color: '#64748B', marginTop: '4px', lineHeight: '1.3' }}>
-                        Throughput: {vol.throughputCapacity}
-                      </div>
-                    </div>
+                    </Magnet>
                   );
                 })}
               </div>
@@ -807,8 +820,9 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
           {/* Simulator Result Output Bar */}
           <div
             style={{
-              background: 'linear-gradient(135deg, #051A3B 0%, #082653 100%)',
-              color: '#FFFFFF',
+              background: 'linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%)',
+              border: '1px solid #FED7AA',
+              color: '#082653',
               borderRadius: '12px',
               padding: '20px 24px',
               display: 'flex',
@@ -819,13 +833,13 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
             }}
           >
             <div>
-              <div style={{ fontSize: '11px', color: '#93C5FD', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+              <div style={{ fontSize: '11px', color: '#EA580C', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
                 CONFIGURED AUTOMOTIVE JIT / JIS ARCHITECTURE
               </div>
-              <div style={{ fontSize: '16px', fontWeight: '800', marginTop: '2px' }}>
-                {selectedTier.name} • <span style={{ color: '#93C5FD' }}>{selectedMode.name}</span> • {selectedVol.name}
+              <div style={{ fontSize: '16px', fontWeight: '800', marginTop: '2px', color: '#082653' }}>
+                {selectedTier.name} • <span style={{ color: '#EA580C' }}>{selectedMode.name}</span> • {selectedVol.name}
               </div>
-              <div style={{ fontSize: '12px', color: '#94A3B8', marginTop: '4px' }}>
+              <div style={{ fontSize: '12px', color: '#475569', marginTop: '4px' }}>
                 Cadence: {selectedTier.turnaround} • Fleet: {selectedTier.fleetType} • Penalty: {selectedTier.penaltyProtection}
               </div>
             </div>
@@ -839,13 +853,13 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                   gap: '8px',
                   padding: '11px 20px',
                   borderRadius: '10px',
-                  background: 'linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)',
+                  background: 'linear-gradient(135deg, #FF6F00 0%, #EA580C 100%)',
                   color: '#FFFFFF',
                   fontSize: '13px',
                   fontWeight: '700',
                   border: 'none',
                   cursor: 'pointer',
-                  boxShadow: '0 4px 14px rgba(37, 99, 235, 0.4)',
+                  boxShadow: '0 4px 14px rgba(234, 88, 12, 0.4)',
                 }}
               >
                 <FileCheck2 size={15} />
@@ -860,11 +874,11 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                   gap: '6px',
                   padding: '11px 18px',
                   borderRadius: '10px',
-                  background: 'rgba(255, 255, 255, 0.1)',
-                  color: '#FFFFFF',
+                  background: '#FFFFFF',
+                  color: '#082653',
                   fontSize: '13px',
                   fontWeight: '700',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  border: '1px solid #FED7AA',
                   cursor: 'pointer',
                 }}
               >
@@ -881,9 +895,9 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                 marginTop: '16px',
                 padding: '12px 18px',
                 borderRadius: '8px',
-                background: '#EFF6FF',
-                border: '1px solid #BFDBFE',
-                color: '#1E40AF',
+                background: '#FFF7ED',
+                border: '1px solid #FDE68A',
+                color: '#C2410C',
                 fontSize: '13px',
                 fontWeight: '600',
                 display: 'flex',
@@ -891,7 +905,7 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                 gap: '10px',
               }}
             >
-              <CheckCheck size={16} color="#2563EB" />
+              <CheckCheck size={16} color="#EA580C" />
               <span>{simulatorToast}</span>
             </div>
           )}
@@ -909,13 +923,13 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                 gap: '6px',
                 fontSize: '11px',
                 fontWeight: '800',
-                color: '#2563EB',
+                color: '#EA580C',
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase',
                 marginBottom: '8px',
               }}
             >
-              <ShieldCheck size={14} color="#2563EB" />
+              <ShieldCheck size={14} color="#EA580C" />
               <span>MANUFACTURING INTEGRATION PILLARS</span>
             </div>
             <h2
@@ -944,43 +958,44 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(2, 1fr)',
+              gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
               gap: '24px',
             }}
           >
             {autoPillars.map((pillar) => {
               const featuresList = pillar.features || pillar.points || [];
               return (
-                <div
-                  key={pillar.id}
-                  style={{
-                    background: '#FFFFFF',
-                    borderRadius: '16px',
-                    border: '1px solid #E2E8F0',
-                    overflow: 'hidden',
-                    boxShadow: '0 8px 24px rgba(8, 38, 83, 0.04)',
-                    transition: 'all 0.25s ease',
-                    display: 'flex',
-                    flexDirection: 'column',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = 'translateY(-4px)';
-                    e.currentTarget.style.borderColor = '#2563EB';
-                    e.currentTarget.style.boxShadow = '0 16px 36px rgba(37, 99, 235, 0.12)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.borderColor = '#E2E8F0';
-                    e.currentTarget.style.boxShadow = '0 8px 24px rgba(8, 38, 83, 0.04)';
-                  }}
-                >
+                <Magnet key={pillar.id} {...CARD_MAGNET_PROPS}>
+                  <div
+                    style={{
+                      background: '#FFFFFF',
+                      borderRadius: '16px',
+                      border: '1px solid #FDBA74',
+                      overflow: 'hidden',
+                      boxShadow: '0 8px 24px rgba(28, 25, 23, 0.04)',
+                      transition: 'all 0.25s ease',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      height: '100%',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-4px)';
+                      e.currentTarget.style.borderColor = '#EA580C';
+                      e.currentTarget.style.boxShadow = '0 16px 36px rgba(234, 88, 12, 0.12)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.borderColor = '#FDBA74';
+                      e.currentTarget.style.boxShadow = '0 8px 24px rgba(28, 25, 23, 0.04)';
+                    }}
+                  >
                   {/* Photo Header */}
                   <div
                     style={{
                       height: '180px',
                       position: 'relative',
                       overflow: 'hidden',
-                      background: '#07162C',
+                      background: '#FFF7ED',
                     }}
                   >
                     <img
@@ -990,7 +1005,7 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                         width: '100%',
                         height: '100%',
                         objectFit: 'cover',
-                        filter: 'brightness(0.9)',
+                        filter: 'brightness(1.05) contrast(1.04)',
                         transition: 'transform 0.4s ease',
                       }}
                       onMouseEnter={(e) => {
@@ -1004,7 +1019,7 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                       style={{
                         position: 'absolute',
                         inset: 0,
-                        background: 'linear-gradient(180deg, rgba(8, 38, 83, 0.2) 0%, rgba(8, 38, 83, 0.85) 100%)',
+                        background: 'linear-gradient(180deg, transparent 62%, rgba(0, 0, 0, 0.25) 82%, rgba(0, 0, 0, 0.5) 100%)',
                       }}
                     />
                     {/* Top Metric Pill */}
@@ -1015,8 +1030,8 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                         right: '14px',
                         background: 'rgba(0, 0, 0, 0.65)',
                         backdropFilter: 'blur(8px)',
-                        border: '1px solid rgba(96, 165, 250, 0.4)',
-                        color: '#93C5FD',
+                        border: '1px solid rgba(251, 146, 60, 0.4)',
+                        color: '#FED7AA',
                         fontSize: '11px',
                         fontWeight: '800',
                         padding: '4px 10px',
@@ -1035,10 +1050,10 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                         right: '16px',
                       }}
                     >
-                      <div style={{ fontSize: '11px', fontWeight: '700', color: '#BFDBFE', letterSpacing: '0.04em' }}>
+                      <div style={{ fontSize: '11px', fontWeight: '700', color: '#FDE68A', letterSpacing: '0.04em', textShadow: '0 1px 3px rgba(0, 0, 0, 0.65)' }}>
                         {pillar.subtitle || pillar.badgeText}
                       </div>
-                      <div style={{ fontSize: '18px', fontWeight: '800', color: '#FFFFFF', marginTop: '2px' }}>
+                      <div style={{ fontSize: '18px', fontWeight: '800', color: '#FFFFFF', marginTop: '2px', textShadow: '0 1px 4px rgba(0, 0, 0, 0.65)' }}>
                         {pillar.title}
                       </div>
                     </div>
@@ -1075,8 +1090,8 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                               width: '16px',
                               height: '16px',
                               borderRadius: '50%',
-                              background: 'rgba(37, 99, 235, 0.12)',
-                              color: '#2563EB',
+                              background: 'rgba(234, 88, 12, 0.12)',
+                              color: '#EA580C',
                               display: 'flex',
                               alignItems: 'center',
                               justifyContent: 'center',
@@ -1092,6 +1107,7 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                     </div>
                   </div>
                 </div>
+                </Magnet>
               );
             })}
           </div>
@@ -1105,9 +1121,9 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
             margin: '48px 24px 0',
             background: '#FFFFFF',
             borderRadius: '16px',
-            border: '1px solid #E2E8F0',
+            border: '1px solid #FDBA74',
             padding: '36px',
-            boxShadow: '0 8px 30px rgba(8, 38, 83, 0.04)',
+            boxShadow: '0 8px 30px rgba(28, 25, 23, 0.04)',
           }}
         >
           {/* Header & Tabs */}
@@ -1129,13 +1145,13 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                   gap: '6px',
                   fontSize: '11px',
                   fontWeight: '800',
-                  color: '#2563EB',
+                  color: '#EA580C',
                   letterSpacing: '0.08em',
                   textTransform: 'uppercase',
                   marginBottom: '6px',
                 }}
               >
-                <Car size={13} color="#2563EB" />
+                <Car size={13} color="#EA580C" />
                 <span>VERIFIED ULTRA-HIGH RESOLUTION AUTOMOTIVE SHOWCASE</span>
               </div>
               <h2
@@ -1169,8 +1185,8 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                       borderRadius: '8px',
                       fontSize: '12px',
                       fontWeight: '700',
-                      border: isActive ? '1px solid #2563EB' : '1px solid #E2E8F0',
-                      background: isActive ? 'linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)' : '#FAFBFD',
+                      border: isActive ? '1px solid #EA580C' : '1px solid #FDBA74',
+                      background: isActive ? 'linear-gradient(135deg, #FF6F00 0%, #EA580C 100%)' : '#FAFBFD',
                       color: isActive ? '#FFFFFF' : '#475569',
                       cursor: 'pointer',
                       transition: 'all 0.15s ease',
@@ -1187,35 +1203,36 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(4, 1fr)',
+              gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
               gap: '20px',
             }}
           >
             {filteredGallery.map((item) => (
-              <div
-                key={item.id}
-                onClick={() => setPreviewImage(item)}
-                style={{
-                  background: '#FAFBFD',
-                  borderRadius: '12px',
-                  border: '1px solid #E2E8F0',
-                  overflow: 'hidden',
-                  cursor: 'pointer',
-                  transition: 'all 0.2s ease',
-                  display: 'flex',
-                  flexDirection: 'column',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-3px)';
-                  e.currentTarget.style.borderColor = '#2563EB';
-                  e.currentTarget.style.boxShadow = '0 10px 24px rgba(37, 99, 235, 0.12)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.borderColor = '#E2E8F0';
-                  e.currentTarget.style.boxShadow = 'none';
-                }}
-              >
+              <Magnet key={item.id} {...CARD_MAGNET_PROPS}>
+                <div
+                  onClick={() => setPreviewImage(item)}
+                  style={{
+                    background: '#FAFBFD',
+                    borderRadius: '12px',
+                    border: '1px solid #FDBA74',
+                    overflow: 'hidden',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s ease',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    height: '100%',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-3px)';
+                    e.currentTarget.style.borderColor = '#EA580C';
+                    e.currentTarget.style.boxShadow = '0 10px 24px rgba(234, 88, 12, 0.12)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.borderColor = '#FDBA74';
+                    e.currentTarget.style.boxShadow = 'none';
+                  }}
+                >
                 {/* Image Frame with Ultra-High Resolution Rendering */}
                 <div
                   style={{
@@ -1245,7 +1262,7 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                       position: 'absolute',
                       top: '10px',
                       left: '10px',
-                      background: 'rgba(8, 38, 83, 0.85)',
+                      background: 'rgba(234, 88, 12, 0.92)',
                       color: '#FFFFFF',
                       fontSize: '10px',
                       fontWeight: '700',
@@ -1268,7 +1285,7 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      color: '#2563EB',
+                      color: '#EA580C',
                       boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
                     }}
                   >
@@ -1289,16 +1306,17 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
 
                   <div style={{ marginTop: '12px', borderTop: '1px solid #E2E8F0', paddingTop: '8px' }}>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                      <span style={{ fontSize: '10px', color: '#2563EB', fontWeight: '700' }}>
+                      <span style={{ fontSize: '10px', color: '#EA580C', fontWeight: '700' }}>
                         {item.highlight}
                       </span>
-                      <span style={{ fontSize: '10px', color: '#059669', fontWeight: '700' }}>
+                      <span style={{ fontSize: '10px', color: '#EA580C', fontWeight: '700' }}>
                         IATF PASSED
                       </span>
                     </div>
                   </div>
                 </div>
               </div>
+              </Magnet>
             ))}
           </div>
         </section>
@@ -1310,7 +1328,7 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
             style={{
               position: 'fixed',
               inset: 0,
-              background: 'rgba(5, 24, 56, 0.82)',
+              background: 'rgba(28, 25, 23, 0.78)',
               backdropFilter: 'blur(8px)',
               WebkitBackdropFilter: 'blur(8px)',
               zIndex: 99999,
@@ -1331,7 +1349,7 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                 maxHeight: 'min(90vh, 660px)',
                 display: 'flex',
                 flexDirection: 'column',
-                boxShadow: '0 25px 60px -15px rgba(5, 24, 56, 0.4), 0 0 0 1px rgba(226, 232, 240, 0.8)',
+                boxShadow: '0 25px 60px -15px rgba(28, 25, 23, 0.4), 0 0 0 1px rgba(226, 232, 240, 0.8)',
                 position: 'relative',
                 overflow: 'hidden',
                 margin: 'auto',
@@ -1349,7 +1367,7 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                   borderRadius: '50%',
                   background: 'rgba(255, 255, 255, 0.95)',
                   backdropFilter: 'blur(4px)',
-                  border: '1px solid #E2E8F0',
+                  border: '1px solid #FDBA74',
                   boxShadow: '0 4px 12px rgba(0, 0, 0, 0.12)',
                   display: 'flex',
                   alignItems: 'center',
@@ -1366,7 +1384,7 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                 style={{
                   padding: '20px 24px 16px',
                   textAlign: 'center',
-                  background: 'radial-gradient(ellipse at center, #F8FAFC 0%, #EEF2F6 100%)',
+                  background: 'radial-gradient(ellipse at center, #F8FAFC 0%, #F1F5F9 100%)',
                   borderBottom: '1px solid #F1F5F9',
                   display: 'flex',
                   alignItems: 'center',
@@ -1403,8 +1421,8 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                     gap: '6px',
                     padding: '4px 10px',
                     borderRadius: '6px',
-                    background: 'rgba(37, 99, 235, 0.1)',
-                    color: '#2563EB',
+                    background: 'rgba(234, 88, 12, 0.1)',
+                    color: '#EA580C',
                     fontSize: '11px',
                     fontWeight: '800',
                     letterSpacing: '0.04em',
@@ -1443,11 +1461,11 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                 <div
                   style={{
                     background: '#F8FAFC',
-                    border: '1px solid #E2E8F0',
+                    border: '1px solid #FDBA74',
                     borderRadius: '12px',
                     padding: '14px 18px',
                     display: 'grid',
-                    gridTemplateColumns: '1fr 1fr',
+                    gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)',
                     gap: '16px',
                     marginBottom: '20px',
                   }}
@@ -1470,7 +1488,7 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                       style={{
                         fontSize: '13.5px',
                         fontWeight: '700',
-                        color: '#2563EB',
+                        color: '#EA580C',
                         fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                       }}
                     >
@@ -1495,7 +1513,7 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                       style={{
                         fontSize: '13.5px',
                         fontWeight: '700',
-                        color: '#059669',
+                        color: '#EA580C',
                         fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                       }}
                     >
@@ -1514,13 +1532,13 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                       flex: 1,
                       padding: '12px 20px',
                       borderRadius: '10px',
-                      background: 'linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)',
+                      background: 'linear-gradient(135deg, #FF6F00 0%, #EA580C 100%)',
                       color: '#FFFFFF',
                       fontSize: '13px',
                       fontWeight: '700',
                       border: 'none',
                       cursor: 'pointer',
-                      boxShadow: '0 4px 14px rgba(37, 99, 235, 0.3)',
+                      boxShadow: '0 4px 14px rgba(234, 88, 12, 0.3)',
                       fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                       transition: 'all 0.2s ease',
                     }}
@@ -1536,7 +1554,7 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                       color: '#475569',
                       fontSize: '13px',
                       fontWeight: '700',
-                      border: '1px solid #E2E8F0',
+                      border: '1px solid #FDBA74',
                       cursor: 'pointer',
                       fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                       transition: 'all 0.2s ease',
@@ -1558,9 +1576,9 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
             margin: '48px 24px 0',
             background: '#FFFFFF',
             borderRadius: '16px',
-            border: '1px solid #E2E8F0',
+            border: '1px solid #FDBA74',
             padding: '36px',
-            boxShadow: '0 8px 30px rgba(8, 38, 83, 0.04)',
+            boxShadow: '0 8px 30px rgba(28, 25, 23, 0.04)',
           }}
         >
           <div style={{ marginBottom: '24px' }}>
@@ -1571,13 +1589,13 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                 gap: '6px',
                 fontSize: '11px',
                 fontWeight: '800',
-                color: '#2563EB',
+                color: '#EA580C',
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase',
                 marginBottom: '6px',
               }}
             >
-              <Award size={14} color="#2563EB" />
+              <Award size={14} color="#EA580C" />
               <span>OEM SPECIFICATION & QUALITY AUDITING FRAMEWORK</span>
             </div>
             <h2
@@ -1622,7 +1640,7 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                       transition: 'background 0.15s ease',
                     }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.background = '#EFF6FF';
+                      e.currentTarget.style.background = '#FFF7ED';
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.background = 'transparent';
@@ -1631,7 +1649,7 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                     <td style={{ padding: '14px 16px', fontSize: '13px', fontWeight: '800', color: '#082653' }}>
                       {item.standard}
                     </td>
-                    <td style={{ padding: '14px 16px', fontSize: '12px', color: '#2563EB', fontWeight: '700' }}>
+                    <td style={{ padding: '14px 16px', fontSize: '12px', color: '#EA580C', fontWeight: '700' }}>
                       {item.authority}
                     </td>
                     <td style={{ padding: '14px 16px', fontSize: '12px', color: '#475569', maxWidth: '280px', lineHeight: '1.4' }}>
@@ -1648,8 +1666,8 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                           gap: '4px',
                           padding: '3px 8px',
                           borderRadius: '4px',
-                          background: 'rgba(5, 150, 105, 0.1)',
-                          color: '#059669',
+                          background: 'rgba(234, 88, 12, 0.1)',
+                          color: '#EA580C',
                           fontSize: '11px',
                           fontWeight: '800',
                         }}
@@ -1677,13 +1695,13 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                 gap: '6px',
                 fontSize: '11px',
                 fontWeight: '800',
-                color: '#2563EB',
+                color: '#EA580C',
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase',
                 marginBottom: '8px',
               }}
             >
-              <BarChart2 size={14} color="#2563EB" />
+              <BarChart2 size={14} color="#EA580C" />
               <span>PROVEN OEM ASSEMBLY LINE METRICS</span>
             </div>
             <h2
@@ -1701,82 +1719,84 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
+              gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
               gap: '24px',
             }}
           >
             {autoCaseStudies.map((study) => (
-              <div
-                key={study.id}
-                style={{
-                  background: '#FFFFFF',
-                  borderRadius: '16px',
-                  border: '1px solid #E2E8F0',
-                  padding: '24px',
-                  boxShadow: '0 8px 24px rgba(8, 38, 83, 0.04)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  transition: 'all 0.2s ease',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-3px)';
-                  e.currentTarget.style.borderColor = '#2563EB';
-                  e.currentTarget.style.boxShadow = '0 12px 30px rgba(37, 99, 235, 0.1)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.borderColor = '#E2E8F0';
-                  e.currentTarget.style.boxShadow = '0 8px 24px rgba(8, 38, 83, 0.04)';
-                }}
-              >
-                <div>
-                  <div style={{ fontSize: '11px', color: '#2563EB', fontWeight: '800', letterSpacing: '0.04em', textTransform: 'uppercase' }}>
-                    {study.client}
-                  </div>
-                  <h3 style={{ fontSize: '16px', fontWeight: '800', color: '#082653', margin: '8px 0 10px', lineHeight: '1.35' }}>
-                    {study.headline}
-                  </h3>
-                  <p style={{ fontSize: '12px', color: '#64748B', lineHeight: '1.55', margin: '0 0 20px' }}>
-                    {study.summary}
-                  </p>
-                </div>
-
-                <div>
-                  <div
-                    style={{
-                      display: 'grid',
-                      gridTemplateColumns: 'repeat(3, 1fr)',
-                      gap: '8px',
-                      background: '#F8FAFC',
-                      borderRadius: '10px',
-                      padding: '12px',
-                      marginBottom: '16px',
-                    }}
-                  >
-                    {study.metrics.map((res, rIdx) => (
-                      <div key={rIdx} style={{ textAlign: 'center' }}>
-                        <div style={{ fontSize: '14px', fontWeight: '900', color: '#082653' }}>{res.val}</div>
-                        <div style={{ fontSize: '10px', color: '#64748B', marginTop: '2px' }}>{res.label}</div>
-                      </div>
-                    ))}
+              <Magnet key={study.id} {...CARD_MAGNET_PROPS}>
+                <div
+                  style={{
+                    background: '#FFFFFF',
+                    borderRadius: '16px',
+                    border: '1px solid #FDBA74',
+                    padding: '24px',
+                    boxShadow: '0 8px 24px rgba(28, 25, 23, 0.04)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    height: '100%',
+                    transition: 'all 0.2s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-3px)';
+                    e.currentTarget.style.borderColor = '#EA580C';
+                    e.currentTarget.style.boxShadow = '0 12px 30px rgba(234, 88, 12, 0.1)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.borderColor = '#FDBA74';
+                    e.currentTarget.style.boxShadow = '0 8px 24px rgba(28, 25, 23, 0.04)';
+                  }}
+                >
+                  <div>
+                    <div style={{ fontSize: '11px', color: '#EA580C', fontWeight: '800', letterSpacing: '0.04em', textTransform: 'uppercase' }}>
+                      {study.client}
+                    </div>
+                    <h3 style={{ fontSize: '16px', fontWeight: '800', color: '#082653', margin: '8px 0 10px', lineHeight: '1.35' }}>
+                      {study.headline}
+                    </h3>
+                    <p style={{ fontSize: '12px', color: '#64748B', lineHeight: '1.55', margin: '0 0 20px' }}>
+                      {study.summary}
+                    </p>
                   </div>
 
-                  <div
-                    style={{
-                      fontSize: '11px',
-                      color: '#1E40AF',
-                      background: 'rgba(37, 99, 235, 0.08)',
-                      padding: '10px 12px',
-                      borderRadius: '8px',
-                      lineHeight: '1.45',
-                      fontWeight: '600',
-                    }}
-                  >
-                    <strong>OEM Milestone:</strong> {study.takeaway}
+                  <div>
+                    <div
+                      style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
+                        gap: '8px',
+                        background: '#F8FAFC',
+                        borderRadius: '10px',
+                        padding: '12px',
+                        marginBottom: '16px',
+                      }}
+                    >
+                      {study.metrics.map((res, rIdx) => (
+                        <div key={rIdx} style={{ textAlign: 'center' }}>
+                          <div style={{ fontSize: '14px', fontWeight: '900', color: '#082653' }}>{res.val}</div>
+                          <div style={{ fontSize: '10px', color: '#64748B', marginTop: '2px' }}>{res.label}</div>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div
+                      style={{
+                        fontSize: '11px',
+                        color: '#C2410C',
+                        background: 'rgba(234, 88, 12, 0.08)',
+                        padding: '10px 12px',
+                        borderRadius: '8px',
+                        lineHeight: '1.45',
+                        fontWeight: '600',
+                      }}
+                    >
+                      <strong>OEM Milestone:</strong> {study.takeaway}
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Magnet>
             ))}
           </div>
         </section>
@@ -1787,10 +1807,11 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
         <section
           style={{
             margin: '48px 24px 0',
-            background: 'linear-gradient(135deg, #051838 0%, #082653 100%)',
+            background: 'linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 50%, #FFF7ED 100%)',
+            border: '1px solid #FED7AA',
             borderRadius: '16px',
             padding: '28px 36px',
-            color: '#FFFFFF',
+            color: '#082653',
           }}
         >
           <div
@@ -1803,34 +1824,35 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
             }}
           >
             <div>
-              <div style={{ fontSize: '11px', color: '#93C5FD', fontWeight: '800', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+              <div style={{ fontSize: '11px', color: '#EA580C', fontWeight: '800', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
                 CERTIFIED AUTOMOTIVE SUPPLY CHAIN NETWORK
               </div>
-              <div style={{ fontSize: '18px', fontWeight: '800', marginTop: '4px' }}>
+              <div style={{ fontSize: '18px', fontWeight: '800', marginTop: '4px', color: '#082653' }}>
                 Accredited Under Global Automotive OEM & Dangerous Goods Frameworks
               </div>
             </div>
 
             <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
               {autoStandards.map((std, idx) => (
-                <div
-                  key={idx}
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                    padding: '8px 14px',
-                    borderRadius: '8px',
-                    background: 'rgba(255, 255, 255, 0.08)',
-                    border: '1px solid rgba(96, 165, 250, 0.3)',
-                    fontSize: '11px',
-                    fontWeight: '700',
-                    color: '#E0F2FE',
-                  }}
-                >
-                  <CheckCircle2 size={13} color="#60A5FA" />
-                  <span>{std}</span>
-                </div>
+                <Magnet key={idx} padding={14} magnetStrength={12} maxOffset={3} scale={1.015} tilt={0.8}>
+                  <div
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      padding: '8px 14px',
+                      borderRadius: '8px',
+                      background: '#FFFFFF',
+                      border: '1px solid #FED7AA',
+                      fontSize: '11px',
+                      fontWeight: '700',
+                      color: '#082653',
+                    }}
+                  >
+                    <CheckCircle2 size={13} color="#EA580C" />
+                    <span>{std}</span>
+                  </div>
+                </Magnet>
               ))}
             </div>
           </div>
@@ -1844,9 +1866,9 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
             margin: '48px 24px 0',
             background: '#FFFFFF',
             borderRadius: '16px',
-            border: '1px solid #E2E8F0',
+            border: '1px solid #FDBA74',
             padding: '36px',
-            boxShadow: '0 8px 30px rgba(8, 38, 83, 0.04)',
+            boxShadow: '0 8px 30px rgba(28, 25, 23, 0.04)',
           }}
         >
           <div style={{ textAlign: 'center', marginBottom: '28px' }}>
@@ -1857,13 +1879,13 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                 gap: '6px',
                 fontSize: '11px',
                 fontWeight: '800',
-                color: '#2563EB',
+                color: '#EA580C',
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase',
                 marginBottom: '6px',
               }}
             >
-              <Zap size={14} color="#2563EB" />
+              <Zap size={14} color="#EA580C" />
               <span>FREQUENTLY ASKED QUESTIONS</span>
             </div>
             <h2
@@ -1886,8 +1908,8 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                   key={idx}
                   style={{
                     borderRadius: '12px',
-                    border: isOpen ? '1px solid #2563EB' : '1px solid #E2E8F0',
-                    background: isOpen ? '#EFF6FF' : '#FAFBFD',
+                    border: isOpen ? '1px solid #EA580C' : '1px solid #FDBA74',
+                    background: isOpen ? '#FFF7ED' : '#FAFBFD',
                     overflow: 'hidden',
                     transition: 'all 0.2s ease',
                   }}
@@ -1915,7 +1937,7 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                         width: '24px',
                         height: '24px',
                         borderRadius: '50%',
-                        background: isOpen ? '#2563EB' : '#E2E8F0',
+                        background: isOpen ? '#EA580C' : '#E2E8F0',
                         color: isOpen ? '#FFFFFF' : '#475569',
                         display: 'flex',
                         alignItems: 'center',
@@ -1935,7 +1957,7 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                         fontSize: '13px',
                         lineHeight: '1.65',
                         color: '#475569',
-                        borderTop: '1px solid rgba(37, 99, 235, 0.15)',
+                        borderTop: '1px solid rgba(234, 88, 12, 0.15)',
                         paddingTop: '12px',
                       }}
                     >
@@ -1954,13 +1976,14 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
         <section
           style={{
             margin: '48px 24px 0',
-            background: 'linear-gradient(135deg, #051838 0%, #082653 50%, #0C3675 100%)',
-            color: '#FFFFFF',
+            background: 'linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 50%, #FFF7ED 100%)',
+            border: '1px solid #FED7AA',
+            color: '#082653',
             borderRadius: '16px',
             padding: '48px 40px',
             position: 'relative',
             overflow: 'hidden',
-            boxShadow: '0 20px 50px rgba(8, 38, 83, 0.25)',
+            boxShadow: '0 20px 50px rgba(234, 88, 12, 0.08)',
           }}
         >
           <div
@@ -1971,7 +1994,7 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
               width: '420px',
               height: '420px',
               borderRadius: '50%',
-              background: 'radial-gradient(circle, rgba(37, 99, 235, 0.22) 0%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(234, 88, 12, 0.1) 0%, transparent 70%)',
               filter: 'blur(50px)',
               pointerEvents: 'none',
             }}
@@ -1996,13 +2019,13 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                   gap: '6px',
                   fontSize: '11px',
                   fontWeight: '800',
-                  color: '#93C5FD',
+                  color: '#EA580C',
                   letterSpacing: '0.08em',
                   textTransform: 'uppercase',
                   marginBottom: '8px',
                 }}
               >
-                <Car size={14} color="#60A5FA" />
+                <Car size={14} color="#EA580C" />
                 <span>INTEGRATE YOUR AUTOMOTIVE SUPPLY CHAIN</span>
               </div>
               <h2
@@ -2010,7 +2033,7 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                   fontSize: '28px',
                   fontWeight: '800',
                   margin: '0 0 10px',
-                  color: '#FFFFFF',
+                  color: '#082653',
                 }}
               >
                 Ready to Eliminate Assembly Line Stoppage Risk?
@@ -2019,7 +2042,7 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                 style={{
                   fontSize: '14px',
                   lineHeight: '1.6',
-                  color: '#CBD5E1',
+                  color: '#334155',
                   margin: 0,
                 }}
               >
@@ -2067,24 +2090,24 @@ export const AutomotiveLogistics = ({ onNavigate }) => {
                   gap: '8px',
                   padding: '13px 22px',
                   borderRadius: '12px',
-                  background: 'rgba(255, 255, 255, 0.08)',
-                  color: '#FFFFFF',
+                  background: '#FFFFFF',
+                  color: '#082653',
                   fontSize: '14px',
                   fontWeight: '700',
-                  border: '1px solid rgba(147, 197, 253, 0.35)',
+                  border: '1px solid #FED7AA',
                   cursor: 'pointer',
                   transition: 'all 0.2s ease',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.15)';
-                  e.currentTarget.style.borderColor = '#60A5FA';
+                  e.currentTarget.style.background = '#FFF7ED';
+                  e.currentTarget.style.borderColor = '#EA580C';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
-                  e.currentTarget.style.borderColor = 'rgba(147, 197, 253, 0.35)';
+                  e.currentTarget.style.background = '#FFFFFF';
+                  e.currentTarget.style.borderColor = '#FED7AA';
                 }}
               >
-                <Radio size={15} color="#60A5FA" />
+                <Radio size={15} color="#EA580C" />
                 <span>Track Vehicle by VIN</span>
               </button>
             </div>

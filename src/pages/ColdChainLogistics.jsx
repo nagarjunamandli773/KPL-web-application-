@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Header } from '../components/layout/Header';
 import { Footer } from '../components/layout/Footer';
 import { TrackModal } from '../components/common/TrackModal';
+import Magnet, { CARD_MAGNET_PROPS, TILE_MAGNET_PROPS } from '../components/common/Magnet';
 import {
   coldChainHeroStats,
   temperatureZones,
@@ -103,6 +104,55 @@ export const ColdChainLogistics = ({ onNavigate }) => {
         overflowX: 'clip',
       }}
     >
+      <style>{`
+        .coldchain-4col-grid {
+          display: grid;
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          align-items: stretch;
+        }
+        .coldchain-3col-grid {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          align-items: stretch;
+        }
+        .coldchain-modes-grid {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 20px;
+          align-items: stretch;
+        }
+        .coldchain-2col-grid {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 18px;
+          align-items: stretch;
+        }
+        @media (max-width: 1060px) {
+          .coldchain-4col-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+        }
+        @media (max-width: 960px) {
+          .coldchain-3col-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+          .coldchain-modes-grid {
+            grid-template-columns: minmax(0, 1fr);
+          }
+        }
+        @media (max-width: 680px) {
+          .coldchain-2col-grid {
+            grid-template-columns: minmax(0, 1fr);
+          }
+        }
+        @media (max-width: 560px) {
+          .coldchain-4col-grid,
+          .coldchain-3col-grid {
+            grid-template-columns: minmax(0, 1fr);
+          }
+        }
+      `}</style>
+
       {/* 1. Shared Global Link Header */}
       <Header
         onTrackClick={() => openModal('track')}
@@ -116,19 +166,19 @@ export const ColdChainLogistics = ({ onNavigate }) => {
         <div style={{ height: '24px', width: '100%', background: '#FAFBFD' }} />
 
         {/* =========================================================================
-            SECTION 1: HERO BANNER (Deep Navy with Frost Cyan / Sunset Orange Glow)
+            SECTION 1: HERO BANNER (Clean White with Frost Cyan & Sunset Orange Accents)
             ========================================================================= */}
         <section
           style={{
             position: 'relative',
             padding: '50px 32px 50px 32px',
-            background: 'linear-gradient(145deg, #051A3B 0%, #082653 50%, #03132D 100%)',
-            borderTop: '1px solid rgba(8, 38, 83, 0.1)',
-            borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+            background: '#FFFFFF',
+            borderTop: '1px solid #E2E8F0',
+            borderBottom: '1px solid #E2E8F0',
             overflow: 'hidden',
           }}
         >
-          {/* Ambient Frost Cyan & Warm Amber Radial Lighting */}
+          {/* Ambient Warm Sunset Orange & Amber Radial Lighting */}
           <div
             style={{
               position: 'absolute',
@@ -136,7 +186,7 @@ export const ColdChainLogistics = ({ onNavigate }) => {
               right: '-60px',
               width: '450px',
               height: '450px',
-              background: 'radial-gradient(circle, rgba(0, 188, 212, 0.16) 0%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(217, 119, 6, 0.08) 0%, transparent 70%)',
               pointerEvents: 'none',
               zIndex: 0,
             }}
@@ -148,7 +198,7 @@ export const ColdChainLogistics = ({ onNavigate }) => {
               left: '10%',
               width: '400px',
               height: '400px',
-              background: 'radial-gradient(circle, rgba(234, 88, 12, 0.12) 0%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(234, 88, 12, 0.06) 0%, transparent 70%)',
               pointerEvents: 'none',
               zIndex: 0,
             }}
@@ -163,8 +213,8 @@ export const ColdChainLogistics = ({ onNavigate }) => {
                 gap: '8px',
                 padding: '6px 14px',
                 borderRadius: '9999px',
-                background: 'rgba(0, 188, 212, 0.15)',
-                border: '1px solid rgba(0, 188, 212, 0.4)',
+                background: 'rgba(234, 88, 12, 0.08)',
+                border: '1px solid rgba(234, 88, 12, 0.25)',
                 marginBottom: '16px',
               }}
             >
@@ -173,7 +223,7 @@ export const ColdChainLogistics = ({ onNavigate }) => {
                   width: '20px',
                   height: '20px',
                   borderRadius: '5px',
-                  background: 'linear-gradient(135deg, #00BCD4 0%, #0097A7 100%)',
+                  background: 'linear-gradient(135deg, #FF6F00 0%, #EA580C 100%)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -186,7 +236,7 @@ export const ColdChainLogistics = ({ onNavigate }) => {
                 style={{
                   fontSize: '11.5px',
                   fontWeight: '700',
-                  color: '#A5F3FC',
+                  color: '#EA580C',
                   letterSpacing: '0.08em',
                   textTransform: 'uppercase',
                   fontFamily: 'var(--font-body)',
@@ -202,11 +252,10 @@ export const ColdChainLogistics = ({ onNavigate }) => {
                 fontFamily: 'Georgia, "Times New Roman", serif',
                 fontSize: 'clamp(32px, 3.8vw, 44px)',
                 fontWeight: '700',
-                color: '#FFFFFF',
+                color: '#082653',
                 lineHeight: '1.15',
                 letterSpacing: '-0.5px',
                 marginBottom: '14px',
-                textShadow: '0 2px 10px rgba(0, 0, 0, 0.45)',
               }}
             >
               Cold Chain Logistics
@@ -217,7 +266,7 @@ export const ColdChainLogistics = ({ onNavigate }) => {
               style={{
                 fontSize: '17px',
                 fontWeight: '400',
-                color: 'rgba(255, 255, 255, 0.88)',
+                color: '#475569',
                 lineHeight: '1.6',
                 maxWidth: '780px',
                 fontFamily: 'var(--font-body)',
@@ -250,18 +299,18 @@ export const ColdChainLogistics = ({ onNavigate }) => {
                   fontSize: '14px',
                   fontWeight: '700',
                   textDecoration: 'none',
-                  boxShadow: '0 6px 20px rgba(234, 88, 12, 0.4)',
+                  boxShadow: '0 6px 20px rgba(234, 88, 12, 0.3)',
                   transition: 'all 0.2s ease',
                   border: 'none',
                   cursor: 'pointer',
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-2px)';
-                  e.currentTarget.style.boxShadow = '0 8px 26px rgba(234, 88, 12, 0.55)';
+                  e.currentTarget.style.boxShadow = '0 8px 26px rgba(234, 88, 12, 0.45)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(234, 88, 12, 0.4)';
+                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(234, 88, 12, 0.3)';
                 }}
               >
                 <span>Explore Temperature Spectrum</span>
@@ -276,26 +325,25 @@ export const ColdChainLogistics = ({ onNavigate }) => {
                   gap: '8px',
                   padding: '12px 22px',
                   borderRadius: '10px',
-                  background: 'rgba(255, 255, 255, 0.08)',
-                  color: '#FFFFFF',
+                  background: '#F8FAFC',
+                  color: '#082653',
                   fontSize: '14px',
                   fontWeight: '600',
                   textDecoration: 'none',
-                  border: '1px solid rgba(255, 255, 255, 0.22)',
-                  backdropFilter: 'blur(8px)',
+                  border: '1px solid #CBD5E1',
                   transition: 'all 0.2s ease',
                   cursor: 'pointer',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.16)';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)';
+                  e.currentTarget.style.background = '#F1F5F9';
+                  e.currentTarget.style.borderColor = '#94A3B8';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.22)';
+                  e.currentTarget.style.background = '#F8FAFC';
+                  e.currentTarget.style.borderColor = '#CBD5E1';
                 }}
               >
-                <Snowflake size={16} color="#67E8F9" />
+                <Snowflake size={16} color="#EA580C" />
                 <span>Reserve Smart Reefer Capacity</span>
               </a>
 
@@ -308,7 +356,7 @@ export const ColdChainLogistics = ({ onNavigate }) => {
                   padding: '12px 20px',
                   borderRadius: '10px',
                   background: 'transparent',
-                  color: '#FFE082',
+                  color: '#D97706',
                   fontSize: '13.5px',
                   fontWeight: '600',
                   border: 'none',
@@ -325,66 +373,72 @@ export const ColdChainLogistics = ({ onNavigate }) => {
 
             {/* KPI Metrics Quick Bar */}
             <div
+              className="coldchain-4col-grid"
               style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
                 gap: '14px',
                 paddingTop: '20px',
-                borderTop: '1px solid rgba(255, 255, 255, 0.12)',
+                borderTop: '1px solid #E2E8F0',
+                alignItems: 'stretch',
               }}
             >
               {coldChainHeroStats.map((stat, idx) => {
                 const IconComponent = stat.icon;
                 return (
-                  <div
-                    key={idx}
-                    style={{
-                      background: 'rgba(255, 255, 255, 0.04)',
-                      backdropFilter: 'blur(10px)',
-                      border: '1px solid rgba(255, 255, 255, 0.08)',
-                      borderRadius: '12px',
-                      padding: '14px 16px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '12px',
-                    }}
-                  >
+                  <Magnet key={idx} {...TILE_MAGNET_PROPS} axis="x" scale={1} padding={12} maxOffset={3} tilt={0.8}>
                     <div
                       style={{
-                        width: '38px',
-                        height: '38px',
-                        borderRadius: '10px',
-                        background: 'rgba(0, 188, 212, 0.25)',
-                        border: '1px solid rgba(0, 188, 212, 0.45)',
+                        background: '#F8FAFC',
+                        border: '1px solid #E2E8F0',
+                        borderRadius: '12px',
+                        padding: '14px',
                         display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: '#A5F3FC',
-                        flexShrink: 0,
+                        alignItems: 'flex-start',
+                        gap: '10px',
+                        minWidth: 0,
+                        height: '100%',
+                        boxSizing: 'border-box',
                       }}
                     >
-                      <IconComponent size={19} />
-                    </div>
-                    <div>
                       <div
                         style={{
-                          fontSize: '19px',
-                          fontWeight: '800',
-                          color: '#FFFFFF',
-                          lineHeight: '1.2',
-                          fontFamily: 'var(--font-heading)',
+                          width: '36px',
+                          height: '36px',
+                          borderRadius: '10px',
+                          background: 'rgba(234, 88, 12, 0.1)',
+                          border: '1px solid rgba(234, 88, 12, 0.25)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          color: '#EA580C',
+                          flexShrink: 0,
+                          marginTop: '2px',
                         }}
                       >
-                        {stat.value}
+                        <IconComponent size={18} />
                       </div>
-                      <div style={{ fontSize: '12px', fontWeight: '700', color: '#CBD5E1', marginTop: '1px' }}>
-                        {stat.label}
-                      </div>
-                      <div style={{ fontSize: '11px', color: 'rgba(255, 255, 255, 0.65)' }}>
-                        {stat.sub}
+                      <div style={{ flex: 1, minWidth: 0 }}>
+                        <div
+                          style={{
+                            fontSize: 'clamp(16px, 1.45vw, 19px)',
+                            fontWeight: '800',
+                            color: '#082653',
+                            lineHeight: '1.2',
+                            fontFamily: 'var(--font-heading)',
+                            fontVariantNumeric: 'lining-nums tabular-nums',
+                            whiteSpace: 'nowrap',
+                          }}
+                        >
+                          {stat.value}
+                        </div>
+                        <div style={{ fontSize: '12px', fontWeight: '700', color: '#475569', marginTop: '2px', lineHeight: '1.3' }}>
+                          {stat.label}
+                        </div>
+                        <div style={{ fontSize: '10.8px', color: '#64748B', marginTop: '2px', lineHeight: '1.35' }}>
+                          {stat.sub}
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </Magnet>
                 );
               })}
             </div>
@@ -409,7 +463,7 @@ export const ColdChainLogistics = ({ onNavigate }) => {
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '6px',
-                  color: '#00BCD4',
+                  color: '#EA580C',
                   fontSize: '12.5px',
                   fontWeight: '700',
                   textTransform: 'uppercase',
@@ -446,48 +500,57 @@ export const ColdChainLogistics = ({ onNavigate }) => {
 
             {/* Zone Selector Buttons */}
             <div
+              className="coldchain-4col-grid"
               style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))',
                 gap: '12px',
                 marginBottom: '24px',
+                alignItems: 'stretch',
               }}
             >
               {temperatureZones.map((z) => {
                 const isSelected = z.id === activeZoneId;
                 return (
-                  <button
-                    key={z.id}
-                    onClick={() => setActiveZoneId(z.id)}
-                    style={{
-                      padding: '16px 14px',
-                      borderRadius: '12px',
-                      border: '2px solid',
-                      borderColor: isSelected ? z.accent : '#E2E8F0',
-                      background: isSelected ? z.badgeBg : '#FFFFFF',
-                      cursor: 'pointer',
-                      textAlign: 'left',
-                      transition: 'all 0.15s ease',
-                      boxShadow: isSelected ? `0 6px 18px ${z.accent}20` : '0 2px 6px rgba(0,0,0,0.02)',
-                    }}
-                  >
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '4px' }}>
-                      <span
-                        style={{
-                          fontSize: '18px',
-                          fontWeight: '900',
-                          color: isSelected ? z.accent : '#082653',
-                          fontFamily: 'var(--font-heading)',
-                        }}
-                      >
-                        {z.range}
-                      </span>
-                      <Thermometer size={16} color={isSelected ? z.accent : '#94A3B8'} />
-                    </div>
-                    <div style={{ fontSize: '13px', fontWeight: '700', color: isSelected ? '#0F172A' : '#475569' }}>
-                      {z.label}
-                    </div>
-                  </button>
+                  <Magnet key={z.id} {...TILE_MAGNET_PROPS} axis="x" scale={1} padding={10} maxOffset={3} tilt={0.8}>
+                    <button
+                      onClick={() => setActiveZoneId(z.id)}
+                      style={{
+                        width: '100%',
+                        padding: '16px 14px',
+                        borderRadius: '12px',
+                        border: '2px solid',
+                        borderColor: isSelected ? z.accent : '#E2E8F0',
+                        background: isSelected ? z.badgeBg : '#FFFFFF',
+                        cursor: 'pointer',
+                        textAlign: 'left',
+                        transition: 'all 0.15s ease',
+                        boxShadow: isSelected ? `0 6px 18px ${z.accent}20` : '0 2px 6px rgba(0,0,0,0.02)',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'space-between',
+                        minWidth: 0,
+                        height: '100%',
+                        boxSizing: 'border-box',
+                      }}
+                    >
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px', marginBottom: '4px' }}>
+                        <span
+                          style={{
+                            fontSize: '18px',
+                            fontWeight: '900',
+                            color: isSelected ? z.accent : '#082653',
+                            fontFamily: 'var(--font-heading)',
+                            fontVariantNumeric: 'lining-nums tabular-nums',
+                          }}
+                        >
+                          {z.range}
+                        </span>
+                        <Thermometer size={16} color={isSelected ? z.accent : '#94A3B8'} style={{ flexShrink: 0 }} />
+                      </div>
+                      <div style={{ fontSize: '13px', fontWeight: '700', color: isSelected ? '#0F172A' : '#475569' }}>
+                        {z.label}
+                      </div>
+                    </button>
+                  </Magnet>
                 );
               })}
             </div>
@@ -504,7 +567,7 @@ export const ColdChainLogistics = ({ onNavigate }) => {
             >
               <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', borderBottom: '1px solid #E2E8F0', paddingBottom: '16px', marginBottom: '20px' }}>
                 <div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
                     <span
                       style={{
                         fontSize: '11px',
@@ -518,7 +581,7 @@ export const ColdChainLogistics = ({ onNavigate }) => {
                     >
                       {activeZone.badge}
                     </span>
-                    <span style={{ fontSize: '13px', fontWeight: '700', color: activeZone.accent }}>
+                    <span style={{ fontSize: '13px', fontWeight: '700', color: activeZone.accent, fontVariantNumeric: 'lining-nums tabular-nums' }}>
                       Validated Target Range: {activeZone.range}
                     </span>
                   </div>
@@ -534,80 +597,93 @@ export const ColdChainLogistics = ({ onNavigate }) => {
                     gap: '6px',
                     padding: '8px 14px',
                     borderRadius: '8px',
-                    background: '#ECFDF5',
-                    border: '1px solid #A7F3D0',
+                    background: '#FFF7ED',
+                    border: '1px solid #FED7AA',
                     fontSize: '12.5px',
                     fontWeight: '700',
-                    color: '#059669',
+                    color: '#C2410C',
+                    flexShrink: 0,
                   }}
                 >
-                  <Activity size={16} />
+                  <Activity size={16} style={{ flexShrink: 0 }} />
                   <span>Continuous 60-Sec Sensor Telemetry</span>
                 </div>
               </div>
 
               {/* Information Grid */}
               <div
+                className="coldchain-modes-grid"
                 style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
                   gap: '16px',
                   marginBottom: '22px',
                 }}
               >
-                <div style={{ background: '#FFFFFF', padding: '16px', borderRadius: '10px', border: '1px solid #E2E8F0' }}>
-                  <div style={{ fontSize: '11.5px', fontWeight: '700', color: '#64748B', textTransform: 'uppercase' }}>
-                    Target Commodity Profiles:
+                <Magnet {...TILE_MAGNET_PROPS} axis="x" scale={1} padding={10} maxOffset={3} tilt={0.8}>
+                  <div style={{ background: '#FFFFFF', padding: '16px', borderRadius: '10px', border: '1px solid #E2E8F0', height: '100%', boxSizing: 'border-box', minWidth: 0 }}>
+                    <div style={{ fontSize: '11.5px', fontWeight: '700', color: '#64748B', textTransform: 'uppercase' }}>
+                      Target Commodity Profiles:
+                    </div>
+                    <div style={{ fontSize: '13.5px', fontWeight: '600', color: '#0F172A', marginTop: '4px', lineHeight: '1.45' }}>
+                      {activeZone.targetCommodities}
+                    </div>
                   </div>
-                  <div style={{ fontSize: '13.5px', fontWeight: '600', color: '#0F172A', marginTop: '4px', lineHeight: '1.45' }}>
-                    {activeZone.targetCommodities}
-                  </div>
-                </div>
+                </Magnet>
 
-                <div style={{ background: '#FFFFFF', padding: '16px', borderRadius: '10px', border: '1px solid #E2E8F0' }}>
-                  <div style={{ fontSize: '11.5px', fontWeight: '700', color: '#64748B', textTransform: 'uppercase' }}>
-                    Refrigeration & Insulation Machinery:
+                <Magnet {...TILE_MAGNET_PROPS} axis="x" scale={1} padding={10} maxOffset={3} tilt={0.8}>
+                  <div style={{ background: '#FFFFFF', padding: '16px', borderRadius: '10px', border: '1px solid #E2E8F0', height: '100%', boxSizing: 'border-box', minWidth: 0 }}>
+                    <div style={{ fontSize: '11.5px', fontWeight: '700', color: '#64748B', textTransform: 'uppercase' }}>
+                      Refrigeration & Insulation Machinery:
+                    </div>
+                    <div style={{ fontSize: '13.5px', fontWeight: '600', color: '#0F172A', marginTop: '4px', lineHeight: '1.45' }}>
+                      {activeZone.packagingTech}
+                    </div>
                   </div>
-                  <div style={{ fontSize: '13.5px', fontWeight: '600', color: '#0F172A', marginTop: '4px', lineHeight: '1.45' }}>
-                    {activeZone.packagingTech}
-                  </div>
-                </div>
+                </Magnet>
 
-                <div style={{ background: '#FFFFFF', padding: '16px', borderRadius: '10px', border: '1px solid #E2E8F0' }}>
-                  <div style={{ fontSize: '11.5px', fontWeight: '700', color: '#64748B', textTransform: 'uppercase' }}>
-                    Optimal Transport Mode:
+                <Magnet {...TILE_MAGNET_PROPS} axis="x" scale={1} padding={10} maxOffset={3} tilt={0.8}>
+                  <div style={{ background: '#FFFFFF', padding: '16px', borderRadius: '10px', border: '1px solid #E2E8F0', height: '100%', boxSizing: 'border-box', minWidth: 0 }}>
+                    <div style={{ fontSize: '11.5px', fontWeight: '700', color: '#64748B', textTransform: 'uppercase' }}>
+                      Optimal Transport Mode:
+                    </div>
+                    <div style={{ fontSize: '13.5px', fontWeight: '600', color: '#C2410C', marginTop: '4px', lineHeight: '1.45' }}>
+                      {activeZone.idealTransport}
+                    </div>
                   </div>
-                  <div style={{ fontSize: '13.5px', fontWeight: '600', color: '#059669', marginTop: '4px', lineHeight: '1.45' }}>
-                    {activeZone.idealTransport}
-                  </div>
-                </div>
+                </Magnet>
               </div>
 
               {/* Technical Specifications Pills */}
               <div
+                className="coldchain-4col-grid"
                 style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))',
                   gap: '10px',
                   paddingTop: '16px',
                   borderTop: '1px solid #E2E8F0',
+                  alignItems: 'stretch',
                 }}
               >
                 {activeZone.specs.map((s, idx) => (
-                  <div
-                    key={idx}
-                    style={{
-                      background: '#FFFFFF',
-                      padding: '10px 14px',
-                      borderRadius: '8px',
-                      border: '1px solid #E2E8F0',
-                    }}
-                  >
-                    <div style={{ fontSize: '11px', color: '#64748B', fontWeight: '600' }}>{s.k}</div>
-                    <div style={{ fontSize: '13px', color: '#082653', fontWeight: '700', marginTop: '2px' }}>
-                      {s.v}
+                  <Magnet key={idx} {...TILE_MAGNET_PROPS} axis="x" scale={1} padding={10} maxOffset={3} tilt={0.8}>
+                    <div
+                      style={{
+                        background: '#FFFFFF',
+                        padding: '10px 14px',
+                        borderRadius: '8px',
+                        border: '1px solid #E2E8F0',
+                        minWidth: 0,
+                        height: '100%',
+                        boxSizing: 'border-box',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'space-between',
+                      }}
+                    >
+                      <div style={{ fontSize: '11px', color: '#64748B', fontWeight: '600' }}>{s.k}</div>
+                      <div style={{ fontSize: '13px', color: '#082653', fontWeight: '700', marginTop: '2px', fontVariantNumeric: 'lining-nums tabular-nums' }}>
+                        {s.v}
+                      </div>
                     </div>
-                  </div>
+                  </Magnet>
                 ))}
               </div>
             </div>
@@ -632,7 +708,7 @@ export const ColdChainLogistics = ({ onNavigate }) => {
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '6px',
-                  color: '#00BCD4',
+                  color: '#EA580C',
                   fontSize: '12.5px',
                   fontWeight: '700',
                   textTransform: 'uppercase',
@@ -679,10 +755,8 @@ export const ColdChainLogistics = ({ onNavigate }) => {
               }}
             >
               <div
+                className="coldchain-2col-grid"
                 style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                  gap: '18px',
                   marginBottom: '18px',
                 }}
               >
@@ -777,20 +851,20 @@ export const ColdChainLogistics = ({ onNavigate }) => {
                   gap: '12px',
                   padding: '12px 16px',
                   borderRadius: '8px',
-                  background: '#F0FDFA',
-                  border: '1px solid #CCFBF1',
+                  background: '#FFF7ED',
+                  border: '1px solid #FED7AA',
                   fontSize: '12.5px',
-                  color: '#0F766E',
+                  color: '#9A3412',
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <Zap size={15} color="#0D9488" />
+                  <Zap size={15} color="#EA580C" />
                   <span>
                     Seaport Berth Plug Reservation: <strong>Guaranteed 440V / 32A Priority Socket</strong>
                   </span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <ShieldCheck size={15} color="#0D9488" />
+                  <ShieldCheck size={15} color="#D97706" />
                   <span>
                     Continuous Genset Deployment: <strong>Active Clip-On Diesel Standby</strong>
                   </span>
@@ -805,14 +879,14 @@ export const ColdChainLogistics = ({ onNavigate }) => {
                   marginBottom: '24px',
                   padding: '16px 20px',
                   borderRadius: '12px',
-                  background: 'linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%)',
-                  border: '1.5px solid #10B981',
+                  background: 'linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%)',
+                  border: '1.5px solid #FDBA74',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
                   flexWrap: 'wrap',
                   gap: '12px',
-                  boxShadow: '0 6px 18px rgba(16, 185, 129, 0.15)',
+                  boxShadow: '0 6px 18px rgba(234, 88, 12, 0.12)',
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
@@ -821,7 +895,7 @@ export const ColdChainLogistics = ({ onNavigate }) => {
                       width: '36px',
                       height: '36px',
                       borderRadius: '50%',
-                      background: '#10B981',
+                      background: '#EA580C',
                       color: '#FFFFFF',
                       display: 'flex',
                       alignItems: 'center',
@@ -832,10 +906,10 @@ export const ColdChainLogistics = ({ onNavigate }) => {
                     <CheckCircle2 size={20} />
                   </div>
                   <div>
-                    <div style={{ fontSize: '15px', fontWeight: '800', color: '#065F46' }}>
+                    <div style={{ fontSize: '15px', fontWeight: '800', color: '#082653' }}>
                       Smart Reefer Allocation Secured • Ref #{bookingToast.bcn}
                     </div>
-                    <div style={{ fontSize: '12.5px', color: '#047857', marginTop: '2px' }}>
+                    <div style={{ fontSize: '12.5px', color: '#9A3412', marginTop: '2px' }}>
                       Mode: <strong>{bookingToast.modeName}</strong> | Route: <strong>{bookingToast.origin} → {bookingToast.destination}</strong> ({bookingToast.tempZone}) | Unit: <strong>{bookingToast.equipment}</strong>
                     </div>
                   </div>
@@ -847,7 +921,7 @@ export const ColdChainLogistics = ({ onNavigate }) => {
                     style={{
                       padding: '8px 16px',
                       borderRadius: '6px',
-                      background: '#047857',
+                      background: '#EA580C',
                       color: '#FFFFFF',
                       fontSize: '12px',
                       fontWeight: '700',
@@ -863,8 +937,8 @@ export const ColdChainLogistics = ({ onNavigate }) => {
                       padding: '8px 12px',
                       borderRadius: '6px',
                       background: 'none',
-                      border: '1px solid #059669',
-                      color: '#065F46',
+                      border: '1px solid #FDBA74',
+                      color: '#C2410C',
                       fontSize: '12px',
                       fontWeight: '600',
                       cursor: 'pointer',
@@ -877,134 +951,131 @@ export const ColdChainLogistics = ({ onNavigate }) => {
             )}
 
             {/* Service Modes Grid */}
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(310px, 1fr))',
-                gap: '20px',
-              }}
-            >
+            <div className="coldchain-modes-grid">
               {coldChainServiceModes.map((mode) => {
                 const IconComponent = mode.icon;
                 return (
-                  <div
-                    key={mode.id}
-                    style={{
-                      background: '#FFFFFF',
-                      borderRadius: '16px',
-                      border: '1.5px solid #E2E8F0',
-                      padding: '24px 20px',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      justifyContent: 'space-between',
-                      boxShadow: '0 4px 16px rgba(0, 0, 0, 0.04)',
-                      transition: 'all 0.2s ease',
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.borderColor = '#00BCD4';
-                      e.currentTarget.style.transform = 'translateY(-3px)';
-                      e.currentTarget.style.boxShadow = '0 12px 28px rgba(0, 188, 212, 0.15)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.borderColor = '#E2E8F0';
-                      e.currentTarget.style.transform = 'translateY(0)';
-                      e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.04)';
-                    }}
-                  >
-                    <div>
-                      {/* Mode Icon & Transit */}
-                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
-                        <div
-                          style={{
-                            width: '44px',
-                            height: '44px',
-                            borderRadius: '12px',
-                            background: 'rgba(0, 188, 212, 0.15)',
-                            color: '#00BCD4',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                          }}
-                        >
-                          <IconComponent size={22} />
-                        </div>
-                        <div style={{ fontSize: '12.5px', fontWeight: '700', color: '#059669', background: '#ECFDF5', padding: '4px 10px', borderRadius: '9999px', border: '1px solid #A7F3D0' }}>
-                          Est. Transit: {mode.transitSample}
-                        </div>
-                      </div>
-
-                      <h3 style={{ fontSize: '18px', fontWeight: '800', color: '#082653', marginBottom: '8px' }}>
-                        {mode.name}
-                      </h3>
-
-                      <div style={{ fontSize: '12.5px', color: '#64748B', marginBottom: '14px' }}>
-                        Equipment: <strong>{mode.equipment}</strong>
-                      </div>
-
-                      {/* Pricing Tag */}
-                      <div
-                        style={{
-                          background: '#FAFBFD',
-                          borderRadius: '10px',
-                          padding: '12px 14px',
-                          border: '1px solid #E2E8F0',
-                          marginBottom: '16px',
-                        }}
-                      >
-                        <div style={{ fontSize: '11px', color: '#64748B', fontWeight: '600', textTransform: 'uppercase' }}>
-                          Estimated Validated Slot Rate
-                        </div>
-                        <div style={{ fontSize: '20px', fontWeight: '900', color: '#082653', marginTop: '2px', fontFamily: 'var(--font-heading)' }}>
-                          {mode.rateEstimate}
-                        </div>
-                        <div style={{ fontSize: '11px', color: '#00BCD4', fontWeight: '700', marginTop: '2px' }}>
-                          Operating Window: {mode.tempRange}
-                        </div>
-                      </div>
-
-                      {/* Features */}
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '18px' }}>
-                        {mode.features.map((feat, fIdx) => (
+                  <Magnet key={mode.id} {...CARD_MAGNET_PROPS} axis="x" scale={1} padding={12} maxOffset={3} tilt={0.8}>
+                    <div
+                      style={{
+                        background: '#FFFFFF',
+                        borderRadius: '16px',
+                        border: '1.5px solid #E2E8F0',
+                        padding: '24px 20px',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'space-between',
+                        height: '100%',
+                        minWidth: 0,
+                        boxSizing: 'border-box',
+                        boxShadow: '0 4px 16px rgba(0, 0, 0, 0.04)',
+                        transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.borderColor = '#EA580C';
+                        e.currentTarget.style.boxShadow = '0 12px 28px rgba(234, 88, 12, 0.14)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.borderColor = '#E2E8F0';
+                        e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.04)';
+                      }}
+                    >
+                      <div style={{ minWidth: 0 }}>
+                        {/* Mode Icon & Transit */}
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px', marginBottom: '14px' }}>
                           <div
-                            key={fIdx}
                             style={{
+                              width: '44px',
+                              height: '44px',
+                              borderRadius: '12px',
+                              background: 'rgba(234, 88, 12, 0.12)',
+                              color: '#EA580C',
                               display: 'flex',
-                              alignItems: 'flex-start',
-                              gap: '8px',
-                              fontSize: '12px',
-                              color: '#334155',
-                              lineHeight: '1.4',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              flexShrink: 0,
                             }}
                           >
-                            <Check size={14} color="#00BCD4" style={{ flexShrink: 0, marginTop: '2px' }} />
-                            <span>{feat}</span>
+                            <IconComponent size={22} />
                           </div>
-                        ))}
-                      </div>
-                    </div>
+                          <div style={{ fontSize: '12.5px', fontWeight: '700', color: '#C2410C', background: '#FFF7ED', padding: '4px 10px', borderRadius: '9999px', border: '1px solid #FED7AA', flexShrink: 0, whiteSpace: 'nowrap', fontVariantNumeric: 'lining-nums tabular-nums' }}>
+                            Est. Transit: {mode.transitSample}
+                          </div>
+                        </div>
 
-                    {/* Book Button */}
-                    <button
-                      onClick={() => handleBookReefer(mode)}
-                      style={{
-                        width: '100%',
-                        padding: '11px',
-                        borderRadius: '8px',
-                        background: 'linear-gradient(135deg, #FF6F00 0%, #EA580C 100%)',
-                        color: '#FFFFFF',
-                        fontSize: '13px',
-                        fontWeight: '700',
-                        border: 'none',
-                        cursor: 'pointer',
-                        boxShadow: '0 3px 12px rgba(234, 88, 12, 0.3)',
-                        transition: 'all 0.15s ease',
-                      }}
-                      onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#C2410C')}
-                      onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#EA580C')}
-                    >
-                      Reserve Cold Chain Slot
-                    </button>
-                  </div>
+                        <h3 style={{ fontSize: '18px', fontWeight: '800', color: '#082653', marginBottom: '8px', lineHeight: '1.3', minHeight: '48px' }}>
+                          {mode.name}
+                        </h3>
+
+                        <div style={{ fontSize: '12.5px', color: '#64748B', marginBottom: '14px', lineHeight: '1.4', minHeight: '36px' }}>
+                          Equipment: <strong>{mode.equipment}</strong>
+                        </div>
+
+                        {/* Pricing Tag */}
+                        <div
+                          style={{
+                            background: '#FAFBFD',
+                            borderRadius: '10px',
+                            padding: '12px 14px',
+                            border: '1px solid #E2E8F0',
+                            marginBottom: '16px',
+                          }}
+                        >
+                          <div style={{ fontSize: '11px', color: '#64748B', fontWeight: '600', textTransform: 'uppercase' }}>
+                            Estimated Validated Slot Rate
+                          </div>
+                          <div style={{ fontSize: '20px', fontWeight: '900', color: '#082653', marginTop: '2px', fontFamily: 'var(--font-heading)', fontVariantNumeric: 'lining-nums tabular-nums' }}>
+                            {mode.rateEstimate}
+                          </div>
+                          <div style={{ fontSize: '11px', color: '#EA580C', fontWeight: '700', marginTop: '2px', fontVariantNumeric: 'lining-nums tabular-nums' }}>
+                            Operating Window: {mode.tempRange}
+                          </div>
+                        </div>
+
+                        {/* Features */}
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '18px' }}>
+                          {mode.features.map((feat, fIdx) => (
+                            <div
+                              key={fIdx}
+                              style={{
+                                display: 'flex',
+                                alignItems: 'flex-start',
+                                gap: '8px',
+                                fontSize: '12px',
+                                color: '#334155',
+                                lineHeight: '1.4',
+                              }}
+                            >
+                              <Check size={14} color="#EA580C" style={{ flexShrink: 0, marginTop: '2px' }} />
+                              <span>{feat}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Book Button */}
+                      <button
+                        onClick={() => handleBookReefer(mode)}
+                        style={{
+                          width: '100%',
+                          padding: '11px',
+                          borderRadius: '8px',
+                          background: 'linear-gradient(135deg, #FF6F00 0%, #EA580C 100%)',
+                          color: '#FFFFFF',
+                          fontSize: '13px',
+                          fontWeight: '700',
+                          border: 'none',
+                          cursor: 'pointer',
+                          boxShadow: '0 3px 12px rgba(234, 88, 12, 0.3)',
+                          transition: 'all 0.15s ease',
+                        }}
+                        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#C2410C')}
+                        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#EA580C')}
+                      >
+                        Reserve Cold Chain Slot
+                      </button>
+                    </div>
+                  </Magnet>
                 );
               })}
             </div>
@@ -1025,7 +1096,7 @@ export const ColdChainLogistics = ({ onNavigate }) => {
             <div style={{ textAlign: 'center', marginBottom: '32px' }}>
               <span
                 style={{
-                  color: '#00BCD4',
+                  color: '#EA580C',
                   fontSize: '12.5px',
                   fontWeight: '700',
                   textTransform: 'uppercase',
@@ -1060,121 +1131,127 @@ export const ColdChainLogistics = ({ onNavigate }) => {
             </div>
 
             <div
+              className="coldchain-4col-grid"
               style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
                 gap: '20px',
+                alignItems: 'stretch',
               }}
             >
               {coldChainPillars.map((pillar) => {
                 const IconComp = pillar.icon;
                 return (
-                  <div
-                    key={pillar.id}
-                    style={{
-                      background: '#F8FAFC',
-                      border: '1px solid #E2E8F0',
-                      borderRadius: '16px',
-                      padding: '24px 20px',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      justifyContent: 'space-between',
-                      transition: 'all 0.2s ease',
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.transform = 'translateY(-3px)';
-                      e.currentTarget.style.boxShadow = '0 12px 28px rgba(15, 23, 42, 0.08)';
-                      e.currentTarget.style.borderColor = pillar.accent;
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.transform = 'translateY(0)';
-                      e.currentTarget.style.boxShadow = 'none';
-                      e.currentTarget.style.borderColor = '#E2E8F0';
-                    }}
-                  >
-                    <div>
-                      {/* Icon */}
-                      <div
-                        style={{
-                          width: '46px',
-                          height: '46px',
-                          borderRadius: '12px',
-                          background: `${pillar.accent}15`,
-                          color: pillar.accent,
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          marginBottom: '16px',
-                        }}
-                      >
-                        <IconComp size={22} strokeWidth={2.2} />
+                  <Magnet key={pillar.id} {...CARD_MAGNET_PROPS} axis="x" scale={1} padding={12} maxOffset={3} tilt={0.8}>
+                    <div
+                      style={{
+                        background: '#F8FAFC',
+                        border: '1px solid #E2E8F0',
+                        borderRadius: '16px',
+                        padding: '24px 20px',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'space-between',
+                        height: '100%',
+                        minWidth: 0,
+                        boxSizing: 'border-box',
+                        transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.boxShadow = '0 12px 28px rgba(15, 23, 42, 0.08)';
+                        e.currentTarget.style.borderColor = pillar.accent;
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.boxShadow = 'none';
+                        e.currentTarget.style.borderColor = '#E2E8F0';
+                      }}
+                    >
+                      <div style={{ minWidth: 0 }}>
+                        {/* Icon */}
+                        <div
+                          style={{
+                            width: '46px',
+                            height: '46px',
+                            borderRadius: '12px',
+                            background: `${pillar.accent}15`,
+                            color: pillar.accent,
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            marginBottom: '16px',
+                            flexShrink: 0,
+                          }}
+                        >
+                          <IconComp size={22} strokeWidth={2.2} />
+                        </div>
+
+                        <h3
+                          style={{
+                            fontSize: '18px',
+                            fontWeight: '800',
+                            color: '#082653',
+                            marginBottom: '8px',
+                            lineHeight: '1.25',
+                            minHeight: '68px',
+                            fontVariantNumeric: 'lining-nums tabular-nums',
+                          }}
+                        >
+                          {pillar.title}
+                        </h3>
+
+                        <p
+                          style={{
+                            fontSize: '13px',
+                            color: '#64748B',
+                            lineHeight: '1.5',
+                            marginBottom: '16px',
+                            minHeight: '78px',
+                          }}
+                        >
+                          {pillar.tagline}
+                        </p>
+
+                        {/* Feature Bullet points */}
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                          {pillar.features.map((feat, fIdx) => (
+                            <div
+                              key={fIdx}
+                              style={{
+                                display: 'flex',
+                                alignItems: 'flex-start',
+                                gap: '8px',
+                                fontSize: '12.5px',
+                                color: '#334155',
+                                lineHeight: '1.45',
+                              }}
+                            >
+                              <Check size={14} color={pillar.accent} style={{ flexShrink: 0, marginTop: '2px' }} />
+                              <span>{feat}</span>
+                            </div>
+                          ))}
+                        </div>
                       </div>
 
-                      <h3
-                        style={{
-                          fontSize: '18px',
-                          fontWeight: '800',
-                          color: '#082653',
-                          marginBottom: '8px',
-                          lineHeight: '1.25',
-                        }}
-                      >
-                        {pillar.title}
-                      </h3>
-
-                      <p
-                        style={{
-                          fontSize: '13px',
-                          color: '#64748B',
-                          lineHeight: '1.5',
-                          marginBottom: '16px',
-                        }}
-                      >
-                        {pillar.tagline}
-                      </p>
-
-                      {/* Feature Bullet points */}
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                        {pillar.features.map((feat, fIdx) => (
-                          <div
-                            key={fIdx}
-                            style={{
-                              display: 'flex',
-                              alignItems: 'flex-start',
-                              gap: '8px',
-                              fontSize: '12.5px',
-                              color: '#334155',
-                              lineHeight: '1.45',
-                            }}
-                          >
-                            <Check size={14} color={pillar.accent} style={{ flexShrink: 0, marginTop: '2px' }} />
-                            <span>{feat}</span>
-                          </div>
-                        ))}
+                      <div style={{ marginTop: '20px', paddingTop: '14px', borderTop: '1px solid #E2E8F0' }}>
+                        <button
+                          onClick={() => openModal('quote')}
+                          style={{
+                            background: 'none',
+                            border: 'none',
+                            padding: 0,
+                            color: pillar.accent,
+                            fontSize: '13px',
+                            fontWeight: '700',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '6px',
+                            cursor: 'pointer',
+                          }}
+                        >
+                          <span>Inspect Protocols</span>
+                          <ChevronRight size={14} />
+                        </button>
                       </div>
                     </div>
-
-                    <div style={{ marginTop: '20px', paddingTop: '14px', borderTop: '1px solid #E2E8F0' }}>
-                      <button
-                        onClick={() => openModal('quote')}
-                        style={{
-                          background: 'none',
-                          border: 'none',
-                          padding: 0,
-                          color: pillar.accent,
-                          fontSize: '13px',
-                          fontWeight: '700',
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '6px',
-                          cursor: 'pointer',
-                        }}
-                      >
-                        <span>Inspect Protocols</span>
-                        <ChevronRight size={14} />
-                      </button>
-                    </div>
-                  </div>
+                  </Magnet>
                 );
               })}
             </div>
@@ -1187,13 +1264,14 @@ export const ColdChainLogistics = ({ onNavigate }) => {
         <section
           style={{
             padding: '44px 28px 44px 28px',
-            background: 'linear-gradient(145deg, #051A3B 0%, #082653 100%)',
-            color: '#FFFFFF',
+            background: '#FFFFFF',
+            color: '#082653',
+            borderBottom: '1px solid #E2E8F0',
           }}
         >
           <div style={{ maxWidth: '1080px', margin: '0 auto' }}>
             <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-              <span style={{ color: '#67E8F9', fontSize: '12.5px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+              <span style={{ color: '#EA580C', fontSize: '12.5px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
                 International Quality Standards
               </span>
               <h2
@@ -1201,7 +1279,7 @@ export const ColdChainLogistics = ({ onNavigate }) => {
                   fontFamily: 'Georgia, "Times New Roman", serif',
                   fontSize: '32px',
                   fontWeight: '700',
-                  color: '#FFFFFF',
+                  color: '#082653',
                   marginTop: '6px',
                   marginBottom: '10px',
                 }}
@@ -1211,7 +1289,7 @@ export const ColdChainLogistics = ({ onNavigate }) => {
               <p
                 style={{
                   fontSize: '15px',
-                  color: 'rgba(255, 255, 255, 0.82)',
+                  color: '#64748B',
                   maxWidth: '680px',
                   margin: '0 auto',
                   lineHeight: '1.5',
@@ -1222,66 +1300,80 @@ export const ColdChainLogistics = ({ onNavigate }) => {
             </div>
 
             <div
+              className="coldchain-3col-grid"
               style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
                 gap: '16px',
+                alignItems: 'stretch',
               }}
             >
               {coldChainCertifications.map((item, idx) => (
-                <div
-                  key={idx}
-                  style={{
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    backdropFilter: 'blur(10px)',
-                    border: '1px solid rgba(255, 255, 255, 0.12)',
-                    borderRadius: '12px',
-                    padding: '18px 20px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                  }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                <Magnet key={idx} {...CARD_MAGNET_PROPS} axis="x" scale={1} padding={12} maxOffset={3} tilt={0.8}>
+                  <div
+                    style={{
+                      background: '#F8FAFC',
+                      border: '1px solid #E2E8F0',
+                      borderRadius: '12px',
+                      padding: '18px 20px',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'flex-start',
+                      minWidth: 0,
+                      height: '100%',
+                      boxSizing: 'border-box',
+                    }}
+                  >
                     <div
                       style={{
-                        width: '36px',
-                        height: '36px',
-                        borderRadius: '8px',
-                        background: 'rgba(0, 188, 212, 0.2)',
                         display: 'flex',
                         alignItems: 'center',
-                        justifyContent: 'center',
-                        color: '#67E8F9',
+                        justifyContent: 'space-between',
+                        gap: '10px',
+                        marginBottom: '12px',
                       }}
                     >
-                      <ShieldCheck size={18} />
+                      <div
+                        style={{
+                          width: '36px',
+                          height: '36px',
+                          borderRadius: '8px',
+                          background: 'rgba(234, 88, 12, 0.1)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          color: '#EA580C',
+                          flexShrink: 0,
+                        }}
+                      >
+                        <ShieldCheck size={18} />
+                      </div>
+
+                      <span
+                        style={{
+                          fontSize: '11px',
+                          fontWeight: '700',
+                          padding: '4px 10px',
+                          borderRadius: '9999px',
+                          background: 'rgba(234, 88, 12, 0.1)',
+                          color: '#C2410C',
+                          border: '1px solid rgba(234, 88, 12, 0.25)',
+                          whiteSpace: 'nowrap',
+                          flexShrink: 0,
+                        }}
+                      >
+                        {item.badge}
+                      </span>
                     </div>
-                    <div>
-                      <div style={{ fontSize: '15px', fontWeight: '800', color: '#FFFFFF' }}>
+
+                    <div style={{ minWidth: 0 }}>
+                      <div style={{ fontSize: '15px', fontWeight: '800', color: '#082653', marginBottom: '4px', lineHeight: '1.25', minHeight: '22px', fontVariantNumeric: 'lining-nums tabular-nums' }}>
                         {item.name}
                       </div>
-                      <div style={{ fontSize: '12px', color: 'rgba(255, 255, 255, 0.7)' }}>
+                      <div style={{ fontSize: '12px', color: '#64748B', lineHeight: '1.45' }}>
                         {item.standard}
                       </div>
                     </div>
                   </div>
-
-                  <span
-                    style={{
-                      fontSize: '11px',
-                      fontWeight: '700',
-                      padding: '4px 8px',
-                      borderRadius: '9999px',
-                      background: 'rgba(0, 188, 212, 0.2)',
-                      color: '#67E8F9',
-                      border: '1px solid rgba(0, 188, 212, 0.35)',
-                      whiteSpace: 'nowrap',
-                    }}
-                  >
-                    {item.badge}
-                  </span>
-                </div>
+                </Magnet>
               ))}
             </div>
           </div>
@@ -1301,7 +1393,7 @@ export const ColdChainLogistics = ({ onNavigate }) => {
             <div style={{ textAlign: 'center', marginBottom: '32px' }}>
               <span
                 style={{
-                  color: '#00BCD4',
+                  color: '#EA580C',
                   fontSize: '12.5px',
                   fontWeight: '700',
                   textTransform: 'uppercase',
@@ -1358,7 +1450,7 @@ export const ColdChainLogistics = ({ onNavigate }) => {
                         {faq.q}
                       </span>
                       {isOpen ? (
-                        <ChevronUp size={18} color="#00BCD4" style={{ flexShrink: 0 }} />
+                        <ChevronUp size={18} color="#EA580C" style={{ flexShrink: 0 }} />
                       ) : (
                         <ChevronDown size={18} color="#94A3B8" style={{ flexShrink: 0 }} />
                       )}
@@ -1391,11 +1483,11 @@ export const ColdChainLogistics = ({ onNavigate }) => {
         <section
           style={{
             padding: '48px 28px',
-            background: 'linear-gradient(135deg, #082653 0%, #03132D 100%)',
+            background: '#FFFFFF',
             textAlign: 'center',
-            color: '#FFFFFF',
+            color: '#082653',
             position: 'relative',
-            borderBottom: '1px solid rgba(8, 38, 83, 0.12)',
+            borderBottom: '1px solid #E2E8F0',
           }}
         >
           <div style={{ maxWidth: '780px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
@@ -1404,7 +1496,7 @@ export const ColdChainLogistics = ({ onNavigate }) => {
                 fontFamily: 'Georgia, "Times New Roman", serif',
                 fontSize: '34px',
                 fontWeight: '700',
-                color: '#FFFFFF',
+                color: '#082653',
                 marginBottom: '12px',
                 lineHeight: '1.2',
               }}
@@ -1415,7 +1507,7 @@ export const ColdChainLogistics = ({ onNavigate }) => {
             <p
               style={{
                 fontSize: '15.5px',
-                color: 'rgba(255, 255, 255, 0.85)',
+                color: '#475569',
                 lineHeight: '1.6',
                 marginBottom: '26px',
               }}
@@ -1435,7 +1527,7 @@ export const ColdChainLogistics = ({ onNavigate }) => {
                   fontWeight: '700',
                   border: 'none',
                   cursor: 'pointer',
-                  boxShadow: '0 6px 20px rgba(234, 88, 12, 0.45)',
+                  boxShadow: '0 6px 20px rgba(234, 88, 12, 0.35)',
                   display: 'flex',
                   alignItems: 'center',
                   gap: '8px',
@@ -1450,11 +1542,11 @@ export const ColdChainLogistics = ({ onNavigate }) => {
                 style={{
                   padding: '12px 24px',
                   borderRadius: '10px',
-                  background: 'rgba(255, 255, 255, 0.1)',
-                  color: '#FFFFFF',
+                  background: '#F8FAFC',
+                  color: '#082653',
                   fontSize: '14px',
                   fontWeight: '600',
-                  border: '1px solid rgba(255, 255, 255, 0.25)',
+                  border: '1px solid #CBD5E1',
                   cursor: 'pointer',
                 }}
               >

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Header } from '../components/layout/Header';
 import { Footer } from '../components/layout/Footer';
 import { TrackModal } from '../components/common/TrackModal';
+import Magnet, { CARD_MAGNET_PROPS, TILE_MAGNET_PROPS } from '../components/common/Magnet';
 import {
   projectCargoHeroStats,
   heavyCargoCategories,
@@ -132,15 +133,15 @@ export const ProjectCargoLogistics = ({ onNavigate }) => {
         <div style={{ height: '24px', width: '100%', background: '#FAFBFD' }} />
 
         {/* =========================================================================
-            SECTION 1: HERO BANNER (Executive Slate Navy with Industrial Amber / Gold Glow)
+            SECTION 1: HERO BANNER (Clean White with Industrial Amber & Sunset Orange Accents)
             ========================================================================= */}
         <section
           style={{
             position: 'relative',
             padding: '50px 32px 50px 32px',
-            background: 'linear-gradient(145deg, #051A3B 0%, #082653 50%, #021226 100%)',
-            borderTop: '1px solid rgba(8, 38, 83, 0.1)',
-            borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+            background: '#FFFFFF',
+            borderTop: '1px solid #E2E8F0',
+            borderBottom: '1px solid #E2E8F0',
             overflow: 'hidden',
           }}
         >
@@ -152,7 +153,7 @@ export const ProjectCargoLogistics = ({ onNavigate }) => {
               right: '-60px',
               width: '480px',
               height: '480px',
-              background: 'radial-gradient(circle, rgba(245, 158, 11, 0.16) 0%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(245, 158, 11, 0.08) 0%, transparent 70%)',
               pointerEvents: 'none',
               zIndex: 0,
             }}
@@ -164,7 +165,7 @@ export const ProjectCargoLogistics = ({ onNavigate }) => {
               left: '10%',
               width: '420px',
               height: '420px',
-              background: 'radial-gradient(circle, rgba(234, 88, 12, 0.12) 0%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(234, 88, 12, 0.06) 0%, transparent 70%)',
               pointerEvents: 'none',
               zIndex: 0,
             }}
@@ -179,8 +180,8 @@ export const ProjectCargoLogistics = ({ onNavigate }) => {
                 gap: '8px',
                 padding: '6px 14px',
                 borderRadius: '9999px',
-                background: 'rgba(245, 158, 11, 0.14)',
-                border: '1px solid rgba(245, 158, 11, 0.35)',
+                background: 'rgba(245, 158, 11, 0.1)',
+                border: '1px solid rgba(245, 158, 11, 0.3)',
                 marginBottom: '16px',
               }}
             >
@@ -202,7 +203,7 @@ export const ProjectCargoLogistics = ({ onNavigate }) => {
                 style={{
                   fontSize: '11.5px',
                   fontWeight: '700',
-                  color: '#FDE68A',
+                  color: '#B45309',
                   letterSpacing: '0.08em',
                   textTransform: 'uppercase',
                   fontFamily: 'var(--font-body)',
@@ -218,11 +219,10 @@ export const ProjectCargoLogistics = ({ onNavigate }) => {
                 fontFamily: 'Georgia, "Times New Roman", serif',
                 fontSize: 'clamp(32px, 3.8vw, 44px)',
                 fontWeight: '700',
-                color: '#FFFFFF',
+                color: '#082653',
                 lineHeight: '1.15',
                 letterSpacing: '-0.5px',
                 marginBottom: '14px',
-                textShadow: '0 2px 10px rgba(0, 0, 0, 0.45)',
               }}
             >
               KPL Project Cargo Logistics
@@ -233,7 +233,7 @@ export const ProjectCargoLogistics = ({ onNavigate }) => {
               style={{
                 fontSize: '17px',
                 fontWeight: '400',
-                color: 'rgba(255, 255, 255, 0.88)',
+                color: '#475569',
                 lineHeight: '1.6',
                 maxWidth: '820px',
                 fontFamily: 'var(--font-body)',
@@ -259,16 +259,16 @@ export const ProjectCargoLogistics = ({ onNavigate }) => {
                   fontWeight: '600',
                   border: 'none',
                   cursor: 'pointer',
-                  boxShadow: '0 4px 18px rgba(234, 88, 12, 0.45)',
+                  boxShadow: '0 4px 18px rgba(234, 88, 12, 0.35)',
                   transition: 'all 0.2s ease',
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-2px)';
-                  e.currentTarget.style.boxShadow = '0 6px 22px rgba(234, 88, 12, 0.55)';
+                  e.currentTarget.style.boxShadow = '0 6px 22px rgba(234, 88, 12, 0.45)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 4px 18px rgba(234, 88, 12, 0.45)';
+                  e.currentTarget.style.boxShadow = '0 4px 18px rgba(234, 88, 12, 0.35)';
                 }}
               >
                 <span>Request Project Lift & Route Study</span>
@@ -281,27 +281,26 @@ export const ProjectCargoLogistics = ({ onNavigate }) => {
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '8px',
-                  background: 'rgba(255, 255, 255, 0.08)',
-                  color: '#FFFFFF',
+                  background: '#F8FAFC',
+                  color: '#082653',
                   padding: '12px 22px',
                   borderRadius: '10px',
                   fontSize: '14px',
                   fontWeight: '600',
-                  border: '1px solid rgba(255, 255, 255, 0.22)',
+                  border: '1px solid #CBD5E1',
                   cursor: 'pointer',
-                  backdropFilter: 'blur(8px)',
                   transition: 'all 0.2s ease',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.16)';
-                  e.currentTarget.style.borderColor = 'rgba(245, 158, 11, 0.6)';
+                  e.currentTarget.style.background = '#F1F5F9';
+                  e.currentTarget.style.borderColor = '#F59E0B';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.22)';
+                  e.currentTarget.style.background = '#F8FAFC';
+                  e.currentTarget.style.borderColor = '#CBD5E1';
                 }}
               >
-                <Compass size={16} color="#FBBF24" />
+                <Compass size={16} color="#D97706" />
                 <span>Simulate Route & Feasibility</span>
               </button>
             </div>
@@ -313,52 +312,53 @@ export const ProjectCargoLogistics = ({ onNavigate }) => {
                 gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))',
                 gap: '14px',
                 paddingTop: '20px',
-                borderTop: '1px solid rgba(255, 255, 255, 0.12)',
+                borderTop: '1px solid #E2E8F0',
               }}
             >
               {projectCargoHeroStats.map((stat) => (
-                <div
-                  key={stat.id}
-                  style={{
-                    background: 'rgba(15, 23, 42, 0.45)',
-                    border: '1px solid rgba(255, 255, 255, 0.09)',
-                    borderRadius: '12px',
-                    padding: '16px 18px',
-                    backdropFilter: 'blur(10px)',
-                  }}
-                >
+                <Magnet key={stat.id} {...TILE_MAGNET_PROPS}>
                   <div
                     style={{
-                      fontFamily: 'Georgia, serif',
-                      fontSize: '25px',
-                      fontWeight: '700',
-                      color: '#FDE68A',
-                      lineHeight: '1.1',
-                      marginBottom: '4px',
+                      background: '#F8FAFC',
+                      border: '1px solid #E2E8F0',
+                      borderRadius: '12px',
+                      padding: '16px 18px',
+                      height: '100%',
                     }}
                   >
-                    {stat.value}
+                    <div
+                      style={{
+                        fontFamily: 'Georgia, serif',
+                        fontSize: '25px',
+                        fontWeight: '700',
+                        color: '#D97706',
+                        lineHeight: '1.1',
+                        marginBottom: '4px',
+                      }}
+                    >
+                      {stat.value}
+                    </div>
+                    <div
+                      style={{
+                        fontSize: '12.5px',
+                        fontWeight: '600',
+                        color: '#082653',
+                        marginBottom: '3px',
+                      }}
+                    >
+                      {stat.label}
+                    </div>
+                    <div
+                      style={{
+                        fontSize: '11px',
+                        color: '#64748B',
+                        lineHeight: '1.35',
+                      }}
+                    >
+                      {stat.sub}
+                    </div>
                   </div>
-                  <div
-                    style={{
-                      fontSize: '12.5px',
-                      fontWeight: '600',
-                      color: '#FFFFFF',
-                      marginBottom: '3px',
-                    }}
-                  >
-                    {stat.label}
-                  </div>
-                  <div
-                    style={{
-                      fontSize: '11px',
-                      color: 'rgba(255, 255, 255, 0.6)',
-                      lineHeight: '1.35',
-                    }}
-                  >
-                    {stat.sub}
-                  </div>
-                </div>
+                </Magnet>
               ))}
             </div>
           </div>
@@ -454,40 +454,41 @@ export const ProjectCargoLogistics = ({ onNavigate }) => {
                     {projectSimulatorCargoOptions.map((cargo) => {
                       const isSelected = cargo.id === selectedCargoId;
                       return (
-                        <div
-                          key={cargo.id}
-                          onClick={() => setSelectedCargoId(cargo.id)}
-                          style={{
-                            padding: '12px 14px',
-                            borderRadius: '10px',
-                            background: isSelected ? '#FFFFFF' : 'rgba(255, 255, 255, 0.6)',
-                            border: `2px solid ${isSelected ? '#D97706' : '#E2E8F0'}`,
-                            cursor: 'pointer',
-                            transition: 'all 0.15s ease',
-                            boxShadow: isSelected ? '0 4px 12px rgba(217, 119, 6, 0.12)' : 'none',
-                          }}
-                        >
-                          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                            <div style={{ fontSize: '13.5px', fontWeight: '700', color: isSelected ? '#B45309' : '#0F172A' }}>
-                              {cargo.name}
+                        <Magnet key={cargo.id} {...TILE_MAGNET_PROPS} style={{ display: 'block', width: '100%' }}>
+                          <div
+                            onClick={() => setSelectedCargoId(cargo.id)}
+                            style={{
+                              padding: '12px 14px',
+                              borderRadius: '10px',
+                              background: isSelected ? '#FFFFFF' : 'rgba(255, 255, 255, 0.6)',
+                              border: `2px solid ${isSelected ? '#D97706' : '#E2E8F0'}`,
+                              cursor: 'pointer',
+                              transition: 'all 0.15s ease',
+                              boxShadow: isSelected ? '0 4px 12px rgba(217, 119, 6, 0.12)' : 'none',
+                            }}
+                          >
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                              <div style={{ fontSize: '13.5px', fontWeight: '700', color: isSelected ? '#B45309' : '#0F172A' }}>
+                                {cargo.name}
+                              </div>
+                              <span
+                                style={{
+                                  fontSize: '11px',
+                                  fontWeight: '700',
+                                  padding: '3px 8px',
+                                  borderRadius: '6px',
+                                  background: isSelected ? 'rgba(217, 119, 6, 0.15)' : '#E2E8F0',
+                                  color: isSelected ? '#B45309' : '#475569',
+                                }}
+                              >
+                                {cargo.weight}
+                              </span>
                             </div>
-                            <span
-                              style={{
-                                fontSize: '11px',
-                                fontWeight: '700',
-                                padding: '3px 8px',
-                                borderRadius: '6px',
-                                background: isSelected ? 'rgba(217, 119, 6, 0.15)' : '#E2E8F0',
-                                color: isSelected ? '#B45309' : '#475569',
-                              }}
-                            >
-                              {cargo.weight}
-                            </span>
+                            <div style={{ fontSize: '11.5px', color: '#64748B', marginTop: '4px' }}>
+                              Dims: {cargo.dimensions} • Industry: {cargo.industry}
+                            </div>
                           </div>
-                          <div style={{ fontSize: '11.5px', color: '#64748B', marginTop: '4px' }}>
-                            Dims: {cargo.dimensions} • Industry: {cargo.industry}
-                          </div>
-                        </div>
+                        </Magnet>
                       );
                     })}
                   </div>
@@ -519,40 +520,41 @@ export const ProjectCargoLogistics = ({ onNavigate }) => {
                     {projectSimulatorCorridors.map((corridor) => {
                       const isSelected = corridor.id === selectedCorridorId;
                       return (
-                        <div
-                          key={corridor.id}
-                          onClick={() => setSelectedCorridorId(corridor.id)}
-                          style={{
-                            padding: '12px 14px',
-                            borderRadius: '10px',
-                            background: isSelected ? '#FFFFFF' : 'rgba(255, 255, 255, 0.6)',
-                            border: `2px solid ${isSelected ? '#D97706' : '#E2E8F0'}`,
-                            cursor: 'pointer',
-                            transition: 'all 0.15s ease',
-                            boxShadow: isSelected ? '0 4px 12px rgba(217, 119, 6, 0.12)' : 'none',
-                          }}
-                        >
-                          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                            <div style={{ fontSize: '13.5px', fontWeight: '700', color: isSelected ? '#B45309' : '#0F172A' }}>
-                              {corridor.name}
+                        <Magnet key={corridor.id} {...TILE_MAGNET_PROPS} style={{ display: 'block', width: '100%' }}>
+                          <div
+                            onClick={() => setSelectedCorridorId(corridor.id)}
+                            style={{
+                              padding: '12px 14px',
+                              borderRadius: '10px',
+                              background: isSelected ? '#FFFFFF' : 'rgba(255, 255, 255, 0.6)',
+                              border: `2px solid ${isSelected ? '#D97706' : '#E2E8F0'}`,
+                              cursor: 'pointer',
+                              transition: 'all 0.15s ease',
+                              boxShadow: isSelected ? '0 4px 12px rgba(217, 119, 6, 0.12)' : 'none',
+                            }}
+                          >
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                              <div style={{ fontSize: '13.5px', fontWeight: '700', color: isSelected ? '#B45309' : '#0F172A' }}>
+                                {corridor.name}
+                              </div>
+                              <span
+                                style={{
+                                  fontSize: '11px',
+                                  fontWeight: '700',
+                                  padding: '3px 8px',
+                                  borderRadius: '6px',
+                                  background: isSelected ? 'rgba(217, 119, 6, 0.15)' : '#E2E8F0',
+                                  color: isSelected ? '#B45309' : '#475569',
+                                }}
+                              >
+                                {corridor.distance}
+                              </span>
                             </div>
-                            <span
-                              style={{
-                                fontSize: '11px',
-                                fontWeight: '700',
-                                padding: '3px 8px',
-                                borderRadius: '6px',
-                                background: isSelected ? 'rgba(217, 119, 6, 0.15)' : '#E2E8F0',
-                                color: isSelected ? '#B45309' : '#475569',
-                              }}
-                            >
-                              {corridor.distance}
-                            </span>
+                            <div style={{ fontSize: '11.5px', color: '#64748B', marginTop: '4px' }}>
+                              {corridor.terrain}
+                            </div>
                           </div>
-                          <div style={{ fontSize: '11.5px', color: '#64748B', marginTop: '4px' }}>
-                            {corridor.terrain}
-                          </div>
-                        </div>
+                        </Magnet>
                       );
                     })}
                   </div>
@@ -562,12 +564,12 @@ export const ProjectCargoLogistics = ({ onNavigate }) => {
               {/* Right Column: Dynamic Engineering Results */}
               <div
                 style={{
-                  background: 'linear-gradient(145deg, #051A3B 0%, #082653 100%)',
+                  background: '#FFFFFF',
                   borderRadius: '16px',
                   padding: '28px',
-                  color: '#FFFFFF',
-                  boxShadow: '0 12px 32px rgba(8, 38, 83, 0.18)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  color: '#082653',
+                  boxShadow: '0 12px 32px rgba(15, 23, 42, 0.08)',
+                  border: '1.5px solid #CBD5E1',
                   position: 'sticky',
                   top: '140px',
                 }}
@@ -579,21 +581,21 @@ export const ProjectCargoLogistics = ({ onNavigate }) => {
                         width: '32px',
                         height: '32px',
                         borderRadius: '8px',
-                        background: 'rgba(245, 158, 11, 0.2)',
-                        border: '1px solid rgba(245, 158, 11, 0.4)',
+                        background: 'rgba(245, 158, 11, 0.12)',
+                        border: '1px solid rgba(245, 158, 11, 0.35)',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        color: '#FDE68A',
+                        color: '#D97706',
                       }}
                     >
                       <Activity size={18} />
                     </div>
                     <div>
-                      <div style={{ fontSize: '11px', textTransform: 'uppercase', color: '#CBD5E1', letterSpacing: '0.06em' }}>
+                      <div style={{ fontSize: '11px', textTransform: 'uppercase', color: '#64748B', letterSpacing: '0.06em' }}>
                         Engineering Output
                       </div>
-                      <div style={{ fontSize: '15px', fontWeight: '700', color: '#FFFFFF' }}>
+                      <div style={{ fontSize: '15px', fontWeight: '700', color: '#082653' }}>
                         Feasibility & Asset Matrix
                       </div>
                     </div>
@@ -603,16 +605,16 @@ export const ProjectCargoLogistics = ({ onNavigate }) => {
                   <div
                     style={{
                       textAlign: 'right',
-                      background: 'rgba(245, 158, 11, 0.15)',
-                      border: '1px solid rgba(245, 158, 11, 0.4)',
+                      background: '#FFFBEB',
+                      border: '1px solid #FDE68A',
                       padding: '6px 12px',
                       borderRadius: '8px',
                     }}
                   >
-                    <div style={{ fontSize: '10px', color: '#FDE68A', textTransform: 'uppercase' }}>
+                    <div style={{ fontSize: '10px', color: '#B45309', textTransform: 'uppercase', fontWeight: '700' }}>
                       Feasibility
                     </div>
-                    <div style={{ fontSize: '18px', fontWeight: '700', color: '#FDE68A' }}>
+                    <div style={{ fontSize: '18px', fontWeight: '700', color: '#D97706' }}>
                       {dynamicFeasibilityScore}%
                     </div>
                   </div>
@@ -620,44 +622,48 @@ export const ProjectCargoLogistics = ({ onNavigate }) => {
 
                 {/* Key Outputs */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', marginBottom: '22px' }}>
-                  <div style={{ background: 'rgba(255, 255, 255, 0.05)', padding: '12px 14px', borderRadius: '10px', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
-                    <div style={{ fontSize: '11px', color: '#94A3B8', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>
+                  <div style={{ background: '#F8FAFC', padding: '12px 14px', borderRadius: '10px', border: '1px solid #E2E8F0' }}>
+                    <div style={{ fontSize: '11px', color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>
                       Recommended Prime Rigging Configuration
                     </div>
-                    <div style={{ fontSize: '13.5px', fontWeight: '600', color: '#FFFFFF' }}>
+                    <div style={{ fontSize: '13.5px', fontWeight: '600', color: '#082653' }}>
                       {selectedCargo.recommendedPlatform}
                     </div>
                   </div>
 
-                  <div style={{ background: 'rgba(255, 255, 255, 0.05)', padding: '12px 14px', borderRadius: '10px', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
-                    <div style={{ fontSize: '11px', color: '#94A3B8', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>
+                  <div style={{ background: '#F8FAFC', padding: '12px 14px', borderRadius: '10px', border: '1px solid #E2E8F0' }}>
+                    <div style={{ fontSize: '11px', color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>
                       Required Route Engineering & Civil Prep
                     </div>
-                    <div style={{ fontSize: '13px', color: '#E2E8F0', lineHeight: '1.45' }}>
+                    <div style={{ fontSize: '13px', color: '#475569', lineHeight: '1.45' }}>
                       {selectedCorridor.challenges}
                     </div>
                   </div>
 
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
-                    <div style={{ background: 'rgba(255, 255, 255, 0.05)', padding: '10px 12px', borderRadius: '8px' }}>
-                      <div style={{ fontSize: '10.5px', color: '#94A3B8' }}>Est. Permitting Window</div>
-                      <div style={{ fontSize: '14px', fontWeight: '700', color: '#FDE68A', marginTop: '2px' }}>
-                        {calculatedPermitDays} Days
+                    <Magnet {...TILE_MAGNET_PROPS}>
+                      <div style={{ background: '#F8FAFC', padding: '10px 12px', borderRadius: '8px', border: '1px solid #E2E8F0', height: '100%' }}>
+                        <div style={{ fontSize: '10.5px', color: '#64748B' }}>Est. Permitting Window</div>
+                        <div style={{ fontSize: '14px', fontWeight: '700', color: '#D97706', marginTop: '2px' }}>
+                          {calculatedPermitDays} Days
+                        </div>
                       </div>
-                    </div>
-                    <div style={{ background: 'rgba(255, 255, 255, 0.05)', padding: '10px 12px', borderRadius: '8px' }}>
-                      <div style={{ fontSize: '10.5px', color: '#94A3B8' }}>Survey Protocol</div>
-                      <div style={{ fontSize: '12px', fontWeight: '600', color: '#FFFFFF', marginTop: '2px' }}>
-                        3D LiDAR Scan
+                    </Magnet>
+                    <Magnet {...TILE_MAGNET_PROPS}>
+                      <div style={{ background: '#F8FAFC', padding: '10px 12px', borderRadius: '8px', border: '1px solid #E2E8F0', height: '100%' }}>
+                        <div style={{ fontSize: '10.5px', color: '#64748B' }}>Survey Protocol</div>
+                        <div style={{ fontSize: '12px', fontWeight: '600', color: '#082653', marginTop: '2px' }}>
+                          3D LiDAR Scan
+                        </div>
                       </div>
-                    </div>
+                    </Magnet>
                   </div>
 
-                  <div style={{ background: 'rgba(255, 255, 255, 0.05)', padding: '12px 14px', borderRadius: '10px' }}>
-                    <div style={{ fontSize: '11px', color: '#94A3B8', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>
+                  <div style={{ background: '#F8FAFC', padding: '12px 14px', borderRadius: '10px', border: '1px solid #E2E8F0' }}>
+                    <div style={{ fontSize: '11px', color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>
                       Cargo Special Handling
                     </div>
-                    <div style={{ fontSize: '12.5px', color: '#CBD5E1', lineHeight: '1.4' }}>
+                    <div style={{ fontSize: '12.5px', color: '#475569', lineHeight: '1.4' }}>
                       {selectedCargo.handlingPoints}
                     </div>
                   </div>
@@ -699,21 +705,21 @@ export const ProjectCargoLogistics = ({ onNavigate }) => {
                   <div
                     style={{
                       marginTop: '14px',
-                      background: 'rgba(16, 185, 129, 0.15)',
-                      border: '1px solid rgba(16, 185, 129, 0.4)',
+                      background: '#FFF7ED',
+                      border: '1px solid #FDBA74',
                       borderRadius: '8px',
                       padding: '12px',
                       fontSize: '12px',
-                      color: '#A7F3D0',
+                      color: '#9A3412',
                       lineHeight: '1.45',
                     }}
                   >
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontWeight: '700', marginBottom: '3px' }}>
-                      <CheckCircle2 size={14} />
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontWeight: '700', marginBottom: '3px', color: '#082653' }}>
+                      <CheckCircle2 size={14} color="#EA580C" />
                       <span>Dossier Reference Generated:</span>
                     </div>
-                    <div>Ref: <strong style={{ color: '#FFFFFF' }}>{dossierToast.refNumber}</strong></div>
-                    <div>Permit & Route Mobilization: <strong style={{ color: '#FFFFFF' }}>{dossierToast.estimatedLead}</strong></div>
+                    <div>Ref: <strong style={{ color: '#C2410C' }}>{dossierToast.refNumber}</strong></div>
+                    <div>Permit & Route Mobilization: <strong style={{ color: '#C2410C' }}>{dossierToast.estimatedLead}</strong></div>
                   </div>
                 )}
               </div>
@@ -994,81 +1000,82 @@ export const ProjectCargoLogistics = ({ onNavigate }) => {
             {/* Stages Stack */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               {projectCargoPillars.map((pillar) => (
-                <div
-                  key={pillar.step}
-                  style={{
-                    background: '#FAFBFD',
-                    border: '1px solid #E2E8F0',
-                    borderRadius: '14px',
-                    padding: '24px 28px',
-                    display: 'grid',
-                    gridTemplateColumns: '80px 1fr',
-                    gap: '20px',
-                    alignItems: 'center',
-                    transition: 'all 0.2s ease',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = pillar.color;
-                    e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,0,0,0.06)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = '#E2E8F0';
-                    e.currentTarget.style.boxShadow = 'none';
-                  }}
-                >
-                  {/* Step Number Badge */}
-                  <div style={{ textAlign: 'center' }}>
-                    <div
-                      style={{
-                        width: '56px',
-                        height: '56px',
-                        borderRadius: '12px',
-                        background: 'rgba(8, 38, 83, 0.05)',
-                        border: `1.5px solid ${pillar.color}`,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        margin: '0 auto',
-                      }}
-                    >
-                      <span style={{ fontSize: '10px', fontWeight: '700', color: '#64748B' }}>STAGE</span>
-                      <span style={{ fontSize: '18px', fontWeight: '800', color: pillar.color, lineHeight: '1.1' }}>
-                        {pillar.step}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Step Content */}
-                  <div>
-                    <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '10px', marginBottom: '6px' }}>
-                      <h3 style={{ fontSize: '17px', fontWeight: '700', color: '#082653', margin: 0 }}>
-                        {pillar.title}
-                      </h3>
-                      <span
+                <Magnet key={pillar.step} {...CARD_MAGNET_PROPS} maxOffset={4} tilt={0.8} style={{ display: 'block', width: '100%' }}>
+                  <div
+                    style={{
+                      background: '#FAFBFD',
+                      border: '1px solid #E2E8F0',
+                      borderRadius: '14px',
+                      padding: '24px 28px',
+                      display: 'grid',
+                      gridTemplateColumns: '80px 1fr',
+                      gap: '20px',
+                      alignItems: 'center',
+                      transition: 'all 0.2s ease',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = pillar.color;
+                      e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,0,0,0.06)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = '#E2E8F0';
+                      e.currentTarget.style.boxShadow = 'none';
+                    }}
+                  >
+                    {/* Step Number Badge */}
+                    <div style={{ textAlign: 'center' }}>
+                      <div
                         style={{
-                          fontSize: '11.5px',
-                          fontWeight: '600',
-                          padding: '2px 8px',
-                          borderRadius: '4px',
-                          background: 'rgba(8, 38, 83, 0.06)',
-                          color: '#475569',
+                          width: '56px',
+                          height: '56px',
+                          borderRadius: '12px',
+                          background: 'rgba(8, 38, 83, 0.05)',
+                          border: `1.5px solid ${pillar.color}`,
+                          display: 'flex',
+                          flexDirection: 'column',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          margin: '0 auto',
                         }}
                       >
-                        {pillar.subtitle}
-                      </span>
+                        <span style={{ fontSize: '10px', fontWeight: '700', color: '#64748B' }}>STAGE</span>
+                        <span style={{ fontSize: '18px', fontWeight: '800', color: pillar.color, lineHeight: '1.1' }}>
+                          {pillar.step}
+                        </span>
+                      </div>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '8px', marginTop: '10px' }}>
-                      {pillar.points.map((pt, idx) => (
-                        <div key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '6px', fontSize: '13px', color: '#475569', lineHeight: '1.45' }}>
-                          <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: pillar.color, marginTop: '7px', flexShrink: 0 }} />
-                          <span>{pt}</span>
-                        </div>
-                      ))}
+                    {/* Step Content */}
+                    <div>
+                      <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '10px', marginBottom: '6px' }}>
+                        <h3 style={{ fontSize: '17px', fontWeight: '700', color: '#082653', margin: 0 }}>
+                          {pillar.title}
+                        </h3>
+                        <span
+                          style={{
+                            fontSize: '11.5px',
+                            fontWeight: '600',
+                            padding: '2px 8px',
+                            borderRadius: '4px',
+                            background: 'rgba(8, 38, 83, 0.06)',
+                            color: '#475569',
+                          }}
+                        >
+                          {pillar.subtitle}
+                        </span>
+                      </div>
+
+                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '8px', marginTop: '10px' }}>
+                        {pillar.points.map((pt, idx) => (
+                          <div key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '6px', fontSize: '13px', color: '#475569', lineHeight: '1.45' }}>
+                            <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: pillar.color, marginTop: '7px', flexShrink: 0 }} />
+                            <span>{pt}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
+                </Magnet>
               ))}
             </div>
           </div>
@@ -1129,83 +1136,85 @@ export const ProjectCargoLogistics = ({ onNavigate }) => {
             {/* Case Studies Grid */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '22px' }}>
               {projectCargoCaseStudies.map((study) => (
-                <div
-                  key={study.id}
-                  style={{
-                    background: '#FFFFFF',
-                    border: '1px solid #E2E8F0',
-                    borderRadius: '16px',
-                    padding: '24px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between',
-                    boxShadow: '0 4px 16px rgba(15, 23, 42, 0.04)',
-                    transition: 'all 0.2s ease',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = 'translateY(-3px)';
-                    e.currentTarget.style.boxShadow = '0 8px 24px rgba(15, 23, 42, 0.09)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = '0 4px 16px rgba(15, 23, 42, 0.04)';
-                  }}
-                >
-                  <div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-                      <span
-                        style={{
-                          fontSize: '11px',
-                          fontWeight: '700',
-                          textTransform: 'uppercase',
-                          color: '#D97706',
-                          background: 'rgba(217, 119, 6, 0.1)',
-                          padding: '3px 8px',
-                          borderRadius: '4px',
-                        }}
-                      >
-                        {study.clientType}
-                      </span>
-                      <div style={{ textAlign: 'right' }}>
-                        <div style={{ fontSize: '16px', fontWeight: '800', color: '#082653', lineHeight: '1' }}>
-                          {study.metricValue}
+                <Magnet key={study.id} {...CARD_MAGNET_PROPS}>
+                  <div
+                    style={{
+                      background: '#FFFFFF',
+                      border: '1px solid #E2E8F0',
+                      borderRadius: '16px',
+                      padding: '24px',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'space-between',
+                      height: '100%',
+                      boxShadow: '0 4px 16px rgba(15, 23, 42, 0.04)',
+                      transition: 'all 0.2s ease',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-3px)';
+                      e.currentTarget.style.boxShadow = '0 8px 24px rgba(15, 23, 42, 0.09)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.boxShadow = '0 4px 16px rgba(15, 23, 42, 0.04)';
+                    }}
+                  >
+                    <div>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+                        <span
+                          style={{
+                            fontSize: '11px',
+                            fontWeight: '700',
+                            textTransform: 'uppercase',
+                            color: '#D97706',
+                            background: 'rgba(217, 119, 6, 0.1)',
+                            padding: '3px 8px',
+                            borderRadius: '4px',
+                          }}
+                        >
+                          {study.clientType}
+                        </span>
+                        <div style={{ textAlign: 'right' }}>
+                          <div style={{ fontSize: '16px', fontWeight: '800', color: '#082653', lineHeight: '1' }}>
+                            {study.metricValue}
+                          </div>
+                          <div style={{ fontSize: '10px', color: '#64748B' }}>{study.metricLabel}</div>
                         </div>
-                        <div style={{ fontSize: '10px', color: '#64748B' }}>{study.metricLabel}</div>
                       </div>
+
+                      <h3 style={{ fontSize: '17px', fontWeight: '700', color: '#082653', marginBottom: '8px' }}>
+                        {study.projectTitle}
+                      </h3>
+
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', color: '#64748B', marginBottom: '12px' }}>
+                        <MapPin size={13} color="#D97706" />
+                        <span>{study.location}</span>
+                      </div>
+
+                      <div style={{ background: '#FAFBFD', padding: '10px 12px', borderRadius: '8px', fontSize: '12.5px', color: '#334155', lineHeight: '1.45', marginBottom: '14px', border: '1px solid #F1F5F9' }}>
+                        <strong>Scope:</strong> {study.cargoScope}
+                      </div>
+
+                      <p style={{ fontSize: '13px', color: '#475569', lineHeight: '1.55', marginBottom: '16px' }}>
+                        {study.solution}
+                      </p>
                     </div>
 
-                    <h3 style={{ fontSize: '17px', fontWeight: '700', color: '#082653', marginBottom: '8px' }}>
-                      {study.projectTitle}
-                    </h3>
-
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', color: '#64748B', marginBottom: '12px' }}>
-                      <MapPin size={13} color="#D97706" />
-                      <span>{study.location}</span>
+                    <div>
+                      <div style={{ fontSize: '11.5px', fontWeight: '700', color: '#082653', textTransform: 'uppercase', marginBottom: '6px' }}>
+                        Verified Results:
+                      </div>
+                      <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                        {study.results.map((res, i) => (
+                          <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', color: '#334155' }}>
+                            <CheckCircle2 size={13} color="#EA580C" />
+                            <span>{res}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-
-                    <div style={{ background: '#FAFBFD', padding: '10px 12px', borderRadius: '8px', fontSize: '12.5px', color: '#334155', lineHeight: '1.45', marginBottom: '14px', border: '1px solid #F1F5F9' }}>
-                      <strong>Scope:</strong> {study.cargoScope}
-                    </div>
-
-                    <p style={{ fontSize: '13px', color: '#475569', lineHeight: '1.55', marginBottom: '16px' }}>
-                      {study.solution}
-                    </p>
                   </div>
-
-                  <div>
-                    <div style={{ fontSize: '11.5px', fontWeight: '700', color: '#082653', textTransform: 'uppercase', marginBottom: '6px' }}>
-                      Verified Results:
-                    </div>
-                    <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                      {study.results.map((res, i) => (
-                        <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', color: '#166534' }}>
-                          <CheckCircle2 size={13} color="#16A34A" />
-                          <span>{res}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
+                </Magnet>
               ))}
             </div>
           </div>
@@ -1224,42 +1233,44 @@ export const ProjectCargoLogistics = ({ onNavigate }) => {
           <div style={{ maxWidth: '1080px', margin: '0 auto' }}>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px' }}>
               {projectCargoStandards.map((std, idx) => (
-                <div
-                  key={idx}
-                  style={{
-                    background: '#FAFBFD',
-                    border: '1px solid #E2E8F0',
-                    borderRadius: '12px',
-                    padding: '20px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '8px',
-                  }}
-                >
+                <Magnet key={idx} {...CARD_MAGNET_PROPS}>
                   <div
                     style={{
-                      width: '36px',
-                      height: '36px',
-                      borderRadius: '8px',
-                      background: 'rgba(217, 119, 6, 0.12)',
-                      color: '#D97706',
+                      background: '#FAFBFD',
+                      border: '1px solid #E2E8F0',
+                      borderRadius: '12px',
+                      padding: '20px',
                       display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
+                      flexDirection: 'column',
+                      gap: '8px',
+                      height: '100%',
                     }}
                   >
-                    {std.icon === 'Award' && <Award size={18} />}
-                    {std.icon === 'ShieldCheck' && <ShieldCheck size={18} />}
-                    {std.icon === 'CheckCircle2' && <CheckCircle2 size={18} />}
-                    {std.icon === 'Scale' && <Scale size={18} />}
+                    <div
+                      style={{
+                        width: '36px',
+                        height: '36px',
+                        borderRadius: '8px',
+                        background: 'rgba(217, 119, 6, 0.12)',
+                        color: '#D97706',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                      }}
+                    >
+                      {std.icon === 'Award' && <Award size={18} />}
+                      {std.icon === 'ShieldCheck' && <ShieldCheck size={18} />}
+                      {std.icon === 'CheckCircle2' && <CheckCircle2 size={18} />}
+                      {std.icon === 'Scale' && <Scale size={18} />}
+                    </div>
+                    <h4 style={{ fontSize: '14.5px', fontWeight: '700', color: '#082653', margin: 0 }}>
+                      {std.title}
+                    </h4>
+                    <p style={{ fontSize: '12.5px', color: '#64748B', lineHeight: '1.45', margin: 0 }}>
+                      {std.desc}
+                    </p>
                   </div>
-                  <h4 style={{ fontSize: '14.5px', fontWeight: '700', color: '#082653', margin: 0 }}>
-                    {std.title}
-                  </h4>
-                  <p style={{ fontSize: '12.5px', color: '#64748B', lineHeight: '1.45', margin: 0 }}>
-                    {std.desc}
-                  </p>
-                </div>
+                </Magnet>
               ))}
             </div>
           </div>
@@ -1385,11 +1396,11 @@ export const ProjectCargoLogistics = ({ onNavigate }) => {
         <section
           style={{
             padding: '50px 32px',
-            background: 'linear-gradient(135deg, #051A3B 0%, #082653 100%)',
-            color: '#FFFFFF',
+            background: '#FFFFFF',
+            color: '#082653',
             position: 'relative',
             overflow: 'hidden',
-            borderBottom: '1px solid rgba(8, 38, 83, 0.12)',
+            borderBottom: '1px solid #E2E8F0',
           }}
         >
           <div
@@ -1399,7 +1410,7 @@ export const ProjectCargoLogistics = ({ onNavigate }) => {
               right: '-60px',
               width: '320px',
               height: '320px',
-              background: 'radial-gradient(circle, rgba(245, 158, 11, 0.2) 0%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(245, 158, 11, 0.08) 0%, transparent 70%)',
               pointerEvents: 'none',
             }}
           />
@@ -1420,11 +1431,11 @@ export const ProjectCargoLogistics = ({ onNavigate }) => {
                 gap: '8px',
                 padding: '5px 12px',
                 borderRadius: '9999px',
-                background: 'rgba(245, 158, 11, 0.15)',
-                border: '1px solid rgba(245, 158, 11, 0.35)',
+                background: '#FFFBEB',
+                border: '1px solid #FDE68A',
                 fontSize: '11.5px',
                 fontWeight: '700',
-                color: '#FDE68A',
+                color: '#B45309',
                 marginBottom: '14px',
                 textTransform: 'uppercase',
               }}
@@ -1438,7 +1449,7 @@ export const ProjectCargoLogistics = ({ onNavigate }) => {
                 fontFamily: 'Georgia, serif',
                 fontSize: 'clamp(26px, 3.4vw, 36px)',
                 fontWeight: '700',
-                color: '#FFFFFF',
+                color: '#082653',
                 marginBottom: '14px',
                 lineHeight: '1.2',
               }}
@@ -1449,7 +1460,7 @@ export const ProjectCargoLogistics = ({ onNavigate }) => {
             <p
               style={{
                 fontSize: '15.5px',
-                color: 'rgba(255, 255, 255, 0.85)',
+                color: '#475569',
                 maxWidth: '680px',
                 margin: '0 auto 28px auto',
                 lineHeight: '1.6',
@@ -1473,7 +1484,7 @@ export const ProjectCargoLogistics = ({ onNavigate }) => {
                   fontWeight: '600',
                   border: 'none',
                   cursor: 'pointer',
-                  boxShadow: '0 4px 18px rgba(234, 88, 12, 0.45)',
+                  boxShadow: '0 4px 18px rgba(234, 88, 12, 0.35)',
                   transition: 'all 0.2s ease',
                 }}
                 onMouseEnter={(e) => {
@@ -1493,24 +1504,24 @@ export const ProjectCargoLogistics = ({ onNavigate }) => {
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '8px',
-                  background: 'rgba(255, 255, 255, 0.08)',
-                  color: '#FFFFFF',
+                  background: '#F8FAFC',
+                  color: '#082653',
                   padding: '13px 24px',
                   borderRadius: '10px',
                   fontSize: '14px',
                   fontWeight: '600',
-                  border: '1px solid rgba(255, 255, 255, 0.25)',
+                  border: '1px solid #CBD5E1',
                   cursor: 'pointer',
                   transition: 'all 0.2s ease',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.16)';
+                  e.currentTarget.style.background = '#F1F5F9';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
+                  e.currentTarget.style.background = '#F8FAFC';
                 }}
               >
-                <Radio size={15} color="#FBBF24" />
+                <Radio size={15} color="#D97706" />
                 <span>Track Active Project Shipment</span>
               </button>
             </div>

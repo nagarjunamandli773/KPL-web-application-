@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Header } from '../components/layout/Header';
 import { Footer } from '../components/layout/Footer';
 import { TrackModal } from '../components/common/TrackModal';
+import Magnet, { CARD_MAGNET_PROPS, TILE_MAGNET_PROPS } from '../components/common/Magnet';
 import {
   techHeroStats,
   techServiceTiers,
@@ -147,18 +148,19 @@ export const TechnologyElectronics = ({ onNavigate }) => {
         <div style={{ height: '24px', width: '100%', background: '#FAFBFD' }} />
 
         {/* =========================================================================
-            SECTION 1: HERO BANNER (Luxury Deep Navy with Tech Emerald / Teal Glow)
+            SECTION 1: HERO BANNER (Light Orange with Tech Emerald / Teal Accents)
             ========================================================================= */}
         <section
           style={{
             position: 'relative',
-            background: 'linear-gradient(135deg, #031b2e 0%, #082653 45%, #064e3b 100%)',
-            color: '#FFFFFF',
+            background: 'linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 50%, #FFF7ED 100%)',
+            color: '#082653',
             borderRadius: '16px',
             margin: '0 24px',
             padding: '56px 48px 48px',
             overflow: 'hidden',
-            boxShadow: '0 20px 50px rgba(8, 38, 83, 0.28)',
+            border: '1px solid #FED7AA',
+            boxShadow: '0 20px 50px rgba(234, 88, 12, 0.08)',
           }}
         >
           {/* Subtle Ambient Radial Lighting */}
@@ -169,7 +171,7 @@ export const TechnologyElectronics = ({ onNavigate }) => {
               right: '-8%',
               width: '560px',
               height: '560px',
-              background: 'radial-gradient(circle, rgba(13, 148, 136, 0.28) 0%, rgba(6, 95, 70, 0.12) 45%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(234, 88, 12, 0.1) 0%, rgba(234, 88, 12, 0.06) 45%, transparent 70%)',
               borderRadius: '50%',
               pointerEvents: 'none',
               filter: 'blur(35px)',
@@ -182,7 +184,7 @@ export const TechnologyElectronics = ({ onNavigate }) => {
               left: '-10%',
               width: '480px',
               height: '480px',
-              background: 'radial-gradient(circle, rgba(2, 132, 199, 0.2) 0%, transparent 65%)',
+              background: 'radial-gradient(circle, rgba(251, 146, 60, 0.12) 0%, transparent 65%)',
               borderRadius: '50%',
               pointerEvents: 'none',
               filter: 'blur(40px)',
@@ -209,8 +211,8 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                   gap: '8px',
                   padding: '6px 14px',
                   borderRadius: '30px',
-                  background: 'rgba(13, 148, 136, 0.2)',
-                  border: '1px solid rgba(45, 212, 191, 0.45)',
+                  background: 'rgba(255, 255, 255, 0.75)',
+                  border: '1px solid rgba(234, 88, 12, 0.35)',
                   marginBottom: '20px',
                 }}
               >
@@ -219,8 +221,8 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                     width: '8px',
                     height: '8px',
                     borderRadius: '50%',
-                    background: '#2DD4BF',
-                    boxShadow: '0 0 10px #2DD4BF',
+                    background: '#EA580C',
+                    boxShadow: '0 0 8px rgba(234, 88, 12, 0.45)',
                     display: 'inline-block',
                   }}
                 />
@@ -230,7 +232,7 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                     fontWeight: '800',
                     letterSpacing: '0.08em',
                     textTransform: 'uppercase',
-                    color: '#99F6E4',
+                    color: '#C2410C',
                   }}
                 >
                   TAPA LEVEL A • ANSI/ESD S20.20 • INDUSTRY FOCUS: TECHNOLOGY & ELECTRONICS
@@ -243,7 +245,7 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                   fontSize: '40px',
                   fontWeight: '800',
                   lineHeight: '1.16',
-                  color: '#FFFFFF',
+                  color: '#082653',
                   margin: '0 0 18px',
                   letterSpacing: '-0.02em',
                 }}
@@ -251,7 +253,7 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                 High-Value Tech Logistics &{' '}
                 <span
                   style={{
-                    background: 'linear-gradient(90deg, #99F6E4 0%, #2DD4BF 50%, #38BDF8 100%)',
+                    background: 'linear-gradient(90deg, #FF6F00 0%, #EA580C 50%, #D97706 100%)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
                   }}
@@ -266,7 +268,7 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                 style={{
                   fontSize: '15px',
                   lineHeight: '1.65',
-                  color: '#CBD5E1',
+                  color: '#334155',
                   margin: '0 0 28px',
                   maxWidth: '560px',
                 }}
@@ -291,16 +293,16 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                     fontWeight: '700',
                     border: 'none',
                     cursor: 'pointer',
-                    boxShadow: '0 8px 24px rgba(234, 88, 12, 0.35)',
+                    boxShadow: '0 8px 24px rgba(234, 88, 12, 0.3)',
                     transition: 'all 0.2s ease',
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'translateY(-2px)';
-                    e.currentTarget.style.boxShadow = '0 12px 30px rgba(234, 88, 12, 0.45)';
+                    e.currentTarget.style.boxShadow = '0 12px 30px rgba(234, 88, 12, 0.42)';
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = '0 8px 24px rgba(234, 88, 12, 0.35)';
+                    e.currentTarget.style.boxShadow = '0 8px 24px rgba(234, 88, 12, 0.3)';
                   }}
                 >
                   <Gauge size={17} />
@@ -316,24 +318,25 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                     gap: '8px',
                     padding: '13px 22px',
                     borderRadius: '12px',
-                    background: 'rgba(255, 255, 255, 0.08)',
-                    color: '#FFFFFF',
+                    background: '#FFFFFF',
+                    color: '#082653',
                     fontSize: '14px',
                     fontWeight: '700',
-                    border: '1px solid rgba(45, 212, 191, 0.35)',
+                    border: '1px solid #FDBA74',
                     cursor: 'pointer',
+                    boxShadow: '0 2px 8px rgba(234, 88, 12, 0.08)',
                     transition: 'all 0.2s ease',
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.15)';
-                    e.currentTarget.style.borderColor = '#2DD4BF';
+                    e.currentTarget.style.background = '#FFFBEB';
+                    e.currentTarget.style.borderColor = '#EA580C';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
-                    e.currentTarget.style.borderColor = 'rgba(45, 212, 191, 0.35)';
+                    e.currentTarget.style.background = '#FFFFFF';
+                    e.currentTarget.style.borderColor = '#FDBA74';
                   }}
                 >
-                  <Radio size={15} color="#2DD4BF" />
+                  <Radio size={15} color="#EA580C" />
                   <span>Track Active Telemetry</span>
                 </button>
               </div>
@@ -345,21 +348,21 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                   alignItems: 'center',
                   gap: '20px',
                   paddingTop: '20px',
-                  borderTop: '1px solid rgba(255, 255, 255, 0.12)',
+                  borderTop: '1px solid rgba(234, 88, 12, 0.18)',
                   flexWrap: 'wrap',
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <ShieldCheck size={16} color="#2DD4BF" />
-                  <span style={{ fontSize: '12px', color: '#CBD5E1', fontWeight: '600' }}>TAPA FSR Level A & TSR 1</span>
+                  <ShieldCheck size={16} color="#EA580C" />
+                  <span style={{ fontSize: '12px', color: '#334155', fontWeight: '600' }}>TAPA FSR Level A & TSR 1</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <Zap size={16} color="#38BDF8" />
-                  <span style={{ fontSize: '12px', color: '#CBD5E1', fontWeight: '600' }}>ANSI/ESD S20.20-2021 Certified</span>
+                  <Zap size={16} color="#EA580C" />
+                  <span style={{ fontSize: '12px', color: '#334155', fontWeight: '600' }}>ANSI/ESD S20.20-2021 Certified</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <Award size={16} color="#FBBF24" />
-                  <span style={{ fontSize: '12px', color: '#CBD5E1', fontWeight: '600' }}>C-TPAT Tier 3 / EU AEO-F</span>
+                  <Award size={16} color="#D97706" />
+                  <span style={{ fontSize: '12px', color: '#334155', fontWeight: '600' }}>C-TPAT Tier 3 / EU AEO-F</span>
                 </div>
               </div>
             </div>
@@ -370,11 +373,11 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                 style={{
                   borderRadius: '16px',
                   overflow: 'hidden',
-                  border: '1px solid rgba(255, 255, 255, 0.25)',
-                  boxShadow: '0 20px 45px rgba(0, 0, 0, 0.35)',
+                  border: '1px solid #FED7AA',
+                  boxShadow: '0 20px 45px rgba(234, 88, 12, 0.15)',
                   position: 'relative',
                   height: '380px',
-                  background: '#041B2E',
+                  background: '#FFF7ED',
                 }}
               >
                 <img
@@ -385,17 +388,7 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                     height: '100%',
                     objectFit: 'cover',
                     objectPosition: 'center 45%',
-                    filter: 'brightness(1.02) contrast(1.04)',
-                  }}
-                />
-                {/* Subtle edge-only vignette for maximum clarity while ensuring HUD legibility */}
-                <div
-                  style={{
-                    position: 'absolute',
-                    inset: 0,
-                    background:
-                      'linear-gradient(180deg, rgba(4, 27, 46, 0.4) 0%, transparent 22%, transparent 72%, rgba(4, 27, 46, 0.5) 100%)',
-                    pointerEvents: 'none',
+                    filter: 'brightness(1.04) contrast(1.03)',
                   }}
                 />
 
@@ -406,16 +399,16 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                     top: '16px',
                     left: '16px',
                     right: '16px',
-                    background: 'rgba(4, 27, 46, 0.88)',
+                    background: 'rgba(255, 247, 237, 0.95)',
                     backdropFilter: 'blur(12px)',
                     WebkitBackdropFilter: 'blur(12px)',
-                    border: '1px solid rgba(45, 212, 191, 0.45)',
+                    border: '1px solid #FDBA74',
                     borderRadius: '12px',
                     padding: '12px 16px',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    boxShadow: '0 8px 24px rgba(0, 0, 0, 0.3)',
+                    boxShadow: '0 8px 24px rgba(28, 25, 23, 0.16)',
                   }}
                 >
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -424,25 +417,25 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                         width: '10px',
                         height: '10px',
                         borderRadius: '50%',
-                        background: '#2DD4BF',
-                        boxShadow: '0 0 10px #2DD4BF',
+                        background: '#EA580C',
+                        boxShadow: '0 0 10px rgba(234, 88, 12, 0.5)',
                       }}
                     />
                     <div>
-                      <div style={{ fontSize: '12px', fontWeight: '800', color: '#FFFFFF' }}>
+                      <div style={{ fontSize: '12px', fontWeight: '800', color: '#0F172A' }}>
                         TAPA ESCORT: CONVOY #KPL-TECH-9921
                       </div>
-                      <div style={{ fontSize: '10px', color: '#94A3B8' }}>
+                      <div style={{ fontSize: '10px', color: '#475569' }}>
                         Cleanroom Nitrogen Pod • Route Active (Zero Alert)
                       </div>
                     </div>
                   </div>
 
                   <div style={{ textAlign: 'right' }}>
-                    <div style={{ fontSize: '14px', fontWeight: '900', color: '#99F6E4' }}>
+                    <div style={{ fontSize: '14px', fontWeight: '900', color: '#C2410C' }}>
                       100.00%
                     </div>
-                    <div style={{ fontSize: '10px', color: '#2DD4BF' }}>
+                    <div style={{ fontSize: '10px', color: '#EA580C', fontWeight: '700' }}>
                       ZERO LOSS SLA
                     </div>
                   </div>
@@ -455,25 +448,25 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                     bottom: '16px',
                     left: '16px',
                     right: '16px',
-                    background: 'rgba(4, 27, 46, 0.86)',
+                    background: 'rgba(255, 247, 237, 0.95)',
                     backdropFilter: 'blur(12px)',
                     WebkitBackdropFilter: 'blur(12px)',
-                    border: '1px solid rgba(255, 255, 255, 0.18)',
+                    border: '1px solid #FDBA74',
                     borderRadius: '10px',
                     padding: '10px 14px',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    boxShadow: '0 8px 24px rgba(0, 0, 0, 0.3)',
+                    boxShadow: '0 8px 24px rgba(28, 25, 23, 0.16)',
                   }}
                 >
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <Activity size={16} color="#2DD4BF" />
-                    <span style={{ fontSize: '11px', color: '#E2E8F0', fontWeight: '600' }}>
+                    <Activity size={16} color="#EA580C" />
+                    <span style={{ fontSize: '11px', color: '#0F172A', fontWeight: '600' }}>
                       Semiconductor & Wafer Air Bridge: Active Tarmac Direct
                     </span>
                   </div>
-                  <span style={{ fontSize: '10px', color: '#99F6E4', fontWeight: '800' }}>
+                  <span style={{ fontSize: '10px', color: '#C2410C', fontWeight: '800' }}>
                     TAPA LEVEL-A
                   </span>
                 </div>
@@ -489,100 +482,123 @@ export const TechnologyElectronics = ({ onNavigate }) => {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(4, 1fr)',
+              gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
               gap: '16px',
+              alignItems: 'stretch',
             }}
           >
             {techHeroStats.map((stat, idx) => {
               const IconComp = stat.icon;
               return (
-                <div
-                  key={idx}
-                  style={{
-                    background: '#FFFFFF',
-                    borderRadius: '12px',
-                    padding: '22px 20px',
-                    border: '1px solid #E2E8F0',
-                    boxShadow: '0 4px 16px rgba(8, 38, 83, 0.04)',
-                    position: 'relative',
-                    overflow: 'hidden',
-                    transition: 'all 0.2s ease',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = 'translateY(-3px)';
-                    e.currentTarget.style.borderColor = '#0D9488';
-                    e.currentTarget.style.boxShadow = '0 10px 24px rgba(13, 148, 136, 0.12)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.borderColor = '#E2E8F0';
-                    e.currentTarget.style.boxShadow = '0 4px 16px rgba(8, 38, 83, 0.04)';
-                  }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
-                    <span
-                      style={{
-                        display: 'inline-block',
-                        padding: '3px 8px',
-                        borderRadius: '4px',
-                        background: 'rgba(13, 148, 136, 0.08)',
-                        color: '#0D9488',
-                        fontSize: '10.5px',
-                        fontWeight: '800',
-                        letterSpacing: '0.04em',
-                      }}
-                    >
-                      {stat.label}
-                    </span>
+                <Magnet key={idx} {...TILE_MAGNET_PROPS}>
+                  <div
+                    style={{
+                      background: '#FFFFFF',
+                      borderRadius: '12px',
+                      padding: '22px 20px 24px',
+                      border: '1.5px solid #FDBA74',
+                      boxShadow: '0 4px 16px rgba(234, 88, 12, 0.06)',
+                      position: 'relative',
+                      overflow: 'hidden',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'flex-start',
+                      height: '100%',
+                      boxSizing: 'border-box',
+                      transition: 'all 0.2s ease',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-3px)';
+                      e.currentTarget.style.borderColor = '#EA580C';
+                      e.currentTarget.style.boxShadow = '0 10px 24px rgba(234, 88, 12, 0.14)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.borderColor = '#FDBA74';
+                      e.currentTarget.style.boxShadow = '0 4px 16px rgba(234, 88, 12, 0.06)';
+                    }}
+                  >
                     <div
                       style={{
-                        width: '32px',
-                        height: '32px',
-                        borderRadius: '8px',
-                        background: `${stat.accent}15`,
                         display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
+                        alignItems: 'flex-start',
+                        justifyContent: 'space-between',
+                        gap: '8px',
+                        minHeight: '36px',
+                        marginBottom: '10px',
                       }}
                     >
-                      <IconComp size={16} color={stat.accent} />
+                      <span
+                        style={{
+                          display: 'inline-block',
+                          padding: '3px 8px',
+                          borderRadius: '4px',
+                          background: 'rgba(234, 88, 12, 0.08)',
+                          color: '#EA580C',
+                          fontSize: '10.5px',
+                          fontWeight: '800',
+                          letterSpacing: '0.04em',
+                          lineHeight: '1.35',
+                        }}
+                      >
+                        {stat.label}
+                      </span>
+                      <div
+                        style={{
+                          width: '32px',
+                          height: '32px',
+                          borderRadius: '8px',
+                          background: `${stat.accent}15`,
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          flexShrink: 0,
+                        }}
+                      >
+                        <IconComp size={16} color={stat.accent} />
+                      </div>
                     </div>
-                  </div>
 
-                  <div
-                    style={{
-                      fontSize: '28px',
-                      fontWeight: '900',
-                      color: '#082653',
-                      marginBottom: '4px',
-                      letterSpacing: '-0.02em',
-                    }}
-                  >
-                    {stat.value}
-                  </div>
+                    <div
+                      style={{
+                        fontSize: 'clamp(22px, 2vw, 27px)',
+                        fontWeight: '900',
+                        color: '#082653',
+                        marginBottom: '6px',
+                        letterSpacing: '-0.02em',
+                        lineHeight: '1.15',
+                        minHeight: '32px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        whiteSpace: 'nowrap',
+                      }}
+                    >
+                      {stat.value}
+                    </div>
 
-                  <div
-                    style={{
-                      fontSize: '11px',
-                      color: '#64748B',
-                      lineHeight: '1.45',
-                    }}
-                  >
-                    {stat.sub}
-                  </div>
+                    <div
+                      style={{
+                        fontSize: '11px',
+                        color: '#64748B',
+                        lineHeight: '1.45',
+                      }}
+                    >
+                      {stat.sub}
+                    </div>
 
-                  <div
-                    style={{
-                      position: 'absolute',
-                      bottom: 0,
-                      left: 0,
-                      right: 0,
-                      height: '3px',
-                      background: 'linear-gradient(90deg, #0D9488 0%, #38BDF8 100%)',
-                      opacity: 0.8,
-                    }}
-                  />
-                </div>
+                    <div
+                      style={{
+                        position: 'absolute',
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
+                        height: '3px',
+                        background: 'linear-gradient(90deg, #EA580C 0%, #D97706 100%)',
+                        opacity: 0.8,
+                      }}
+                    />
+                  </div>
+                </Magnet>
               );
             })}
           </div>
@@ -597,9 +613,9 @@ export const TechnologyElectronics = ({ onNavigate }) => {
             margin: '36px 24px 0',
             background: '#FFFFFF',
             borderRadius: '16px',
-            border: '1px solid #E2E8F0',
+            border: '1px solid #FDBA74',
             padding: '36px',
-            boxShadow: '0 8px 30px rgba(8, 38, 83, 0.05)',
+            boxShadow: '0 8px 30px rgba(28, 25, 23, 0.05)',
           }}
         >
           <div
@@ -620,7 +636,7 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                   gap: '6px',
                   fontSize: '11px',
                   fontWeight: '800',
-                  color: '#0D9488',
+                  color: '#EA580C',
                   letterSpacing: '0.08em',
                   textTransform: 'uppercase',
                   marginBottom: '6px',
@@ -648,13 +664,13 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                 gap: '8px',
                 padding: '6px 14px',
                 borderRadius: '8px',
-                background: 'rgba(13, 148, 136, 0.08)',
-                color: '#0D9488',
+                background: 'rgba(234, 88, 12, 0.08)',
+                color: '#EA580C',
                 fontSize: '12px',
                 fontWeight: '700',
               }}
             >
-              <Cpu size={14} color="#0D9488" />
+              <Cpu size={14} color="#EA580C" />
               <span>TAPA FSR Level A / ANSI/ESD S20.20 Validated</span>
             </div>
           </div>
@@ -663,7 +679,7 @@ export const TechnologyElectronics = ({ onNavigate }) => {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
+              gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
               gap: '24px',
               marginBottom: '28px',
             }}
@@ -686,31 +702,32 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                 {techServiceTiers.map((tier) => {
                   const isSelected = selectedTierId === tier.id;
                   return (
-                    <div
-                      key={tier.id}
-                      onClick={() => setSelectedTierId(tier.id)}
-                      style={{
-                        padding: '12px 14px',
-                        borderRadius: '10px',
-                        border: isSelected ? '2px solid #0D9488' : '1px solid #E2E8F0',
-                        background: isSelected ? 'rgba(13, 148, 136, 0.06)' : '#FAFCFF',
-                        cursor: 'pointer',
-                        transition: 'all 0.15s ease',
-                      }}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                        <span style={{ fontSize: '13px', fontWeight: '700', color: isSelected ? '#082653' : '#334155' }}>
-                          {tier.name}
-                        </span>
-                        {isSelected && <CheckCircle2 size={16} color="#0D9488" />}
+                    <Magnet key={tier.id} {...TILE_MAGNET_PROPS} style={{ display: 'block', width: '100%' }}>
+                      <div
+                        onClick={() => setSelectedTierId(tier.id)}
+                        style={{
+                          padding: '12px 14px',
+                          borderRadius: '10px',
+                          border: isSelected ? '2px solid #EA580C' : '1px solid #FDBA74',
+                          background: isSelected ? 'rgba(234, 88, 12, 0.06)' : '#FAFCFF',
+                          cursor: 'pointer',
+                          transition: 'all 0.15s ease',
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                          <span style={{ fontSize: '13px', fontWeight: '700', color: isSelected ? '#082653' : '#334155' }}>
+                            {tier.name}
+                          </span>
+                          {isSelected && <CheckCircle2 size={16} color="#EA580C" />}
+                        </div>
+                        <div style={{ fontSize: '11px', color: '#EA580C', fontWeight: '700', marginTop: '2px' }}>
+                          {tier.turnaround}
+                        </div>
+                        <div style={{ fontSize: '11px', color: '#64748B', marginTop: '3px', lineHeight: '1.3' }}>
+                          {tier.description}
+                        </div>
                       </div>
-                      <div style={{ fontSize: '11px', color: '#0D9488', fontWeight: '700', marginTop: '2px' }}>
-                        {tier.turnaround}
-                      </div>
-                      <div style={{ fontSize: '11px', color: '#64748B', marginTop: '3px', lineHeight: '1.3' }}>
-                        {tier.description}
-                      </div>
-                    </div>
+                    </Magnet>
                   );
                 })}
               </div>
@@ -734,31 +751,32 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                 {techTransportModes.map((mode) => {
                   const isSelected = selectedModeId === mode.id;
                   return (
-                    <div
-                      key={mode.id}
-                      onClick={() => setSelectedModeId(mode.id)}
-                      style={{
-                        padding: '12px 14px',
-                        borderRadius: '10px',
-                        border: isSelected ? '2px solid #0284C7' : '1px solid #E2E8F0',
-                        background: isSelected ? 'rgba(2, 132, 199, 0.06)' : '#FAFCFF',
-                        cursor: 'pointer',
-                        transition: 'all 0.15s ease',
-                      }}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                        <span style={{ fontSize: '13px', fontWeight: '700', color: '#082653' }}>
-                          {mode.name}
-                        </span>
-                        {isSelected && <CheckCircle2 size={16} color="#0284C7" />}
+                    <Magnet key={mode.id} {...TILE_MAGNET_PROPS} style={{ display: 'block', width: '100%' }}>
+                      <div
+                        onClick={() => setSelectedModeId(mode.id)}
+                        style={{
+                          padding: '12px 14px',
+                          borderRadius: '10px',
+                          border: isSelected ? '2px solid #EA580C' : '1px solid #FDBA74',
+                          background: isSelected ? 'rgba(234, 88, 12, 0.06)' : '#FAFCFF',
+                          cursor: 'pointer',
+                          transition: 'all 0.15s ease',
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                          <span style={{ fontSize: '13px', fontWeight: '700', color: '#082653' }}>
+                            {mode.name}
+                          </span>
+                          {isSelected && <CheckCircle2 size={16} color="#EA580C" />}
+                        </div>
+                        <div style={{ fontSize: '11px', color: '#EA580C', fontWeight: '700', marginTop: '2px' }}>
+                          Protocol: {mode.protocol}
+                        </div>
+                        <div style={{ fontSize: '11px', color: '#64748B', marginTop: '4px', lineHeight: '1.35' }}>
+                          {mode.desc}
+                        </div>
                       </div>
-                      <div style={{ fontSize: '11px', color: '#0284C7', fontWeight: '700', marginTop: '2px' }}>
-                        Protocol: {mode.protocol}
-                      </div>
-                      <div style={{ fontSize: '11px', color: '#64748B', marginTop: '4px', lineHeight: '1.35' }}>
-                        {mode.desc}
-                      </div>
-                    </div>
+                    </Magnet>
                   );
                 })}
               </div>
@@ -782,31 +800,32 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                 {techVolumeScales.map((vol) => {
                   const isSelected = selectedVolId === vol.id;
                   return (
-                    <div
-                      key={vol.id}
-                      onClick={() => setSelectedVolId(vol.id)}
-                      style={{
-                        padding: '12px 14px',
-                        borderRadius: '10px',
-                        border: isSelected ? '2px solid #FF6F00' : '1px solid #E2E8F0',
-                        background: isSelected ? 'rgba(255, 111, 0, 0.06)' : '#FAFCFF',
-                        cursor: 'pointer',
-                        transition: 'all 0.15s ease',
-                      }}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                        <span style={{ fontSize: '13px', fontWeight: '700', color: isSelected ? '#082653' : '#334155' }}>
-                          {vol.name}
-                        </span>
-                        {isSelected && <CheckCircle2 size={16} color="#FF6F00" />}
+                    <Magnet key={vol.id} {...TILE_MAGNET_PROPS} style={{ display: 'block', width: '100%' }}>
+                      <div
+                        onClick={() => setSelectedVolId(vol.id)}
+                        style={{
+                          padding: '12px 14px',
+                          borderRadius: '10px',
+                          border: isSelected ? '2px solid #FF6F00' : '1px solid #FDBA74',
+                          background: isSelected ? 'rgba(255, 111, 0, 0.06)' : '#FAFCFF',
+                          cursor: 'pointer',
+                          transition: 'all 0.15s ease',
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                          <span style={{ fontSize: '13px', fontWeight: '700', color: isSelected ? '#082653' : '#334155' }}>
+                            {vol.name}
+                          </span>
+                          {isSelected && <CheckCircle2 size={16} color="#FF6F00" />}
+                        </div>
+                        <div style={{ fontSize: '11px', color: '#FF6F00', fontWeight: '700', marginTop: '2px' }}>
+                          Scale: {vol.units} • {vol.costPerKit}
+                        </div>
+                        <div style={{ fontSize: '11px', color: '#64748B', marginTop: '4px', lineHeight: '1.3' }}>
+                          Capacity: {vol.throughputCapacity}
+                        </div>
                       </div>
-                      <div style={{ fontSize: '11px', color: '#FF6F00', fontWeight: '700', marginTop: '2px' }}>
-                        Scale: {vol.units} • {vol.costPerKit}
-                      </div>
-                      <div style={{ fontSize: '11px', color: '#64748B', marginTop: '4px', lineHeight: '1.3' }}>
-                        Capacity: {vol.throughputCapacity}
-                      </div>
-                    </div>
+                    </Magnet>
                   );
                 })}
               </div>
@@ -816,8 +835,9 @@ export const TechnologyElectronics = ({ onNavigate }) => {
           {/* Simulator Result Output Bar */}
           <div
             style={{
-              background: 'linear-gradient(135deg, #031B2E 0%, #082653 100%)',
-              color: '#FFFFFF',
+              background: 'linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%)',
+              border: '1px solid #FED7AA',
+              color: '#082653',
               borderRadius: '12px',
               padding: '20px 24px',
               display: 'flex',
@@ -828,13 +848,13 @@ export const TechnologyElectronics = ({ onNavigate }) => {
             }}
           >
             <div>
-              <div style={{ fontSize: '11px', color: '#2DD4BF', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+              <div style={{ fontSize: '11px', color: '#EA580C', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
                 CONFIGURED TECHNOLOGY & CLEANROOM SLA PROFILE
               </div>
-              <div style={{ fontSize: '16px', fontWeight: '800', marginTop: '2px' }}>
-                {selectedTier.name} • <span style={{ color: '#2DD4BF' }}>{selectedMode.name}</span> • {selectedVol.name}
+              <div style={{ fontSize: '16px', fontWeight: '800', marginTop: '2px', color: '#082653' }}>
+                {selectedTier.name} • <span style={{ color: '#EA580C' }}>{selectedMode.name}</span> • {selectedVol.name}
               </div>
-              <div style={{ fontSize: '12px', color: '#94A3B8', marginTop: '4px' }}>
+              <div style={{ fontSize: '12px', color: '#475569', marginTop: '4px' }}>
                 Cadence: {selectedTier.turnaround} • Barrier: {selectedTier.qualityStandard} • Liability Shield: {selectedTier.penaltyProtection}
               </div>
             </div>
@@ -848,13 +868,13 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                   gap: '8px',
                   padding: '11px 20px',
                   borderRadius: '10px',
-                  background: 'linear-gradient(135deg, #0D9488 0%, #0F766E 100%)',
+                  background: 'linear-gradient(135deg, #FF6F00 0%, #EA580C 100%)',
                   color: '#FFFFFF',
                   fontSize: '13px',
                   fontWeight: '700',
                   border: 'none',
                   cursor: 'pointer',
-                  boxShadow: '0 4px 14px rgba(13, 148, 136, 0.4)',
+                  boxShadow: '0 4px 14px rgba(234, 88, 12, 0.4)',
                 }}
               >
                 <FileCheck2 size={15} />
@@ -869,11 +889,11 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                   gap: '6px',
                   padding: '11px 18px',
                   borderRadius: '10px',
-                  background: 'rgba(255, 255, 255, 0.1)',
-                  color: '#FFFFFF',
+                  background: '#FFFFFF',
+                  color: '#082653',
                   fontSize: '13px',
                   fontWeight: '700',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  border: '1px solid #FED7AA',
                   cursor: 'pointer',
                 }}
               >
@@ -890,9 +910,9 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                 marginTop: '16px',
                 padding: '12px 18px',
                 borderRadius: '8px',
-                background: '#F0FDFA',
-                border: '1px solid #99F6E4',
-                color: '#0F766E',
+                background: '#FFF7ED',
+                border: '1px solid #FED7AA',
+                color: '#C2410C',
                 fontSize: '13px',
                 fontWeight: '600',
                 display: 'flex',
@@ -900,7 +920,7 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                 gap: '10px',
               }}
             >
-              <CheckCheck size={16} color="#0D9488" />
+              <CheckCheck size={16} color="#EA580C" />
               <span>{simulatorToast}</span>
             </div>
           )}
@@ -918,13 +938,13 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                 gap: '6px',
                 fontSize: '11px',
                 fontWeight: '800',
-                color: '#0D9488',
+                color: '#EA580C',
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase',
                 marginBottom: '8px',
               }}
             >
-              <Cpu size={14} color="#0D9488" />
+              <Cpu size={14} color="#EA580C" />
               <span>FULL LIFECYCLE HIGH-TECH ARCHITECTURE</span>
             </div>
             <h2
@@ -953,7 +973,7 @@ export const TechnologyElectronics = ({ onNavigate }) => {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(2, 1fr)',
+              gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
               gap: '24px',
             }}
           >
@@ -961,36 +981,37 @@ export const TechnologyElectronics = ({ onNavigate }) => {
               const featuresList = pillar.features || pillar.points || [];
               const IconComp = pillar.icon;
               return (
-                <div
-                  key={pillar.id}
-                  style={{
-                    background: '#FFFFFF',
-                    borderRadius: '16px',
-                    border: '1px solid #E2E8F0',
-                    overflow: 'hidden',
-                    boxShadow: '0 8px 24px rgba(8, 38, 83, 0.04)',
-                    transition: 'all 0.25s ease',
-                    display: 'flex',
-                    flexDirection: 'column',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = 'translateY(-4px)';
-                    e.currentTarget.style.borderColor = '#0D9488';
-                    e.currentTarget.style.boxShadow = '0 16px 36px rgba(13, 148, 136, 0.12)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.borderColor = '#E2E8F0';
-                    e.currentTarget.style.boxShadow = '0 8px 24px rgba(8, 38, 83, 0.04)';
-                  }}
-                >
+                <Magnet key={pillar.id} {...CARD_MAGNET_PROPS}>
+                  <div
+                    style={{
+                      background: '#FFFFFF',
+                      borderRadius: '16px',
+                      border: '1px solid #FDBA74',
+                      overflow: 'hidden',
+                      boxShadow: '0 8px 24px rgba(28, 25, 23, 0.04)',
+                      transition: 'all 0.25s ease',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      height: '100%',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-4px)';
+                      e.currentTarget.style.borderColor = '#EA580C';
+                      e.currentTarget.style.boxShadow = '0 16px 36px rgba(234, 88, 12, 0.12)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.borderColor = '#FDBA74';
+                      e.currentTarget.style.boxShadow = '0 8px 24px rgba(28, 25, 23, 0.04)';
+                    }}
+                  >
                   {/* Photo Header */}
                   <div
                     style={{
                       height: '180px',
                       position: 'relative',
                       overflow: 'hidden',
-                      background: '#041B2E',
+                      background: '#FFF7ED',
                     }}
                   >
                     <img
@@ -1000,7 +1021,7 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                         width: '100%',
                         height: '100%',
                         objectFit: 'cover',
-                        filter: 'brightness(0.9)',
+                        filter: 'brightness(1.05) contrast(1.04)',
                         transition: 'transform 0.4s ease',
                       }}
                       onMouseEnter={(e) => {
@@ -1014,7 +1035,7 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                       style={{
                         position: 'absolute',
                         inset: 0,
-                        background: 'linear-gradient(180deg, rgba(8, 38, 83, 0.2) 0%, rgba(8, 38, 83, 0.85) 100%)',
+                        background: 'linear-gradient(180deg, transparent 62%, rgba(0, 0, 0, 0.25) 82%, rgba(0, 0, 0, 0.5) 100%)',
                       }}
                     />
 
@@ -1026,8 +1047,8 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                         right: '14px',
                         background: 'rgba(0, 0, 0, 0.65)',
                         backdropFilter: 'blur(8px)',
-                        border: '1px solid rgba(45, 212, 191, 0.4)',
-                        color: '#99F6E4',
+                        border: '1px solid rgba(251, 146, 60, 0.4)',
+                        color: '#FED7AA',
                         fontSize: '11px',
                         fontWeight: '800',
                         padding: '4px 10px',
@@ -1037,7 +1058,7 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                         gap: '6px',
                       }}
                     >
-                      <IconComp size={13} color="#2DD4BF" />
+                      <IconComp size={13} color="#F59E0B" />
                       <span>{pillar.metric}</span>
                     </div>
 
@@ -1050,10 +1071,10 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                         right: '16px',
                       }}
                     >
-                      <div style={{ fontSize: '11px', fontWeight: '700', color: '#99F6E4', letterSpacing: '0.04em' }}>
+                      <div style={{ fontSize: '11px', fontWeight: '700', color: '#FED7AA', letterSpacing: '0.04em', textShadow: '0 1px 3px rgba(0, 0, 0, 0.65)' }}>
                         {pillar.badgeText}
                       </div>
-                      <div style={{ fontSize: '18px', fontWeight: '800', color: '#FFFFFF', marginTop: '2px' }}>
+                      <div style={{ fontSize: '18px', fontWeight: '800', color: '#FFFFFF', marginTop: '2px', textShadow: '0 1px 4px rgba(0, 0, 0, 0.65)' }}>
                         {pillar.title}
                       </div>
                     </div>
@@ -1090,8 +1111,8 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                               width: '16px',
                               height: '16px',
                               borderRadius: '50%',
-                              background: 'rgba(13, 148, 136, 0.12)',
-                              color: '#0D9488',
+                              background: 'rgba(234, 88, 12, 0.12)',
+                              color: '#EA580C',
                               display: 'flex',
                               alignItems: 'center',
                               justifyContent: 'center',
@@ -1107,6 +1128,7 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                     </div>
                   </div>
                 </div>
+                </Magnet>
               );
             })}
           </div>
@@ -1120,9 +1142,9 @@ export const TechnologyElectronics = ({ onNavigate }) => {
             margin: '48px 24px 0',
             background: '#FFFFFF',
             borderRadius: '16px',
-            border: '1px solid #E2E8F0',
+            border: '1px solid #FDBA74',
             padding: '36px',
-            boxShadow: '0 8px 30px rgba(8, 38, 83, 0.04)',
+            boxShadow: '0 8px 30px rgba(28, 25, 23, 0.04)',
           }}
         >
           {/* Header & Tabs */}
@@ -1144,13 +1166,13 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                   gap: '6px',
                   fontSize: '11px',
                   fontWeight: '800',
-                  color: '#0D9488',
+                  color: '#EA580C',
                   letterSpacing: '0.08em',
                   textTransform: 'uppercase',
                   marginBottom: '6px',
                 }}
               >
-                <Laptop size={13} color="#0D9488" />
+                <Laptop size={13} color="#EA580C" />
                 <span>VERIFIED HIGH-RESOLUTION ELECTRONICS SHOWCASE</span>
               </div>
               <h2
@@ -1184,8 +1206,8 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                       borderRadius: '8px',
                       fontSize: '12px',
                       fontWeight: '700',
-                      border: isActive ? '1px solid #0D9488' : '1px solid #E2E8F0',
-                      background: isActive ? 'linear-gradient(135deg, #0D9488 0%, #0F766E 100%)' : '#FAFBFD',
+                      border: isActive ? '1px solid #EA580C' : '1px solid #FDBA74',
+                      background: isActive ? 'linear-gradient(135deg, #FF6F00 0%, #EA580C 100%)' : '#FAFBFD',
                       color: isActive ? '#FFFFFF' : '#475569',
                       cursor: 'pointer',
                       transition: 'all 0.15s ease',
@@ -1202,35 +1224,36 @@ export const TechnologyElectronics = ({ onNavigate }) => {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(4, 1fr)',
+              gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
               gap: '20px',
             }}
           >
             {filteredGallery.map((item, idx) => (
-              <div
-                key={idx}
-                onClick={() => setPreviewImage(item)}
-                style={{
-                  background: '#FAFBFD',
-                  borderRadius: '12px',
-                  border: '1px solid #E2E8F0',
-                  overflow: 'hidden',
-                  cursor: 'pointer',
-                  transition: 'all 0.2s ease',
-                  display: 'flex',
-                  flexDirection: 'column',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-3px)';
-                  e.currentTarget.style.borderColor = '#0D9488';
-                  e.currentTarget.style.boxShadow = '0 10px 24px rgba(13, 148, 136, 0.12)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.borderColor = '#E2E8F0';
-                  e.currentTarget.style.boxShadow = 'none';
-                }}
-              >
+              <Magnet key={idx} {...CARD_MAGNET_PROPS}>
+                <div
+                  onClick={() => setPreviewImage(item)}
+                  style={{
+                    background: '#FAFBFD',
+                    borderRadius: '12px',
+                    border: '1px solid #FDBA74',
+                    overflow: 'hidden',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s ease',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    height: '100%',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-3px)';
+                    e.currentTarget.style.borderColor = '#EA580C';
+                    e.currentTarget.style.boxShadow = '0 10px 24px rgba(234, 88, 12, 0.12)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.borderColor = '#FDBA74';
+                    e.currentTarget.style.boxShadow = 'none';
+                  }}
+                >
                 {/* Image Frame with High Resolution Rendering */}
                 <div
                   style={{
@@ -1260,7 +1283,7 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                       position: 'absolute',
                       top: '10px',
                       left: '10px',
-                      background: 'rgba(8, 38, 83, 0.85)',
+                      background: 'rgba(234, 88, 12, 0.92)',
                       color: '#FFFFFF',
                       fontSize: '10px',
                       fontWeight: '700',
@@ -1283,7 +1306,7 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      color: '#0D9488',
+                      color: '#EA580C',
                       boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
                     }}
                   >
@@ -1294,7 +1317,7 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                 {/* Details */}
                 <div style={{ padding: '14px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                   <div>
-                    <div style={{ fontSize: '11px', color: '#0D9488', fontWeight: '700', marginBottom: '4px' }}>
+                    <div style={{ fontSize: '11px', color: '#EA580C', fontWeight: '700', marginBottom: '4px' }}>
                       {item.category}
                     </div>
                     <div style={{ fontSize: '13px', fontWeight: '800', color: '#082653', lineHeight: '1.35', marginBottom: '6px' }}>
@@ -1307,16 +1330,17 @@ export const TechnologyElectronics = ({ onNavigate }) => {
 
                   <div style={{ marginTop: '12px', borderTop: '1px solid #E2E8F0', paddingTop: '8px' }}>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                      <span style={{ fontSize: '10px', color: '#0D9488', fontWeight: '700' }}>
+                      <span style={{ fontSize: '10px', color: '#EA580C', fontWeight: '700' }}>
                         ESD CLEANROOM TESTED
                       </span>
-                      <span style={{ fontSize: '10px', color: '#059669', fontWeight: '700' }}>
+                      <span style={{ fontSize: '10px', color: '#EA580C', fontWeight: '700' }}>
                         PASSED
                       </span>
                     </div>
                   </div>
                 </div>
               </div>
+              </Magnet>
             ))}
           </div>
         </section>
@@ -1328,7 +1352,7 @@ export const TechnologyElectronics = ({ onNavigate }) => {
             style={{
               position: 'fixed',
               inset: 0,
-              background: 'rgba(5, 24, 56, 0.82)',
+              background: 'rgba(28, 25, 23, 0.78)',
               backdropFilter: 'blur(8px)',
               WebkitBackdropFilter: 'blur(8px)',
               zIndex: 99999,
@@ -1349,7 +1373,7 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                 maxHeight: 'min(90vh, 660px)',
                 display: 'flex',
                 flexDirection: 'column',
-                boxShadow: '0 25px 60px -15px rgba(5, 24, 56, 0.4), 0 0 0 1px rgba(226, 232, 240, 0.8)',
+                boxShadow: '0 25px 60px -15px rgba(28, 25, 23, 0.4), 0 0 0 1px rgba(226, 232, 240, 0.8)',
                 position: 'relative',
                 overflow: 'hidden',
                 margin: 'auto',
@@ -1367,7 +1391,7 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                   borderRadius: '50%',
                   background: 'rgba(255, 255, 255, 0.95)',
                   backdropFilter: 'blur(4px)',
-                  border: '1px solid #E2E8F0',
+                  border: '1px solid #FDBA74',
                   boxShadow: '0 4px 12px rgba(0, 0, 0, 0.12)',
                   display: 'flex',
                   alignItems: 'center',
@@ -1384,7 +1408,7 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                 style={{
                   padding: '20px 24px 16px',
                   textAlign: 'center',
-                  background: 'radial-gradient(ellipse at center, #F8FAFC 0%, #EEF2F6 100%)',
+                  background: 'radial-gradient(ellipse at center, #F8FAFC 0%, #F1F5F9 100%)',
                   borderBottom: '1px solid #F1F5F9',
                   display: 'flex',
                   alignItems: 'center',
@@ -1421,8 +1445,8 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                     gap: '6px',
                     padding: '4px 10px',
                     borderRadius: '6px',
-                    background: 'rgba(13, 148, 136, 0.1)',
-                    color: '#0D9488',
+                    background: 'rgba(234, 88, 12, 0.1)',
+                    color: '#EA580C',
                     fontSize: '11px',
                     fontWeight: '800',
                     letterSpacing: '0.04em',
@@ -1461,11 +1485,11 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                 <div
                   style={{
                     background: '#F8FAFC',
-                    border: '1px solid #E2E8F0',
+                    border: '1px solid #FDBA74',
                     borderRadius: '12px',
                     padding: '14px 18px',
                     display: 'grid',
-                    gridTemplateColumns: '1fr 1fr',
+                    gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)',
                     gap: '16px',
                     marginBottom: '20px',
                   }}
@@ -1488,7 +1512,7 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                       style={{
                         fontSize: '13.5px',
                         fontWeight: '700',
-                        color: '#0D9488',
+                        color: '#EA580C',
                         fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                       }}
                     >
@@ -1513,7 +1537,7 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                       style={{
                         fontSize: '13.5px',
                         fontWeight: '700',
-                        color: '#059669',
+                        color: '#EA580C',
                         fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                       }}
                     >
@@ -1532,13 +1556,13 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                       flex: 1,
                       padding: '12px 20px',
                       borderRadius: '10px',
-                      background: 'linear-gradient(135deg, #0D9488 0%, #0F766E 100%)',
+                      background: 'linear-gradient(135deg, #FF6F00 0%, #EA580C 100%)',
                       color: '#FFFFFF',
                       fontSize: '13px',
                       fontWeight: '700',
                       border: 'none',
                       cursor: 'pointer',
-                      boxShadow: '0 4px 14px rgba(13, 148, 136, 0.3)',
+                      boxShadow: '0 4px 14px rgba(234, 88, 12, 0.3)',
                       fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                       transition: 'all 0.2s ease',
                     }}
@@ -1554,7 +1578,7 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                       color: '#475569',
                       fontSize: '13px',
                       fontWeight: '700',
-                      border: '1px solid #E2E8F0',
+                      border: '1px solid #FDBA74',
                       cursor: 'pointer',
                       fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                       transition: 'all 0.2s ease',
@@ -1578,9 +1602,9 @@ export const TechnologyElectronics = ({ onNavigate }) => {
             margin: '48px 24px 0',
             background: '#FFFFFF',
             borderRadius: '16px',
-            border: '1px solid #E2E8F0',
+            border: '1px solid #FDBA74',
             padding: '36px',
-            boxShadow: '0 8px 30px rgba(8, 38, 83, 0.04)',
+            boxShadow: '0 8px 30px rgba(28, 25, 23, 0.04)',
           }}
         >
           {/* Header */}
@@ -1592,13 +1616,13 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                 gap: '6px',
                 fontSize: '11px',
                 fontWeight: '800',
-                color: '#0D9488',
+                color: '#EA580C',
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase',
                 marginBottom: '8px',
               }}
             >
-              <ShieldCheck size={14} color="#0D9488" />
+              <ShieldCheck size={14} color="#EA580C" />
               <span>AUDITED GLOBAL ELECTRONICS SECURITY & ESD COMPLIANCE</span>
             </div>
             <h2
@@ -1628,37 +1652,38 @@ export const TechnologyElectronics = ({ onNavigate }) => {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
+              gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
               gap: '20px',
             }}
           >
             {techComplianceMatrix.map((item, idx) => {
               const IconComp = getComplianceIcon(idx);
               return (
-                <div
-                  key={idx}
-                  style={{
-                    background: '#FFFFFF',
-                    border: '1.5px solid #E2E8F0',
-                    borderRadius: '16px',
-                    padding: '24px',
-                    boxShadow: '0 4px 16px rgba(8, 38, 83, 0.04)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between',
-                    transition: 'all 0.2s ease',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = 'translateY(-3px)';
-                    e.currentTarget.style.borderColor = '#0D9488';
-                    e.currentTarget.style.boxShadow = '0 14px 28px rgba(13, 148, 136, 0.12)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.borderColor = '#E2E8F0';
-                    e.currentTarget.style.boxShadow = '0 4px 16px rgba(8, 38, 83, 0.04)';
-                  }}
-                >
+                <Magnet key={idx} {...CARD_MAGNET_PROPS}>
+                  <div
+                    style={{
+                      background: '#FFFFFF',
+                      border: '1.5px solid #FDBA74',
+                      borderRadius: '16px',
+                      padding: '24px',
+                      boxShadow: '0 4px 16px rgba(28, 25, 23, 0.04)',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'space-between',
+                      height: '100%',
+                      transition: 'all 0.2s ease',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-3px)';
+                      e.currentTarget.style.borderColor = '#EA580C';
+                      e.currentTarget.style.boxShadow = '0 14px 28px rgba(234, 88, 12, 0.12)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.borderColor = '#FDBA74';
+                      e.currentTarget.style.boxShadow = '0 4px 16px rgba(28, 25, 23, 0.04)';
+                    }}
+                  >
                   <div>
                     {/* Top Bar: Icon on Left, Status Pill on Right (Never Collides With Title!) */}
                     <div
@@ -1674,11 +1699,11 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                           width: '36px',
                           height: '36px',
                           borderRadius: '10px',
-                          background: 'rgba(13, 148, 136, 0.12)',
+                          background: 'rgba(234, 88, 12, 0.12)',
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
-                          color: '#0D9488',
+                          color: '#EA580C',
                         }}
                       >
                         <IconComp size={18} />
@@ -1691,15 +1716,15 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                           gap: '5px',
                           padding: '4px 10px',
                           borderRadius: '20px',
-                          background: 'rgba(13, 148, 136, 0.08)',
-                          border: '1px solid rgba(20, 184, 166, 0.35)',
-                          color: '#0F766E',
+                          background: 'rgba(234, 88, 12, 0.08)',
+                          border: '1px solid rgba(234, 88, 12, 0.35)',
+                          color: '#C2410C',
                           fontSize: '11px',
                           fontWeight: '800',
                           whiteSpace: 'nowrap',
                         }}
                       >
-                        <Check size={12} strokeWidth={3} color="#0D9488" />
+                        <Check size={12} strokeWidth={3} color="#EA580C" />
                         <span>{item.status}</span>
                       </div>
                     </div>
@@ -1724,7 +1749,7 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                     <div
                       style={{
                         background: '#F8FAFC',
-                        border: '1px solid #E2E8F0',
+                        border: '1px solid #FDBA74',
                         borderRadius: '8px',
                         padding: '6px 12px',
                         marginBottom: '14px',
@@ -1748,7 +1773,7 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                         style={{
                           fontSize: '12px',
                           fontWeight: '700',
-                          color: '#0D9488',
+                          color: '#EA580C',
                           lineHeight: '1.2',
                         }}
                       >
@@ -1781,18 +1806,18 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                     }}
                   >
                     <div style={{ display: 'flex', alignItems: 'center', gap: '5px', fontSize: '11px', color: '#64748B', fontWeight: '600' }}>
-                      <Clock size={12} color="#0D9488" />
+                      <Clock size={12} color="#EA580C" />
                       <span>{item.auditCycle}</span>
                     </div>
 
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '5px', fontSize: '11px', color: '#059669', fontWeight: '800' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '5px', fontSize: '11px', color: '#EA580C', fontWeight: '800' }}>
                       <span
                         style={{
                           width: '6px',
                           height: '6px',
                           borderRadius: '50%',
-                          background: '#10B981',
-                          boxShadow: '0 0 6px rgba(16, 185, 129, 0.6)',
+                          background: '#EA580C',
+                          boxShadow: '0 0 6px rgba(234, 88, 12, 0.6)',
                           display: 'inline-block',
                         }}
                       />
@@ -1800,6 +1825,7 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                     </div>
                   </div>
                 </div>
+                </Magnet>
               );
             })}
           </div>
@@ -1817,13 +1843,13 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                 gap: '6px',
                 fontSize: '11px',
                 fontWeight: '800',
-                color: '#0D9488',
+                color: '#EA580C',
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase',
                 marginBottom: '8px',
               }}
             >
-              <Activity size={14} color="#0D9488" />
+              <Activity size={14} color="#EA580C" />
               <span>PROVEN HIGH-TECH FIELD RESULTS</span>
             </div>
             <h2
@@ -1841,81 +1867,83 @@ export const TechnologyElectronics = ({ onNavigate }) => {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
+              gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
               gap: '24px',
             }}
           >
             {techCaseStudies.map((study, idx) => (
-              <div
-                key={idx}
-                style={{
-                  background: '#FFFFFF',
-                  borderRadius: '16px',
-                  border: '1px solid #E2E8F0',
-                  padding: '24px',
-                  boxShadow: '0 8px 24px rgba(8, 38, 83, 0.04)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  transition: 'all 0.2s ease',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-3px)';
-                  e.currentTarget.style.borderColor = '#0D9488';
-                  e.currentTarget.style.boxShadow = '0 12px 30px rgba(13, 148, 136, 0.1)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.borderColor = '#E2E8F0';
-                  e.currentTarget.style.boxShadow = '0 8px 24px rgba(8, 38, 83, 0.04)';
-                }}
-              >
-                <div>
-                  <div style={{ fontSize: '11px', color: '#0D9488', fontWeight: '800', letterSpacing: '0.04em', textTransform: 'uppercase' }}>
-                    {study.client}
-                  </div>
-                  <h3 style={{ fontSize: '16px', fontWeight: '800', color: '#082653', margin: '8px 0 10px', lineHeight: '1.35', minHeight: '44px' }}>
-                    {study.headline}
-                  </h3>
-                  <p style={{ fontSize: '12px', color: '#64748B', lineHeight: '1.55', margin: '0 0 20px' }}>
-                    <strong style={{ color: '#082653' }}>Challenge:</strong> {study.challenge}
-                  </p>
-                </div>
-
-                <div>
-                  <div
-                    style={{
-                      background: '#F0FDFA',
-                      border: '1px solid #99F6E4',
-                      borderRadius: '8px',
-                      padding: '8px 12px',
-                      marginBottom: '14px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '8px',
-                      color: '#0F766E',
-                      fontSize: '12px',
-                      fontWeight: '800',
-                    }}
-                  >
-                    <Activity size={14} color="#0D9488" />
-                    <span>{study.metric}</span>
+              <Magnet key={idx} {...CARD_MAGNET_PROPS}>
+                <div
+                  style={{
+                    background: '#FFFFFF',
+                    borderRadius: '16px',
+                    border: '1px solid #FDBA74',
+                    padding: '24px',
+                    boxShadow: '0 8px 24px rgba(28, 25, 23, 0.04)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    height: '100%',
+                    transition: 'all 0.2s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-3px)';
+                    e.currentTarget.style.borderColor = '#EA580C';
+                    e.currentTarget.style.boxShadow = '0 12px 30px rgba(234, 88, 12, 0.1)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.borderColor = '#FDBA74';
+                    e.currentTarget.style.boxShadow = '0 8px 24px rgba(28, 25, 23, 0.04)';
+                  }}
+                >
+                  <div>
+                    <div style={{ fontSize: '11px', color: '#EA580C', fontWeight: '800', letterSpacing: '0.04em', textTransform: 'uppercase' }}>
+                      {study.client}
+                    </div>
+                    <h3 style={{ fontSize: '16px', fontWeight: '800', color: '#082653', margin: '8px 0 10px', lineHeight: '1.35', minHeight: '44px' }}>
+                      {study.headline}
+                    </h3>
+                    <p style={{ fontSize: '12px', color: '#64748B', lineHeight: '1.55', margin: '0 0 20px' }}>
+                      <strong style={{ color: '#082653' }}>Challenge:</strong> {study.challenge}
+                    </p>
                   </div>
 
-                  <div
-                    style={{
-                      fontSize: '11.5px',
-                      color: '#1E293B',
-                      background: '#F8FAFC',
-                      padding: '10px 12px',
-                      borderRadius: '8px',
-                      lineHeight: '1.45',
-                    }}
-                  >
-                    <strong style={{ color: '#082653' }}>Execution:</strong> {study.solution}
+                  <div>
+                    <div
+                      style={{
+                        background: '#FFF7ED',
+                        border: '1px solid #FED7AA',
+                        borderRadius: '8px',
+                        padding: '8px 12px',
+                        marginBottom: '14px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                        color: '#C2410C',
+                        fontSize: '12px',
+                        fontWeight: '800',
+                      }}
+                    >
+                      <Activity size={14} color="#EA580C" />
+                      <span>{study.metric}</span>
+                    </div>
+
+                    <div
+                      style={{
+                        fontSize: '11.5px',
+                        color: '#1E293B',
+                        background: '#F8FAFC',
+                        padding: '10px 12px',
+                        borderRadius: '8px',
+                        lineHeight: '1.45',
+                      }}
+                    >
+                      <strong style={{ color: '#082653' }}>Execution:</strong> {study.solution}
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Magnet>
             ))}
           </div>
         </section>
@@ -1926,10 +1954,11 @@ export const TechnologyElectronics = ({ onNavigate }) => {
         <section
           style={{
             margin: '48px 24px 0',
-            background: 'linear-gradient(135deg, #031B2E 0%, #082653 100%)',
+            background: 'linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 50%, #FFF7ED 100%)',
+            border: '1px solid #FED7AA',
             borderRadius: '16px',
             padding: '28px 36px',
-            color: '#FFFFFF',
+            color: '#082653',
           }}
         >
           <div
@@ -1942,34 +1971,35 @@ export const TechnologyElectronics = ({ onNavigate }) => {
             }}
           >
             <div>
-              <div style={{ fontSize: '11px', color: '#2DD4BF', fontWeight: '800', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+              <div style={{ fontSize: '11px', color: '#EA580C', fontWeight: '800', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
                 CERTIFIED HIGH-TECH LOGISTICS NETWORK
               </div>
-              <div style={{ fontSize: '18px', fontWeight: '800', marginTop: '4px' }}>
+              <div style={{ fontSize: '18px', fontWeight: '800', marginTop: '4px', color: '#082653' }}>
                 Accredited Under Global Technology Security & Cleanroom Standards
               </div>
             </div>
 
             <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
               {techStandards.map((std, idx) => (
-                <div
-                  key={idx}
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                    padding: '8px 14px',
-                    borderRadius: '8px',
-                    background: 'rgba(255, 255, 255, 0.08)',
-                    border: '1px solid rgba(45, 212, 191, 0.3)',
-                    fontSize: '11px',
-                    fontWeight: '700',
-                    color: '#E0F2FE',
-                  }}
-                >
-                  <CheckCircle2 size={13} color="#2DD4BF" />
-                  <span>{std}</span>
-                </div>
+                <Magnet key={idx} padding={14} magnetStrength={12} maxOffset={3} scale={1.015} tilt={0.8}>
+                  <div
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      padding: '8px 14px',
+                      borderRadius: '8px',
+                      background: '#FFFFFF',
+                      border: '1px solid #FED7AA',
+                      fontSize: '11px',
+                      fontWeight: '700',
+                      color: '#082653',
+                    }}
+                  >
+                    <CheckCircle2 size={13} color="#EA580C" />
+                    <span>{std}</span>
+                  </div>
+                </Magnet>
               ))}
             </div>
           </div>
@@ -1983,9 +2013,9 @@ export const TechnologyElectronics = ({ onNavigate }) => {
             margin: '48px 24px 0',
             background: '#FFFFFF',
             borderRadius: '16px',
-            border: '1px solid #E2E8F0',
+            border: '1px solid #FDBA74',
             padding: '36px',
-            boxShadow: '0 8px 30px rgba(8, 38, 83, 0.04)',
+            boxShadow: '0 8px 30px rgba(28, 25, 23, 0.04)',
           }}
         >
           <div style={{ textAlign: 'center', marginBottom: '28px' }}>
@@ -1996,13 +2026,13 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                 gap: '6px',
                 fontSize: '11px',
                 fontWeight: '800',
-                color: '#0D9488',
+                color: '#EA580C',
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase',
                 marginBottom: '6px',
               }}
             >
-              <Zap size={14} color="#0D9488" />
+              <Zap size={14} color="#EA580C" />
               <span>FREQUENTLY ASKED QUESTIONS</span>
             </div>
             <h2
@@ -2025,8 +2055,8 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                   key={idx}
                   style={{
                     borderRadius: '12px',
-                    border: isOpen ? '1px solid #0D9488' : '1px solid #E2E8F0',
-                    background: isOpen ? '#F0FDFA' : '#FAFBFD',
+                    border: isOpen ? '1px solid #EA580C' : '1px solid #FDBA74',
+                    background: isOpen ? '#FFF7ED' : '#FAFBFD',
                     overflow: 'hidden',
                     transition: 'all 0.2s ease',
                   }}
@@ -2054,7 +2084,7 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                         width: '24px',
                         height: '24px',
                         borderRadius: '50%',
-                        background: isOpen ? '#0D9488' : '#E2E8F0',
+                        background: isOpen ? '#EA580C' : '#E2E8F0',
                         color: isOpen ? '#FFFFFF' : '#475569',
                         display: 'flex',
                         alignItems: 'center',
@@ -2074,7 +2104,7 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                         fontSize: '13px',
                         lineHeight: '1.65',
                         color: '#475569',
-                        borderTop: '1px solid rgba(13, 148, 136, 0.15)',
+                        borderTop: '1px solid rgba(234, 88, 12, 0.15)',
                         paddingTop: '12px',
                       }}
                     >
@@ -2093,13 +2123,14 @@ export const TechnologyElectronics = ({ onNavigate }) => {
         <section
           style={{
             margin: '48px 24px 0',
-            background: 'linear-gradient(135deg, #031B2E 0%, #082653 50%, #064E3B 100%)',
-            color: '#FFFFFF',
+            background: 'linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 50%, #FFF7ED 100%)',
+            border: '1px solid #FED7AA',
+            color: '#082653',
             borderRadius: '16px',
             padding: '48px 40px',
             position: 'relative',
             overflow: 'hidden',
-            boxShadow: '0 20px 50px rgba(8, 38, 83, 0.25)',
+            boxShadow: '0 20px 50px rgba(234, 88, 12, 0.08)',
           }}
         >
           <div
@@ -2110,7 +2141,7 @@ export const TechnologyElectronics = ({ onNavigate }) => {
               width: '420px',
               height: '420px',
               borderRadius: '50%',
-              background: 'radial-gradient(circle, rgba(13, 148, 136, 0.25) 0%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(234, 88, 12, 0.1) 0%, transparent 70%)',
               filter: 'blur(50px)',
               pointerEvents: 'none',
             }}
@@ -2135,13 +2166,13 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                   gap: '6px',
                   fontSize: '11px',
                   fontWeight: '800',
-                  color: '#99F6E4',
+                  color: '#EA580C',
                   letterSpacing: '0.08em',
                   textTransform: 'uppercase',
                   marginBottom: '8px',
                 }}
               >
-                <ShieldCheck size={14} color="#2DD4BF" />
+                <ShieldCheck size={14} color="#EA580C" />
                 <span>INTEGRATE YOUR HIGH-TECH SUPPLY CHAIN</span>
               </div>
               <h2
@@ -2149,7 +2180,7 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                   fontSize: '28px',
                   fontWeight: '800',
                   margin: '0 0 10px',
-                  color: '#FFFFFF',
+                  color: '#082653',
                 }}
               >
                 Ready to Safeguard Your High-Value Technology Supply Chain?
@@ -2158,7 +2189,7 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                 style={{
                   fontSize: '14px',
                   lineHeight: '1.6',
-                  color: '#CBD5E1',
+                  color: '#334155',
                   margin: 0,
                 }}
               >
@@ -2206,24 +2237,24 @@ export const TechnologyElectronics = ({ onNavigate }) => {
                   gap: '8px',
                   padding: '13px 22px',
                   borderRadius: '12px',
-                  background: 'rgba(255, 255, 255, 0.08)',
-                  color: '#FFFFFF',
+                  background: '#FFFFFF',
+                  color: '#082653',
                   fontSize: '14px',
                   fontWeight: '700',
-                  border: '1px solid rgba(45, 212, 191, 0.35)',
+                  border: '1px solid #FED7AA',
                   cursor: 'pointer',
                   transition: 'all 0.2s ease',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.15)';
-                  e.currentTarget.style.borderColor = '#2DD4BF';
+                  e.currentTarget.style.background = '#FFF7ED';
+                  e.currentTarget.style.borderColor = '#EA580C';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
-                  e.currentTarget.style.borderColor = 'rgba(45, 212, 191, 0.35)';
+                  e.currentTarget.style.background = '#FFFFFF';
+                  e.currentTarget.style.borderColor = '#FED7AA';
                 }}
               >
-                <Radio size={15} color="#2DD4BF" />
+                <Radio size={15} color="#EA580C" />
                 <span>Track High-Value Tech Cargo</span>
               </button>
             </div>

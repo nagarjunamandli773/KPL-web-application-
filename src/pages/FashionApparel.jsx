@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Header } from '../components/layout/Header';
 import { Footer } from '../components/layout/Footer';
 import { TrackModal } from '../components/common/TrackModal';
+import Magnet, { CARD_MAGNET_PROPS, TILE_MAGNET_PROPS } from '../components/common/Magnet';
 import {
   fashionHeroStats,
   fashionSimulatorTiers,
@@ -118,18 +119,19 @@ export const FashionApparel = ({ onNavigate }) => {
         <div style={{ height: '24px', width: '100%', background: '#FAFBFD' }} />
 
         {/* =========================================================================
-            SECTION 1: HERO BANNER (Luxury Navy with Fashion Magenta / Purple Glow)
+            SECTION 1: HERO BANNER (Light Orange with Fashion Magenta / Purple Accents)
             ========================================================================= */}
         <section
           style={{
             position: 'relative',
-            background: 'linear-gradient(135deg, #061836 0%, #082653 45%, #1e1035 100%)',
-            color: '#FFFFFF',
+            background: 'linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 50%, #FFF7ED 100%)',
+            color: '#082653',
             borderRadius: '16px',
             margin: '0 24px',
             padding: '56px 48px 48px',
             overflow: 'hidden',
-            boxShadow: '0 20px 50px rgba(8, 38, 83, 0.25)',
+            border: '1px solid #FED7AA',
+            boxShadow: '0 20px 50px rgba(234, 88, 12, 0.08)',
           }}
         >
           {/* Subtle Ambient Radial Lighting */}
@@ -140,7 +142,7 @@ export const FashionApparel = ({ onNavigate }) => {
               right: '-8%',
               width: '540px',
               height: '540px',
-              background: 'radial-gradient(circle, rgba(156, 39, 176, 0.22) 0%, rgba(233, 30, 99, 0.1) 45%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(234, 88, 12, 0.1) 0%, rgba(234, 88, 12, 0.06) 45%, transparent 70%)',
               borderRadius: '50%',
               pointerEvents: 'none',
               filter: 'blur(35px)',
@@ -153,7 +155,7 @@ export const FashionApparel = ({ onNavigate }) => {
               left: '-10%',
               width: '460px',
               height: '460px',
-              background: 'radial-gradient(circle, rgba(59, 130, 246, 0.18) 0%, transparent 65%)',
+              background: 'radial-gradient(circle, rgba(251, 146, 60, 0.12) 0%, transparent 65%)',
               borderRadius: '50%',
               pointerEvents: 'none',
               filter: 'blur(40px)',
@@ -180,8 +182,8 @@ export const FashionApparel = ({ onNavigate }) => {
                   gap: '8px',
                   padding: '6px 14px',
                   borderRadius: '30px',
-                  background: 'rgba(156, 39, 176, 0.15)',
-                  border: '1px solid rgba(156, 39, 176, 0.4)',
+                  background: 'rgba(255, 255, 255, 0.75)',
+                  border: '1px solid rgba(234, 88, 12, 0.35)',
                   marginBottom: '20px',
                 }}
               >
@@ -190,8 +192,8 @@ export const FashionApparel = ({ onNavigate }) => {
                     width: '8px',
                     height: '8px',
                     borderRadius: '50%',
-                    background: '#E040FB',
-                    boxShadow: '0 0 10px #E040FB',
+                    background: '#EA580C',
+                    boxShadow: '0 0 8px rgba(234, 88, 12, 0.45)',
                     display: 'inline-block',
                   }}
                 />
@@ -201,7 +203,7 @@ export const FashionApparel = ({ onNavigate }) => {
                     fontWeight: '700',
                     letterSpacing: '0.08em',
                     textTransform: 'uppercase',
-                    color: '#F0ABFC',
+                    color: '#C2410C',
                   }}
                 >
                   ENTERPRISE LOGISTICS • INDUSTRY FOCUS: FASHION & APPAREL
@@ -215,7 +217,7 @@ export const FashionApparel = ({ onNavigate }) => {
                   fontSize: '38px',
                   lineHeight: '1.2',
                   fontWeight: '700',
-                  color: '#FFFFFF',
+                  color: '#082653',
                   margin: '0 0 16px 0',
                   letterSpacing: '-0.02em',
                 }}
@@ -228,7 +230,7 @@ export const FashionApparel = ({ onNavigate }) => {
                 style={{
                   fontSize: '15.5px',
                   lineHeight: '1.6',
-                  color: 'rgba(255, 255, 255, 0.86)',
+                  color: '#334155',
                   margin: '0 0 28px 0',
                   fontWeight: '400',
                 }}
@@ -254,22 +256,22 @@ export const FashionApparel = ({ onNavigate }) => {
                     gap: '10px',
                     padding: '13px 26px',
                     borderRadius: '8px',
-                    background: 'linear-gradient(135deg, #9C27B0 0%, #7B1FA2 100%)',
+                    background: 'linear-gradient(135deg, #FF6F00 0%, #EA580C 100%)',
                     color: '#FFFFFF',
                     fontSize: '14.5px',
                     fontWeight: '700',
                     border: 'none',
                     cursor: 'pointer',
-                    boxShadow: '0 10px 24px rgba(156, 39, 176, 0.35)',
+                    boxShadow: '0 10px 24px rgba(234, 88, 12, 0.3)',
                     transition: 'all 0.2s ease',
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'translateY(-2px)';
-                    e.currentTarget.style.boxShadow = '0 14px 30px rgba(156, 39, 176, 0.45)';
+                    e.currentTarget.style.boxShadow = '0 14px 30px rgba(234, 88, 12, 0.42)';
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = '0 10px 24px rgba(156, 39, 176, 0.35)';
+                    e.currentTarget.style.boxShadow = '0 10px 24px rgba(234, 88, 12, 0.3)';
                   }}
                 >
                   <span>Schedule Seasonal Collection Audit</span>
@@ -287,25 +289,25 @@ export const FashionApparel = ({ onNavigate }) => {
                     gap: '10px',
                     padding: '13px 22px',
                     borderRadius: '8px',
-                    background: 'rgba(255, 255, 255, 0.1)',
-                    color: '#FFFFFF',
+                    background: '#FFFFFF',
+                    color: '#082653',
                     fontSize: '14.5px',
                     fontWeight: '600',
-                    border: '1px solid rgba(255, 255, 255, 0.25)',
+                    border: '1px solid #FDBA74',
                     cursor: 'pointer',
-                    backdropFilter: 'blur(10px)',
+                    boxShadow: '0 2px 8px rgba(234, 88, 12, 0.08)',
                     transition: 'all 0.2s ease',
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.18)';
-                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)';
+                    e.currentTarget.style.background = '#FFFBEB';
+                    e.currentTarget.style.borderColor = '#EA580C';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)';
-                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.25)';
+                    e.currentTarget.style.background = '#FFFFFF';
+                    e.currentTarget.style.borderColor = '#FDBA74';
                   }}
                 >
-                  <SlidersHorizontal size={16} color="#F0ABFC" />
+                  <SlidersHorizontal size={16} color="#EA580C" />
                   <span>Launch Fashion Simulator</span>
                 </button>
               </div>
@@ -318,7 +320,7 @@ export const FashionApparel = ({ onNavigate }) => {
                   alignItems: 'center',
                   gap: '8px',
                   paddingTop: '16px',
-                  borderTop: '1px solid rgba(255, 255, 255, 0.12)',
+                  borderTop: '1px solid rgba(234, 88, 12, 0.18)',
                 }}
               >
                 {['Garment-on-Hanger Certified', 'RFID EPC Gen2', 'OEKO-TEX Standard 100', 'GOTS Certified Organic'].map((badge) => (
@@ -330,13 +332,13 @@ export const FashionApparel = ({ onNavigate }) => {
                       gap: '5px',
                       padding: '4px 9px',
                       borderRadius: '6px',
-                      background: 'rgba(255, 255, 255, 0.08)',
-                      border: '1px solid rgba(255, 255, 255, 0.15)',
+                      background: '#FFFFFF',
+                      border: '1px solid #FED7AA',
                       fontSize: '11.5px',
-                      color: '#E2E8F0',
+                      color: '#082653',
                     }}
                   >
-                    <CheckCheck size={13} color="#C084FC" />
+                    <CheckCheck size={13} color="#EA580C" />
                     <span>{badge}</span>
                   </div>
                 ))}
@@ -347,12 +349,11 @@ export const FashionApparel = ({ onNavigate }) => {
             <div
               style={{
                 position: 'relative',
-                background: 'rgba(255, 255, 255, 0.08)',
+                background: '#FFFFFF',
                 borderRadius: '16px',
-                border: '1px solid rgba(255, 255, 255, 0.2)',
+                border: '1px solid #FED7AA',
                 padding: '12px',
-                backdropFilter: 'blur(16px)',
-                boxShadow: '0 20px 40px rgba(0, 0, 0, 0.35)',
+                boxShadow: '0 20px 40px rgba(234, 88, 12, 0.12)',
               }}
             >
               <div
@@ -366,13 +367,14 @@ export const FashionApparel = ({ onNavigate }) => {
                 <img
                   src="/garments.jpg"
                   alt="Garment on Hanger Fleet"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(1.04) contrast(1.03)' }}
                 />
                 <div
                   style={{
                     position: 'absolute',
                     inset: 0,
-                    background: 'linear-gradient(180deg, transparent 40%, rgba(8, 38, 83, 0.85) 100%)',
+                    background: 'linear-gradient(180deg, transparent 76%, rgba(0, 0, 0, 0.35) 100%)',
+                    pointerEvents: 'none',
                   }}
                 />
                 <div
@@ -382,7 +384,7 @@ export const FashionApparel = ({ onNavigate }) => {
                     left: '12px',
                     padding: '4px 10px',
                     borderRadius: '20px',
-                    background: 'rgba(156, 39, 176, 0.85)',
+                    background: 'rgba(234, 88, 12, 0.92)',
                     color: '#FFFFFF',
                     fontSize: '11px',
                     fontWeight: '800',
@@ -403,18 +405,18 @@ export const FashionApparel = ({ onNavigate }) => {
                     justifyContent: 'space-between',
                   }}
                 >
-                  <span style={{ fontSize: '13px', fontWeight: '700', color: '#FFFFFF' }}>
+                  <span style={{ fontSize: '13px', fontWeight: '700', color: '#FFFFFF', textShadow: '0 1px 4px rgba(0,0,0,0.6)' }}>
                     Milan • Paris • New York • Tokyo
                   </span>
                   <span
                     style={{
                       fontSize: '11px',
                       fontWeight: '800',
-                      color: '#6EE7B7',
-                      background: 'rgba(16, 185, 129, 0.2)',
+                      color: '#FFFFFF',
+                      background: 'rgba(234, 88, 12, 0.92)',
                       padding: '3px 8px',
                       borderRadius: '4px',
-                      border: '1px solid rgba(16, 185, 129, 0.4)',
+                      border: '1px solid rgba(254, 215, 170, 0.5)',
                     }}
                   >
                     99.6% ON-TIME
@@ -431,20 +433,20 @@ export const FashionApparel = ({ onNavigate }) => {
                   marginTop: '10px',
                   padding: '8px 10px',
                   borderRadius: '8px',
-                  background: 'rgba(255, 255, 255, 0.06)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  background: '#FAFBFD',
+                  border: '1px solid #FDBA74',
                 }}
               >
                 <img
                   src="/product-images/Mulberry Silk Sarees & Fabric.png"
                   alt="Mulberry Silk"
-                  style={{ width: '40px', height: '40px', borderRadius: '6px', objectFit: 'cover', border: '1px solid #CBD5E1' }}
+                  style={{ width: '40px', height: '40px', borderRadius: '6px', objectFit: 'cover', border: '1px solid #FDBA74' }}
                 />
                 <div style={{ flex: 1 }}>
-                  <div style={{ fontSize: '12px', fontWeight: '700', color: '#FFFFFF' }}>
+                  <div style={{ fontSize: '12px', fontWeight: '700', color: '#082653' }}>
                     Mulberry Silk & Runway Capsule Pods
                   </div>
-                  <div style={{ fontSize: '11px', color: '#F0ABFC' }}>
+                  <div style={{ fontSize: '11px', color: '#C2410C' }}>
                     Climate-regulated sealed freight transport
                   </div>
                 </div>
@@ -458,47 +460,71 @@ export const FashionApparel = ({ onNavigate }) => {
               position: 'relative',
               zIndex: 2,
               display: 'grid',
-              gridTemplateColumns: 'repeat(4, 1fr)',
+              gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
               gap: '16px',
               marginTop: '40px',
+              alignItems: 'stretch',
             }}
           >
             {fashionHeroStats.map((stat) => (
-              <div
-                key={stat.label}
-                style={{
-                  background: 'rgba(255, 255, 255, 0.06)',
-                  border: '1px solid rgba(255, 255, 255, 0.12)',
-                  borderRadius: '12px',
-                  padding: '20px 18px',
-                  backdropFilter: 'blur(12px)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '6px',
-                  transition: 'transform 0.2s ease, border-color 0.2s ease',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = stat.accent;
-                  e.currentTarget.style.transform = 'translateY(-3px)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.12)';
-                  e.currentTarget.style.transform = 'translateY(0)';
-                }}
-              >
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                  <span style={{ fontSize: '12px', color: 'rgba(255, 255, 255, 0.7)', fontWeight: '600' }}>
-                    {stat.label}
-                  </span>
-                  <stat.icon size={18} color={stat.accent} />
+              <Magnet key={stat.label} {...TILE_MAGNET_PROPS}>
+                <div
+                  style={{
+                    background: '#FFFFFF',
+                    border: '1.5px solid #FDBA74',
+                    borderRadius: '12px',
+                    padding: '20px 18px',
+                    boxShadow: '0 4px 14px rgba(234, 88, 12, 0.06)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'flex-start',
+                    gap: '6px',
+                    height: '100%',
+                    boxSizing: 'border-box',
+                    transition: 'transform 0.2s ease, border-color 0.2s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = '#EA580C';
+                    e.currentTarget.style.transform = 'translateY(-3px)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = '#FDBA74';
+                    e.currentTarget.style.transform = 'translateY(0)';
+                  }}
+                >
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'flex-start',
+                      justifyContent: 'space-between',
+                      gap: '8px',
+                      minHeight: '34px',
+                    }}
+                  >
+                    <span style={{ fontSize: '12px', color: '#475569', fontWeight: '600', lineHeight: '1.35' }}>
+                      {stat.label}
+                    </span>
+                    <stat.icon size={18} color={stat.accent} style={{ flexShrink: 0, marginTop: '1px' }} />
+                  </div>
+                  <div
+                    style={{
+                      fontSize: '28px',
+                      fontWeight: '800',
+                      color: '#082653',
+                      letterSpacing: '-0.02em',
+                      lineHeight: '1.15',
+                      minHeight: '34px',
+                      display: 'flex',
+                      alignItems: 'center',
+                    }}
+                  >
+                    {stat.value}
+                  </div>
+                  <div style={{ fontSize: '11.5px', color: '#64748B', lineHeight: '1.45' }}>
+                    {stat.sub}
+                  </div>
                 </div>
-                <div style={{ fontSize: '28px', fontWeight: '800', color: '#FFFFFF', letterSpacing: '-0.02em' }}>
-                  {stat.value}
-                </div>
-                <div style={{ fontSize: '11.5px', color: 'rgba(255, 255, 255, 0.6)' }}>
-                  {stat.sub}
-                </div>
-              </div>
+              </Magnet>
             ))}
           </div>
         </section>
@@ -512,7 +538,7 @@ export const FashionApparel = ({ onNavigate }) => {
             padding: '44px 40px',
             background: '#FFFFFF',
             borderRadius: '16px',
-            border: '1px solid #E2E8F0',
+            border: '1px solid #FDBA74',
             boxShadow: '0 8px 30px rgba(0, 0, 0, 0.04)',
           }}
         >
@@ -525,9 +551,9 @@ export const FashionApparel = ({ onNavigate }) => {
                   gap: '8px',
                   padding: '4px 12px',
                   borderRadius: '20px',
-                  background: 'rgba(156, 39, 176, 0.1)',
-                  border: '1px solid rgba(156, 39, 176, 0.25)',
-                  color: '#9C27B0',
+                  background: 'rgba(234, 88, 12, 0.1)',
+                  border: '1px solid rgba(234, 88, 12, 0.25)',
+                  color: '#EA580C',
                   fontSize: '12px',
                   fontWeight: '700',
                   textTransform: 'uppercase',
@@ -571,8 +597,8 @@ export const FashionApparel = ({ onNavigate }) => {
                     style={{
                       padding: '6px 14px',
                       borderRadius: '20px',
-                      border: isActive ? '1px solid #9C27B0' : '1px solid #E2E8F0',
-                      background: isActive ? '#9C27B0' : '#FAFBFD',
+                      border: isActive ? '1px solid #EA580C' : '1px solid #FDBA74',
+                      background: isActive ? '#EA580C' : '#FAFBFD',
                       color: isActive ? '#FFFFFF' : '#475569',
                       fontSize: '12px',
                       fontWeight: '700',
@@ -591,40 +617,41 @@ export const FashionApparel = ({ onNavigate }) => {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
+              gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
               gap: '24px',
             }}
           >
             {filteredGallery.map((item, idx) => (
-              <div
-                key={idx}
-                style={{
-                  background: '#FAFBFD',
-                  borderRadius: '14px',
-                  border: '1px solid #E2E8F0',
-                  overflow: 'hidden',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  transition: 'all 0.2s ease',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-4px)';
-                  e.currentTarget.style.borderColor = '#9C27B0';
-                  e.currentTarget.style.boxShadow = '0 12px 28px rgba(156, 39, 176, 0.12)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.borderColor = '#E2E8F0';
-                  e.currentTarget.style.boxShadow = 'none';
-                }}
-              >
+              <Magnet key={idx} {...CARD_MAGNET_PROPS}>
+                <div
+                  style={{
+                    background: '#FAFBFD',
+                    borderRadius: '14px',
+                    border: '1px solid #FDBA74',
+                    overflow: 'hidden',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    height: '100%',
+                    transition: 'all 0.2s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-4px)';
+                    e.currentTarget.style.borderColor = '#EA580C';
+                    e.currentTarget.style.boxShadow = '0 12px 28px rgba(234, 88, 12, 0.12)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.borderColor = '#FDBA74';
+                    e.currentTarget.style.boxShadow = 'none';
+                  }}
+                >
                 {/* Image Container with Luxury Overlay */}
                 <div
                   style={{
                     position: 'relative',
                     height: '220px',
                     width: '100%',
-                    background: '#0B192C',
+                    background: '#FFF7ED',
                     overflow: 'hidden',
                   }}
                 >
@@ -647,12 +674,12 @@ export const FashionApparel = ({ onNavigate }) => {
                       left: '12px',
                       padding: '4px 10px',
                       borderRadius: '6px',
-                      background: 'rgba(8, 38, 83, 0.85)',
-                      color: '#F0ABFC',
+                      background: 'rgba(234, 88, 12, 0.92)',
+                      color: '#FFFFFF',
                       fontSize: '11px',
                       fontWeight: '700',
                       backdropFilter: 'blur(6px)',
-                      border: '1px solid rgba(255, 255, 255, 0.15)',
+                      border: '1px solid rgba(255, 255, 255, 0.25)',
                     }}
                   >
                     {item.category}
@@ -664,7 +691,7 @@ export const FashionApparel = ({ onNavigate }) => {
                       right: '12px',
                       padding: '4px 10px',
                       borderRadius: '6px',
-                      background: 'rgba(16, 185, 129, 0.9)',
+                      background: 'rgba(234, 88, 12, 0.92)',
                       color: '#FFFFFF',
                       fontSize: '11px',
                       fontWeight: '800',
@@ -701,7 +728,7 @@ export const FashionApparel = ({ onNavigate }) => {
                       gap: '6px',
                       background: 'none',
                       border: 'none',
-                      color: '#9C27B0',
+                      color: '#EA580C',
                       fontSize: '12.5px',
                       fontWeight: '700',
                       cursor: 'pointer',
@@ -713,6 +740,7 @@ export const FashionApparel = ({ onNavigate }) => {
                   </button>
                 </div>
               </div>
+              </Magnet>
             ))}
           </div>
         </section>
@@ -727,7 +755,7 @@ export const FashionApparel = ({ onNavigate }) => {
             padding: '40px',
             background: '#FFFFFF',
             borderRadius: '16px',
-            border: '1px solid #E2E8F0',
+            border: '1px solid #FDBA74',
             boxShadow: '0 8px 30px rgba(0, 0, 0, 0.04)',
           }}
         >
@@ -740,9 +768,9 @@ export const FashionApparel = ({ onNavigate }) => {
                 gap: '8px',
                 padding: '4px 12px',
                 borderRadius: '20px',
-                background: 'rgba(156, 39, 176, 0.1)',
-                border: '1px solid rgba(156, 39, 176, 0.25)',
-                color: '#9C27B0',
+                background: 'rgba(234, 88, 12, 0.1)',
+                border: '1px solid rgba(234, 88, 12, 0.25)',
+                color: '#EA580C',
                 fontSize: '12px',
                 fontWeight: '700',
                 textTransform: 'uppercase',
@@ -799,55 +827,56 @@ export const FashionApparel = ({ onNavigate }) => {
                   {fashionSimulatorTiers.map((tier) => {
                     const isSelected = selectedTierId === tier.id;
                     return (
-                      <div
-                        key={tier.id}
-                        onClick={() => setSelectedTierId(tier.id)}
-                        style={{
-                          padding: '14px 16px',
-                          borderRadius: '10px',
-                          border: isSelected ? '2px solid #9C27B0' : '1px solid #E2E8F0',
-                          background: isSelected ? 'rgba(156, 39, 176, 0.04)' : '#FAFBFD',
-                          cursor: 'pointer',
-                          transition: 'all 0.15s ease',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'space-between',
-                          gap: '12px',
-                        }}
-                      >
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                          <img
-                            src={tier.image}
-                            alt={tier.name}
+                      <Magnet key={tier.id} {...TILE_MAGNET_PROPS} style={{ display: 'block', width: '100%' }}>
+                        <div
+                          onClick={() => setSelectedTierId(tier.id)}
+                          style={{
+                            padding: '14px 16px',
+                            borderRadius: '10px',
+                            border: isSelected ? '2px solid #EA580C' : '1px solid #FDBA74',
+                            background: isSelected ? 'rgba(234, 88, 12, 0.04)' : '#FAFBFD',
+                            cursor: 'pointer',
+                            transition: 'all 0.15s ease',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                            gap: '12px',
+                          }}
+                        >
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                            <img
+                              src={tier.image}
+                              alt={tier.name}
+                              style={{
+                                width: '42px',
+                                height: '42px',
+                                borderRadius: '8px',
+                                objectFit: 'cover',
+                                border: '1px solid #FDBA74',
+                                flexShrink: 0,
+                              }}
+                            />
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                              <span style={{ fontSize: '13.5px', fontWeight: '700', color: isSelected ? '#082653' : '#1E293B' }}>
+                                {tier.name}
+                              </span>
+                              <span style={{ fontSize: '11.5px', color: '#64748B' }}>
+                                {tier.badge} • {tier.idealCondition}
+                              </span>
+                            </div>
+                          </div>
+                          <div
                             style={{
-                              width: '42px',
-                              height: '42px',
-                              borderRadius: '8px',
-                              objectFit: 'cover',
-                              border: '1px solid #CBD5E1',
+                              width: '20px',
+                              height: '20px',
+                              borderRadius: '50%',
+                              border: isSelected ? '6px solid #EA580C' : '2px solid #CBD5E1',
+                              background: '#FFFFFF',
                               flexShrink: 0,
                             }}
                           />
-                          <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-                            <span style={{ fontSize: '13.5px', fontWeight: '700', color: isSelected ? '#082653' : '#1E293B' }}>
-                              {tier.name}
-                            </span>
-                            <span style={{ fontSize: '11.5px', color: '#64748B' }}>
-                              {tier.badge} • {tier.idealCondition}
-                            </span>
-                          </div>
                         </div>
-                        <div
-                          style={{
-                            width: '20px',
-                            height: '20px',
-                            borderRadius: '50%',
-                            border: isSelected ? '6px solid #9C27B0' : '2px solid #CBD5E1',
-                            background: '#FFFFFF',
-                            flexShrink: 0,
-                          }}
-                        />
-                      </div>
+                      </Magnet>
                     );
                   })}
                 </div>
@@ -872,43 +901,44 @@ export const FashionApparel = ({ onNavigate }) => {
                   {fashionSimulatorModes.map((mode) => {
                     const isSelected = selectedModeId === mode.id;
                     return (
-                      <div
-                        key={mode.id}
-                        onClick={() => setSelectedModeId(mode.id)}
-                        style={{
-                          padding: '12px 14px',
-                          borderRadius: '10px',
-                          border: isSelected ? '2px solid #082653' : '1px solid #E2E8F0',
-                          background: isSelected ? '#F1F5F9' : '#FAFBFD',
-                          cursor: 'pointer',
-                          transition: 'all 0.15s ease',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'space-between',
-                        }}
-                      >
-                        <div>
-                          <div style={{ fontSize: '13px', fontWeight: '700', color: '#082653', marginBottom: '2px' }}>
-                            {mode.name}
-                          </div>
-                          <div style={{ fontSize: '11.5px', color: '#64748B' }}>
-                            {mode.desc}
-                          </div>
-                        </div>
-                        <span
+                      <Magnet key={mode.id} {...TILE_MAGNET_PROPS} style={{ display: 'block', width: '100%' }}>
+                        <div
+                          onClick={() => setSelectedModeId(mode.id)}
                           style={{
-                            fontSize: '11px',
-                            fontWeight: '700',
-                            padding: '3px 8px',
-                            borderRadius: '4px',
-                            background: isSelected ? '#082653' : 'rgba(156, 39, 176, 0.1)',
-                            color: isSelected ? '#FFFFFF' : '#9C27B0',
-                            whiteSpace: 'nowrap',
+                            padding: '12px 14px',
+                            borderRadius: '10px',
+                            border: isSelected ? '2px solid #EA580C' : '1px solid #FDBA74',
+                            background: isSelected ? '#F1F5F9' : '#FAFBFD',
+                            cursor: 'pointer',
+                            transition: 'all 0.15s ease',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
                           }}
                         >
-                          {mode.storeReadyScore}
-                        </span>
-                      </div>
+                          <div>
+                            <div style={{ fontSize: '13px', fontWeight: '700', color: '#082653', marginBottom: '2px' }}>
+                              {mode.name}
+                            </div>
+                            <div style={{ fontSize: '11.5px', color: '#64748B' }}>
+                              {mode.desc}
+                            </div>
+                          </div>
+                          <span
+                            style={{
+                              fontSize: '11px',
+                              fontWeight: '700',
+                              padding: '3px 8px',
+                              borderRadius: '4px',
+                              background: isSelected ? '#EA580C' : 'rgba(234, 88, 12, 0.1)',
+                              color: isSelected ? '#FFFFFF' : '#EA580C',
+                              whiteSpace: 'nowrap',
+                            }}
+                          >
+                            {mode.storeReadyScore}
+                          </span>
+                        </div>
+                      </Magnet>
                     );
                   })}
                 </div>
@@ -929,29 +959,32 @@ export const FashionApparel = ({ onNavigate }) => {
                 >
                   Step 3 • Seasonal Collection Unit Volume
                 </label>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: '10px' }}>
                   {fashionSimulatorVolumes.map((vol) => {
                     const isSelected = selectedVolId === vol.id;
                     return (
-                      <button
-                        key={vol.id}
-                        type="button"
-                        onClick={() => setSelectedVolId(vol.id)}
-                        style={{
-                          padding: '12px 10px',
-                          borderRadius: '8px',
-                          border: isSelected ? '2px solid #9C27B0' : '1px solid #E2E8F0',
-                          background: isSelected ? 'rgba(156, 39, 176, 0.08)' : '#FAFBFD',
-                          color: isSelected ? '#7B1FA2' : '#334155',
-                          fontSize: '12px',
-                          fontWeight: '700',
-                          cursor: 'pointer',
-                          textAlign: 'center',
-                          transition: 'all 0.15s ease',
-                        }}
-                      >
-                        {vol.label}
-                      </button>
+                      <Magnet key={vol.id} {...TILE_MAGNET_PROPS}>
+                        <button
+                          type="button"
+                          onClick={() => setSelectedVolId(vol.id)}
+                          style={{
+                            width: '100%',
+                            height: '100%',
+                            padding: '12px 10px',
+                            borderRadius: '8px',
+                            border: isSelected ? '2px solid #EA580C' : '1px solid #FDBA74',
+                            background: isSelected ? 'rgba(234, 88, 12, 0.08)' : '#FAFBFD',
+                            color: isSelected ? '#C2410C' : '#334155',
+                            fontSize: '12px',
+                            fontWeight: '700',
+                            cursor: 'pointer',
+                            textAlign: 'center',
+                            transition: 'all 0.15s ease',
+                          }}
+                        >
+                          {vol.label}
+                        </button>
+                      </Magnet>
                     );
                   })}
                 </div>
@@ -961,19 +994,20 @@ export const FashionApparel = ({ onNavigate }) => {
             {/* Right Column: Dynamic Output Cockpit Card */}
             <div
               style={{
-                background: 'linear-gradient(145deg, #082653 0%, #1a0f30 100%)',
+                background: 'linear-gradient(145deg, #FFF7ED 0%, #FFEDD5 100%)',
+                border: '1px solid #FED7AA',
                 borderRadius: '14px',
                 padding: '28px',
-                color: '#FFFFFF',
-                boxShadow: '0 12px 35px rgba(8, 38, 83, 0.22)',
+                color: '#082653',
+                boxShadow: '0 12px 35px rgba(234, 88, 12, 0.1)',
                 position: 'sticky',
                 top: '24px',
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <Sparkles size={18} color="#F0ABFC" />
-                  <span style={{ fontSize: '13px', fontWeight: '700', color: '#F0ABFC', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                  <Sparkles size={18} color="#EA580C" />
+                  <span style={{ fontSize: '13px', fontWeight: '700', color: '#C2410C', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
                     Fashion Drop Projection
                   </span>
                 </div>
@@ -981,8 +1015,9 @@ export const FashionApparel = ({ onNavigate }) => {
                   style={{
                     padding: '3px 8px',
                     borderRadius: '4px',
-                    background: 'rgba(233, 30, 99, 0.2)',
-                    color: '#F48FB1',
+                    background: '#FFF7ED',
+                    border: '1px solid #FED7AA',
+                    color: '#C2410C',
                     fontSize: '11px',
                     fontWeight: '700',
                   }}
@@ -994,97 +1029,105 @@ export const FashionApparel = ({ onNavigate }) => {
               {/* Major KPI: Floor-Ready Store Score */}
               <div
                 style={{
-                  background: 'rgba(255, 255, 255, 0.08)',
+                  background: '#FFFFFF',
                   borderRadius: '10px',
                   padding: '16px',
-                  border: '1px solid rgba(255, 255, 255, 0.14)',
+                  border: '1px solid #FED7AA',
                   marginBottom: '16px',
                 }}
               >
-                <div style={{ fontSize: '12px', color: 'rgba(255, 255, 255, 0.7)', marginBottom: '4px' }}>
+                <div style={{ fontSize: '12px', color: '#475569', marginBottom: '4px' }}>
                   Floor-Ready Presentation Score
                 </div>
                 <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
-                  <span style={{ fontSize: '36px', fontWeight: '800', color: '#E040FB' }}>
+                  <span style={{ fontSize: '36px', fontWeight: '800', color: '#EA580C' }}>
                     {selectedMode.storeReadyScore}
                   </span>
-                  <span style={{ fontSize: '12px', color: '#F0ABFC' }}>
+                  <span style={{ fontSize: '12px', color: '#C2410C', fontWeight: '600' }}>
                     Zero-Wrinkle Guarantee
                   </span>
                 </div>
-                <div style={{ fontSize: '11.5px', color: 'rgba(255, 255, 255, 0.65)', marginTop: '4px' }}>
+                <div style={{ fontSize: '11.5px', color: '#64748B', marginTop: '4px' }}>
                   {selectedTier.gohCapability}
                 </div>
               </div>
 
               {/* Grid of Key Outputs */}
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '12px', marginBottom: '20px' }}>
-                <div
-                  style={{
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    padding: '12px',
-                    borderRadius: '8px',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                  }}
-                >
-                  <div style={{ fontSize: '11px', color: 'rgba(255, 255, 255, 0.65)' }}>Transit Turnaround</div>
-                  <div style={{ fontSize: '17px', fontWeight: '700', color: '#38BDF8', marginTop: '2px' }}>
-                    {selectedTier.turnaround}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: '12px', marginBottom: '20px' }}>
+                <Magnet {...TILE_MAGNET_PROPS}>
+                  <div
+                    style={{
+                      background: '#FFFFFF',
+                      padding: '12px',
+                      borderRadius: '8px',
+                      border: '1px solid #FED7AA',
+                      height: '100%',
+                    }}
+                  >
+                    <div style={{ fontSize: '11px', color: '#475569' }}>Transit Turnaround</div>
+                    <div style={{ fontSize: '17px', fontWeight: '700', color: '#082653', marginTop: '2px' }}>
+                      {selectedTier.turnaround}
+                    </div>
+                    <div style={{ fontSize: '10.5px', color: '#64748B' }}>Port to flagship store</div>
                   </div>
-                  <div style={{ fontSize: '10.5px', color: 'rgba(255, 255, 255, 0.5)' }}>Port to flagship store</div>
-                </div>
+                </Magnet>
 
-                <div
-                  style={{
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    padding: '12px',
-                    borderRadius: '8px',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                  }}
-                >
-                  <div style={{ fontSize: '11px', color: 'rgba(255, 255, 255, 0.65)' }}>Lead Time Buffer</div>
-                  <div style={{ fontSize: '17px', fontWeight: '700', color: '#A78BFA', marginTop: '2px' }}>
-                    +{selectedVol.bufferDays}
+                <Magnet {...TILE_MAGNET_PROPS}>
+                  <div
+                    style={{
+                      background: '#FFFFFF',
+                      padding: '12px',
+                      borderRadius: '8px',
+                      border: '1px solid #FED7AA',
+                      height: '100%',
+                    }}
+                  >
+                    <div style={{ fontSize: '11px', color: '#475569' }}>Lead Time Buffer</div>
+                    <div style={{ fontSize: '17px', fontWeight: '700', color: '#D97706', marginTop: '2px' }}>
+                      +{selectedVol.bufferDays}
+                    </div>
+                    <div style={{ fontSize: '10.5px', color: '#64748B' }}>Ahead of runway drop</div>
                   </div>
-                  <div style={{ fontSize: '10.5px', color: 'rgba(255, 255, 255, 0.5)' }}>Ahead of runway drop</div>
-                </div>
+                </Magnet>
 
-                <div
-                  style={{
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    padding: '12px',
-                    borderRadius: '8px',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                    gridColumn: 'span 2',
-                  }}
-                >
-                  <div style={{ fontSize: '11px', color: 'rgba(255, 255, 255, 0.65)' }}>Boutique & Retail Reach</div>
-                  <div style={{ fontSize: '14px', fontWeight: '700', color: '#FDE68A', marginTop: '2px' }}>
-                    {selectedVol.doorReach}
+                <Magnet {...TILE_MAGNET_PROPS} style={{ ...TILE_MAGNET_PROPS.style, gridColumn: 'span 2' }}>
+                  <div
+                    style={{
+                      background: '#FFFFFF',
+                      padding: '12px',
+                      borderRadius: '8px',
+                      border: '1px solid #FED7AA',
+                      height: '100%',
+                    }}
+                  >
+                    <div style={{ fontSize: '11px', color: '#475569' }}>Boutique & Retail Reach</div>
+                    <div style={{ fontSize: '14px', fontWeight: '700', color: '#C2410C', marginTop: '2px' }}>
+                      {selectedVol.doorReach}
+                    </div>
                   </div>
-                </div>
+                </Magnet>
               </div>
 
               {/* Pressing Cost Elimination Box */}
               <div
                 style={{
-                  background: 'rgba(156, 39, 176, 0.18)',
-                  border: '1px solid rgba(156, 39, 176, 0.4)',
+                  background: '#FFF7ED',
+                  border: '1px solid #FED7AA',
                   borderRadius: '10px',
                   padding: '14px',
                   marginBottom: '20px',
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '4px' }}>
-                  <ShieldCheck size={16} color="#E040FB" />
-                  <span style={{ fontSize: '12px', fontWeight: '700', color: '#F0ABFC' }}>
+                  <ShieldCheck size={16} color="#EA580C" />
+                  <span style={{ fontSize: '12px', fontWeight: '700', color: '#C2410C' }}>
                     Est. Store Pressing Labor Eliminated
                   </span>
                 </div>
-                <div style={{ fontSize: '20px', fontWeight: '800', color: '#FFFFFF' }}>
+                <div style={{ fontSize: '20px', fontWeight: '800', color: '#082653' }}>
                   {selectedVol.estPressingSaved}
                 </div>
-                <div style={{ fontSize: '11px', color: 'rgba(255, 255, 255, 0.75)', marginTop: '2px' }}>
+                <div style={{ fontSize: '11px', color: '#475569', marginTop: '2px' }}>
                   Saves 20–45 mins of backroom steam-ironing per unit.
                 </div>
               </div>
@@ -1096,7 +1139,7 @@ export const FashionApparel = ({ onNavigate }) => {
                   width: '100%',
                   padding: '14px',
                   borderRadius: '8px',
-                  background: 'linear-gradient(135deg, #9C27B0 0%, #7B1FA2 100%)',
+                  background: 'linear-gradient(135deg, #FF6F00 0%, #EA580C 100%)',
                   color: '#FFFFFF',
                   fontSize: '14px',
                   fontWeight: '700',
@@ -1106,7 +1149,7 @@ export const FashionApparel = ({ onNavigate }) => {
                   alignItems: 'center',
                   justifyContent: 'center',
                   gap: '8px',
-                  boxShadow: '0 8px 20px rgba(156, 39, 176, 0.4)',
+                  boxShadow: '0 8px 20px rgba(234, 88, 12, 0.4)',
                   transition: 'transform 0.15s ease',
                 }}
                 onMouseEnter={(e) => (e.currentTarget.style.transform = 'translateY(-2px)')}
@@ -1122,26 +1165,26 @@ export const FashionApparel = ({ onNavigate }) => {
                   style={{
                     marginTop: '16px',
                     padding: '14px',
-                    background: '#061836',
+                    background: '#FFF7ED',
                     borderRadius: '8px',
-                    border: '1px solid #E040FB',
+                    border: '1px solid #EA580C',
                   }}
                 >
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '6px' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                      <CheckCircle2 size={15} color="#E040FB" />
-                      <span style={{ fontSize: '12px', fontWeight: '700', color: '#E040FB' }}>
+                      <CheckCircle2 size={15} color="#EA580C" />
+                      <span style={{ fontSize: '12px', fontWeight: '700', color: '#C2410C' }}>
                         Roadmap {simulatorToast.id} Generated
                       </span>
                     </div>
                     <button
                       onClick={() => setSimulatorToast(null)}
-                      style={{ background: 'none', border: 'none', color: '#94A3B8', cursor: 'pointer', padding: 0 }}
+                      style={{ background: 'none', border: 'none', color: '#64748B', cursor: 'pointer', padding: 0 }}
                     >
                       <X size={14} />
                     </button>
                   </div>
-                  <p style={{ fontSize: '11.5px', color: '#E2E8F0', margin: '0 0 10px 0', lineHeight: '1.4' }}>
+                  <p style={{ fontSize: '11.5px', color: '#334155', margin: '0 0 10px 0', lineHeight: '1.4' }}>
                     Configured for <strong>{simulatorToast.tier}</strong> via <strong>{simulatorToast.mode}</strong>. Floor-ready rating locked at <strong>{simulatorToast.floorScore}</strong> saving <strong>{simulatorToast.savings}</strong> in store labor.
                   </p>
                   <button
@@ -1149,10 +1192,10 @@ export const FashionApparel = ({ onNavigate }) => {
                     style={{
                       width: '100%',
                       padding: '8px',
-                      background: 'rgba(156, 39, 176, 0.2)',
-                      border: '1px solid #E040FB',
+                      background: '#FFFFFF',
+                      border: '1px solid #EA580C',
                       borderRadius: '6px',
-                      color: '#F0ABFC',
+                      color: '#C2410C',
                       fontSize: '11.5px',
                       fontWeight: '700',
                       cursor: 'pointer',
@@ -1175,7 +1218,7 @@ export const FashionApparel = ({ onNavigate }) => {
             padding: '48px 40px',
             background: '#FFFFFF',
             borderRadius: '16px',
-            border: '1px solid #E2E8F0',
+            border: '1px solid #FDBA74',
           }}
         >
           <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 40px' }}>
@@ -1183,7 +1226,7 @@ export const FashionApparel = ({ onNavigate }) => {
               style={{
                 fontSize: '12px',
                 fontWeight: '700',
-                color: '#9C27B0',
+                color: '#EA580C',
                 textTransform: 'uppercase',
                 letterSpacing: '0.08em',
               }}
@@ -1209,36 +1252,37 @@ export const FashionApparel = ({ onNavigate }) => {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(2, 1fr)',
+              gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
               gap: '24px',
             }}
           >
             {fashionPillars.map((pillar) => (
-              <div
-                key={pillar.id}
-                style={{
-                  background: '#FAFBFD',
-                  borderRadius: '14px',
-                  border: '1px solid #E2E8F0',
-                  padding: '30px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  transition: 'all 0.2s ease',
-                  position: 'relative',
-                  overflow: 'hidden',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = pillar.accentColor;
-                  e.currentTarget.style.boxShadow = '0 12px 30px rgba(0, 0, 0, 0.06)';
-                  e.currentTarget.style.transform = 'translateY(-3px)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = '#E2E8F0';
-                  e.currentTarget.style.boxShadow = 'none';
-                  e.currentTarget.style.transform = 'translateY(0)';
-                }}
-              >
+              <Magnet key={pillar.id} {...CARD_MAGNET_PROPS}>
+                <div
+                  style={{
+                    background: '#FAFBFD',
+                    borderRadius: '14px',
+                    border: '1px solid #FDBA74',
+                    padding: '30px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    height: '100%',
+                    transition: 'all 0.2s ease',
+                    position: 'relative',
+                    overflow: 'hidden',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = '#EA580C';
+                    e.currentTarget.style.boxShadow = '0 12px 30px rgba(0, 0, 0, 0.06)';
+                    e.currentTarget.style.transform = 'translateY(-3px)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = '#FDBA74';
+                    e.currentTarget.style.boxShadow = 'none';
+                    e.currentTarget.style.transform = 'translateY(0)';
+                  }}
+                >
                 <div>
                   {pillar.image && (
                     <div
@@ -1254,13 +1298,11 @@ export const FashionApparel = ({ onNavigate }) => {
                       <img
                         src={pillar.image}
                         alt={pillar.title}
-                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                      />
-                      <div
                         style={{
-                          position: 'absolute',
-                          inset: 0,
-                          background: 'linear-gradient(180deg, transparent 40%, rgba(8, 38, 83, 0.7) 100%)',
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                          filter: 'brightness(1.04) contrast(1.03)',
                         }}
                       />
                     </div>
@@ -1301,8 +1343,9 @@ export const FashionApparel = ({ onNavigate }) => {
                           fontWeight: '800',
                           padding: '4px 10px',
                           borderRadius: '6px',
-                          background: '#082653',
-                          color: '#FFFFFF',
+                          background: '#FFF7ED',
+                          border: '1px solid #FDBA74',
+                          color: '#C2410C',
                         }}
                       >
                         {pillar.metric}
@@ -1352,6 +1395,7 @@ export const FashionApparel = ({ onNavigate }) => {
                   ))}
                 </div>
               </div>
+              </Magnet>
             ))}
           </div>
         </section>
@@ -1365,7 +1409,7 @@ export const FashionApparel = ({ onNavigate }) => {
             padding: '44px 40px',
             background: '#FFFFFF',
             borderRadius: '16px',
-            border: '1px solid #E2E8F0',
+            border: '1px solid #FDBA74',
           }}
         >
           <div style={{ maxWidth: '820px', marginBottom: '32px' }}>
@@ -1373,7 +1417,7 @@ export const FashionApparel = ({ onNavigate }) => {
               style={{
                 fontSize: '12px',
                 fontWeight: '700',
-                color: '#9C27B0',
+                color: '#EA580C',
                 textTransform: 'uppercase',
                 letterSpacing: '0.08em',
               }}
@@ -1400,12 +1444,12 @@ export const FashionApparel = ({ onNavigate }) => {
             style={{
               overflowX: 'auto',
               borderRadius: '12px',
-              border: '1px solid #E2E8F0',
+              border: '1px solid #FDBA74',
             }}
           >
             <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '700px' }}>
               <thead>
-                <tr style={{ background: '#082653', color: '#FFFFFF' }}>
+                <tr style={{ background: '#FFF7ED', color: '#082653', borderBottom: '2px solid #FED7AA' }}>
                   <th style={{ padding: '16px 20px', fontSize: '13px', fontWeight: '700' }}>Retail Segment</th>
                   <th style={{ padding: '16px 20px', fontSize: '13px', fontWeight: '700' }}>Packaging & Hanger Mandate</th>
                   <th style={{ padding: '16px 20px', fontSize: '13px', fontWeight: '700' }}>Delivery Dock SLA</th>
@@ -1430,12 +1474,12 @@ export const FashionApparel = ({ onNavigate }) => {
                     <td style={{ padding: '16px 20px', fontSize: '12.5px', color: '#475569' }}>
                       {row.requirement}
                     </td>
-                    <td style={{ padding: '16px 20px', fontSize: '12.5px', fontWeight: '700', color: '#9C27B0' }}>
+                    <td style={{ padding: '16px 20px', fontSize: '12.5px', fontWeight: '700', color: '#EA580C' }}>
                       {row.sla}
                     </td>
                     <td style={{ padding: '16px 20px', fontSize: '12.5px', color: '#1E293B', fontWeight: '500' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                        <CheckCircle2 size={14} color="#10B981" style={{ flexShrink: 0 }} />
+                        <CheckCircle2 size={14} color="#EA580C" style={{ flexShrink: 0 }} />
                         <span>{row.kplAdvantage}</span>
                       </div>
                     </td>
@@ -1455,7 +1499,7 @@ export const FashionApparel = ({ onNavigate }) => {
             padding: '48px 40px',
             background: '#FAFBFD',
             borderRadius: '16px',
-            border: '1px solid #E2E8F0',
+            border: '1px solid #FDBA74',
           }}
         >
           <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 40px' }}>
@@ -1463,7 +1507,7 @@ export const FashionApparel = ({ onNavigate }) => {
               style={{
                 fontSize: '12px',
                 fontWeight: '700',
-                color: '#9C27B0',
+                color: '#EA580C',
                 textTransform: 'uppercase',
                 letterSpacing: '0.08em',
               }}
@@ -1493,7 +1537,7 @@ export const FashionApparel = ({ onNavigate }) => {
                 style={{
                   background: '#FFFFFF',
                   borderRadius: '14px',
-                  border: '1px solid #E2E8F0',
+                  border: '1px solid #FDBA74',
                   padding: '32px',
                   boxShadow: '0 4px 20px rgba(0, 0, 0, 0.03)',
                   display: 'grid',
@@ -1503,7 +1547,7 @@ export const FashionApparel = ({ onNavigate }) => {
                 }}
               >
                 <div>
-                  <div style={{ fontSize: '11px', fontWeight: '800', color: '#9C27B0', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '8px' }}>
+                  <div style={{ fontSize: '11px', fontWeight: '800', color: '#EA580C', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '8px' }}>
                     {cs.scale}
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '14px' }}>
@@ -1516,7 +1560,7 @@ export const FashionApparel = ({ onNavigate }) => {
                           height: '54px',
                           borderRadius: '8px',
                           objectFit: 'cover',
-                          border: '1px solid #CBD5E1',
+                          border: '1px solid #FDBA74',
                           flexShrink: 0,
                         }}
                       />
@@ -1527,12 +1571,12 @@ export const FashionApparel = ({ onNavigate }) => {
                   </div>
 
                   <div style={{ marginBottom: '12px' }}>
-                    <span style={{ fontSize: '12px', fontWeight: '700', color: '#DC2626' }}>The Bottleneck: </span>
+                    <span style={{ fontSize: '12px', fontWeight: '700', color: '#B45309' }}>The Bottleneck: </span>
                     <span style={{ fontSize: '13px', color: '#475569', lineHeight: '1.5' }}>{cs.challenge}</span>
                   </div>
 
                   <div style={{ marginBottom: '16px' }}>
-                    <span style={{ fontSize: '12px', fontWeight: '700', color: '#059669' }}>KPL Solution: </span>
+                    <span style={{ fontSize: '12px', fontWeight: '700', color: '#EA580C' }}>KPL Solution: </span>
                     <span style={{ fontSize: '13px', color: '#475569', lineHeight: '1.5' }}>{cs.solution}</span>
                   </div>
 
@@ -1541,7 +1585,7 @@ export const FashionApparel = ({ onNavigate }) => {
                       padding: '12px 16px',
                       borderRadius: '8px',
                       background: '#FAFBFD',
-                      borderLeft: '3px solid #9C27B0',
+                      borderLeft: '3px solid #EA580C',
                       fontStyle: 'italic',
                       fontSize: '13px',
                       color: '#334155',
@@ -1556,31 +1600,33 @@ export const FashionApparel = ({ onNavigate }) => {
                   style={{
                     background: '#FAFBFD',
                     borderRadius: '12px',
-                    border: '1px solid #E2E8F0',
+                    border: '1px solid #FDBA74',
                     padding: '24px',
                     display: 'grid',
-                    gridTemplateColumns: 'repeat(2, 1fr)',
+                    gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
                     gap: '16px',
                   }}
                 >
                   {cs.results.map((res, rIdx) => (
-                    <div
-                      key={rIdx}
-                      style={{
-                        background: '#FFFFFF',
-                        borderRadius: '8px',
-                        padding: '14px',
-                        border: '1px solid #E2E8F0',
-                        textAlign: 'center',
-                      }}
-                    >
-                      <div style={{ fontSize: '24px', fontWeight: '800', color: '#082653', letterSpacing: '-0.02em' }}>
-                        {res.val}
+                    <Magnet key={rIdx} {...TILE_MAGNET_PROPS}>
+                      <div
+                        style={{
+                          background: '#FFFFFF',
+                          borderRadius: '8px',
+                          padding: '14px',
+                          border: '1px solid #FDBA74',
+                          textAlign: 'center',
+                          height: '100%',
+                        }}
+                      >
+                        <div style={{ fontSize: '24px', fontWeight: '800', color: '#082653', letterSpacing: '-0.02em' }}>
+                          {res.val}
+                        </div>
+                        <div style={{ fontSize: '11px', color: '#64748B', fontWeight: '600', marginTop: '2px' }}>
+                          {res.metric}
+                        </div>
                       </div>
-                      <div style={{ fontSize: '11px', color: '#64748B', fontWeight: '600', marginTop: '2px' }}>
-                        {res.metric}
-                      </div>
-                    </div>
+                    </Magnet>
                   ))}
                 </div>
               </div>
@@ -1597,7 +1643,7 @@ export const FashionApparel = ({ onNavigate }) => {
             padding: '44px 40px',
             background: '#FFFFFF',
             borderRadius: '16px',
-            border: '1px solid #E2E8F0',
+            border: '1px solid #FDBA74',
           }}
         >
           <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 36px' }}>
@@ -1605,7 +1651,7 @@ export const FashionApparel = ({ onNavigate }) => {
               style={{
                 fontSize: '12px',
                 fontWeight: '700',
-                color: '#9C27B0',
+                color: '#EA580C',
                 textTransform: 'uppercase',
                 letterSpacing: '0.08em',
               }}
@@ -1628,30 +1674,32 @@ export const FashionApparel = ({ onNavigate }) => {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, minmax(0, 1fr))', gap: '16px' }}>
             {fashionStandards.map((std) => (
-              <div
-                key={std.code}
-                style={{
-                  background: '#FAFBFD',
-                  borderRadius: '10px',
-                  border: '1px solid #E2E8F0',
-                  padding: '20px 18px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '8px',
-                  transition: 'border-color 0.15s ease',
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.borderColor = '#9C27B0')}
-                onMouseLeave={(e) => (e.currentTarget.style.borderColor = '#E2E8F0')}
-              >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <Award size={18} color="#9C27B0" />
-                  <span style={{ fontSize: '13.5px', fontWeight: '800', color: '#082653' }}>{std.code}</span>
+              <Magnet key={std.code} {...CARD_MAGNET_PROPS}>
+                <div
+                  style={{
+                    background: '#FAFBFD',
+                    borderRadius: '10px',
+                    border: '1px solid #FDBA74',
+                    padding: '20px 18px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '8px',
+                    height: '100%',
+                    transition: 'border-color 0.15s ease',
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.borderColor = '#EA580C')}
+                  onMouseLeave={(e) => (e.currentTarget.style.borderColor = '#FDBA74')}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <Award size={18} color="#EA580C" />
+                    <span style={{ fontSize: '13.5px', fontWeight: '800', color: '#082653' }}>{std.code}</span>
+                  </div>
+                  <div style={{ fontSize: '12.5px', fontWeight: '700', color: '#334155' }}>{std.name}</div>
+                  <div style={{ fontSize: '11.5px', color: '#64748B', lineHeight: '1.45' }}>{std.desc}</div>
                 </div>
-                <div style={{ fontSize: '12.5px', fontWeight: '700', color: '#334155' }}>{std.name}</div>
-                <div style={{ fontSize: '11.5px', color: '#64748B', lineHeight: '1.45' }}>{std.desc}</div>
-              </div>
+              </Magnet>
             ))}
           </div>
         </section>
@@ -1665,7 +1713,7 @@ export const FashionApparel = ({ onNavigate }) => {
             padding: '44px 40px',
             background: '#FFFFFF',
             borderRadius: '16px',
-            border: '1px solid #E2E8F0',
+            border: '1px solid #FDBA74',
           }}
         >
           <div style={{ maxWidth: '820px', marginBottom: '32px' }}>
@@ -1673,7 +1721,7 @@ export const FashionApparel = ({ onNavigate }) => {
               style={{
                 fontSize: '12px',
                 fontWeight: '700',
-                color: '#9C27B0',
+                color: '#EA580C',
                 textTransform: 'uppercase',
                 letterSpacing: '0.08em',
               }}
@@ -1704,7 +1752,7 @@ export const FashionApparel = ({ onNavigate }) => {
                   key={idx}
                   style={{
                     borderRadius: '10px',
-                    border: isOpen ? '1px solid #9C27B0' : '1px solid #E2E8F0',
+                    border: isOpen ? '1px solid #EA580C' : '1px solid #FDBA74',
                     background: isOpen ? '#FAFBFD' : '#FFFFFF',
                     overflow: 'hidden',
                     transition: 'all 0.15s ease',
@@ -1727,7 +1775,7 @@ export const FashionApparel = ({ onNavigate }) => {
                     <span style={{ fontSize: '15px', fontWeight: '700', color: '#082653' }}>
                       {faq.q}
                     </span>
-                    {isOpen ? <ChevronUp size={18} color="#9C27B0" /> : <ChevronDown size={18} color="#64748B" />}
+                    {isOpen ? <ChevronUp size={18} color="#EA580C" /> : <ChevronDown size={18} color="#64748B" />}
                   </button>
 
                   {isOpen && (
@@ -1754,13 +1802,14 @@ export const FashionApparel = ({ onNavigate }) => {
         <section
           style={{
             position: 'relative',
-            background: 'linear-gradient(135deg, #061836 0%, #082653 100%)',
-            color: '#FFFFFF',
+            background: 'linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 50%, #FFF7ED 100%)',
+            border: '1px solid #FED7AA',
+            color: '#082653',
             borderRadius: '16px',
             margin: '0 24px',
             padding: '52px 48px',
             overflow: 'hidden',
-            boxShadow: '0 20px 40px rgba(8, 38, 83, 0.22)',
+            boxShadow: '0 20px 40px rgba(234, 88, 12, 0.08)',
             textAlign: 'center',
           }}
         >
@@ -1773,7 +1822,7 @@ export const FashionApparel = ({ onNavigate }) => {
               transform: 'translateX(-50%)',
               width: '600px',
               height: '300px',
-              background: 'radial-gradient(circle, rgba(156, 39, 176, 0.2) 0%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(234, 88, 12, 0.1) 0%, transparent 70%)',
               borderRadius: '50%',
               pointerEvents: 'none',
               filter: 'blur(30px)',
@@ -1786,8 +1835,9 @@ export const FashionApparel = ({ onNavigate }) => {
                 display: 'inline-block',
                 padding: '4px 12px',
                 borderRadius: '20px',
-                background: 'rgba(156, 39, 176, 0.2)',
-                color: '#F0ABFC',
+                background: '#FFFFFF',
+                border: '1px solid #FED7AA',
+                color: '#C2410C',
                 fontSize: '12px',
                 fontWeight: '700',
                 letterSpacing: '0.08em',
@@ -1802,7 +1852,7 @@ export const FashionApparel = ({ onNavigate }) => {
                 fontFamily: 'Georgia, serif',
                 fontSize: '34px',
                 fontWeight: '700',
-                color: '#FFFFFF',
+                color: '#082653',
                 margin: '0 0 16px 0',
                 letterSpacing: '-0.01em',
               }}
@@ -1812,7 +1862,7 @@ export const FashionApparel = ({ onNavigate }) => {
             <p
               style={{
                 fontSize: '16px',
-                color: 'rgba(255, 255, 255, 0.85)',
+                color: '#334155',
                 lineHeight: '1.6',
                 margin: '0 0 32px 0',
               }}
@@ -1829,13 +1879,13 @@ export const FashionApparel = ({ onNavigate }) => {
                   gap: '10px',
                   padding: '14px 30px',
                   borderRadius: '8px',
-                  background: 'linear-gradient(135deg, #9C27B0 0%, #7B1FA2 100%)',
+                  background: 'linear-gradient(135deg, #FF6F00 0%, #EA580C 100%)',
                   color: '#FFFFFF',
                   fontSize: '15px',
                   fontWeight: '700',
                   border: 'none',
                   cursor: 'pointer',
-                  boxShadow: '0 10px 24px rgba(156, 39, 176, 0.4)',
+                  boxShadow: '0 10px 24px rgba(234, 88, 12, 0.4)',
                 }}
               >
                 <span>Request Fashion Logistics Quote</span>
@@ -1850,11 +1900,11 @@ export const FashionApparel = ({ onNavigate }) => {
                   gap: '8px',
                   padding: '14px 26px',
                   borderRadius: '8px',
-                  background: 'rgba(255, 255, 255, 0.1)',
-                  color: '#FFFFFF',
+                  background: '#FFFFFF',
+                  color: '#082653',
                   fontSize: '15px',
                   fontWeight: '600',
-                  border: '1px solid rgba(255, 255, 255, 0.25)',
+                  border: '1px solid #FED7AA',
                   cursor: 'pointer',
                 }}
               >

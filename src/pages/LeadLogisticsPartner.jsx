@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Header } from '../components/layout/Header';
 import { Footer } from '../components/layout/Footer';
 import { TrackModal } from '../components/common/TrackModal';
+import Magnet, { CARD_MAGNET_PROPS, TILE_MAGNET_PROPS } from '../components/common/Magnet';
 import {
   fourPlHeroStats,
   diagnosticSpendTiers,
@@ -102,6 +103,39 @@ export const LeadLogisticsPartner = ({ onNavigate }) => {
         overflowX: 'clip',
       }}
     >
+      <style>{`
+        .fourpl-4col-grid {
+          display: grid;
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          align-items: stretch;
+        }
+        .fourpl-3col-grid {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          align-items: stretch;
+        }
+        @media (max-width: 1060px) {
+          .fourpl-4col-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+        }
+        @media (max-width: 960px) {
+          .fourpl-3col-grid {
+            grid-template-columns: minmax(0, 1fr);
+          }
+        }
+        @media (max-width: 640px) {
+          .fourpl-section {
+            padding: 36px 20px !important;
+          }
+        }
+        @media (max-width: 560px) {
+          .fourpl-4col-grid,
+          .fourpl-3col-grid {
+            grid-template-columns: minmax(0, 1fr);
+          }
+        }
+      `}</style>
       {/* 1. Shared Global Link Header */}
       <Header
         onTrackClick={() => openModal('track')}
@@ -115,15 +149,15 @@ export const LeadLogisticsPartner = ({ onNavigate }) => {
         <div style={{ height: '24px', width: '100%', background: '#FAFBFD' }} />
 
         {/* =========================================================================
-            SECTION 1: HERO BANNER (Executive Slate Navy with Steel Blue / Sunset Orange Glow)
+            SECTION 1: HERO BANNER (Clean White with Executive Slate & Sunset Orange Accents)
             ========================================================================= */}
         <section
           style={{
             position: 'relative',
             padding: '50px 32px 50px 32px',
-            background: 'linear-gradient(145deg, #051A3B 0%, #082653 50%, #03132D 100%)',
-            borderTop: '1px solid rgba(8, 38, 83, 0.1)',
-            borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+            background: '#FFFFFF',
+            borderTop: '1px solid #E2E8F0',
+            borderBottom: '1px solid #E2E8F0',
             overflow: 'hidden',
           }}
         >
@@ -135,7 +169,7 @@ export const LeadLogisticsPartner = ({ onNavigate }) => {
               right: '-60px',
               width: '450px',
               height: '450px',
-              background: 'radial-gradient(circle, rgba(100, 116, 139, 0.22) 0%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(217, 119, 6, 0.08) 0%, transparent 70%)',
               pointerEvents: 'none',
               zIndex: 0,
             }}
@@ -147,7 +181,7 @@ export const LeadLogisticsPartner = ({ onNavigate }) => {
               left: '10%',
               width: '400px',
               height: '400px',
-              background: 'radial-gradient(circle, rgba(234, 88, 12, 0.14) 0%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(234, 88, 12, 0.06) 0%, transparent 70%)',
               pointerEvents: 'none',
               zIndex: 0,
             }}
@@ -162,8 +196,8 @@ export const LeadLogisticsPartner = ({ onNavigate }) => {
                 gap: '8px',
                 padding: '6px 14px',
                 borderRadius: '9999px',
-                background: 'rgba(100, 116, 139, 0.2)',
-                border: '1px solid rgba(148, 163, 184, 0.35)',
+                background: 'rgba(234, 88, 12, 0.08)',
+                border: '1px solid rgba(234, 88, 12, 0.25)',
                 marginBottom: '16px',
               }}
             >
@@ -172,7 +206,7 @@ export const LeadLogisticsPartner = ({ onNavigate }) => {
                   width: '20px',
                   height: '20px',
                   borderRadius: '5px',
-                  background: 'linear-gradient(135deg, #64748B 0%, #475569 100%)',
+                  background: 'linear-gradient(135deg, #FF6F00 0%, #EA580C 100%)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -185,7 +219,7 @@ export const LeadLogisticsPartner = ({ onNavigate }) => {
                 style={{
                   fontSize: '11.5px',
                   fontWeight: '700',
-                  color: '#CBD5E1',
+                  color: '#EA580C',
                   letterSpacing: '0.08em',
                   textTransform: 'uppercase',
                   fontFamily: 'var(--font-body)',
@@ -201,11 +235,10 @@ export const LeadLogisticsPartner = ({ onNavigate }) => {
                 fontFamily: 'Georgia, "Times New Roman", serif',
                 fontSize: 'clamp(32px, 3.8vw, 44px)',
                 fontWeight: '700',
-                color: '#FFFFFF',
+                color: '#082653',
                 lineHeight: '1.15',
                 letterSpacing: '-0.5px',
                 marginBottom: '14px',
-                textShadow: '0 2px 10px rgba(0, 0, 0, 0.45)',
               }}
             >
               Lead Supply Chain (4PL) Partner
@@ -216,7 +249,7 @@ export const LeadLogisticsPartner = ({ onNavigate }) => {
               style={{
                 fontSize: '17px',
                 fontWeight: '400',
-                color: 'rgba(255, 255, 255, 0.88)',
+                color: '#475569',
                 lineHeight: '1.6',
                 maxWidth: '780px',
                 fontFamily: 'var(--font-body)',
@@ -249,18 +282,18 @@ export const LeadLogisticsPartner = ({ onNavigate }) => {
                   fontSize: '14px',
                   fontWeight: '700',
                   textDecoration: 'none',
-                  boxShadow: '0 6px 20px rgba(234, 88, 12, 0.4)',
+                  boxShadow: '0 6px 20px rgba(234, 88, 12, 0.3)',
                   transition: 'all 0.2s ease',
                   border: 'none',
                   cursor: 'pointer',
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-2px)';
-                  e.currentTarget.style.boxShadow = '0 8px 26px rgba(234, 88, 12, 0.55)';
+                  e.currentTarget.style.boxShadow = '0 8px 26px rgba(234, 88, 12, 0.45)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(234, 88, 12, 0.4)';
+                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(234, 88, 12, 0.3)';
                 }}
               >
                 <span>Run 4PL Supply Chain Diagnostic</span>
@@ -275,26 +308,25 @@ export const LeadLogisticsPartner = ({ onNavigate }) => {
                   gap: '8px',
                   padding: '12px 22px',
                   borderRadius: '10px',
-                  background: 'rgba(255, 255, 255, 0.08)',
-                  color: '#FFFFFF',
+                  background: '#F8FAFC',
+                  color: '#082653',
                   fontSize: '14px',
                   fontWeight: '600',
                   textDecoration: 'none',
-                  border: '1px solid rgba(255, 255, 255, 0.22)',
-                  backdropFilter: 'blur(8px)',
+                  border: '1px solid #CBD5E1',
                   transition: 'all 0.2s ease',
                   cursor: 'pointer',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.16)';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)';
+                  e.currentTarget.style.background = '#F1F5F9';
+                  e.currentTarget.style.borderColor = '#94A3B8';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.22)';
+                  e.currentTarget.style.background = '#F8FAFC';
+                  e.currentTarget.style.borderColor = '#CBD5E1';
                 }}
               >
-                <Layers size={16} color="#94A3B8" />
+                <Layers size={16} color="#475569" />
                 <span>4PL vs 3PL vs 2PL Comparison</span>
               </a>
 
@@ -307,7 +339,7 @@ export const LeadLogisticsPartner = ({ onNavigate }) => {
                   padding: '12px 20px',
                   borderRadius: '10px',
                   background: 'transparent',
-                  color: '#FFE082',
+                  color: '#D97706',
                   fontSize: '13.5px',
                   fontWeight: '600',
                   border: 'none',
@@ -324,66 +356,71 @@ export const LeadLogisticsPartner = ({ onNavigate }) => {
 
             {/* KPI Metrics Quick Bar */}
             <div
+              className="fourpl-4col-grid"
               style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
                 gap: '14px',
                 paddingTop: '20px',
-                borderTop: '1px solid rgba(255, 255, 255, 0.12)',
+                borderTop: '1px solid #E2E8F0',
+                alignItems: 'stretch',
               }}
             >
               {fourPlHeroStats.map((stat, idx) => {
                 const IconComponent = stat.icon;
                 return (
-                  <div
-                    key={idx}
-                    style={{
-                      background: 'rgba(255, 255, 255, 0.04)',
-                      backdropFilter: 'blur(10px)',
-                      border: '1px solid rgba(255, 255, 255, 0.08)',
-                      borderRadius: '12px',
-                      padding: '14px 16px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '12px',
-                    }}
-                  >
+                  <Magnet key={idx} {...TILE_MAGNET_PROPS} axis="x" scale={1} padding={12} maxOffset={3} tilt={0.8}>
                     <div
                       style={{
-                        width: '38px',
-                        height: '38px',
-                        borderRadius: '10px',
-                        background: 'rgba(100, 116, 139, 0.25)',
-                        border: '1px solid rgba(148, 163, 184, 0.4)',
+                        background: '#F8FAFC',
+                        border: '1px solid #E2E8F0',
+                        borderRadius: '12px',
+                        padding: '14px 16px',
                         display: 'flex',
                         alignItems: 'center',
-                        justifyContent: 'center',
-                        color: '#E2E8F0',
-                        flexShrink: 0,
+                        gap: '12px',
+                        height: '100%',
+                        minWidth: 0,
+                        boxSizing: 'border-box',
                       }}
                     >
-                      <IconComponent size={19} />
-                    </div>
-                    <div>
                       <div
                         style={{
-                          fontSize: '19px',
-                          fontWeight: '800',
-                          color: '#FFFFFF',
-                          lineHeight: '1.2',
-                          fontFamily: 'var(--font-heading)',
+                          width: '38px',
+                          height: '38px',
+                          borderRadius: '10px',
+                          background: 'rgba(234, 88, 12, 0.1)',
+                          border: '1px solid rgba(234, 88, 12, 0.25)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          color: '#EA580C',
+                          flexShrink: 0,
                         }}
                       >
-                        {stat.value}
+                        <IconComponent size={19} />
                       </div>
-                      <div style={{ fontSize: '12px', fontWeight: '700', color: '#CBD5E1', marginTop: '1px' }}>
-                        {stat.label}
-                      </div>
-                      <div style={{ fontSize: '11px', color: 'rgba(255, 255, 255, 0.65)' }}>
-                        {stat.sub}
+                      <div style={{ minWidth: 0 }}>
+                        <div
+                          style={{
+                            fontSize: 'clamp(17px, 1.65vw, 19px)',
+                            fontWeight: '800',
+                            color: '#082653',
+                            lineHeight: '1.2',
+                            fontFamily: 'var(--font-heading)',
+                            fontVariantNumeric: 'lining-nums tabular-nums',
+                            whiteSpace: 'nowrap',
+                          }}
+                        >
+                          {stat.value}
+                        </div>
+                        <div style={{ fontSize: '12px', fontWeight: '700', color: '#475569', lineHeight: '1.3', marginTop: '2px' }}>
+                          {stat.label}
+                        </div>
+                        <div style={{ fontSize: '11px', color: '#64748B', lineHeight: '1.35', marginTop: '1px' }}>
+                          {stat.sub}
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </Magnet>
                 );
               })}
             </div>
@@ -469,29 +506,37 @@ export const LeadLogisticsPartner = ({ onNavigate }) => {
                 >
                   Step 1: Select Total Annual Enterprise Freight Spend
                 </label>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '10px' }}>
+                <div className="fourpl-4col-grid" style={{ gap: '10px', alignItems: 'stretch' }}>
                   {diagnosticSpendTiers.map((tier) => {
                     const isSelected = tier.id === selectedSpendId;
                     return (
-                      <button
-                        key={tier.id}
-                        onClick={() => setSelectedSpendId(tier.id)}
-                        style={{
-                          padding: '12px 14px',
-                          borderRadius: '10px',
-                          border: '2px solid',
-                          borderColor: isSelected ? '#082653' : '#CBD5E1',
-                          background: isSelected ? '#082653' : '#FFFFFF',
-                          color: isSelected ? '#FFFFFF' : '#0F172A',
-                          fontWeight: '700',
-                          fontSize: '13.5px',
-                          cursor: 'pointer',
-                          transition: 'all 0.15s ease',
-                          textAlign: 'center',
-                        }}
-                      >
-                        {tier.label}
-                      </button>
+                      <Magnet key={tier.id} {...TILE_MAGNET_PROPS} axis="x" scale={1} padding={10} maxOffset={3} tilt={0.8}>
+                        <button
+                          onClick={() => setSelectedSpendId(tier.id)}
+                          style={{
+                            width: '100%',
+                            height: '100%',
+                            padding: '12px 14px',
+                            borderRadius: '10px',
+                            border: '2px solid',
+                            borderColor: isSelected ? '#EA580C' : '#CBD5E1',
+                            background: isSelected ? '#FFF7ED' : '#FFFFFF',
+                            color: isSelected ? '#C2410C' : '#0F172A',
+                            fontWeight: '700',
+                            fontSize: '13.5px',
+                            fontVariantNumeric: 'lining-nums tabular-nums',
+                            cursor: 'pointer',
+                            transition: 'all 0.15s ease',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            textAlign: 'center',
+                            boxSizing: 'border-box',
+                          }}
+                        >
+                          {tier.label}
+                        </button>
+                      </Magnet>
                     );
                   })}
                 </div>
@@ -512,30 +557,34 @@ export const LeadLogisticsPartner = ({ onNavigate }) => {
                 >
                   Step 2: Select Current Logistics Operating Model
                 </label>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '10px' }}>
+                <div className="fourpl-4col-grid" style={{ gap: '10px', alignItems: 'stretch' }}>
                   {diagnosticCurrentModels.map((m) => {
                     const isSelected = m.id === selectedModelId;
                     return (
-                      <div
-                        key={m.id}
-                        onClick={() => setSelectedModelId(m.id)}
-                        style={{
-                          padding: '14px',
-                          borderRadius: '10px',
-                          border: '1.5px solid',
-                          borderColor: isSelected ? '#EA580C' : '#E2E8F0',
-                          background: isSelected ? '#FFF7ED' : '#FFFFFF',
-                          cursor: 'pointer',
-                          transition: 'all 0.15s ease',
-                        }}
-                      >
-                        <div style={{ fontSize: '13.5px', fontWeight: '800', color: isSelected ? '#C2410C' : '#082653' }}>
-                          {m.label}
+                      <Magnet key={m.id} {...TILE_MAGNET_PROPS} axis="x" scale={1} padding={10} maxOffset={3} tilt={0.8}>
+                        <div
+                          onClick={() => setSelectedModelId(m.id)}
+                          style={{
+                            padding: '14px',
+                            borderRadius: '10px',
+                            border: '1.5px solid',
+                            borderColor: isSelected ? '#EA580C' : '#E2E8F0',
+                            background: isSelected ? '#FFF7ED' : '#FFFFFF',
+                            cursor: 'pointer',
+                            transition: 'all 0.15s ease',
+                            height: '100%',
+                            minWidth: 0,
+                            boxSizing: 'border-box',
+                          }}
+                        >
+                          <div style={{ fontSize: '13.5px', fontWeight: '800', color: isSelected ? '#C2410C' : '#082653', lineHeight: '1.3', minHeight: '36px' }}>
+                            {m.label}
+                          </div>
+                          <div style={{ fontSize: '11.5px', color: '#64748B', marginTop: '4px', lineHeight: '1.35' }}>
+                            {m.challenge}
+                          </div>
                         </div>
-                        <div style={{ fontSize: '11.5px', color: '#64748B', marginTop: '3px', lineHeight: '1.35' }}>
-                          {m.challenge}
-                        </div>
-                      </div>
+                      </Magnet>
                     );
                   })}
                 </div>
@@ -556,30 +605,34 @@ export const LeadLogisticsPartner = ({ onNavigate }) => {
                 >
                   Step 3: Strategic Target & Optimization Focus
                 </label>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '10px' }}>
+                <div className="fourpl-4col-grid" style={{ gap: '10px', alignItems: 'stretch' }}>
                   {diagnosticPriorities.map((p) => {
                     const isSelected = p.id === selectedPriorityId;
                     return (
-                      <div
-                        key={p.id}
-                        onClick={() => setSelectedPriorityId(p.id)}
-                        style={{
-                          padding: '14px',
-                          borderRadius: '10px',
-                          border: '1.5px solid',
-                          borderColor: isSelected ? '#0284C7' : '#E2E8F0',
-                          background: isSelected ? '#EFF6FF' : '#FFFFFF',
-                          cursor: 'pointer',
-                          transition: 'all 0.15s ease',
-                        }}
-                      >
-                        <div style={{ fontSize: '13.5px', fontWeight: '800', color: isSelected ? '#0369A1' : '#082653' }}>
-                          {p.label}
+                      <Magnet key={p.id} {...TILE_MAGNET_PROPS} axis="x" scale={1} padding={10} maxOffset={3} tilt={0.8}>
+                        <div
+                          onClick={() => setSelectedPriorityId(p.id)}
+                          style={{
+                            padding: '14px',
+                            borderRadius: '10px',
+                            border: '1.5px solid',
+                            borderColor: isSelected ? '#EA580C' : '#E2E8F0',
+                            background: isSelected ? '#FFF7ED' : '#FFFFFF',
+                            cursor: 'pointer',
+                            transition: 'all 0.15s ease',
+                            height: '100%',
+                            minWidth: 0,
+                            boxSizing: 'border-box',
+                          }}
+                        >
+                          <div style={{ fontSize: '13.5px', fontWeight: '800', color: isSelected ? '#C2410C' : '#082653', lineHeight: '1.3', minHeight: '36px' }}>
+                            {p.label}
+                          </div>
+                          <div style={{ fontSize: '11.5px', color: '#64748B', marginTop: '4px', lineHeight: '1.35' }}>
+                            {p.target}
+                          </div>
                         </div>
-                        <div style={{ fontSize: '11.5px', color: '#64748B', marginTop: '3px', lineHeight: '1.35' }}>
-                          {p.target}
-                        </div>
-                      </div>
+                      </Magnet>
                     );
                   })}
                 </div>
@@ -588,26 +641,27 @@ export const LeadLogisticsPartner = ({ onNavigate }) => {
               {/* Dynamic ROI Calculation Showcase Banner */}
               <div
                 style={{
-                  background: 'linear-gradient(135deg, #082653 0%, #03132D 100%)',
+                  background: '#FFFFFF',
                   borderRadius: '14px',
                   padding: '24px',
-                  color: '#FFFFFF',
+                  color: '#082653',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
                   flexWrap: 'wrap',
                   gap: '20px',
-                  boxShadow: '0 8px 24px rgba(8, 38, 83, 0.25)',
+                  border: '1.5px solid #CBD5E1',
+                  boxShadow: '0 8px 24px rgba(15, 23, 42, 0.06)',
                 }}
               >
                 <div>
-                  <div style={{ fontSize: '11.5px', fontWeight: '700', color: '#FFE082', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                  <div style={{ fontSize: '11.5px', fontWeight: '700', color: '#D97706', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                     Projected 4PL Hard-Dollar Value & Headcount Relief
                   </div>
-                  <div style={{ fontSize: '28px', fontWeight: '900', color: '#FFFFFF', marginTop: '4px', fontFamily: 'var(--font-heading)' }}>
-                    {currentSpend.savingsLow} – {currentSpend.savingsHigh} <span style={{ fontSize: '14px', fontWeight: '600', color: '#CBD5E1' }}>/ Year in Net Savings</span>
+                  <div style={{ fontSize: '28px', fontWeight: '900', color: '#082653', marginTop: '4px', fontFamily: 'var(--font-heading)', fontVariantNumeric: 'lining-nums tabular-nums' }}>
+                    {currentSpend.savingsLow} – {currentSpend.savingsHigh} <span style={{ fontSize: '14px', fontWeight: '600', color: '#64748B' }}>/ Year in Net Savings</span>
                   </div>
-                  <div style={{ fontSize: '13px', color: '#E2E8F0', marginTop: '4px' }}>
+                  <div style={{ fontSize: '13px', color: '#475569', marginTop: '4px' }}>
                     Estimated Admin Headcount Reclaimed: <strong>{currentSpend.fteSaved}</strong> • Neutral Rate Arbitrage: <strong>100%</strong>
                   </div>
                 </div>
@@ -642,14 +696,14 @@ export const LeadLogisticsPartner = ({ onNavigate }) => {
                 style={{
                   padding: '16px 20px',
                   borderRadius: '12px',
-                  background: 'linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%)',
-                  border: '1.5px solid #10B981',
+                  background: 'linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%)',
+                  border: '1.5px solid #FDBA74',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
                   flexWrap: 'wrap',
                   gap: '12px',
-                  boxShadow: '0 6px 18px rgba(16, 185, 129, 0.15)',
+                  boxShadow: '0 6px 18px rgba(234, 88, 12, 0.12)',
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
@@ -658,7 +712,7 @@ export const LeadLogisticsPartner = ({ onNavigate }) => {
                       width: '36px',
                       height: '36px',
                       borderRadius: '50%',
-                      background: '#10B981',
+                      background: '#EA580C',
                       color: '#FFFFFF',
                       display: 'flex',
                       alignItems: 'center',
@@ -669,10 +723,10 @@ export const LeadLogisticsPartner = ({ onNavigate }) => {
                     <CheckCircle2 size={20} />
                   </div>
                   <div>
-                    <div style={{ fontSize: '15px', fontWeight: '800', color: '#065F46' }}>
+                    <div style={{ fontSize: '15px', fontWeight: '800', color: '#082653' }}>
                       4PL Architecture Blueprint Generated • Ref #{diagnosticBlueprintToast.blueprintRef}
                     </div>
-                    <div style={{ fontSize: '12.5px', color: '#047857', marginTop: '2px' }}>
+                    <div style={{ fontSize: '12.5px', color: '#9A3412', marginTop: '2px' }}>
                       Spend Profile: <strong>{diagnosticBlueprintToast.spendTier}</strong> | Target Savings: <strong>{diagnosticBlueprintToast.savingsRange}</strong> | Focus: <strong>{diagnosticBlueprintToast.priorityFocus}</strong>
                     </div>
                   </div>
@@ -684,7 +738,7 @@ export const LeadLogisticsPartner = ({ onNavigate }) => {
                     style={{
                       padding: '8px 16px',
                       borderRadius: '6px',
-                      background: '#047857',
+                      background: '#EA580C',
                       color: '#FFFFFF',
                       fontSize: '12px',
                       fontWeight: '700',
@@ -700,8 +754,8 @@ export const LeadLogisticsPartner = ({ onNavigate }) => {
                       padding: '8px 12px',
                       borderRadius: '6px',
                       background: 'none',
-                      border: '1px solid #059669',
-                      color: '#065F46',
+                      border: '1px solid #FDBA74',
+                      color: '#C2410C',
                       fontSize: '12px',
                       fontWeight: '600',
                       cursor: 'pointer',
@@ -770,23 +824,23 @@ export const LeadLogisticsPartner = ({ onNavigate }) => {
                 background: '#FFFFFF',
                 borderRadius: '16px',
                 border: '1.5px solid #CBD5E1',
-                overflow: 'hidden',
+                overflowX: 'auto',
                 boxShadow: '0 6px 22px rgba(15, 23, 42, 0.05)',
               }}
             >
-              <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
+              <table style={{ width: '100%', minWidth: '680px', borderCollapse: 'collapse', textAlign: 'left' }}>
                 <thead>
-                  <tr style={{ background: '#082653', color: '#FFFFFF' }}>
+                  <tr style={{ background: '#F8FAFC', color: '#082653', borderBottom: '2px solid #E2E8F0' }}>
                     <th style={{ padding: '16px 20px', fontSize: '13px', fontWeight: '800', width: '28%' }}>
                       Evaluation Dimension
                     </th>
-                    <th style={{ padding: '16px 18px', fontSize: '13px', fontWeight: '700', color: '#CBD5E1', width: '22%' }}>
+                    <th style={{ padding: '16px 18px', fontSize: '13px', fontWeight: '700', color: '#475569', width: '22%' }}>
                       2PL (Asset Carrier)
                     </th>
-                    <th style={{ padding: '16px 18px', fontSize: '13px', fontWeight: '700', color: '#CBD5E1', width: '24%' }}>
+                    <th style={{ padding: '16px 18px', fontSize: '13px', fontWeight: '700', color: '#475569', width: '24%' }}>
                       3PL (Freight Forwarder)
                     </th>
-                    <th style={{ padding: '16px 20px', fontSize: '13.5px', fontWeight: '900', color: '#FFE082', width: '26%', background: '#051A3B' }}>
+                    <th style={{ padding: '16px 20px', fontSize: '13.5px', fontWeight: '900', color: '#B45309', width: '26%', background: '#FFFBEB' }}>
                       KPL Lead 4PL Partner
                     </th>
                   </tr>
@@ -809,9 +863,9 @@ export const LeadLogisticsPartner = ({ onNavigate }) => {
                       <td style={{ padding: '16px 18px', fontSize: '12.5px', color: '#475569' }}>
                         {row.threePl}
                       </td>
-                      <td style={{ padding: '16px 20px', fontSize: '13px', fontWeight: '700', color: '#047857', background: 'rgba(16, 185, 129, 0.05)' }}>
+                      <td style={{ padding: '16px 20px', fontSize: '13px', fontWeight: '700', color: '#C2410C', background: 'rgba(234, 88, 12, 0.05)' }}>
                         <div style={{ display: 'flex', alignItems: 'flex-start', gap: '6px' }}>
-                          <CheckCircle2 size={16} color="#059669" style={{ flexShrink: 0, marginTop: '2px' }} />
+                          <CheckCircle2 size={16} color="#EA580C" style={{ flexShrink: 0, marginTop: '2px' }} />
                           <span>{row.fourPl}</span>
                         </div>
                       </td>
@@ -872,121 +926,128 @@ export const LeadLogisticsPartner = ({ onNavigate }) => {
             </div>
 
             <div
+              className="fourpl-4col-grid"
               style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
                 gap: '20px',
+                alignItems: 'stretch',
               }}
             >
               {fourPlPillars.map((pillar) => {
                 const IconComp = pillar.icon;
                 return (
-                  <div
-                    key={pillar.id}
-                    style={{
-                      background: '#F8FAFC',
-                      border: '1px solid #E2E8F0',
-                      borderRadius: '16px',
-                      padding: '24px 20px',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      justifyContent: 'space-between',
-                      transition: 'all 0.2s ease',
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.transform = 'translateY(-3px)';
-                      e.currentTarget.style.boxShadow = '0 12px 28px rgba(15, 23, 42, 0.08)';
-                      e.currentTarget.style.borderColor = pillar.accent;
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.transform = 'translateY(0)';
-                      e.currentTarget.style.boxShadow = 'none';
-                      e.currentTarget.style.borderColor = '#E2E8F0';
-                    }}
-                  >
-                    <div>
-                      {/* Icon */}
-                      <div
-                        style={{
-                          width: '46px',
-                          height: '46px',
-                          borderRadius: '12px',
-                          background: `${pillar.accent}15`,
-                          color: pillar.accent,
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          marginBottom: '16px',
-                        }}
-                      >
-                        <IconComp size={22} strokeWidth={2.2} />
+                  <Magnet key={pillar.id} {...CARD_MAGNET_PROPS} axis="x" scale={1} padding={12} maxOffset={3} tilt={0.8}>
+                    <div
+                      style={{
+                        background: '#F8FAFC',
+                        border: '1px solid #E2E8F0',
+                        borderRadius: '16px',
+                        padding: '24px 20px',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'space-between',
+                        height: '100%',
+                        minWidth: 0,
+                        boxSizing: 'border-box',
+                        transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.boxShadow = '0 12px 28px rgba(15, 23, 42, 0.08)';
+                        e.currentTarget.style.borderColor = pillar.accent;
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.boxShadow = 'none';
+                        e.currentTarget.style.borderColor = '#E2E8F0';
+                      }}
+                    >
+                      <div style={{ minWidth: 0 }}>
+                        {/* Icon */}
+                        <div
+                          style={{
+                            width: '46px',
+                            height: '46px',
+                            borderRadius: '12px',
+                            background: `${pillar.accent}15`,
+                            color: pillar.accent,
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            marginBottom: '16px',
+                            flexShrink: 0,
+                          }}
+                        >
+                          <IconComp size={22} strokeWidth={2.2} />
+                        </div>
+
+                        <h3
+                          style={{
+                            fontSize: '17.5px',
+                            fontWeight: '800',
+                            color: '#082653',
+                            marginBottom: '8px',
+                            lineHeight: '1.25',
+                            minHeight: '66px',
+                            fontVariantNumeric: 'lining-nums tabular-nums',
+                          }}
+                        >
+                          {pillar.title}
+                        </h3>
+
+                        <p
+                          style={{
+                            fontSize: '13px',
+                            color: '#64748B',
+                            lineHeight: '1.5',
+                            marginBottom: '16px',
+                            minHeight: '62px',
+                          }}
+                        >
+                          {pillar.tagline}
+                        </p>
+
+                        {/* Feature Bullet points */}
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                          {pillar.features.map((feat, fIdx) => (
+                            <div
+                              key={fIdx}
+                              style={{
+                                display: 'flex',
+                                alignItems: 'flex-start',
+                                gap: '8px',
+                                fontSize: '12.5px',
+                                color: '#334155',
+                                lineHeight: '1.45',
+                                minWidth: 0,
+                              }}
+                            >
+                              <Check size={14} color={pillar.accent} style={{ flexShrink: 0, marginTop: '2px' }} />
+                              <span>{feat}</span>
+                            </div>
+                          ))}
+                        </div>
                       </div>
 
-                      <h3
-                        style={{
-                          fontSize: '18px',
-                          fontWeight: '800',
-                          color: '#082653',
-                          marginBottom: '8px',
-                          lineHeight: '1.25',
-                        }}
-                      >
-                        {pillar.title}
-                      </h3>
-
-                      <p
-                        style={{
-                          fontSize: '13px',
-                          color: '#64748B',
-                          lineHeight: '1.5',
-                          marginBottom: '16px',
-                        }}
-                      >
-                        {pillar.tagline}
-                      </p>
-
-                      {/* Feature Bullet points */}
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                        {pillar.features.map((feat, fIdx) => (
-                          <div
-                            key={fIdx}
-                            style={{
-                              display: 'flex',
-                              alignItems: 'flex-start',
-                              gap: '8px',
-                              fontSize: '12.5px',
-                              color: '#334155',
-                              lineHeight: '1.45',
-                            }}
-                          >
-                            <Check size={14} color={pillar.accent} style={{ flexShrink: 0, marginTop: '2px' }} />
-                            <span>{feat}</span>
-                          </div>
-                        ))}
+                      <div style={{ marginTop: '20px', paddingTop: '14px', borderTop: '1px solid #E2E8F0' }}>
+                        <button
+                          onClick={() => openModal('quote')}
+                          style={{
+                            background: 'none',
+                            border: 'none',
+                            padding: 0,
+                            color: pillar.accent,
+                            fontSize: '13px',
+                            fontWeight: '700',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '6px',
+                            cursor: 'pointer',
+                          }}
+                        >
+                          <span>Explore Architecture</span>
+                          <ChevronRight size={14} />
+                        </button>
                       </div>
                     </div>
-
-                    <div style={{ marginTop: '20px', paddingTop: '14px', borderTop: '1px solid #E2E8F0' }}>
-                      <button
-                        onClick={() => openModal('quote')}
-                        style={{
-                          background: 'none',
-                          border: 'none',
-                          padding: 0,
-                          color: pillar.accent,
-                          fontSize: '13px',
-                          fontWeight: '700',
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '6px',
-                          cursor: 'pointer',
-                        }}
-                      >
-                        <span>Explore Architecture</span>
-                        <ChevronRight size={14} />
-                      </button>
-                    </div>
-                  </div>
+                  </Magnet>
                 );
               })}
             </div>
@@ -999,13 +1060,14 @@ export const LeadLogisticsPartner = ({ onNavigate }) => {
         <section
           style={{
             padding: '48px 28px 48px 28px',
-            background: 'linear-gradient(145deg, #051A3B 0%, #082653 100%)',
-            color: '#FFFFFF',
+            background: '#FFFFFF',
+            color: '#082653',
+            borderBottom: '1px solid #E2E8F0',
           }}
         >
           <div style={{ maxWidth: '1080px', margin: '0 auto' }}>
             <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-              <span style={{ color: '#FFE082', fontSize: '12.5px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+              <span style={{ color: '#D97706', fontSize: '12.5px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
                 Proven Institutional Track Record
               </span>
               <h2
@@ -1013,7 +1075,7 @@ export const LeadLogisticsPartner = ({ onNavigate }) => {
                   fontFamily: 'Georgia, "Times New Roman", serif',
                   fontSize: '32px',
                   fontWeight: '700',
-                  color: '#FFFFFF',
+                  color: '#082653',
                   marginTop: '6px',
                   marginBottom: '10px',
                 }}
@@ -1023,7 +1085,7 @@ export const LeadLogisticsPartner = ({ onNavigate }) => {
               <p
                 style={{
                   fontSize: '15px',
-                  color: 'rgba(255, 255, 255, 0.82)',
+                  color: '#64748B',
                   maxWidth: '680px',
                   margin: '0 auto',
                   lineHeight: '1.5',
@@ -1034,84 +1096,129 @@ export const LeadLogisticsPartner = ({ onNavigate }) => {
             </div>
 
             <div
+              className="fourpl-3col-grid"
               style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(310px, 1fr))',
                 gap: '20px',
+                alignItems: 'stretch',
               }}
             >
-              {fourPlCaseStudies.map((cs, idx) => (
-                <div
-                  key={idx}
-                  style={{
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    backdropFilter: 'blur(10px)',
-                    border: '1px solid rgba(255, 255, 255, 0.12)',
-                    borderRadius: '16px',
-                    padding: '24px 20px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between',
-                  }}
-                >
-                  <div>
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
-                      <span
-                        style={{
-                          fontSize: '11px',
-                          fontWeight: '700',
-                          padding: '3px 8px',
-                          borderRadius: '9999px',
-                          background: 'rgba(255, 224, 130, 0.15)',
-                          color: '#FFE082',
-                          border: '1px solid rgba(255, 224, 130, 0.3)',
-                        }}
-                      >
-                        {cs.industry}
-                      </span>
-                      <div style={{ fontSize: '12px', color: '#94A3B8' }}>{cs.spend}</div>
-                    </div>
-
-                    <h3 style={{ fontSize: '17px', fontWeight: '800', color: '#FFFFFF', marginBottom: '10px', lineHeight: '1.3' }}>
-                      {cs.headline}
-                    </h3>
-
-                    <p style={{ fontSize: '13px', color: 'rgba(255, 255, 255, 0.78)', lineHeight: '1.5', marginBottom: '16px' }}>
-                      {cs.summary}
-                    </p>
-
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginBottom: '18px' }}>
-                      {cs.kpis.map((kpi, kIdx) => (
-                        <div key={kIdx} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12px', color: '#A7F3D0' }}>
-                          <CheckCircle2 size={13} color="#10B981" />
-                          <span>{kpi}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div style={{ paddingTop: '14px', borderTop: '1px solid rgba(255, 255, 255, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                    <div style={{ fontSize: '18px', fontWeight: '900', color: '#38BDF8', fontFamily: 'var(--font-heading)' }}>
-                      {cs.result}
-                    </div>
-                    <button
-                      onClick={() => openModal('quote')}
+              {fourPlCaseStudies.map((cs, idx) => {
+                const [metricAmount, ...metricWords] = cs.result.split(' ');
+                const metricLabel = metricWords.join(' ');
+                return (
+                  <Magnet key={idx} {...CARD_MAGNET_PROPS} axis="x" scale={1} padding={12} maxOffset={3} tilt={0.8}>
+                    <div
                       style={{
-                        padding: '6px 14px',
-                        borderRadius: '6px',
-                        background: 'rgba(255, 255, 255, 0.1)',
-                        color: '#FFFFFF',
-                        fontSize: '12px',
-                        fontWeight: '700',
-                        border: '1px solid rgba(255, 255, 255, 0.25)',
-                        cursor: 'pointer',
+                        background: '#F8FAFC',
+                        border: '1px solid #E2E8F0',
+                        borderRadius: '16px',
+                        padding: '24px 20px',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'space-between',
+                        height: '100%',
+                        minWidth: 0,
+                        boxSizing: 'border-box',
                       }}
                     >
-                      View Case Study
-                    </button>
-                  </div>
-                </div>
-              ))}
+                      <div style={{ minWidth: 0 }}>
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px', flexWrap: 'wrap', minHeight: '28px', marginBottom: '12px' }}>
+                          <span
+                            style={{
+                              fontSize: '11px',
+                              fontWeight: '700',
+                              padding: '3px 8px',
+                              borderRadius: '9999px',
+                              background: '#FFFBEB',
+                              color: '#B45309',
+                              border: '1px solid #FDE68A',
+                              whiteSpace: 'nowrap',
+                            }}
+                          >
+                            {cs.industry}
+                          </span>
+                          <div style={{ fontSize: '12px', color: '#64748B', whiteSpace: 'nowrap', fontVariantNumeric: 'lining-nums tabular-nums' }}>{cs.spend}</div>
+                        </div>
+
+                        <h3 style={{ fontSize: '17px', fontWeight: '800', color: '#082653', marginBottom: '10px', lineHeight: '1.3', minHeight: '66px', fontVariantNumeric: 'lining-nums tabular-nums' }}>
+                          {cs.headline}
+                        </h3>
+
+                        <p style={{ fontSize: '13px', color: '#475569', lineHeight: '1.5', marginBottom: '16px', minHeight: '80px' }}>
+                          {cs.summary}
+                        </p>
+
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginBottom: '18px' }}>
+                          {cs.kpis.map((kpi, kIdx) => (
+                            <div key={kIdx} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12px', color: '#334155' }}>
+                              <CheckCircle2 size={13} color="#EA580C" style={{ flexShrink: 0 }} />
+                              <span>{kpi}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div
+                        style={{
+                          paddingTop: '14px',
+                          borderTop: '1px solid #E2E8F0',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'space-between',
+                          gap: '12px',
+                          minHeight: '58px',
+                          boxSizing: 'border-box',
+                        }}
+                      >
+                        <div style={{ minWidth: 0 }}>
+                          <div
+                            style={{
+                              fontSize: '18.5px',
+                              fontWeight: '900',
+                              color: '#EA580C',
+                              fontFamily: 'var(--font-heading)',
+                              fontVariantNumeric: 'lining-nums tabular-nums',
+                              lineHeight: '1.15',
+                            }}
+                          >
+                            {metricAmount}
+                          </div>
+                          {metricLabel && (
+                            <div
+                              style={{
+                                fontSize: '11.5px',
+                                fontWeight: '700',
+                                color: '#EA580C',
+                                lineHeight: '1.25',
+                                marginTop: '2px',
+                              }}
+                            >
+                              {metricLabel}
+                            </div>
+                          )}
+                        </div>
+                        <button
+                          onClick={() => openModal('quote')}
+                          style={{
+                            padding: '8px 14px',
+                            borderRadius: '6px',
+                            background: '#FFFFFF',
+                            color: '#082653',
+                            fontSize: '12px',
+                            fontWeight: '700',
+                            border: '1px solid #CBD5E1',
+                            cursor: 'pointer',
+                            whiteSpace: 'nowrap',
+                            flexShrink: 0,
+                          }}
+                        >
+                          View Case Study
+                        </button>
+                      </div>
+                    </div>
+                  </Magnet>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -1220,11 +1327,11 @@ export const LeadLogisticsPartner = ({ onNavigate }) => {
         <section
           style={{
             padding: '48px 28px',
-            background: 'linear-gradient(135deg, #082653 0%, #03132D 100%)',
+            background: '#FFFFFF',
             textAlign: 'center',
-            color: '#FFFFFF',
+            color: '#082653',
             position: 'relative',
-            borderBottom: '1px solid rgba(8, 38, 83, 0.12)',
+            borderBottom: '1px solid #E2E8F0',
           }}
         >
           <div style={{ maxWidth: '780px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
@@ -1233,7 +1340,7 @@ export const LeadLogisticsPartner = ({ onNavigate }) => {
                 fontFamily: 'Georgia, "Times New Roman", serif',
                 fontSize: '34px',
                 fontWeight: '700',
-                color: '#FFFFFF',
+                color: '#082653',
                 marginBottom: '12px',
                 lineHeight: '1.2',
               }}
@@ -1244,7 +1351,7 @@ export const LeadLogisticsPartner = ({ onNavigate }) => {
             <p
               style={{
                 fontSize: '15.5px',
-                color: 'rgba(255, 255, 255, 0.85)',
+                color: '#475569',
                 lineHeight: '1.6',
                 marginBottom: '26px',
               }}
@@ -1264,7 +1371,7 @@ export const LeadLogisticsPartner = ({ onNavigate }) => {
                   fontWeight: '700',
                   border: 'none',
                   cursor: 'pointer',
-                  boxShadow: '0 6px 20px rgba(234, 88, 12, 0.45)',
+                  boxShadow: '0 6px 20px rgba(234, 88, 12, 0.35)',
                   display: 'flex',
                   alignItems: 'center',
                   gap: '8px',
@@ -1279,11 +1386,11 @@ export const LeadLogisticsPartner = ({ onNavigate }) => {
                 style={{
                   padding: '12px 24px',
                   borderRadius: '10px',
-                  background: 'rgba(255, 255, 255, 0.1)',
-                  color: '#FFFFFF',
+                  background: '#F8FAFC',
+                  color: '#082653',
                   fontSize: '14px',
                   fontWeight: '600',
-                  border: '1px solid rgba(255, 255, 255, 0.25)',
+                  border: '1px solid #CBD5E1',
                   cursor: 'pointer',
                 }}
               >

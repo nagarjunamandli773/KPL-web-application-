@@ -28,28 +28,28 @@ export const fashionHeroStats = [
     value: '99.6%',
     sub: 'Strict Runway & Seasonal Drop SLA',
     icon: CheckCircle2,
-    accent: '#9C27B0',
+    accent: '#EA580C',
   },
   {
     label: 'Garments-on-Hanger (GOH)',
     value: '18M+ / yr',
     sub: 'Wrinkle-Free Direct-to-Floor Rail Logistics',
     icon: Shirt,
-    accent: '#E91E63',
+    accent: '#D97706',
   },
   {
     label: 'Reverse Logistics Processing',
     value: '< 48 hrs',
     sub: 'Dock-to-Resale Inspection & Restock',
     icon: RotateCcw,
-    accent: '#3B82F6',
+    accent: '#C2410C',
   },
   {
     label: 'Item-Level RFID Precision',
     value: '99.98%',
     sub: 'Real-Time Carton-to-Boutique Lineage',
     icon: Tag,
-    accent: '#10B981',
+    accent: '#D84315',
   },
 ];
 
@@ -177,7 +177,7 @@ export const fashionPillars = [
       'Zero secondary steam pressing or ironing labor required at store back-rooms',
       'Direct-to-store specialized tail-lift trucks with interior hanging bar tracks'
     ],
-    accentColor: '#9C27B0',
+    accentColor: '#EA580C',
     badgeText: 'Runway Quality'
   },
   {
@@ -194,7 +194,7 @@ export const fashionPillars = [
       'Mall security and off-peak night delivery appointments pre-booked',
       'Real-time control tower visibility alerting visual merchandisers of truck arrivals'
     ],
-    accentColor: '#E91E63',
+    accentColor: '#D97706',
     badgeText: 'Launch Precision'
   },
   {
@@ -211,7 +211,7 @@ export const fashionPillars = [
       'Instant electronic packing lists (EPL) synchronized with retail POS systems',
       'Real-time retail inventory transparency reducing out-of-stock sizes by 84%'
     ],
-    accentColor: '#3B82F6',
+    accentColor: '#C2410C',
     badgeText: 'Digital Visibility'
   },
   {
@@ -228,7 +228,7 @@ export const fashionPillars = [
       'Automated re-labeling, re-polybagging, and barcode re-association',
       'Secondary market liquidation routing for damaged or off-season garments'
     ],
-    accentColor: '#10B981',
+    accentColor: '#D84315',
     badgeText: 'Circularity & Profit'
   }
 ];

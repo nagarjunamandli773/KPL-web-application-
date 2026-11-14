@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Header } from '../components/layout/Header';
 import { Footer } from '../components/layout/Footer';
 import { TrackModal } from '../components/common/TrackModal';
+import Magnet, { CARD_MAGNET_PROPS, TILE_MAGNET_PROPS } from '../components/common/Magnet';
 import {
   sustainableHeroStats,
   carbonCalculatorModes,
@@ -123,6 +124,106 @@ export const SustainableLogistics = ({ onNavigate }) => {
         overflowX: 'clip',
       }}
     >
+      <style>{`
+        .sus-4col-grid {
+          display: grid;
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          align-items: stretch;
+        }
+        .sus-3col-grid {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 22px;
+          align-items: stretch;
+        }
+        .sus-pillars-grid {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 22px;
+          align-items: stretch;
+        }
+        .sus-calc-grid {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 24px;
+          align-items: start;
+        }
+        .sus-vol-grid {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 10px;
+          align-items: stretch;
+        }
+        .sus-sticky-panel {
+          position: sticky;
+          top: 140px;
+        }
+        .sus-matrix-head,
+        .sus-matrix-row {
+          display: grid;
+          grid-template-columns: minmax(170px, 220px) minmax(0, 1fr) minmax(0, 1fr);
+          gap: 16px;
+        }
+        .sus-matrix-mobile-label {
+          display: none;
+        }
+        @media (max-width: 1024px) {
+          .sus-4col-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+        }
+        @media (max-width: 960px) {
+          .sus-3col-grid {
+            grid-template-columns: minmax(0, 1fr);
+          }
+        }
+        @media (max-width: 900px) {
+          .sus-calc-grid {
+            grid-template-columns: minmax(0, 1fr);
+          }
+          .sus-sticky-panel {
+            position: static;
+          }
+        }
+        @media (max-width: 780px) {
+          .sus-pillars-grid {
+            grid-template-columns: minmax(0, 1fr);
+          }
+        }
+        @media (max-width: 720px) {
+          .sus-matrix-head {
+            display: none !important;
+          }
+          .sus-matrix-row {
+            grid-template-columns: minmax(0, 1fr);
+            gap: 8px !important;
+            align-items: start !important;
+          }
+          .sus-matrix-mobile-label {
+            display: block;
+            font-size: 10.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 2px;
+          }
+        }
+        @media (max-width: 640px) {
+          .sus-section {
+            padding: 36px 20px !important;
+          }
+        }
+        @media (max-width: 580px) {
+          .sus-4col-grid {
+            grid-template-columns: minmax(0, 1fr);
+          }
+        }
+        @media (max-width: 480px) {
+          .sus-vol-grid {
+            grid-template-columns: minmax(0, 1fr);
+          }
+        }
+      `}</style>
       {/* 1. Shared Global Link Header */}
       <Header
         onTrackClick={() => openModal('track')}
@@ -136,15 +237,16 @@ export const SustainableLogistics = ({ onNavigate }) => {
         <div style={{ height: '24px', width: '100%', background: '#FAFBFD' }} />
 
         {/* =========================================================================
-            SECTION 1: HERO BANNER (Executive Slate Navy with Forest Emerald Glow)
+            SECTION 1: HERO BANNER (Clean White with Forest Emerald & Sunset Orange Accents)
             ========================================================================= */}
         <section
+          className="sus-section"
           style={{
             position: 'relative',
             padding: '50px 32px 50px 32px',
-            background: 'linear-gradient(145deg, #041B2D 0%, #082653 50%, #031722 100%)',
-            borderTop: '1px solid rgba(8, 38, 83, 0.1)',
-            borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+            background: '#FFFFFF',
+            borderTop: '1px solid #E2E8F0',
+            borderBottom: '1px solid #E2E8F0',
             overflow: 'hidden',
           }}
         >
@@ -156,7 +258,7 @@ export const SustainableLogistics = ({ onNavigate }) => {
               right: '-60px',
               width: '480px',
               height: '480px',
-              background: 'radial-gradient(circle, rgba(16, 185, 129, 0.18) 0%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(217, 119, 6, 0.08) 0%, transparent 70%)',
               pointerEvents: 'none',
               zIndex: 0,
             }}
@@ -168,7 +270,7 @@ export const SustainableLogistics = ({ onNavigate }) => {
               left: '10%',
               width: '420px',
               height: '420px',
-              background: 'radial-gradient(circle, rgba(5, 150, 105, 0.14) 0%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(234, 88, 12, 0.06) 0%, transparent 70%)',
               pointerEvents: 'none',
               zIndex: 0,
             }}
@@ -183,8 +285,8 @@ export const SustainableLogistics = ({ onNavigate }) => {
                 gap: '8px',
                 padding: '6px 14px',
                 borderRadius: '9999px',
-                background: 'rgba(16, 185, 129, 0.15)',
-                border: '1px solid rgba(16, 185, 129, 0.35)',
+                background: 'rgba(234, 88, 12, 0.08)',
+                border: '1px solid rgba(234, 88, 12, 0.25)',
                 marginBottom: '16px',
               }}
             >
@@ -193,7 +295,7 @@ export const SustainableLogistics = ({ onNavigate }) => {
                   width: '20px',
                   height: '20px',
                   borderRadius: '5px',
-                  background: 'linear-gradient(135deg, #10B981 0%, #059669 100%)',
+                  background: 'linear-gradient(135deg, #FF6F00 0%, #EA580C 100%)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -206,7 +308,7 @@ export const SustainableLogistics = ({ onNavigate }) => {
                 style={{
                   fontSize: '11.5px',
                   fontWeight: '700',
-                  color: '#A7F3D0',
+                  color: '#EA580C',
                   letterSpacing: '0.08em',
                   textTransform: 'uppercase',
                   fontFamily: 'var(--font-body)',
@@ -222,11 +324,10 @@ export const SustainableLogistics = ({ onNavigate }) => {
                 fontFamily: 'Georgia, "Times New Roman", serif',
                 fontSize: 'clamp(32px, 3.8vw, 44px)',
                 fontWeight: '700',
-                color: '#FFFFFF',
+                color: '#082653',
                 lineHeight: '1.15',
                 letterSpacing: '-0.5px',
                 marginBottom: '14px',
-                textShadow: '0 2px 10px rgba(0, 0, 0, 0.45)',
               }}
             >
               Sustainable Logistics Systems
@@ -237,7 +338,7 @@ export const SustainableLogistics = ({ onNavigate }) => {
               style={{
                 fontSize: '17px',
                 fontWeight: '400',
-                color: 'rgba(255, 255, 255, 0.88)',
+                color: '#475569',
                 lineHeight: '1.6',
                 maxWidth: '820px',
                 fontFamily: 'var(--font-body)',
@@ -263,16 +364,16 @@ export const SustainableLogistics = ({ onNavigate }) => {
                   fontWeight: '600',
                   border: 'none',
                   cursor: 'pointer',
-                  boxShadow: '0 4px 18px rgba(234, 88, 12, 0.45)',
+                  boxShadow: '0 4px 18px rgba(234, 88, 12, 0.35)',
                   transition: 'all 0.2s ease',
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-2px)';
-                  e.currentTarget.style.boxShadow = '0 6px 22px rgba(234, 88, 12, 0.55)';
+                  e.currentTarget.style.boxShadow = '0 6px 22px rgba(234, 88, 12, 0.45)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 4px 18px rgba(234, 88, 12, 0.45)';
+                  e.currentTarget.style.boxShadow = '0 4px 18px rgba(234, 88, 12, 0.35)';
                 }}
               >
                 <span>Request Green Corridor Audit</span>
@@ -285,84 +386,93 @@ export const SustainableLogistics = ({ onNavigate }) => {
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '8px',
-                  background: 'rgba(255, 255, 255, 0.08)',
-                  color: '#FFFFFF',
+                  background: '#F8FAFC',
+                  color: '#082653',
                   padding: '12px 22px',
                   borderRadius: '10px',
                   fontSize: '14px',
                   fontWeight: '600',
-                  border: '1px solid rgba(255, 255, 255, 0.22)',
+                  border: '1px solid #CBD5E1',
                   cursor: 'pointer',
-                  backdropFilter: 'blur(8px)',
                   transition: 'all 0.2s ease',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.16)';
-                  e.currentTarget.style.borderColor = 'rgba(16, 185, 129, 0.6)';
+                  e.currentTarget.style.background = '#F1F5F9';
+                  e.currentTarget.style.borderColor = '#EA580C';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.22)';
+                  e.currentTarget.style.background = '#F8FAFC';
+                  e.currentTarget.style.borderColor = '#CBD5E1';
                 }}
               >
-                <BarChart3 size={16} color="#34D399" />
+                <BarChart3 size={16} color="#EA580C" />
                 <span>Calculate Scope 3 Reduction</span>
               </button>
             </div>
 
             {/* Hero Key Performance Metric Strip */}
             <div
+              className="sus-4col-grid"
               style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))',
                 gap: '14px',
                 paddingTop: '20px',
-                borderTop: '1px solid rgba(255, 255, 255, 0.12)',
+                borderTop: '1px solid #E2E8F0',
               }}
             >
               {sustainableHeroStats.map((stat) => (
-                <div
-                  key={stat.id}
-                  style={{
-                    background: 'rgba(15, 23, 42, 0.45)',
-                    border: '1px solid rgba(255, 255, 255, 0.09)',
-                    borderRadius: '12px',
-                    padding: '16px 18px',
-                    backdropFilter: 'blur(10px)',
-                  }}
-                >
+                <Magnet key={stat.id} {...TILE_MAGNET_PROPS} axis="x" scale={1} padding={12} maxOffset={3} tilt={0.8}>
                   <div
                     style={{
-                      fontFamily: 'Georgia, serif',
-                      fontSize: '25px',
-                      fontWeight: '700',
-                      color: '#6EE7B7',
-                      lineHeight: '1.1',
-                      marginBottom: '4px',
+                      background: '#F8FAFC',
+                      border: '1px solid #E2E8F0',
+                      borderRadius: '12px',
+                      padding: '16px 18px',
+                      height: '100%',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'flex-start',
+                      minWidth: 0,
+                      boxSizing: 'border-box',
                     }}
                   >
-                    {stat.value}
+                    <div
+                      style={{
+                        fontFamily: 'Georgia, serif',
+                        fontVariantNumeric: 'lining-nums tabular-nums',
+                        fontSize: 'clamp(20px, 2.1vw, 25px)',
+                        fontWeight: '700',
+                        color: '#EA580C',
+                        lineHeight: '1.15',
+                        whiteSpace: 'nowrap',
+                        minHeight: '30px',
+                        marginBottom: '6px',
+                      }}
+                    >
+                      {stat.value}
+                    </div>
+                    <div
+                      style={{
+                        fontSize: '12.5px',
+                        fontWeight: '600',
+                        color: '#082653',
+                        lineHeight: '1.35',
+                        minHeight: '34px',
+                        marginBottom: '4px',
+                      }}
+                    >
+                      {stat.label}
+                    </div>
+                    <div
+                      style={{
+                        fontSize: '11px',
+                        color: '#64748B',
+                        lineHeight: '1.4',
+                      }}
+                    >
+                      {stat.sub}
+                    </div>
                   </div>
-                  <div
-                    style={{
-                      fontSize: '12.5px',
-                      fontWeight: '600',
-                      color: '#FFFFFF',
-                      marginBottom: '3px',
-                    }}
-                  >
-                    {stat.label}
-                  </div>
-                  <div
-                    style={{
-                      fontSize: '11px',
-                      color: 'rgba(255, 255, 255, 0.6)',
-                      lineHeight: '1.35',
-                    }}
-                  >
-                    {stat.sub}
-                  </div>
-                </div>
+                </Magnet>
               ))}
             </div>
           </div>
@@ -373,6 +483,7 @@ export const SustainableLogistics = ({ onNavigate }) => {
             ========================================================================= */}
         <section
           id="carbon-calculator-section"
+          className="sus-section"
           style={{
             padding: '50px 32px',
             background: '#FFFFFF',
@@ -388,7 +499,7 @@ export const SustainableLogistics = ({ onNavigate }) => {
                   gap: '6px',
                   fontSize: '11.5px',
                   fontWeight: '700',
-                  color: '#059669',
+                  color: '#EA580C',
                   textTransform: 'uppercase',
                   letterSpacing: '0.08em',
                   marginBottom: '8px',
@@ -422,16 +533,9 @@ export const SustainableLogistics = ({ onNavigate }) => {
             </div>
 
             {/* Calculator Grid */}
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-                gap: '24px',
-                alignItems: 'start',
-              }}
-            >
+            <div className="sus-calc-grid">
               {/* Left Column: Input Selectors */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', minWidth: 0 }}>
                 {/* 1. Mode Selection */}
                 <div
                   style={{
@@ -458,40 +562,44 @@ export const SustainableLogistics = ({ onNavigate }) => {
                     {carbonCalculatorModes.map((mode) => {
                       const isSelected = mode.id === selectedModeId;
                       return (
-                        <div
-                          key={mode.id}
-                          onClick={() => setSelectedModeId(mode.id)}
-                          style={{
-                            padding: '12px 14px',
-                            borderRadius: '10px',
-                            background: isSelected ? '#FFFFFF' : 'rgba(255, 255, 255, 0.6)',
-                            border: `2px solid ${isSelected ? '#059669' : '#E2E8F0'}`,
-                            cursor: 'pointer',
-                            transition: 'all 0.15s ease',
-                            boxShadow: isSelected ? '0 4px 12px rgba(5, 150, 105, 0.12)' : 'none',
-                          }}
-                        >
-                          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                            <div style={{ fontSize: '13.5px', fontWeight: '700', color: isSelected ? '#065F46' : '#0F172A' }}>
-                              {mode.name}
+                        <Magnet key={mode.id} {...TILE_MAGNET_PROPS} axis="x" scale={1} padding={10} maxOffset={3} tilt={0.8} style={{ display: 'block', width: '100%' }}>
+                          <div
+                            onClick={() => setSelectedModeId(mode.id)}
+                            style={{
+                              padding: '12px 14px',
+                              borderRadius: '10px',
+                              background: isSelected ? '#FFFFFF' : 'rgba(255, 255, 255, 0.6)',
+                              border: `2px solid ${isSelected ? '#EA580C' : '#E2E8F0'}`,
+                              cursor: 'pointer',
+                              transition: 'all 0.15s ease',
+                              boxShadow: isSelected ? '0 4px 12px rgba(234, 88, 12, 0.12)' : 'none',
+                              boxSizing: 'border-box',
+                            }}
+                          >
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '12px' }}>
+                              <div style={{ fontSize: '13.5px', fontWeight: '700', color: isSelected ? '#C2410C' : '#0F172A', minWidth: 0 }}>
+                                {mode.name}
+                              </div>
+                              <span
+                                style={{
+                                  fontSize: '11px',
+                                  fontWeight: '700',
+                                  padding: '3px 8px',
+                                  borderRadius: '6px',
+                                  background: isSelected ? '#FFF7ED' : '#E2E8F0',
+                                  color: isSelected ? '#C2410C' : '#475569',
+                                  flexShrink: 0,
+                                  whiteSpace: 'nowrap',
+                                }}
+                              >
+                                -{Math.round(mode.reductionRate * 100)}% CO₂e
+                              </span>
                             </div>
-                            <span
-                              style={{
-                                fontSize: '11px',
-                                fontWeight: '700',
-                                padding: '3px 8px',
-                                borderRadius: '6px',
-                                background: isSelected ? 'rgba(5, 150, 105, 0.15)' : '#E2E8F0',
-                                color: isSelected ? '#065F46' : '#475569',
-                              }}
-                            >
-                              -{Math.round(mode.reductionRate * 100)}% CO₂e
-                            </span>
+                            <div style={{ fontSize: '11.5px', color: '#64748B', marginTop: '4px', lineHeight: '1.45' }}>
+                              {mode.description}
+                            </div>
                           </div>
-                          <div style={{ fontSize: '11.5px', color: '#64748B', marginTop: '4px' }}>
-                            {mode.description}
-                          </div>
-                        </div>
+                        </Magnet>
                       );
                     })}
                   </div>
@@ -519,30 +627,37 @@ export const SustainableLogistics = ({ onNavigate }) => {
                   >
                     2. Select Annual Freight Volume Tier
                   </label>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+                  <div className="sus-vol-grid">
                     {carbonCalculatorVolumes.map((vol) => {
                       const isSelected = vol.id === selectedVolumeId;
                       return (
-                        <div
-                          key={vol.id}
-                          onClick={() => setSelectedVolumeId(vol.id)}
-                          style={{
-                            padding: '12px',
-                            borderRadius: '10px',
-                            background: isSelected ? '#FFFFFF' : 'rgba(255, 255, 255, 0.6)',
-                            border: `2px solid ${isSelected ? '#059669' : '#E2E8F0'}`,
-                            cursor: 'pointer',
-                            textAlign: 'center',
-                            transition: 'all 0.15s ease',
-                          }}
-                        >
-                          <div style={{ fontSize: '12.5px', fontWeight: '700', color: isSelected ? '#065F46' : '#0F172A' }}>
-                            {vol.label}
+                        <Magnet key={vol.id} {...TILE_MAGNET_PROPS} axis="x" scale={1} padding={10} maxOffset={3} tilt={0.8}>
+                          <div
+                            onClick={() => setSelectedVolumeId(vol.id)}
+                            style={{
+                              padding: '12px',
+                              borderRadius: '10px',
+                              background: isSelected ? '#FFFFFF' : 'rgba(255, 255, 255, 0.6)',
+                              border: `2px solid ${isSelected ? '#EA580C' : '#E2E8F0'}`,
+                              cursor: 'pointer',
+                              textAlign: 'center',
+                              transition: 'all 0.15s ease',
+                              height: '100%',
+                              display: 'flex',
+                              flexDirection: 'column',
+                              justifyContent: 'center',
+                              minWidth: 0,
+                              boxSizing: 'border-box',
+                            }}
+                          >
+                            <div style={{ fontSize: '12.5px', fontWeight: '700', color: isSelected ? '#C2410C' : '#0F172A' }}>
+                              {vol.label}
+                            </div>
+                            <div style={{ fontSize: '11px', color: '#64748B', marginTop: '3px' }}>
+                              {vol.enterpriseTier}
+                            </div>
                           </div>
-                          <div style={{ fontSize: '11px', color: '#64748B', marginTop: '2px' }}>
-                            {vol.enterpriseTier}
-                          </div>
-                        </div>
+                        </Magnet>
                       );
                     })}
                   </div>
@@ -574,39 +689,43 @@ export const SustainableLogistics = ({ onNavigate }) => {
                     {carbonCalculatorStrategies.map((strat) => {
                       const isSelected = strat.id === selectedStrategyId;
                       return (
-                        <div
-                          key={strat.id}
-                          onClick={() => setSelectedStrategyId(strat.id)}
-                          style={{
-                            padding: '12px 14px',
-                            borderRadius: '10px',
-                            background: isSelected ? '#FFFFFF' : 'rgba(255, 255, 255, 0.6)',
-                            border: `2px solid ${isSelected ? '#059669' : '#E2E8F0'}`,
-                            cursor: 'pointer',
-                            transition: 'all 0.15s ease',
-                          }}
-                        >
-                          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                            <div style={{ fontSize: '13px', fontWeight: '700', color: isSelected ? '#065F46' : '#0F172A' }}>
-                              {strat.name}
+                        <Magnet key={strat.id} {...TILE_MAGNET_PROPS} axis="x" scale={1} padding={10} maxOffset={3} tilt={0.8} style={{ display: 'block', width: '100%' }}>
+                          <div
+                            onClick={() => setSelectedStrategyId(strat.id)}
+                            style={{
+                              padding: '12px 14px',
+                              borderRadius: '10px',
+                              background: isSelected ? '#FFFFFF' : 'rgba(255, 255, 255, 0.6)',
+                              border: `2px solid ${isSelected ? '#EA580C' : '#E2E8F0'}`,
+                              cursor: 'pointer',
+                              transition: 'all 0.15s ease',
+                              boxSizing: 'border-box',
+                            }}
+                          >
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '12px' }}>
+                              <div style={{ fontSize: '13px', fontWeight: '700', color: isSelected ? '#C2410C' : '#0F172A', minWidth: 0 }}>
+                                {strat.name}
+                              </div>
+                              <span
+                                style={{
+                                  fontSize: '10.5px',
+                                  fontWeight: '700',
+                                  padding: '2px 8px',
+                                  borderRadius: '4px',
+                                  background: isSelected ? '#FFF7ED' : '#E2E8F0',
+                                  color: isSelected ? '#C2410C' : '#475569',
+                                  flexShrink: 0,
+                                  whiteSpace: 'nowrap',
+                                }}
+                              >
+                                {strat.badge}
+                              </span>
                             </div>
-                            <span
-                              style={{
-                                fontSize: '10.5px',
-                                fontWeight: '700',
-                                padding: '2px 6px',
-                                borderRadius: '4px',
-                                background: isSelected ? 'rgba(5, 150, 105, 0.15)' : '#E2E8F0',
-                                color: isSelected ? '#065F46' : '#475569',
-                              }}
-                            >
-                              {strat.badge}
-                            </span>
+                            <div style={{ fontSize: '11px', color: '#64748B', marginTop: '4px', lineHeight: '1.45' }}>
+                              {strat.description}
+                            </div>
                           </div>
-                          <div style={{ fontSize: '11px', color: '#64748B', marginTop: '4px' }}>
-                            {strat.description}
-                          </div>
-                        </div>
+                        </Magnet>
                       );
                     })}
                   </div>
@@ -615,39 +734,41 @@ export const SustainableLogistics = ({ onNavigate }) => {
 
               {/* Right Column: Dynamic Impact Results */}
               <div
+                className="sus-sticky-panel"
                 style={{
-                  background: 'linear-gradient(145deg, #041B2D 0%, #082653 100%)',
+                  background: '#FFFFFF',
                   borderRadius: '16px',
                   padding: '28px',
-                  color: '#FFFFFF',
-                  boxShadow: '0 12px 32px rgba(8, 38, 83, 0.18)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  position: 'sticky',
-                  top: '140px',
+                  color: '#082653',
+                  boxShadow: '0 12px 32px rgba(15, 23, 42, 0.08)',
+                  border: '1.5px solid #CBD5E1',
+                  minWidth: 0,
+                  boxSizing: 'border-box',
                 }}
               >
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', minWidth: 0 }}>
                     <div
                       style={{
                         width: '32px',
                         height: '32px',
                         borderRadius: '8px',
-                        background: 'rgba(16, 185, 129, 0.2)',
-                        border: '1px solid rgba(16, 185, 129, 0.4)',
+                        background: 'rgba(234, 88, 12, 0.12)',
+                        border: '1px solid rgba(234, 88, 12, 0.3)',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        color: '#6EE7B7',
+                        color: '#EA580C',
+                        flexShrink: 0,
                       }}
                     >
                       <Activity size={18} />
                     </div>
-                    <div>
-                      <div style={{ fontSize: '11px', textTransform: 'uppercase', color: '#94A3B8', letterSpacing: '0.06em' }}>
+                    <div style={{ minWidth: 0 }}>
+                      <div style={{ fontSize: '11px', textTransform: 'uppercase', color: '#64748B', letterSpacing: '0.06em' }}>
                         GHG Audit Estimate
                       </div>
-                      <div style={{ fontSize: '15px', fontWeight: '700', color: '#FFFFFF' }}>
+                      <div style={{ fontSize: '15px', fontWeight: '700', color: '#082653' }}>
                         Scope 3 Emission Impact
                       </div>
                     </div>
@@ -657,16 +778,18 @@ export const SustainableLogistics = ({ onNavigate }) => {
                   <div
                     style={{
                       textAlign: 'right',
-                      background: 'rgba(16, 185, 129, 0.15)',
-                      border: '1px solid rgba(16, 185, 129, 0.4)',
+                      background: '#FFF7ED',
+                      border: '1px solid #FED7AA',
                       padding: '6px 12px',
                       borderRadius: '8px',
+                      flexShrink: 0,
+                      whiteSpace: 'nowrap',
                     }}
                   >
-                    <div style={{ fontSize: '10px', color: '#A7F3D0', textTransform: 'uppercase' }}>
+                    <div style={{ fontSize: '10px', color: '#C2410C', textTransform: 'uppercase', fontWeight: '700' }}>
                       Carbon Saved
                     </div>
-                    <div style={{ fontSize: '18px', fontWeight: '700', color: '#34D399' }}>
+                    <div style={{ fontSize: '18px', fontWeight: '700', color: '#EA580C', fontVariantNumeric: 'lining-nums tabular-nums' }}>
                       -{percentSaved}%
                     </div>
                   </div>
@@ -674,37 +797,67 @@ export const SustainableLogistics = ({ onNavigate }) => {
 
                 {/* Key Outputs */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', marginBottom: '22px' }}>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
-                    <div style={{ background: 'rgba(255, 255, 255, 0.05)', padding: '12px 14px', borderRadius: '10px', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
-                      <div style={{ fontSize: '11px', color: '#94A3B8' }}>Baseline Emissions</div>
-                      <div style={{ fontSize: '17px', fontWeight: '700', color: '#FFFFFF', marginTop: '2px' }}>
-                        {baselineTons.toLocaleString()} <span style={{ fontSize: '11px', fontWeight: '400', color: '#94A3B8' }}>tCO₂e</span>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: '12px', alignItems: 'stretch' }}>
+                    <Magnet {...TILE_MAGNET_PROPS} axis="x" scale={1} padding={10} maxOffset={3} tilt={0.8}>
+                      <div
+                        style={{
+                          background: '#F8FAFC',
+                          padding: '12px 14px',
+                          borderRadius: '10px',
+                          border: '1px solid #E2E8F0',
+                          height: '100%',
+                          display: 'flex',
+                          flexDirection: 'column',
+                          justifyContent: 'center',
+                          minWidth: 0,
+                          boxSizing: 'border-box',
+                        }}
+                      >
+                        <div style={{ fontSize: '11px', color: '#64748B' }}>Baseline Emissions</div>
+                        <div style={{ fontSize: '17px', fontWeight: '700', color: '#082653', marginTop: '3px', fontVariantNumeric: 'lining-nums tabular-nums' }}>
+                          {baselineTons.toLocaleString()} <span style={{ fontSize: '11px', fontWeight: '400', color: '#64748B' }}>tCO₂e</span>
+                        </div>
                       </div>
-                    </div>
+                    </Magnet>
 
-                    <div style={{ background: 'rgba(16, 185, 129, 0.12)', padding: '12px 14px', borderRadius: '10px', border: '1px solid rgba(16, 185, 129, 0.3)' }}>
-                      <div style={{ fontSize: '11px', color: '#A7F3D0' }}>Projected Abatement</div>
-                      <div style={{ fontSize: '17px', fontWeight: '700', color: '#34D399', marginTop: '2px' }}>
-                        {tonsAbated.toLocaleString()} <span style={{ fontSize: '11px', fontWeight: '400', color: '#A7F3D0' }}>tCO₂e</span>
+                    <Magnet {...TILE_MAGNET_PROPS} axis="x" scale={1} padding={10} maxOffset={3} tilt={0.8}>
+                      <div
+                        style={{
+                          background: '#FFF7ED',
+                          padding: '12px 14px',
+                          borderRadius: '10px',
+                          border: '1px solid #FDBA74',
+                          height: '100%',
+                          display: 'flex',
+                          flexDirection: 'column',
+                          justifyContent: 'center',
+                          minWidth: 0,
+                          boxSizing: 'border-box',
+                        }}
+                      >
+                        <div style={{ fontSize: '11px', color: '#C2410C', fontWeight: '600' }}>Projected Abatement</div>
+                        <div style={{ fontSize: '17px', fontWeight: '700', color: '#EA580C', marginTop: '3px', fontVariantNumeric: 'lining-nums tabular-nums' }}>
+                          {tonsAbated.toLocaleString()} <span style={{ fontSize: '11px', fontWeight: '400', color: '#C2410C' }}>tCO₂e</span>
+                        </div>
                       </div>
-                    </div>
+                    </Magnet>
                   </div>
 
-                  <div style={{ background: 'rgba(255, 255, 255, 0.05)', padding: '12px 14px', borderRadius: '10px', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
-                    <div style={{ fontSize: '11px', color: '#94A3B8', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>
+                  <div style={{ background: '#F8FAFC', padding: '12px 14px', borderRadius: '10px', border: '1px solid #E2E8F0' }}>
+                    <div style={{ fontSize: '11px', color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>
                       Environmental Equivalence Benchmark
                     </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: '#E2E8F0' }}>
-                      <TreePine size={16} color="#34D399" />
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: '#334155' }}>
+                      <TreePine size={16} color="#EA580C" style={{ flexShrink: 0 }} />
                       <span>Equivalent to planting <strong>{equivalentTrees.toLocaleString()}</strong> tree seedlings grown for 10 years</span>
                     </div>
                   </div>
 
-                  <div style={{ background: 'rgba(255, 255, 255, 0.05)', padding: '12px 14px', borderRadius: '10px' }}>
-                    <div style={{ fontSize: '11px', color: '#94A3B8', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>
+                  <div style={{ background: '#F8FAFC', padding: '12px 14px', borderRadius: '10px', border: '1px solid #E2E8F0' }}>
+                    <div style={{ fontSize: '11px', color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>
                       Certification Standard
                     </div>
-                    <div style={{ fontSize: '12.5px', color: '#CBD5E1', lineHeight: '1.4' }}>
+                    <div style={{ fontSize: '12.5px', color: '#475569', lineHeight: '1.45' }}>
                       ISO 14083:2023 & Smart Freight Centre GLEC Framework with direct API ledger integration.
                     </div>
                   </div>
@@ -715,7 +868,7 @@ export const SustainableLogistics = ({ onNavigate }) => {
                   onClick={handleGenerateCertificate}
                   style={{
                     width: '100%',
-                    background: 'linear-gradient(135deg, #10B981 0%, #059669 100%)',
+                    background: 'linear-gradient(135deg, #FF6F00 0%, #EA580C 100%)',
                     color: '#FFFFFF',
                     border: 'none',
                     padding: '12px',
@@ -727,7 +880,7 @@ export const SustainableLogistics = ({ onNavigate }) => {
                     alignItems: 'center',
                     justifyContent: 'center',
                     gap: '8px',
-                    boxShadow: '0 4px 14px rgba(16, 185, 129, 0.35)',
+                    boxShadow: '0 4px 14px rgba(234, 88, 12, 0.3)',
                     transition: 'all 0.2s ease',
                   }}
                   onMouseEnter={(e) => {
@@ -737,7 +890,7 @@ export const SustainableLogistics = ({ onNavigate }) => {
                     e.currentTarget.style.transform = 'translateY(0)';
                   }}
                 >
-                  <FileText size={16} />
+                  <FileText size={16} style={{ flexShrink: 0 }} />
                   <span>Generate Audit-Ready ESG Insetting Ledger</span>
                 </button>
 
@@ -746,21 +899,21 @@ export const SustainableLogistics = ({ onNavigate }) => {
                   <div
                     style={{
                       marginTop: '14px',
-                      background: 'rgba(16, 185, 129, 0.15)',
-                      border: '1px solid rgba(16, 185, 129, 0.4)',
+                      background: '#FFF7ED',
+                      border: '1px solid #FDBA74',
                       borderRadius: '8px',
                       padding: '12px',
                       fontSize: '12px',
-                      color: '#A7F3D0',
+                      color: '#9A3412',
                       lineHeight: '1.45',
                     }}
                   >
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontWeight: '700', marginBottom: '3px' }}>
-                      <CheckCircle2 size={14} />
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontWeight: '700', marginBottom: '3px', color: '#082653' }}>
+                      <CheckCircle2 size={14} color="#EA580C" style={{ flexShrink: 0 }} />
                       <span>Audit Certificate Reserved:</span>
                     </div>
-                    <div>Ledger Ref: <strong style={{ color: '#FFFFFF' }}>{certToast.certNumber}</strong></div>
-                    <div>Abatement Commitment: <strong style={{ color: '#FFFFFF' }}>{certToast.abated} ({certToast.reductionPct} Net Cut)</strong></div>
+                    <div>Ledger Ref: <strong style={{ color: '#C2410C' }}>{certToast.certNumber}</strong></div>
+                    <div>Abatement Commitment: <strong style={{ color: '#C2410C' }}>{certToast.abated} ({certToast.reductionPct} Net Cut)</strong></div>
                   </div>
                 )}
               </div>
@@ -772,6 +925,7 @@ export const SustainableLogistics = ({ onNavigate }) => {
             SECTION 3: FOUR CORE DECARBONIZATION PILLARS
             ========================================================================= */}
         <section
+          className="sus-section"
           style={{
             padding: '50px 32px',
             background: '#FAFBFD',
@@ -787,7 +941,7 @@ export const SustainableLogistics = ({ onNavigate }) => {
                   gap: '6px',
                   fontSize: '11.5px',
                   fontWeight: '700',
-                  color: '#059669',
+                  color: '#EA580C',
                   textTransform: 'uppercase',
                   letterSpacing: '0.08em',
                   marginBottom: '8px',
@@ -821,44 +975,45 @@ export const SustainableLogistics = ({ onNavigate }) => {
             </div>
 
             {/* Pillars Grid */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '22px' }}>
+            <div className="sus-pillars-grid">
               {sustainablePillars.map((pillar) => (
-                <div
-                  key={pillar.id}
-                  style={{
-                    background: '#FFFFFF',
-                    border: '1px solid #E2E8F0',
-                    borderRadius: '16px',
-                    padding: '28px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between',
-                    boxShadow: '0 4px 16px rgba(15, 23, 42, 0.04)',
-                    transition: 'all 0.2s ease',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = 'translateY(-2px)';
-                    e.currentTarget.style.borderColor = pillar.accentColor;
-                    e.currentTarget.style.boxShadow = '0 8px 24px rgba(5, 150, 105, 0.08)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.borderColor = '#E2E8F0';
-                    e.currentTarget.style.boxShadow = '0 4px 16px rgba(15, 23, 42, 0.04)';
-                  }}
-                >
-                  <div>
+                <Magnet key={pillar.id} {...CARD_MAGNET_PROPS} axis="x" scale={1} padding={12} maxOffset={3} tilt={0.8}>
+                  <div
+                    style={{
+                      background: '#FFFFFF',
+                      border: '1px solid #E2E8F0',
+                      borderRadius: '16px',
+                      padding: '28px',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'flex-start',
+                      height: '100%',
+                      minWidth: 0,
+                      boxSizing: 'border-box',
+                      boxShadow: '0 4px 16px rgba(15, 23, 42, 0.04)',
+                      transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = pillar.accentColor;
+                      e.currentTarget.style.boxShadow = '0 8px 24px rgba(234, 88, 12, 0.08)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = '#E2E8F0';
+                      e.currentTarget.style.boxShadow = '0 4px 16px rgba(15, 23, 42, 0.04)';
+                    }}
+                  >
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
                       <div
                         style={{
                           width: '42px',
                           height: '42px',
                           borderRadius: '10px',
-                          background: 'rgba(5, 150, 105, 0.1)',
+                          background: 'rgba(234, 88, 12, 0.1)',
                           color: pillar.accentColor,
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
+                          flexShrink: 0,
                         }}
                       >
                         {pillar.id === 'accounting' && <BarChart3 size={20} />}
@@ -872,29 +1027,30 @@ export const SustainableLogistics = ({ onNavigate }) => {
                           fontWeight: '800',
                           color: '#94A3B8',
                           letterSpacing: '0.05em',
+                          flexShrink: 0,
                         }}
                       >
                         STEP {pillar.step}
                       </span>
                     </div>
 
-                    <h3 style={{ fontSize: '18px', fontWeight: '700', color: '#082653', marginBottom: '6px' }}>
+                    <h3 style={{ fontSize: '18px', fontWeight: '700', color: '#082653', lineHeight: '1.3', minHeight: '46px', marginBottom: '6px' }}>
                       {pillar.title}
                     </h3>
-                    <div style={{ fontSize: '12.5px', color: pillar.accentColor, fontWeight: '600', marginBottom: '16px' }}>
+                    <div style={{ fontSize: '12.5px', color: pillar.accentColor, fontWeight: '600', lineHeight: '1.35', minHeight: '20px', marginBottom: '16px' }}>
                       {pillar.subtitle}
                     </div>
 
                     <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
                       {pillar.points.map((point, idx) => (
-                        <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '13px', color: '#475569', lineHeight: '1.45' }}>
+                        <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '13px', color: '#475569', lineHeight: '1.45', minWidth: 0 }}>
                           <Check size={15} color={pillar.accentColor} style={{ flexShrink: 0, marginTop: '2px' }} />
                           <span>{point}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
-                </div>
+                </Magnet>
               ))}
             </div>
           </div>
@@ -904,6 +1060,7 @@ export const SustainableLogistics = ({ onNavigate }) => {
             SECTION 4: COMPARATIVE MATRIX (STANDARD FREIGHT VS. KPL GREEN SYSTEMS)
             ========================================================================= */}
         <section
+          className="sus-section"
           style={{
             padding: '50px 32px',
             background: '#FFFFFF',
@@ -919,7 +1076,7 @@ export const SustainableLogistics = ({ onNavigate }) => {
                   gap: '6px',
                   fontSize: '11.5px',
                   fontWeight: '700',
-                  color: '#059669',
+                  color: '#EA580C',
                   textTransform: 'uppercase',
                   letterSpacing: '0.08em',
                   marginBottom: '8px',
@@ -963,44 +1120,45 @@ export const SustainableLogistics = ({ onNavigate }) => {
               }}
             >
               <div
+                className="sus-matrix-head"
                 style={{
-                  display: 'grid',
-                  gridTemplateColumns: '220px 1fr 1fr',
-                  background: '#082653',
-                  color: '#FFFFFF',
+                  background: '#F8FAFC',
+                  color: '#082653',
+                  borderBottom: '2px solid #E2E8F0',
                   padding: '16px 20px',
                   fontSize: '13px',
                   fontWeight: '700',
                   letterSpacing: '0.05em',
                   textTransform: 'uppercase',
+                  alignItems: 'center',
                 }}
               >
                 <div>Evaluation Dimension</div>
-                <div style={{ color: '#CBD5E1' }}>Standard Industry Practice</div>
-                <div style={{ color: '#34D399' }}>KPL Sustainable Systems</div>
+                <div style={{ color: '#64748B' }}>Standard Industry Practice</div>
+                <div style={{ color: '#EA580C' }}>KPL Sustainable Systems</div>
               </div>
 
               {comparativeGreenMatrix.map((row, idx) => (
                 <div
                   key={idx}
+                  className="sus-matrix-row"
                   style={{
-                    display: 'grid',
-                    gridTemplateColumns: '220px 1fr 1fr',
                     padding: '16px 20px',
                     borderBottom: idx !== comparativeGreenMatrix.length - 1 ? '1px solid #F1F5F9' : 'none',
                     background: idx % 2 === 0 ? '#FAFBFD' : '#FFFFFF',
                     fontSize: '13px',
                     alignItems: 'center',
-                    gap: '14px',
                   }}
                 >
-                  <div style={{ fontWeight: '700', color: '#082653' }}>
+                  <div style={{ fontWeight: '700', color: '#082653', minWidth: 0 }}>
                     {row.dimension}
                   </div>
-                  <div style={{ color: '#64748B', lineHeight: '1.45' }}>
+                  <div style={{ color: '#64748B', lineHeight: '1.45', minWidth: 0 }}>
+                    <span className="sus-matrix-mobile-label" style={{ color: '#64748B' }}>Standard Industry Practice</span>
                     {row.standard}
                   </div>
-                  <div style={{ color: '#065F46', fontWeight: '600', lineHeight: '1.45' }}>
+                  <div style={{ color: '#C2410C', fontWeight: '600', lineHeight: '1.45', minWidth: 0 }}>
+                    <span className="sus-matrix-mobile-label" style={{ color: '#EA580C' }}>KPL Sustainable Systems</span>
                     {row.kplGreen}
                   </div>
                 </div>
@@ -1013,6 +1171,7 @@ export const SustainableLogistics = ({ onNavigate }) => {
             SECTION 5: ENTERPRISE CASE STUDIES
             ========================================================================= */}
         <section
+          className="sus-section"
           style={{
             padding: '50px 32px',
             background: '#FAFBFD',
@@ -1028,7 +1187,7 @@ export const SustainableLogistics = ({ onNavigate }) => {
                   gap: '6px',
                   fontSize: '11.5px',
                   fontWeight: '700',
-                  color: '#059669',
+                  color: '#EA580C',
                   textTransform: 'uppercase',
                   letterSpacing: '0.08em',
                   marginBottom: '8px',
@@ -1062,80 +1221,83 @@ export const SustainableLogistics = ({ onNavigate }) => {
             </div>
 
             {/* Case Studies Grid */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '22px' }}>
+            <div className="sus-3col-grid">
               {sustainableCaseStudies.map((study) => (
-                <div
-                  key={study.id}
-                  style={{
-                    background: '#FFFFFF',
-                    border: '1px solid #E2E8F0',
-                    borderRadius: '16px',
-                    padding: '24px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between',
-                    boxShadow: '0 4px 16px rgba(15, 23, 42, 0.04)',
-                    transition: 'all 0.2s ease',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = 'translateY(-3px)';
-                    e.currentTarget.style.boxShadow = '0 8px 24px rgba(15, 23, 42, 0.08)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = '0 4px 16px rgba(15, 23, 42, 0.04)';
-                  }}
-                >
-                  <div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-                      <span
-                        style={{
-                          fontSize: '11px',
-                          fontWeight: '700',
-                          textTransform: 'uppercase',
-                          color: '#059669',
-                          background: 'rgba(5, 150, 105, 0.1)',
-                          padding: '3px 8px',
-                          borderRadius: '4px',
-                        }}
-                      >
-                        {study.industry}
-                      </span>
-                      <span style={{ fontSize: '11.5px', color: '#64748B' }}>{study.client}</span>
-                    </div>
-
-                    <h3 style={{ fontSize: '17px', fontWeight: '700', color: '#082653', marginBottom: '8px' }}>
-                      {study.headline}
-                    </h3>
-
-                    <p style={{ fontSize: '13px', color: '#475569', lineHeight: '1.55', marginBottom: '12px' }}>
-                      {study.challenge}
-                    </p>
-
-                    <div style={{ background: '#FAFBFD', padding: '12px', borderRadius: '8px', border: '1px solid #F1F5F9', marginBottom: '16px' }}>
-                      <div style={{ fontSize: '11px', fontWeight: '700', color: '#082653', textTransform: 'uppercase', marginBottom: '4px' }}>
-                        Engineered Solution:
+                <Magnet key={study.id} {...CARD_MAGNET_PROPS} axis="x" scale={1} padding={12} maxOffset={3} tilt={0.8}>
+                  <div
+                    style={{
+                      background: '#FFFFFF',
+                      border: '1px solid #E2E8F0',
+                      borderRadius: '16px',
+                      padding: '24px',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'space-between',
+                      height: '100%',
+                      minWidth: 0,
+                      boxSizing: 'border-box',
+                      boxShadow: '0 4px 16px rgba(15, 23, 42, 0.04)',
+                      transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.boxShadow = '0 8px 24px rgba(15, 23, 42, 0.08)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.boxShadow = '0 4px 16px rgba(15, 23, 42, 0.04)';
+                    }}
+                  >
+                    <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
+                      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '6px', minHeight: '52px', marginBottom: '12px' }}>
+                        <span
+                          style={{
+                            fontSize: '11px',
+                            fontWeight: '700',
+                            textTransform: 'uppercase',
+                            color: '#EA580C',
+                            background: 'rgba(234, 88, 12, 0.1)',
+                            padding: '3px 8px',
+                            borderRadius: '4px',
+                            whiteSpace: 'nowrap',
+                          }}
+                        >
+                          {study.industry}
+                        </span>
+                        <span style={{ fontSize: '11.5px', color: '#64748B', lineHeight: '1.35' }}>{study.client}</span>
                       </div>
-                      <div style={{ fontSize: '12.5px', color: '#334155', lineHeight: '1.45' }}>
-                        {study.solution}
-                      </div>
-                    </div>
-                  </div>
 
-                  {/* Metrics Strip */}
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '8px', paddingTop: '14px', borderTop: '1px solid #F1F5F9', textAlign: 'center' }}>
-                    {study.metrics.map((m, i) => (
-                      <div key={i} style={{ background: '#FAFBFD', padding: '8px 4px', borderRadius: '6px' }}>
-                        <div style={{ fontSize: '14px', fontWeight: '800', color: '#059669' }}>
-                          {m.val}
+                      <h3 style={{ fontSize: '17px', fontWeight: '700', color: '#082653', lineHeight: '1.35', minHeight: '70px', marginBottom: '8px', fontVariantNumeric: 'lining-nums tabular-nums' }}>
+                        {study.headline}
+                      </h3>
+
+                      <p style={{ fontSize: '13px', color: '#475569', lineHeight: '1.55', minHeight: '102px', marginBottom: '12px' }}>
+                        {study.challenge}
+                      </p>
+
+                      <div style={{ background: '#FAFBFD', padding: '12px', borderRadius: '8px', border: '1px solid #F1F5F9', marginBottom: '16px', flex: 1 }}>
+                        <div style={{ fontSize: '11px', fontWeight: '700', color: '#082653', textTransform: 'uppercase', marginBottom: '4px' }}>
+                          Engineered Solution:
                         </div>
-                        <div style={{ fontSize: '10px', color: '#64748B', marginTop: '2px' }}>
-                          {m.label}
+                        <div style={{ fontSize: '12.5px', color: '#334155', lineHeight: '1.45' }}>
+                          {study.solution}
                         </div>
                       </div>
-                    ))}
+                    </div>
+
+                    {/* Metrics Strip */}
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: '8px', paddingTop: '14px', borderTop: '1px solid #F1F5F9', textAlign: 'center', alignItems: 'stretch' }}>
+                      {study.metrics.map((m, i) => (
+                        <div key={i} style={{ background: '#FAFBFD', padding: '8px 6px', borderRadius: '6px', display: 'flex', flexDirection: 'column', justifyContent: 'center', minWidth: 0, boxSizing: 'border-box' }}>
+                          <div style={{ fontSize: '13px', fontWeight: '800', color: '#EA580C', fontVariantNumeric: 'lining-nums tabular-nums', lineHeight: '1.2', minHeight: '18px' }}>
+                            {m.val}
+                          </div>
+                          <div style={{ fontSize: '10px', color: '#64748B', marginTop: '3px', lineHeight: '1.3' }}>
+                            {m.label}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                </div>
+                </Magnet>
               ))}
             </div>
           </div>
@@ -1145,6 +1307,7 @@ export const SustainableLogistics = ({ onNavigate }) => {
             SECTION 6: ESG & REGULATORY ACCREDITATIONS
             ========================================================================= */}
         <section
+          className="sus-section"
           style={{
             padding: '42px 32px',
             background: '#FFFFFF',
@@ -1152,44 +1315,50 @@ export const SustainableLogistics = ({ onNavigate }) => {
           }}
         >
           <div style={{ maxWidth: '1080px', margin: '0 auto' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px' }}>
+            <div className="sus-4col-grid" style={{ gap: '16px' }}>
               {sustainableAccreditations.map((std, idx) => (
-                <div
-                  key={idx}
-                  style={{
-                    background: '#FAFBFD',
-                    border: '1px solid #E2E8F0',
-                    borderRadius: '12px',
-                    padding: '20px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '8px',
-                  }}
-                >
+                <Magnet key={idx} {...CARD_MAGNET_PROPS} axis="x" scale={1} padding={12} maxOffset={3} tilt={0.8}>
                   <div
                     style={{
-                      width: '36px',
-                      height: '36px',
-                      borderRadius: '8px',
-                      background: 'rgba(5, 150, 105, 0.12)',
-                      color: '#059669',
+                      background: '#FAFBFD',
+                      border: '1px solid #E2E8F0',
+                      borderRadius: '12px',
+                      padding: '20px',
                       display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
+                      flexDirection: 'column',
+                      justifyContent: 'flex-start',
+                      gap: '8px',
+                      height: '100%',
+                      minWidth: 0,
+                      boxSizing: 'border-box',
                     }}
                   >
-                    {std.icon === 'ShieldCheck' && <ShieldCheck size={18} />}
-                    {std.icon === 'Award' && <Award size={18} />}
-                    {std.icon === 'CheckCircle2' && <CheckCircle2 size={18} />}
-                    {std.icon === 'Scale' && <Scale size={18} />}
+                    <div
+                      style={{
+                        width: '36px',
+                        height: '36px',
+                        borderRadius: '8px',
+                        background: 'rgba(234, 88, 12, 0.12)',
+                        color: '#EA580C',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        flexShrink: 0,
+                      }}
+                    >
+                      {std.icon === 'ShieldCheck' && <ShieldCheck size={18} />}
+                      {std.icon === 'Award' && <Award size={18} />}
+                      {std.icon === 'CheckCircle2' && <CheckCircle2 size={18} />}
+                      {std.icon === 'Scale' && <Scale size={18} />}
+                    </div>
+                    <h4 style={{ fontSize: '13.5px', fontWeight: '700', color: '#082653', margin: 0, lineHeight: '1.35', minHeight: '38px', fontVariantNumeric: 'lining-nums tabular-nums' }}>
+                      {std.title}
+                    </h4>
+                    <p style={{ fontSize: '12.5px', color: '#64748B', lineHeight: '1.45', margin: 0 }}>
+                      {std.desc}
+                    </p>
                   </div>
-                  <h4 style={{ fontSize: '14.5px', fontWeight: '700', color: '#082653', margin: 0 }}>
-                    {std.title}
-                  </h4>
-                  <p style={{ fontSize: '12.5px', color: '#64748B', lineHeight: '1.45', margin: 0 }}>
-                    {std.desc}
-                  </p>
-                </div>
+                </Magnet>
               ))}
             </div>
           </div>
@@ -1199,6 +1368,7 @@ export const SustainableLogistics = ({ onNavigate }) => {
             SECTION 7: TECHNICAL FAQ ACCORDION
             ========================================================================= */}
         <section
+          className="sus-section"
           style={{
             padding: '50px 32px',
             background: '#FAFBFD',
@@ -1214,7 +1384,7 @@ export const SustainableLogistics = ({ onNavigate }) => {
                   gap: '6px',
                   fontSize: '11.5px',
                   fontWeight: '700',
-                  color: '#059669',
+                  color: '#EA580C',
                   textTransform: 'uppercase',
                   letterSpacing: '0.08em',
                   marginBottom: '8px',
@@ -1247,7 +1417,7 @@ export const SustainableLogistics = ({ onNavigate }) => {
                     key={idx}
                     style={{
                       background: '#FFFFFF',
-                      border: `1px solid ${isOpen ? '#059669' : '#E2E8F0'}`,
+                      border: `1px solid ${isOpen ? '#EA580C' : '#E2E8F0'}`,
                       borderRadius: '12px',
                       overflow: 'hidden',
                       transition: 'border-color 0.15s ease',
@@ -1276,8 +1446,8 @@ export const SustainableLogistics = ({ onNavigate }) => {
                           width: '24px',
                           height: '24px',
                           borderRadius: '50%',
-                          background: isOpen ? 'rgba(5, 150, 105, 0.15)' : '#F1F5F9',
-                          color: isOpen ? '#059669' : '#64748B',
+                          background: isOpen ? 'rgba(234, 88, 12, 0.15)' : '#F1F5F9',
+                          color: isOpen ? '#EA580C' : '#64748B',
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
@@ -1313,13 +1483,14 @@ export const SustainableLogistics = ({ onNavigate }) => {
             SECTION 8: BOTTOM EXECUTIVE CTA BANNER
             ========================================================================= */}
         <section
+          className="sus-section"
           style={{
             padding: '50px 32px',
-            background: 'linear-gradient(135deg, #041B2D 0%, #082653 100%)',
-            color: '#FFFFFF',
+            background: '#FFFFFF',
+            color: '#082653',
             position: 'relative',
             overflow: 'hidden',
-            borderBottom: '1px solid rgba(8, 38, 83, 0.12)',
+            borderBottom: '1px solid #E2E8F0',
           }}
         >
           <div
@@ -1329,7 +1500,7 @@ export const SustainableLogistics = ({ onNavigate }) => {
               right: '-60px',
               width: '320px',
               height: '320px',
-              background: 'radial-gradient(circle, rgba(16, 185, 129, 0.22) 0%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(234, 88, 12, 0.08) 0%, transparent 70%)',
               pointerEvents: 'none',
             }}
           />
@@ -1350,11 +1521,11 @@ export const SustainableLogistics = ({ onNavigate }) => {
                 gap: '8px',
                 padding: '5px 12px',
                 borderRadius: '9999px',
-                background: 'rgba(16, 185, 129, 0.15)',
-                border: '1px solid rgba(16, 185, 129, 0.35)',
+                background: '#FFF7ED',
+                border: '1px solid #FED7AA',
                 fontSize: '11.5px',
                 fontWeight: '700',
-                color: '#6EE7B7',
+                color: '#C2410C',
                 marginBottom: '14px',
                 textTransform: 'uppercase',
               }}
@@ -1368,7 +1539,7 @@ export const SustainableLogistics = ({ onNavigate }) => {
                 fontFamily: 'Georgia, serif',
                 fontSize: 'clamp(26px, 3.4vw, 36px)',
                 fontWeight: '700',
-                color: '#FFFFFF',
+                color: '#082653',
                 marginBottom: '14px',
                 lineHeight: '1.2',
               }}
@@ -1379,7 +1550,7 @@ export const SustainableLogistics = ({ onNavigate }) => {
             <p
               style={{
                 fontSize: '15.5px',
-                color: 'rgba(255, 255, 255, 0.85)',
+                color: '#475569',
                 maxWidth: '680px',
                 margin: '0 auto 28px auto',
                 lineHeight: '1.6',
@@ -1403,7 +1574,7 @@ export const SustainableLogistics = ({ onNavigate }) => {
                   fontWeight: '600',
                   border: 'none',
                   cursor: 'pointer',
-                  boxShadow: '0 4px 18px rgba(234, 88, 12, 0.45)',
+                  boxShadow: '0 4px 18px rgba(234, 88, 12, 0.35)',
                   transition: 'all 0.2s ease',
                 }}
                 onMouseEnter={(e) => {
@@ -1423,24 +1594,24 @@ export const SustainableLogistics = ({ onNavigate }) => {
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '8px',
-                  background: 'rgba(255, 255, 255, 0.08)',
-                  color: '#FFFFFF',
+                  background: '#F8FAFC',
+                  color: '#082653',
                   padding: '13px 24px',
                   borderRadius: '10px',
                   fontSize: '14px',
                   fontWeight: '600',
-                  border: '1px solid rgba(255, 255, 255, 0.25)',
+                  border: '1px solid #CBD5E1',
                   cursor: 'pointer',
                   transition: 'all 0.2s ease',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.16)';
+                  e.currentTarget.style.background = '#F1F5F9';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
+                  e.currentTarget.style.background = '#F8FAFC';
                 }}
               >
-                <Radio size={15} color="#34D399" />
+                <Radio size={15} color="#EA580C" />
                 <span>Track Active Shipment Carbon</span>
               </button>
             </div>

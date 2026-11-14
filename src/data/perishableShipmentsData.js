@@ -57,9 +57,9 @@ export const perishableCommodityTiers = [
     id: 'tier-seafood-aquaculture',
     name: 'Live & Ultra-Frozen Seafood',
     tempDisplay: '-30°C to -18°C / +2°C',
-    color: '#0284C7',
-    bg: 'rgba(2, 132, 199, 0.08)',
-    borderColor: 'rgba(2, 132, 199, 0.25)',
+    color: '#C2410C',
+    bg: 'rgba(234, 88, 12, 0.08)',
+    borderColor: 'rgba(234, 88, 12, 0.28)',
     desc: 'Liquid nitrogen flash-frozen containers and oxygen-supplemented live wet-wells for sashimi-grade seafood.',
     features: [
       'Ultra-deep freezer reefers maintaining -30°C to preserve sashimi cellular structure',
@@ -79,9 +79,9 @@ export const perishableCommodityTiers = [
     id: 'tier-floriculture',
     name: 'Cut Flowers & High-Value Foliage',
     tempDisplay: '+1°C to +4°C',
-    color: '#16A34A',
-    bg: 'rgba(22, 163, 74, 0.08)',
-    borderColor: 'rgba(22, 163, 74, 0.25)',
+    color: '#D97706',
+    bg: 'rgba(217, 119, 6, 0.08)',
+    borderColor: 'rgba(217, 119, 6, 0.25)',
     desc: 'Vacuum pre-cooled air freighters engineered to prevent botrytis bloom and maximize retail vase life.',
     features: [
       'Pre-shipment vacuum cooling lowering core temperature in under 25 minutes',
@@ -221,7 +221,7 @@ export const perishablePillars = [
     ],
     image: '/air-freight.jpg',
     metric: '<35 Min Tarmac Transfer SLA',
-    iconColor: '#0284C7'
+    iconColor: '#C2410C'
   },
   {
     id: 'pillar-phytosanitary-compliance',
@@ -243,7 +243,7 @@ export const perishablePillars = [
     ],
     image: '/quality-assurance-hero.jpg',
     metric: '100% Phytosanitary Pass Rate',
-    iconColor: '#16A34A'
+    iconColor: '#D97706'
   },
   {
     id: 'pillar-ocean-reefer-iot',

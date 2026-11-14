@@ -35,9 +35,9 @@ export const pharmaTempRanges = [
     id: 'range-cryo',
     name: 'Cryogenic Deep Freeze',
     tempDisplay: '-196°C to -80°C',
-    color: '#0284C7',
-    bg: 'rgba(2, 132, 199, 0.08)',
-    borderColor: 'rgba(2, 132, 199, 0.25)',
+    color: '#C2410C',
+    bg: 'rgba(234, 88, 12, 0.08)',
+    borderColor: 'rgba(234, 88, 12, 0.28)',
     description: 'Liquid Nitrogen (LN2) dry vapor shippers engineered for cell therapies, stem cell banks, and genetic bio-specimens.',
     keyPackaging: 'MVE Dry Vapor Dewars • Non-hazardous liquid nitrogen absorption • 10-day static hold time',
     targetCargo: 'Gene Therapies, Cellular Vectors, Tissue Grafts, Cryopreserved Bio-Samples',
@@ -47,9 +47,9 @@ export const pharmaTempRanges = [
     id: 'range-ultra-cold',
     name: 'Ultra-Low Frozen',
     tempDisplay: '-80°C to -20°C',
-    color: '#06B6D4',
-    bg: 'rgba(6, 182, 212, 0.08)',
-    borderColor: 'rgba(6, 182, 212, 0.25)',
+    color: '#D84315',
+    bg: 'rgba(216, 67, 21, 0.08)',
+    borderColor: 'rgba(216, 67, 21, 0.25)',
     description: 'Dry ice reinforced active containers and VIP boxes for mRNA vaccines, active biologics, and viral seed stocks.',
     keyPackaging: 'Active dry-ice replenishment • Multi-layer vacuum insulated panels (VIP) • Solid CO2 bunkers',
     targetCargo: 'mRNA Vaccines, Viral Antigens, Recombinant Proteins, Deep-Frozen Enzymes',
@@ -59,9 +59,9 @@ export const pharmaTempRanges = [
     id: 'range-chilled',
     name: 'Validated Cold Chain',
     tempDisplay: '+2°C to +8°C',
-    color: '#10B981',
-    bg: 'rgba(16, 185, 129, 0.08)',
-    borderColor: 'rgba(16, 185, 129, 0.25)',
+    color: '#EA580C',
+    bg: 'rgba(234, 88, 12, 0.08)',
+    borderColor: 'rgba(234, 88, 12, 0.25)',
     description: 'The standard biopharmaceutical corridor: temperature-stabilized reefer fleets with redundant dual-compressor cooling.',
     keyPackaging: 'PCM (Phase Change Material) thermal packs • Validated 120-hour passive shippers • Active RKN/RAP units',
     targetCargo: 'Monoclonal Antibodies, Insulin, Pediatric Vaccines, Biologic Injections',
@@ -182,7 +182,7 @@ export const pharmaPillars = [
     ],
     image: '/quality-assurance-hero.jpg',
     metric: '100% GxP Audit Pass Rate',
-    iconColor: '#00BCD4'
+    iconColor: '#EA580C'
   },
   {
     id: 'pillar-active-cold-chain',
@@ -204,7 +204,7 @@ export const pharmaPillars = [
     ],
     image: '/air-freight.jpg',
     metric: '120-Hour Passive Hold Time',
-    iconColor: '#06B6D4'
+    iconColor: '#C2410C'
   },
   {
     id: 'pillar-iot-telemetry',
@@ -226,7 +226,7 @@ export const pharmaPillars = [
     ],
     image: '/track-shipment-hero.jpg',
     metric: '±0.1°C NIST Accuracy',
-    iconColor: '#0284C7'
+    iconColor: '#D97706'
   },
   {
     id: 'pillar-green-lane-clearance',
@@ -248,7 +248,7 @@ export const pharmaPillars = [
     ],
     image: '/documentation-hero.jpg',
     metric: '<30 Min Customs Release',
-    iconColor: '#10B981'
+    iconColor: '#D84315'
   }
 ];
 

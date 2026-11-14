@@ -41,8 +41,8 @@ export const autoServiceTiers = [
     description: 'Sequenced delivery of cockpits, dashboards, wiring harnesses, and powertrain subassemblies directly to OEM assembly plant workstations matching exact chassis build numbers.',
     image: '/automotive.jpg',
     badge: 'Sub-15m Lineside Feeding Window',
-    badgeColor: '#2563EB',
-    badgeBg: '#EFF6FF',
+    badgeColor: '#EA580C',
+    badgeBg: '#FFF7ED',
     highlights: [
       'EDI 866 Production Sequence messaging integrated directly into OEM plant MES',
       'Electronic RFID kitting carriages rolled straight into assembly line staging cells',
@@ -72,8 +72,8 @@ export const autoServiceTiers = [
     description: 'Door-to-door global distribution of completely built units (CBUs) including luxury sedans, commercial trucks, and electric vehicles from factory roll-off to dealership compounds.',
     image: '/land-freight.jpg',
     badge: 'Zero-Scratch White-Glove Handover',
-    badgeColor: '#059669',
-    badgeBg: '#ECFDF5',
+    badgeColor: '#C2410C',
+    badgeBg: '#FFF7ED',
     highlights: [
       'Multi-deck RoRo vessel charters with vehicle wheel-chock lashing systems',
       'GPS and impact sensor telemetry tracking chassis acceleration and tilt during ocean transit',
@@ -103,8 +103,8 @@ export const autoServiceTiers = [
     description: 'Consolidated packaging and global sea freight of completely knocked-down automotive sets, stamping panels, engines, and gearboxes for assembly in emerging markets.',
     image: '/track-shipment-hero.jpg',
     badge: '100% Complete Assembly Sets',
-    badgeColor: '#7C3AED',
-    badgeBg: '#F5F3FF',
+    badgeColor: '#B45309',
+    badgeBg: '#FFFBEB',
     highlights: [
       'Precision density nesting algorithms maximizing container volumetric utilization',
       'VCI (Vapor Corrosion Inhibitor) packaging preventing rust during ocean transit',
@@ -226,7 +226,7 @@ export const autoPillars = [
     title: 'Lineside JIT/JIS Sequencing & Broadcast Feeding',
     subtitle: 'Synchronized OEM Assembly Line Feeding',
     tagline: 'Synchronized Part Delivery Matching the OEM Assembly Line Beat Rate Down to the Second',
-    iconColor: '#2563EB',
+    iconColor: '#EA580C',
     image: '/automotive.jpg',
     metric: '99.98% Sequence Precision',
     description: 'An assembly line stoppage can cost an automotive manufacturer up to $50,000 per minute. Our intelligent sequencing centers kit parts in the exact chassis order, rolling them lineside at precise takt-time intervals.',
@@ -243,7 +243,7 @@ export const autoPillars = [
       'Lineside kitting carts designed with ergonomic layout reducing operator handling fatigue',
       'Strategically positioned sequencing hubs within 10 miles of major vehicle assembly plants'
     ],
-    accentColor: '#3B82F6',
+    accentColor: '#EA580C',
     badgeText: 'JIT/JIS Feeding'
   },
   {
@@ -251,7 +251,7 @@ export const autoPillars = [
     title: 'Finished Vehicle Logistics (FVL) & RoRo Operations',
     subtitle: 'Global Pure Car Carrier & Dealer Distribution',
     tagline: 'Global Pure Car Carrier Shipping, Bi-Level Autorack Rail, and Damage-Free Dealer Transport',
-    iconColor: '#059669',
+    iconColor: '#C2410C',
     image: '/land-freight.jpg',
     metric: '1.4M+ Vehicles Handled',
     description: 'From factory roll-off to final consumer handover, our finished vehicle logistics network guarantees zero cosmetic or mechanical damage across ocean RoRo vessels, inland railheads, and dealer transporters.',
@@ -268,7 +268,7 @@ export const autoPillars = [
       'Port compound pre-delivery inspection (PDI), protective wrapping, and firmware updates',
       'Enclosed specialized car haulers for ultra-luxury, concept, and armored commercial vehicles'
     ],
-    accentColor: '#059669',
+    accentColor: '#C2410C',
     badgeText: 'Vehicle Logistics'
   },
   {
@@ -276,7 +276,7 @@ export const autoPillars = [
     title: 'High-Voltage EV Battery Cold-Chain & Hazmat Transport',
     subtitle: 'Certified Class 9 Lithium-Ion Logistics',
     tagline: 'Certified Class 9 Lithium-Ion Logistics with Thermal-Runaway Suppression Systems',
-    iconColor: '#EA580C',
+    iconColor: '#D84315',
     image: '/industrial.jpg',
     metric: 'UN 38.3 Certified',
     description: 'Electric vehicle traction packs require specialized hazardous cargo handling. We operate climate-stabilized transport corridors equipped with advanced fire-suppression barriers and live IoT temperature monitoring.',
@@ -293,7 +293,7 @@ export const autoPillars = [
       'Full regulatory compliance with UN 38.3, ADR Special Provision 376/377, and IMDG Code',
       'Certified Hazmat drivers and warehouse personnel trained in emergency high-voltage isolation'
     ],
-    accentColor: '#EA580C',
+    accentColor: '#D84315',
     badgeText: 'EV Battery Hazmat'
   },
   {
@@ -301,7 +301,7 @@ export const autoPillars = [
     title: 'Aftermarket Spare Parts & Emergency VOR Networks',
     subtitle: 'Sub-2h Emergency Dealer Dispatch',
     tagline: 'Sub-2h Emergency Dispatch Supplying Over 15,000 Dealerships and Service Centers',
-    iconColor: '#7C3AED',
+    iconColor: '#D97706',
     image: '/track-shipment-hero.jpg',
     metric: '< 2h Dispatch Window',
     description: 'A Vehicle-Off-Road (VOR) damages customer loyalty. Our regional parts distribution centers maintain high-velocity inventory of collision, mechanical, and electrical components with guaranteed morning delivery.',
@@ -318,7 +318,7 @@ export const autoPillars = [
       'Centralized reverse logistics for warranty part inspection, core returns, and core credits',
       'AI demand forecasting minimizing obsolete slow-moving spare inventory carrying costs'
     ],
-    accentColor: '#7C3AED',
+    accentColor: '#D97706',
     badgeText: 'Aftermarket & VOR'
   }
 ];
