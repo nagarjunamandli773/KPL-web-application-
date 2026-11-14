@@ -331,9 +331,9 @@ export const Register = ({ onNavigate }) => {
   };
 
   const iconSlotStyle = {
-    width: '26px',
-    height: '26px',
-    borderRadius: '6px',
+    width: '28px',
+    height: '28px',
+    borderRadius: '7px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -343,6 +343,7 @@ export const Register = ({ onNavigate }) => {
   const orangeIconBadgeStyle = {
     ...iconSlotStyle,
     backgroundColor: '#FFF7ED',
+    border: '1px solid #FFEDD5',
     color: '#EA580C',
   };
 
@@ -716,8 +717,8 @@ export const Register = ({ onNavigate }) => {
                   </label>
                   <Magnet {...getFieldMagnetProps('fullName')}>
                     <div style={getFieldWrapperStyle('fullName')}>
-                      <div style={iconSlotStyle}>
-                        <User size={16} color="#334155" />
+                      <div style={orangeIconBadgeStyle}>
+                        <User size={15} color="#EA580C" />
                       </div>
                       <input
                         type="text"
@@ -744,8 +745,8 @@ export const Register = ({ onNavigate }) => {
                   </label>
                   <Magnet {...getFieldMagnetProps('email')}>
                     <div style={getFieldWrapperStyle('email')}>
-                      <div style={iconSlotStyle}>
-                        <Mail size={16} color="#334155" />
+                      <div style={orangeIconBadgeStyle}>
+                        <Mail size={15} color="#EA580C" />
                       </div>
                       <input
                         type="email"
@@ -774,7 +775,7 @@ export const Register = ({ onNavigate }) => {
                     <Magnet {...getFieldMagnetProps('phoneNumber', openDropdown === 'dial')}>
                       <div style={getFieldWrapperStyle('phoneNumber', openDropdown === 'dial')}>
                         <div style={orangeIconBadgeStyle}>
-                          <Phone size={14} />
+                          <Phone size={15} color="#EA580C" />
                         </div>
                         <button
                           type="button"
@@ -879,7 +880,7 @@ export const Register = ({ onNavigate }) => {
                   <Magnet {...getFieldMagnetProps('companyName')}>
                     <div style={getFieldWrapperStyle('companyName')}>
                       <div style={orangeIconBadgeStyle}>
-                        <Building2 size={14} />
+                        <Building2 size={15} color="#EA580C" />
                       </div>
                       <input
                         type="text"
@@ -907,7 +908,7 @@ export const Register = ({ onNavigate }) => {
                   <Magnet {...getFieldMagnetProps('gstNumber')}>
                     <div style={getFieldWrapperStyle('gstNumber')}>
                       <div style={orangeIconBadgeStyle}>
-                        <FileText size={14} />
+                        <FileText size={15} color="#EA580C" />
                       </div>
                       <input
                         type="text"
@@ -950,7 +951,7 @@ export const Register = ({ onNavigate }) => {
                         }}
                       >
                         <span style={orangeIconBadgeStyle}>
-                          <Globe size={14} />
+                          <Globe size={15} color="#EA580C" />
                         </span>
                         <input
                           ref={countryInputRef}
@@ -1173,7 +1174,7 @@ export const Register = ({ onNavigate }) => {
                       >
                         <span style={{ display: 'flex', alignItems: 'center', gap: '10px', minWidth: 0, flex: 1 }}>
                           <span style={orangeIconBadgeStyle}>
-                            <Layers size={14} />
+                            <Layers size={15} color="#EA580C" />
                           </span>
                           <span
                             style={{
@@ -1252,7 +1253,7 @@ export const Register = ({ onNavigate }) => {
                   <Magnet {...getFieldMagnetProps('password')}>
                     <div style={getFieldWrapperStyle('password')}>
                       <div style={orangeIconBadgeStyle}>
-                        <Lock size={14} />
+                        <Lock size={15} color="#EA580C" />
                       </div>
                       <input
                         type={showPassword ? 'text' : 'password'}
@@ -1398,7 +1399,7 @@ export const Register = ({ onNavigate }) => {
                   <Magnet {...getFieldMagnetProps('confirmPassword')}>
                     <div style={getFieldWrapperStyle('confirmPassword')}>
                       <div style={orangeIconBadgeStyle}>
-                        <Lock size={14} />
+                        <Lock size={15} color="#EA580C" />
                       </div>
                       <input
                         type={showConfirmPassword ? 'text' : 'password'}

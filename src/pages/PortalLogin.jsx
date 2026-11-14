@@ -12,6 +12,8 @@ import {
   ShieldCheck,
   AlertCircle,
   User,
+  LogIn,
+  UserPlus,
   Briefcase,
   ArrowUpRight,
   ArrowDownLeft,
@@ -250,136 +252,197 @@ export const PortalLogin = ({ type = 'client-access', onNavigate, initialForgot 
           transition: 'all 0.5s cubic-bezier(0.22, 1, 0.36, 1)',
         }}
       >
-        {/* Brand Header */}
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '8px' }}>
+        {/* Brand Header matching reference image */}
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '4px' }}>
           {/* KPL Logo Image */}
           <img
             src={kplLogo}
             alt="KPL Global Trade"
             style={{
-              height: '46px',
+              height: '52px',
               width: 'auto',
               objectFit: 'contain',
-              marginBottom: '4px',
+              marginBottom: '10px',
             }}
           />
 
-          {/* KPL GLOBAL TRADE text with decorative accent lines */}
-          <div
+          {/* Title: Customer (Navy) Login (Orange) */}
+          <h1
             style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '10px',
-              fontSize: '11px',
+              fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+              fontSize: '32px',
               fontWeight: '800',
-              letterSpacing: '0.22em',
-              color: '#082653',
-              textTransform: 'uppercase',
-              marginBottom: '16px',
-            }}
-          >
-            <span style={{ width: '28px', height: '1.5px', background: 'linear-gradient(90deg, transparent, #FF7A00)' }} />
-            <span>KPL GLOBAL TRADE</span>
-            <span style={{ width: '28px', height: '1.5px', background: 'linear-gradient(90deg, #FF7A00, transparent)' }} />
-          </div>
-
-          {/* Title Row with Shield Icon */}
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '10px',
-              marginBottom: '4px',
-            }}
-          >
-            {isForgotMode ? (
-              /* Shield Icon with Key for Password Recovery */
-              <svg width="34" height="38" viewBox="0 0 34 38" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
-                <path d="M17 1L3 6V17C3 26.5 9 34 17 37C25 34 31 26.5 31 17V6L17 1Z" stroke="#0052CC" strokeWidth="2.5" strokeLinejoin="round" fill="#FFFFFF"/>
-                <circle cx="16" cy="19" r="4" stroke="#0052CC" strokeWidth="2.2"/>
-                <path d="M19 22L23 26M21 24L23 22" stroke="#0052CC" strokeWidth="2.2" strokeLinecap="round"/>
-              </svg>
-            ) : (
-              /* Shield Icon with Padlock for Secure Login matching image */
-              <svg width="34" height="38" viewBox="0 0 34 38" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
-                <path d="M17 1L3 6V17C3 26.5 9 34 17 37C25 34 31 26.5 31 17V6L17 1Z" stroke="#0052CC" strokeWidth="2.5" strokeLinejoin="round" fill="#FFFFFF"/>
-                <rect x="11" y="18" width="12" height="10" rx="2" fill="#0052CC"/>
-                <path d="M14 18V15C14 13.34 15.34 12 17 12C18.66 12 20 13.34 20 15V18" stroke="#0052CC" strokeWidth="2.2" strokeLinecap="round"/>
-                <circle cx="17" cy="22.5" r="1.5" fill="#FFFFFF"/>
-                <line x1="17" y1="23.5" x2="17" y2="25.5" stroke="#FFFFFF" strokeWidth="1.5" strokeLinecap="round"/>
-              </svg>
-            )}
-
-            <h1
-              style={{
-                fontFamily: "Georgia, 'Times New Roman', serif",
-                fontSize: '32px',
-                fontWeight: '800',
-                color: '#082653',
-                margin: 0,
-                letterSpacing: '-0.01em',
-                lineHeight: 1.15,
-              }}
-            >
-              {isForgotMode ? 'Password Recovery' : (type === 'client-access' ? 'Secure Login' : config.badge)}
-            </h1>
-          </div>
-
-          {/* Subtitle */}
-          <p
-            style={{
-              fontSize: '13.5px',
-              color: '#64748B',
-              fontWeight: '500',
-              marginTop: '4px',
-              marginBottom: '28px',
+              margin: 0,
+              letterSpacing: '-0.02em',
+              lineHeight: 1.2,
               textAlign: 'center',
             }}
           >
-            {isForgotMode
-              ? 'Authorized credential reset & account access'
-              : (type === 'client-access' ? 'Authorized personnel access only' : config.subtitle)}
-          </p>
+            {isForgotMode ? (
+              <>
+                <span style={{ color: '#082653' }}>Customer </span>
+                <span style={{ color: '#EA580C' }}>Recovery</span>
+              </>
+            ) : type === 'client-access' ? (
+              <>
+                <span style={{ color: '#082653' }}>Customer </span>
+                <span style={{ color: '#EA580C' }}>Login</span>
+              </>
+            ) : (
+              <span style={{ color: '#082653' }}>{config.badge}</span>
+            )}
+          </h1>
+
+          {/* Subtitle with accent line matching image */}
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '10px',
+              marginTop: '8px',
+              marginBottom: '26px',
+              padding: '0 8px',
+              textAlign: 'center',
+            }}
+          >
+            <p
+              style={{
+                fontSize: '13.5px',
+                color: '#475569',
+                fontWeight: '500',
+                margin: 0,
+                lineHeight: 1.4,
+              }}
+            >
+              {isForgotMode
+                ? 'Authorized credential reset & account access'
+                : type === 'client-access'
+                ? 'Track your shipments, manage your orders and stay connected globally'
+                : config.subtitle}
+            </p>
+            {!isForgotMode && type === 'client-access' && (
+              <span
+                style={{
+                  width: '36px',
+                  height: '1.5px',
+                  background: '#EA580C',
+                  opacity: 0.7,
+                  display: 'inline-block',
+                  flexShrink: 0,
+                }}
+              />
+            )}
+          </div>
         </div>
 
-        {/* White Rounded Card with Orange Top Tab */}
+        {/* White Rounded Card with Orange Border & Orange Top Tab matching image */}
         <div
           style={{
             width: '100%',
             background: '#FFFFFF',
             borderRadius: '24px',
-            border: '1.5px solid #E2E8F0',
-            boxShadow: '0 20px 45px rgba(8, 38, 83, 0.08), 0 2px 8px rgba(0, 0, 0, 0.03)',
-            padding: '38px 34px 32px 34px',
+            border: '2px solid #FF7A00',
+            boxShadow: '0 20px 48px rgba(255, 122, 0, 0.08), 0 4px 18px rgba(8, 38, 83, 0.05)',
+            padding: '38px 32px 28px 32px',
             position: 'relative',
             boxSizing: 'border-box',
           }}
         >
-          {/* Top Hanging Orange Ribbon Tab with White Lock matching image */}
+          {/* Top Hanging Folded Ribbon with Padlock matching exact user reference image */}
           <div
             style={{
               position: 'absolute',
-              top: '-18px',
+              top: '0px',
               left: '50%',
-              transform: 'translateX(-50%)',
-              width: '66px',
-              height: '34px',
-              background: 'linear-gradient(135deg, #FF7A00 0%, #EA580C 100%)',
-              borderRadius: '8px 8px 12px 12px',
-              boxShadow: '0 6px 14px rgba(234, 88, 12, 0.35)',
+              transform: 'translate(-50%, -15px)',
+              width: '130px',
+              height: '52px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              zIndex: 5,
+              zIndex: 10,
+              pointerEvents: 'none',
             }}
           >
-            {isForgotMode ? (
-              <KeyRound size={16} color="#FFFFFF" strokeWidth={2.4} />
-            ) : (
-              <Lock size={16} color="#FFFFFF" strokeWidth={2.4} />
-            )}
+            <svg
+              viewBox="-75 -16 150 52"
+              width="130"
+              height="52"
+              style={{ overflow: 'visible', filter: 'drop-shadow(0 4px 8px rgba(234, 88, 12, 0.35))' }}
+            >
+              <defs>
+                <linearGradient id="kplRibbonGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="#FFA12C" />
+                  <stop offset="30%" stopColor="#FF7A00" />
+                  <stop offset="100%" stopColor="#EA580C" />
+                </linearGradient>
+                <linearGradient id="kplFoldDark" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#C2410C" />
+                  <stop offset="100%" stopColor="#8C2B04" />
+                </linearGradient>
+                <linearGradient id="kplCurlLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#FFB347" />
+                  <stop offset="100%" stopColor="#FF7A00" />
+                </linearGradient>
+                <linearGradient id="kplCurlRight" x1="100%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="#FFB347" />
+                  <stop offset="100%" stopColor="#FF7A00" />
+                </linearGradient>
+              </defs>
+
+              {/* 3D Rolled Ribbon Wings: Dark Under-Fold Shadows */}
+              <path d="M -48 0 L -68 0 C -64 5, -56 7, -46 4 Z" fill="url(#kplFoldDark)" />
+              <path d="M 48 0 L 68 0 C 64 5, 56 7, 46 4 Z" fill="url(#kplFoldDark)" />
+
+              {/* 3D Rolled Ribbon Wings: Left & Right Upper Curls */}
+              <path d="M -68 0 C -68 -6, -58 -9, -46 -9 C -52 -4, -48 0, -46 4 C -56 7, -64 5, -68 0 Z" fill="url(#kplCurlLeft)" />
+              <path d="M 68 0 C 68 -6, 58 -9, 46 -9 C 52 -4, 48 0, 46 4 C 56 7, 64 5, 68 0 Z" fill="url(#kplCurlRight)" />
+
+              {/* Main Hanging Ribbon Banner with Top Dome & Rounded U-shaped bottom */}
+              <path
+                d="M -46 -9 
+                   C -28 -9, -20 -15, -12 -15 
+                   C -6 -15, -6 -15, 0 -15 
+                   C 6 -15, 6 -15, 12 -15 
+                   C 20 -15, 28 -9, 46 -9 
+                   C 49 -4, 50 1, 51 4 
+                   C 49 19, 39 34, 0 34 
+                   C -39 34, -49 19, -51 4 
+                   C -50 1, -49 -4, -46 -9 Z"
+                fill="url(#kplRibbonGrad)"
+              />
+
+              {/* The Lock / Key Style matching exact ribbon banner */}
+              {isForgotMode ? (
+                /* Password Recovery Mode: Key inside the exact ribbon (Enlarged) */
+                <g transform="translate(0, 11) scale(1.35)">
+                  <circle cx="-4" cy="0" r="5.5" fill="none" stroke="#FFFFFF" strokeWidth="2.6" />
+                  <line x1="1.5" y1="0" x2="12" y2="0" stroke="#FFFFFF" strokeWidth="2.6" strokeLinecap="round" />
+                  <line x1="7.5" y1="0" x2="7.5" y2="4.5" stroke="#FFFFFF" strokeWidth="2.4" strokeLinecap="round" />
+                  <line x1="11" y1="0" x2="11" y2="3.5" stroke="#FFFFFF" strokeWidth="2.4" strokeLinecap="round" />
+                </g>
+              ) : (
+                /* Secure Login Mode: Exact Padlock from Image (Enlarged) */
+                <g transform="translate(0, 1.5) scale(1.18)">
+                  {/* 1. White Shackle loop */}
+                  <path
+                    d="M -5.5 8 L -5.5 4.5 C -5.5 1.5, -3.5 -0.5, 0 -0.5 C 3.5 -0.5, 5.5 1.5, 5.5 4.5 L 5.5 8"
+                    fill="none"
+                    stroke="#FFFFFF"
+                    strokeWidth="3.2"
+                    strokeLinecap="round"
+                  />
+
+                  {/* 2. Solid White Lock Body */}
+                  <rect x="-9.5" y="7.5" width="19" height="14" rx="3" fill="#FFFFFF" />
+
+                  {/* 3. Orange Keyhole Cutout */}
+                  <circle cx="0" cy="12.5" r="1.9" fill="#EA580C" />
+                  <polygon points="-1.2,13 1.2,13 1.6,17.5 -1.6,17.5" fill="#EA580C" />
+                </g>
+              )}
+            </svg>
           </div>
 
           {/* Feedback messages */}
@@ -425,43 +488,60 @@ export const PortalLogin = ({ type = 'client-access', onNavigate, initialForgot 
             </div>
           )}
 
-          {/* MODE 1: SECURE LOGIN FORM */}
+          {/* MODE 1: CUSTOMER LOGIN FORM */}
           {!isForgotMode && (
             <form onSubmit={handleLoginSubmit}>
-              {/* Field 1: SYSTEM EMAIL OR USERNAME */}
-              <div style={{ marginBottom: '20px' }}>
-                <label
-                  style={{
-                    display: 'block',
-                    fontSize: '11.5px',
-                    fontWeight: '800',
-                    color: '#082653',
-                    letterSpacing: '0.06em',
-                    textTransform: 'uppercase',
-                    marginBottom: '8px',
-                  }}
-                >
-                  SYSTEM EMAIL OR USERNAME
-                </label>
+              {/* Field 1: Email Address / Customer ID with Coloured Badge */}
+              <div style={{ marginBottom: '18px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '11px', marginBottom: '8px' }}>
+                  <div
+                    style={{
+                      width: '34px',
+                      height: '34px',
+                      borderRadius: '50%',
+                      background: 'linear-gradient(135deg, #FF7A00 0%, #EA580C 100%)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      flexShrink: 0,
+                      boxShadow: '0 3px 8px rgba(234, 88, 12, 0.35)',
+                    }}
+                  >
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFFFFF">
+                      <path d="M12 2C9.243 2 7 4.243 7 7s2.243 5 5 5 5-2.243 5-5-2.243-5-5-5zM12 14c-5.523 0-10 3.134-10 7 0 .553.448 1 1 1h18c.552 0 1-.447 1-1 0-3.866-4.477-7-10-7z"/>
+                    </svg>
+                  </div>
+                  <label
+                    style={{
+                      fontSize: '13.5px',
+                      fontWeight: '700',
+                      color: '#082653',
+                      letterSpacing: '0.01em',
+                    }}
+                  >
+                    Email Address / Customer ID
+                  </label>
+                </div>
                 <div style={{ position: 'relative' }}>
                   <Mail
-                    size={17}
-                    color="#64748B"
-                    style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)' }}
+                    size={22}
+                    color="#082653"
+                    strokeWidth={1.8}
+                    style={{ position: 'absolute', left: '15px', top: '50%', transform: 'translateY(-50%)' }}
                   />
                   <input
                     type="text"
-                    placeholder="Enter your email..."
+                    placeholder="Enter your email or customer ID"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     style={{
                       width: '100%',
-                      height: '46px',
-                      padding: '0 14px 0 44px',
-                      background: '#F8FAFC',
+                      height: '48px',
+                      padding: '0 14px 0 50px',
+                      background: '#FFFFFF',
                       border: '1.5px solid #CBD5E1',
-                      borderRadius: '10px',
-                      fontSize: '14px',
+                      borderRadius: '12px',
+                      fontSize: '13.5px',
                       color: '#082653',
                       outline: 'none',
                       transition: 'all 0.2s ease',
@@ -479,76 +559,61 @@ export const PortalLogin = ({ type = 'client-access', onNavigate, initialForgot 
                 </div>
               </div>
 
-              {/* Field 2: SECURITY PASSWORD + FORGOT? */}
-              <div style={{ marginBottom: '16px' }}>
-                <div
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    marginBottom: '8px',
-                  }}
-                >
+              {/* Field 2: Password with Coloured Badge */}
+              <div style={{ marginBottom: '14px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '11px', marginBottom: '8px' }}>
+                  <div
+                    style={{
+                      width: '34px',
+                      height: '34px',
+                      borderRadius: '50%',
+                      background: 'linear-gradient(135deg, #FF7A00 0%, #EA580C 100%)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      flexShrink: 0,
+                      boxShadow: '0 3px 8px rgba(234, 88, 12, 0.35)',
+                    }}
+                  >
+                    <svg width="21" height="21" viewBox="0 0 24 24" fill="#FFFFFF">
+                      <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+                    </svg>
+                  </div>
                   <label
                     style={{
-                      fontSize: '11.5px',
-                      fontWeight: '800',
+                      fontSize: '13.5px',
+                      fontWeight: '700',
                       color: '#082653',
-                      letterSpacing: '0.06em',
-                      textTransform: 'uppercase',
-                      margin: 0,
+                      letterSpacing: '0.01em',
                     }}
                   >
-                    SECURITY PASSWORD
+                    Password
                   </label>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setAuthError('');
-                      setIsForgotMode(true);
-                    }}
-                    style={{
-                      background: 'none',
-                      border: 'none',
-                      color: '#EA580C',
-                      fontSize: '12px',
-                      fontWeight: '800',
-                      letterSpacing: '0.06em',
-                      textTransform: 'uppercase',
-                      cursor: 'pointer',
-                      padding: '2px 0',
-                      transition: 'color 0.15s ease',
-                    }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = '#C2410C')}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = '#EA580C')}
-                  >
-                    FORGOT?
-                  </button>
                 </div>
                 <div style={{ position: 'relative' }}>
-                  <Shield
-                    size={17}
-                    color="#64748B"
-                    style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)' }}
+                  <Lock
+                    size={24}
+                    color="#082653"
+                    strokeWidth={1.9}
+                    style={{ position: 'absolute', left: '15px', top: '50%', transform: 'translateY(-50%)' }}
                   />
                   <input
                     type={showPassword ? 'text' : 'password'}
-                    placeholder="••••••••"
+                    placeholder="Enter your password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     style={{
                       width: '100%',
-                      height: '46px',
-                      padding: '0 44px 0 44px',
-                      background: '#F8FAFC',
+                      height: '48px',
+                      padding: '0 44px 0 50px',
+                      background: '#FFFFFF',
                       border: '1.5px solid #CBD5E1',
-                      borderRadius: '10px',
-                      fontSize: '14px',
+                      borderRadius: '12px',
+                      fontSize: '13.5px',
                       color: '#082653',
                       outline: 'none',
                       transition: 'all 0.2s ease',
                       boxSizing: 'border-box',
-                      letterSpacing: showPassword ? 'normal' : '0.15em',
                     }}
                     onFocus={(e) => {
                       e.target.style.borderColor = '#EA580C';
@@ -564,7 +629,7 @@ export const PortalLogin = ({ type = 'client-access', onNavigate, initialForgot 
                     onClick={() => setShowPassword(!showPassword)}
                     style={{
                       position: 'absolute',
-                      right: '12px',
+                      right: '14px',
                       top: '50%',
                       transform: 'translateY(-50%)',
                       background: 'none',
@@ -573,53 +638,79 @@ export const PortalLogin = ({ type = 'client-access', onNavigate, initialForgot 
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      color: '#64748B',
+                      color: '#082653',
                       padding: '4px',
                     }}
                     title={showPassword ? 'Hide password' : 'Show password'}
                   >
-                    {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                    {showPassword ? <Eye size={20} strokeWidth={1.8} /> : <EyeOff size={20} strokeWidth={1.8} />}
                   </button>
                 </div>
               </div>
 
-              {/* Field 3: Remember Password Checkbox */}
+              {/* Remember Me Checkbox & Underlined Forgot Password Link matching image */}
               <div
                 style={{
                   display: 'flex',
+                  justifyContent: 'space-between',
                   alignItems: 'center',
-                  gap: '9px',
-                  marginBottom: '24px',
+                  marginBottom: '20px',
                 }}
               >
-                <input
-                  type="checkbox"
-                  id="remember-password-portal"
-                  checked={rememberPassword}
-                  onChange={(e) => setRememberPassword(e.target.checked)}
-                  style={{
-                    width: '16px',
-                    height: '16px',
-                    accentColor: '#EA580C',
-                    cursor: 'pointer',
-                    borderRadius: '4px',
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <input
+                    type="checkbox"
+                    id="remember-me-portal"
+                    checked={rememberPassword}
+                    onChange={(e) => setRememberPassword(e.target.checked)}
+                    style={{
+                      width: '16px',
+                      height: '16px',
+                      accentColor: '#EA580C',
+                      cursor: 'pointer',
+                      borderRadius: '4px',
+                    }}
+                  />
+                  <label
+                    htmlFor="remember-me-portal"
+                    style={{
+                      fontSize: '13px',
+                      fontWeight: '600',
+                      color: '#082653',
+                      cursor: 'pointer',
+                      userSelect: 'none',
+                    }}
+                  >
+                    Remember Me
+                  </label>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    setAuthError('');
+                    setIsForgotMode(true);
                   }}
-                />
-                <label
-                  htmlFor="remember-password-portal"
                   style={{
+                    background: 'none',
+                    border: 'none',
+                    color: '#EA580C',
                     fontSize: '13px',
                     fontWeight: '600',
-                    color: '#082653',
                     cursor: 'pointer',
-                    userSelect: 'none',
+                    padding: '2px 0',
+                    textDecoration: 'underline',
+                    textUnderlineOffset: '2px',
+                    transition: 'color 0.15s ease',
                   }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = '#C2410C')}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = '#EA580C')}
                 >
-                  Remember Password
-                </label>
+                  Forgot Password?
+                </button>
               </div>
 
-              {/* Field 4: AUTHENTICATE Pill Button matching image - Full Width Alignment */}
+              {/* Login Pill Button with enter icon & right arrow matching image */}
               <div style={{ width: '100%' }}>
                 <button
                   type="submit"
@@ -628,33 +719,102 @@ export const PortalLogin = ({ type = 'client-access', onNavigate, initialForgot 
                     width: '100%',
                     height: '50px',
                     borderRadius: '9999px',
-                    background: 'linear-gradient(135deg, #FF7A00 0%, #EA580C 100%)',
+                    background: 'linear-gradient(90deg, #FF7A00 0%, #EA580C 100%)',
                     color: '#FFFFFF',
                     border: 'none',
                     cursor: isAuthenticating ? 'wait' : 'pointer',
-                    fontSize: '14.5px',
-                    fontWeight: '800',
-                    letterSpacing: '0.08em',
-                    textTransform: 'uppercase',
+                    fontSize: '16px',
+                    fontWeight: '700',
+                    letterSpacing: '0.01em',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     gap: '10px',
-                    boxShadow: '0 10px 24px rgba(234, 88, 12, 0.38)',
+                    boxShadow: '0 8px 24px rgba(234, 88, 12, 0.4)',
                     transition: 'all 0.25s ease',
                     boxSizing: 'border-box',
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'translateY(-2px)';
-                    e.currentTarget.style.boxShadow = '0 14px 28px rgba(234, 88, 12, 0.45)';
+                    e.currentTarget.style.boxShadow = '0 12px 28px rgba(234, 88, 12, 0.5)';
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = '0 10px 24px rgba(234, 88, 12, 0.38)';
+                    e.currentTarget.style.boxShadow = '0 8px 24px rgba(234, 88, 12, 0.4)';
                   }}
                 >
-                  <Lock size={17} color="#FFFFFF" strokeWidth={2.4} />
-                  <span>{isAuthenticating ? 'AUTHENTICATING...' : 'AUTHENTICATE'}</span>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                    <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+                    <polyline points="10 17 15 12 10 7" />
+                    <line x1="15" y1="12" x2="3" y2="12" />
+                  </svg>
+                  <span>{isAuthenticating ? 'Logging in...' : 'Login'}</span>
+                  <span style={{ fontSize: '18px', lineHeight: 1, fontWeight: '700' }}>→</span>
+                </button>
+              </div>
+
+              {/* OR Divider with subtle gradient lines matching image */}
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  margin: '18px 0 16px 0',
+                  gap: '12px',
+                }}
+              >
+                <div style={{ flex: 1, height: '1.5px', background: 'linear-gradient(90deg, #E2E8F0 0%, #FF7A00 100%)', opacity: 0.7 }} />
+                <span
+                  style={{
+                    fontSize: '11.5px',
+                    fontWeight: '800',
+                    color: '#082653',
+                    letterSpacing: '0.08em',
+                  }}
+                >
+                  OR
+                </span>
+                <div style={{ flex: 1, height: '1.5px', background: 'linear-gradient(90deg, #FF7A00 0%, #E2E8F0 100%)', opacity: 0.7 }} />
+              </div>
+
+              {/* Create Account Pill Button with dual-colour icon matching image */}
+              <div style={{ width: '100%' }}>
+                <button
+                  type="button"
+                  onClick={() => onNavigate && onNavigate('register')}
+                  style={{
+                    width: '100%',
+                    height: '48px',
+                    borderRadius: '9999px',
+                    background: '#FFFFFF',
+                    border: '1.8px solid #FF7A00',
+                    color: '#082653',
+                    fontSize: '14.5px',
+                    fontWeight: '700',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '10px',
+                    transition: 'all 0.2s ease',
+                    boxSizing: 'border-box',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = '#FFF7ED';
+                    e.currentTarget.style.transform = 'translateY(-1px)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = '#FFFFFF';
+                    e.currentTarget.style.transform = 'translateY(0)';
+                  }}
+                >
+                  {/* Dual-colour user-plus icon: Orange head, Navy body & plus */}
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style={{ flexShrink: 0 }}>
+                    <circle cx="9" cy="7" r="4" fill="#FF7A00" stroke="#FF7A00" strokeWidth="1" />
+                    <path d="M2 20c0-3.3 2.7-6 6-6h2c3.3 0 6 2.7 6 6" stroke="#082653" strokeWidth="2.2" strokeLinecap="round" />
+                    <line x1="19" y1="8" x2="19" y2="14" stroke="#082653" strokeWidth="2.2" strokeLinecap="round" />
+                    <line x1="16" y1="11" x2="22" y2="11" stroke="#082653" strokeWidth="2.2" strokeLinecap="round" />
+                  </svg>
+                  <span>Create Account</span>
                 </button>
               </div>
             </form>
@@ -673,43 +833,60 @@ export const PortalLogin = ({ type = 'client-access', onNavigate, initialForgot 
                       marginBottom: '18px',
                     }}
                   >
-                    Enter your registered corporate email or username. An encrypted reset link will be dispatched immediately.
+                    Enter your registered email address or customer ID. An encrypted reset link will be dispatched immediately.
                   </p>
 
-                  {/* Recovery Email Input */}
-                  <div style={{ marginBottom: '22px' }}>
-                    <label
-                      style={{
-                        display: 'block',
-                        fontSize: '11.5px',
-                        fontWeight: '800',
-                        color: '#082653',
-                        letterSpacing: '0.06em',
-                        textTransform: 'uppercase',
-                        marginBottom: '8px',
-                      }}
-                    >
-                      SYSTEM EMAIL OR USERNAME
-                    </label>
+                  {/* Recovery Email Input with Coloured Badge */}
+                  <div style={{ marginBottom: '20px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '11px', marginBottom: '8px' }}>
+                      <div
+                        style={{
+                          width: '34px',
+                          height: '34px',
+                          borderRadius: '50%',
+                          background: 'linear-gradient(135deg, #FF7A00 0%, #EA580C 100%)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          flexShrink: 0,
+                          boxShadow: '0 3px 8px rgba(234, 88, 12, 0.35)',
+                        }}
+                      >
+                        <svg width="21" height="21" viewBox="0 0 24 24" fill="#FFFFFF">
+                          <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                      </div>
+                      <label
+                        style={{
+                          fontSize: '13.5px',
+                          fontWeight: '700',
+                          color: '#082653',
+                          letterSpacing: '0.01em',
+                        }}
+                      >
+                        Email Address / Customer ID
+                      </label>
+                    </div>
                     <div style={{ position: 'relative' }}>
                       <Mail
-                        size={17}
-                        color="#64748B"
-                        style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)' }}
+                        size={24}
+                        color="#082653"
+                        strokeWidth={1.9}
+                        style={{ position: 'absolute', left: '15px', top: '50%', transform: 'translateY(-50%)' }}
                       />
                       <input
                         type="text"
-                        placeholder="Enter your email..."
+                        placeholder="Enter your email or customer ID"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         style={{
                           width: '100%',
-                          height: '46px',
-                          padding: '0 14px 0 44px',
-                          background: '#F8FAFC',
+                          height: '48px',
+                          padding: '0 14px 0 50px',
+                          background: '#FFFFFF',
                           border: '1.5px solid #CBD5E1',
-                          borderRadius: '10px',
-                          fontSize: '14px',
+                          borderRadius: '12px',
+                          fontSize: '13.5px',
                           color: '#082653',
                           outline: 'none',
                           transition: 'all 0.2s ease',
@@ -727,45 +904,45 @@ export const PortalLogin = ({ type = 'client-access', onNavigate, initialForgot 
                     </div>
                   </div>
 
-                  {/* Send Recovery Link Pill Button - Full Width Alignment */}
-                  <div style={{ width: '100%', marginBottom: '16px' }}>
+                  {/* Send Recovery Link Pill Button */}
+                  <div style={{ width: '100%', marginBottom: '14px' }}>
                     <button
                       type="submit"
                       style={{
                         width: '100%',
                         height: '50px',
                         borderRadius: '9999px',
-                        background: 'linear-gradient(135deg, #FF7A00 0%, #EA580C 100%)',
+                        background: 'linear-gradient(90deg, #FF7A00 0%, #EA580C 100%)',
                         color: '#FFFFFF',
                         border: 'none',
                         cursor: 'pointer',
-                        fontSize: '14px',
-                        fontWeight: '800',
-                        letterSpacing: '0.08em',
-                        textTransform: 'uppercase',
+                        fontSize: '15px',
+                        fontWeight: '700',
+                        letterSpacing: '0.01em',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
                         gap: '10px',
-                        boxShadow: '0 10px 24px rgba(234, 88, 12, 0.38)',
+                        boxShadow: '0 8px 24px rgba(234, 88, 12, 0.4)',
                         transition: 'all 0.25s ease',
                         boxSizing: 'border-box',
                       }}
                       onMouseEnter={(e) => {
                         e.currentTarget.style.transform = 'translateY(-2px)';
-                        e.currentTarget.style.boxShadow = '0 14px 28px rgba(234, 88, 12, 0.45)';
+                        e.currentTarget.style.boxShadow = '0 12px 28px rgba(234, 88, 12, 0.5)';
                       }}
                       onMouseLeave={(e) => {
                         e.currentTarget.style.transform = 'translateY(0)';
-                        e.currentTarget.style.boxShadow = '0 10px 24px rgba(234, 88, 12, 0.38)';
+                        e.currentTarget.style.boxShadow = '0 8px 24px rgba(234, 88, 12, 0.4)';
                       }}
                     >
-                      <Mail size={17} color="#FFFFFF" strokeWidth={2.4} />
-                      <span>SEND RECOVERY LINK</span>
+                      <Mail size={20} color="#FFFFFF" strokeWidth={2.4} />
+                      <span>Send Recovery Link</span>
+                      <span style={{ fontSize: '18px', lineHeight: 1, fontWeight: '700' }}>→</span>
                     </button>
                   </div>
 
-                  {/* Return to Secure Login Link */}
+                  {/* Return to Customer Login Link */}
                   <div style={{ textAlign: 'center' }}>
                     <button
                       type="button"
@@ -783,13 +960,13 @@ export const PortalLogin = ({ type = 'client-access', onNavigate, initialForgot 
                         padding: '6px 12px',
                         display: 'inline-flex',
                         alignItems: 'center',
-                        gap: '6px',
+                        gap: '7px',
                       }}
                       onMouseEnter={(e) => (e.currentTarget.style.color = '#EA580C')}
                       onMouseLeave={(e) => (e.currentTarget.style.color = '#082653')}
                     >
-                      <ArrowLeft size={14} />
-                      <span>Back to Secure Login</span>
+                      <ArrowLeft size={16} strokeWidth={2.4} />
+                      <span>Back to Customer Login</span>
                     </button>
                   </div>
                 </form>
@@ -798,18 +975,18 @@ export const PortalLogin = ({ type = 'client-access', onNavigate, initialForgot 
                 <div style={{ textAlign: 'center', padding: '8px 4px' }}>
                   <div
                     style={{
-                      width: '56px',
-                      height: '56px',
+                      width: '64px',
+                      height: '64px',
                       borderRadius: '50%',
                       backgroundColor: '#DCFCE7',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       margin: '0 auto 16px',
-                      boxShadow: '0 4px 12px rgba(22, 163, 74, 0.18)',
+                      boxShadow: '0 4px 14px rgba(22, 163, 74, 0.2)',
                     }}
                   >
-                    <CheckCircle2 size={30} color="#16A34A" />
+                    <CheckCircle2 size={36} color="#16A34A" />
                   </div>
                   <h3
                     style={{
@@ -819,7 +996,7 @@ export const PortalLogin = ({ type = 'client-access', onNavigate, initialForgot 
                       marginBottom: '8px',
                     }}
                   >
-                    Recovery Link Sent
+                    Recovery Link Dispatched
                   </h3>
                   <p
                     style={{
@@ -829,7 +1006,7 @@ export const PortalLogin = ({ type = 'client-access', onNavigate, initialForgot 
                       marginBottom: '24px',
                     }}
                   >
-                    If an enterprise account exists for <strong style={{ color: '#082653' }}>{email || 'your email'}</strong>, instructions to reset your security credentials have been dispatched.
+                    If an account exists for <strong style={{ color: '#082653' }}>{email || 'your email'}</strong>, instructions to reset your security credentials have been dispatched.
                   </p>
 
                   <div style={{ width: '100%' }}>
@@ -843,11 +1020,11 @@ export const PortalLogin = ({ type = 'client-access', onNavigate, initialForgot 
                         width: '100%',
                         height: '48px',
                         borderRadius: '9999px',
-                        background: 'linear-gradient(135deg, #FF7A00 0%, #EA580C 100%)',
+                        background: 'linear-gradient(90deg, #FF7A00 0%, #EA580C 100%)',
                         color: '#FFFFFF',
                         border: 'none',
                         cursor: 'pointer',
-                        fontSize: '13.5px',
+                        fontSize: '14px',
                         fontWeight: '700',
                         boxShadow: '0 8px 20px rgba(234, 88, 12, 0.3)',
                         display: 'flex',
@@ -857,8 +1034,8 @@ export const PortalLogin = ({ type = 'client-access', onNavigate, initialForgot 
                         boxSizing: 'border-box',
                       }}
                     >
-                      <ArrowLeft size={16} />
-                      <span>Return to Secure Login</span>
+                      <ArrowLeft size={18} strokeWidth={2.4} />
+                      <span>Return to Customer Login</span>
                     </button>
                   </div>
                 </div>
@@ -866,41 +1043,10 @@ export const PortalLogin = ({ type = 'client-access', onNavigate, initialForgot 
             </div>
           )}
 
-          {/* Bottom Enterprise Register Link */}
-          <div
-            style={{
-              marginTop: '22px',
-              paddingTop: '18px',
-              borderTop: '1px solid #F1F5F9',
-              textAlign: 'center',
-              fontSize: '13px',
-              color: '#64748B',
-            }}
-          >
-            <span>Don't have an enterprise account? </span>
-            <Magnet padding={50} magnetStrength={2} maxOffset={4} scale={1.03}>
-              <button
-                type="button"
-                onClick={() => onNavigate && onNavigate('register')}
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  color: '#EA580C',
-                  fontWeight: '700',
-                  fontSize: '13px',
-                  cursor: 'pointer',
-                  padding: '2px 4px',
-                }}
-              >
-                Register here
-              </button>
-            </Magnet>
-          </div>
-
           {/* Security Badge */}
           <div
             style={{
-              marginTop: '14px',
+              marginTop: '18px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
