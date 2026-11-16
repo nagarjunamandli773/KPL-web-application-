@@ -23,6 +23,8 @@ import {
 } from 'lucide-react';
 import kplLogo from '../../Images/KPL_Logo2.png';
 import kplBackground4K from '../../Images/KPL_Background_4K.png';
+import kplLockBanner from '../../Images/kpl-lock-banner@2x.png';
+import kplKeyBanner from '../../Images/kpl-key-banner@2x.png';
 import { Magnet } from '../components/common/Magnet';
 
 const portalConfig = {
@@ -355,9 +357,8 @@ export const PortalLogin = ({ type = 'client-access', onNavigate, initialForgot 
               position: 'absolute',
               top: '0px',
               left: '50%',
-              transform: 'translate(-50%, -15px)',
-              width: '130px',
-              height: '52px',
+              transform: 'translate(-50%, -25px)',
+              width: '280px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -365,84 +366,18 @@ export const PortalLogin = ({ type = 'client-access', onNavigate, initialForgot 
               pointerEvents: 'none',
             }}
           >
-            <svg
-              viewBox="-75 -16 150 52"
-              width="130"
-              height="52"
-              style={{ overflow: 'visible', filter: 'drop-shadow(0 4px 8px rgba(234, 88, 12, 0.35))' }}
-            >
-              <defs>
-                <linearGradient id="kplRibbonGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="#FFA12C" />
-                  <stop offset="30%" stopColor="#FF7A00" />
-                  <stop offset="100%" stopColor="#EA580C" />
-                </linearGradient>
-                <linearGradient id="kplFoldDark" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#C2410C" />
-                  <stop offset="100%" stopColor="#8C2B04" />
-                </linearGradient>
-                <linearGradient id="kplCurlLeft" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#FFB347" />
-                  <stop offset="100%" stopColor="#FF7A00" />
-                </linearGradient>
-                <linearGradient id="kplCurlRight" x1="100%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="#FFB347" />
-                  <stop offset="100%" stopColor="#FF7A00" />
-                </linearGradient>
-              </defs>
-
-              {/* 3D Rolled Ribbon Wings: Dark Under-Fold Shadows */}
-              <path d="M -48 0 L -68 0 C -64 5, -56 7, -46 4 Z" fill="url(#kplFoldDark)" />
-              <path d="M 48 0 L 68 0 C 64 5, 56 7, 46 4 Z" fill="url(#kplFoldDark)" />
-
-              {/* 3D Rolled Ribbon Wings: Left & Right Upper Curls */}
-              <path d="M -68 0 C -68 -6, -58 -9, -46 -9 C -52 -4, -48 0, -46 4 C -56 7, -64 5, -68 0 Z" fill="url(#kplCurlLeft)" />
-              <path d="M 68 0 C 68 -6, 58 -9, 46 -9 C 52 -4, 48 0, 46 4 C 56 7, 64 5, 68 0 Z" fill="url(#kplCurlRight)" />
-
-              {/* Main Hanging Ribbon Banner with Top Dome & Rounded U-shaped bottom */}
-              <path
-                d="M -46 -9 
-                   C -28 -9, -20 -15, -12 -15 
-                   C -6 -15, -6 -15, 0 -15 
-                   C 6 -15, 6 -15, 12 -15 
-                   C 20 -15, 28 -9, 46 -9 
-                   C 49 -4, 50 1, 51 4 
-                   C 49 19, 39 34, 0 34 
-                   C -39 34, -49 19, -51 4 
-                   C -50 1, -49 -4, -46 -9 Z"
-                fill="url(#kplRibbonGrad)"
-              />
-
-              {/* The Lock / Key Style matching exact ribbon banner */}
-              {isForgotMode ? (
-                /* Password Recovery Mode: Key inside the exact ribbon (Enlarged) */
-                <g transform="translate(0, 11) scale(1.35)">
-                  <circle cx="-4" cy="0" r="5.5" fill="none" stroke="#FFFFFF" strokeWidth="2.6" />
-                  <line x1="1.5" y1="0" x2="12" y2="0" stroke="#FFFFFF" strokeWidth="2.6" strokeLinecap="round" />
-                  <line x1="7.5" y1="0" x2="7.5" y2="4.5" stroke="#FFFFFF" strokeWidth="2.4" strokeLinecap="round" />
-                  <line x1="11" y1="0" x2="11" y2="3.5" stroke="#FFFFFF" strokeWidth="2.4" strokeLinecap="round" />
-                </g>
-              ) : (
-                /* Secure Login Mode: Exact Padlock from Image (Enlarged) */
-                <g transform="translate(0, 1.5) scale(1.18)">
-                  {/* 1. White Shackle loop */}
-                  <path
-                    d="M -5.5 8 L -5.5 4.5 C -5.5 1.5, -3.5 -0.5, 0 -0.5 C 3.5 -0.5, 5.5 1.5, 5.5 4.5 L 5.5 8"
-                    fill="none"
-                    stroke="#FFFFFF"
-                    strokeWidth="3.2"
-                    strokeLinecap="round"
-                  />
-
-                  {/* 2. Solid White Lock Body */}
-                  <rect x="-9.5" y="7.5" width="19" height="14" rx="3" fill="#FFFFFF" />
-
-                  {/* 3. Orange Keyhole Cutout */}
-                  <circle cx="0" cy="12.5" r="1.9" fill="#EA580C" />
-                  <polygon points="-1.2,13 1.2,13 1.6,17.5 -1.6,17.5" fill="#EA580C" />
-                </g>
-              )}
-            </svg>
+            {/* Exact user-provided folded ribbon banner: Padlock for Login, Key for Recovery */}
+            <img
+              src={isForgotMode ? kplKeyBanner : kplLockBanner}
+              alt={isForgotMode ? 'Customer Recovery Key Icon' : 'Customer Login Padlock Icon'}
+              style={{
+                width: '280px',
+                height: 'auto',
+                display: 'block',
+                filter: 'drop-shadow(0 3px 6px rgba(234, 88, 12, 0.28))',
+                userSelect: 'none',
+              }}
+            />
           </div>
 
           {/* Feedback messages */}
@@ -564,8 +499,8 @@ export const PortalLogin = ({ type = 'client-access', onNavigate, initialForgot 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '11px', marginBottom: '8px' }}>
                   <div
                     style={{
-                      width: '34px',
-                      height: '34px',
+                      width: '36px',
+                      height: '36px',
                       borderRadius: '50%',
                       background: 'linear-gradient(135deg, #FF7A00 0%, #EA580C 100%)',
                       display: 'flex',
@@ -575,7 +510,7 @@ export const PortalLogin = ({ type = 'client-access', onNavigate, initialForgot 
                       boxShadow: '0 3px 8px rgba(234, 88, 12, 0.35)',
                     }}
                   >
-                    <svg width="21" height="21" viewBox="0 0 24 24" fill="#FFFFFF">
+                    <svg width="27" height="27" viewBox="0 0 24 24" fill="#FFFFFF">
                       <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
                     </svg>
                   </div>
@@ -592,7 +527,7 @@ export const PortalLogin = ({ type = 'client-access', onNavigate, initialForgot 
                 </div>
                 <div style={{ position: 'relative' }}>
                   <Lock
-                    size={24}
+                    size={30}
                     color="#082653"
                     strokeWidth={1.9}
                     style={{ position: 'absolute', left: '15px', top: '50%', transform: 'translateY(-50%)' }}

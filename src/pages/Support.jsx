@@ -213,12 +213,9 @@ export const Support = ({ onNavigate }) => {
       className="support-page-root"
       style={{
         width: '100%',
-        maxWidth: '1200px',
-        margin: '0 auto',
         minHeight: '100vh',
         background: '#FAFBFD',
         position: 'relative',
-        boxShadow: '0 0 40px rgba(0,0,0,0.12)',
         overflowX: 'clip',
       }}
     >
@@ -375,7 +372,7 @@ export const Support = ({ onNavigate }) => {
           position: 'relative',
           zIndex: 2,
           maxWidth: '1120px',
-          margin: '-90px auto 40px auto',
+          margin: '-50px auto 40px auto',
           padding: '0 20px',
         }}
       >
@@ -1019,6 +1016,9 @@ export const Support = ({ onNavigate }) => {
                             color: '#0F172A',
                             display: 'block',
                             letterSpacing: '-0.01em',
+                            whiteSpace: 'nowrap',
+                            overflow: 'hidden',
+                            textOverflow: 'ellipsis',
                           }}
                         >
                           {channel.detail}
@@ -1027,7 +1027,7 @@ export const Support = ({ onNavigate }) => {
                           style={{
                             fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
                             fontSize: '11.5px',
-                            color: '#10B981',
+                            color: '#64748B',
                             fontWeight: '600',
                             display: 'flex',
                             alignItems: 'center',
@@ -1035,7 +1035,7 @@ export const Support = ({ onNavigate }) => {
                             marginTop: '2px',
                           }}
                         >
-                          <Clock size={12} />
+                          <Clock size={12} color="#64748B" />
                           {channel.timing}
                         </span>
                       </div>
@@ -1046,20 +1046,24 @@ export const Support = ({ onNavigate }) => {
                           href={channel.actionUrl}
                           style={{
                             fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-                            display: 'flex',
+                            display: 'inline-flex',
                             alignItems: 'center',
                             justifyContent: 'center',
                             gap: '6px',
                             width: '100%',
-                            padding: '11px 16px',
+                            height: '42px',
+                            padding: '0 10px',
                             borderRadius: '8px',
                             background: 'linear-gradient(135deg, #FFA24A 0%, #FF7F1A 100%)',
                             color: '#FFFFFF',
-                            fontSize: '13.5px',
+                            fontSize: '12.5px',
                             fontWeight: '700',
+                            letterSpacing: '-0.01em',
+                            whiteSpace: 'nowrap',
                             textDecoration: 'none',
                             boxShadow: '0 3px 10px rgba(255, 138, 0, 0.25)',
                             transition: 'all 0.18s ease',
+                            boxSizing: 'border-box',
                           }}
                           onMouseEnter={(e) => {
                             e.currentTarget.style.background = 'linear-gradient(135deg, #FF9533 0%, #F56E0A 100%)';
@@ -1072,29 +1076,34 @@ export const Support = ({ onNavigate }) => {
                             e.currentTarget.style.transform = 'translateY(0)';
                           }}
                         >
-                          <span>{channel.actionText}</span>
-                          <ArrowRight size={14} />
+                          <span style={{ whiteSpace: 'nowrap' }}>{channel.actionText}</span>
+                          <ArrowRight size={13} style={{ flexShrink: 0 }} />
                         </a>
                       ) : (
                         <button
+                          type="button"
                           onClick={channel.actionUrl}
                           style={{
                             fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-                            display: 'flex',
+                            display: 'inline-flex',
                             alignItems: 'center',
                             justifyContent: 'center',
                             gap: '6px',
                             width: '100%',
-                            padding: '11px 16px',
+                            height: '42px',
+                            padding: '0 10px',
                             borderRadius: '8px',
                             background: 'linear-gradient(135deg, #FFA24A 0%, #FF7F1A 100%)',
                             color: '#FFFFFF',
-                            fontSize: '13.5px',
+                            fontSize: '12.5px',
                             fontWeight: '700',
+                            letterSpacing: '-0.01em',
+                            whiteSpace: 'nowrap',
                             border: 'none',
                             cursor: 'pointer',
                             boxShadow: '0 3px 10px rgba(255, 138, 0, 0.25)',
                             transition: 'all 0.18s ease',
+                            boxSizing: 'border-box',
                           }}
                           onMouseEnter={(e) => {
                             e.currentTarget.style.background = 'linear-gradient(135deg, #FF9533 0%, #F56E0A 100%)';
@@ -1107,8 +1116,8 @@ export const Support = ({ onNavigate }) => {
                             e.currentTarget.style.transform = 'translateY(0)';
                           }}
                         >
-                          <span>{channel.actionText}</span>
-                          <ArrowRight size={14} />
+                          <span style={{ whiteSpace: 'nowrap' }}>{channel.actionText}</span>
+                          <ArrowRight size={13} style={{ flexShrink: 0 }} />
                         </button>
                       )}
                     </div>
@@ -1334,8 +1343,7 @@ export const Support = ({ onNavigate }) => {
             {/* Top Card: Need Assistance? with 24/7 Support Specialist & Maritime Port Backdrop */}
             <div
               style={{
-                background: "#FFFFFF url('/support-assistance-banner.jpg') no-repeat right center / contain",
-                backgroundColor: '#FFFFFF',
+                backgroundColor: '#F1F5F9',
                 borderRadius: '20px',
                 border: '1px solid #E2E8F0',
                 padding: '24px 26px',
@@ -1348,19 +1356,34 @@ export const Support = ({ onNavigate }) => {
                 justifyContent: 'center',
               }}
             >
-              {/* Soft overlay ensuring high contrast on the left side text */}
+              {/* Photorealistic maritime assistance background image */}
               <div
                 style={{
                   position: 'absolute',
                   inset: 0,
-                  background:
-                    'linear-gradient(90deg, #FFFFFF 0%, rgba(255,255,255,0.98) 46%, rgba(255,255,255,0.85) 54%, rgba(255,255,255,0) 72%)',
+                  backgroundImage: "url('/support-assistance-banner.jpg')",
+                  backgroundPosition: 'right center',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'contain',
+                  mixBlendMode: 'multiply',
                   pointerEvents: 'none',
                   zIndex: 1,
                 }}
               />
 
-              <div style={{ position: 'relative', zIndex: 2, maxWidth: '290px' }}>
+              {/* Soft light-gray gradient overlay ensuring high contrast on the left side text */}
+              <div
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  background:
+                    'linear-gradient(90deg, #F1F5F9 0%, #F1F5F9 35%, rgba(241, 245, 249, 0.85) 46%, rgba(241, 245, 249, 0) 58%)',
+                  pointerEvents: 'none',
+                  zIndex: 2,
+                }}
+              />
+
+              <div style={{ position: 'relative', zIndex: 3, maxWidth: '280px' }}>
                 {/* Header with Orange Headset Icon */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '14px' }}>
                   <div

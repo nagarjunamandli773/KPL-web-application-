@@ -17,6 +17,7 @@ import {
   Globe,
   FileText,
   Layers,
+  Package,
   ChevronDown,
   Check,
   ArrowRight,
@@ -53,6 +54,7 @@ export const Register = ({ onNavigate }) => {
     gstNumber: '',
     country: '',
     accountType: '',
+    primarySector: '',
     password: '',
     confirmPassword: '',
     agreeTerms: false,
@@ -115,6 +117,18 @@ export const Register = ({ onNavigate }) => {
     { id: 'exporter', title: 'Manufacturer / Exporter' },
     { id: 'logistics', title: 'Logistics & Fleet Partner' },
     { id: 'corporate', title: 'Enterprise Corporate Client' },
+  ];
+
+  const commoditySectors = [
+    'Agriculture, Food & Perishables',
+    'Textiles, Apparel & Garments',
+    'Industrial Machinery & Project Cargo',
+    'Pharmaceuticals & Healthcare',
+    'Chemicals & Minerals',
+    'Technology & Electronics',
+    'Consumer Goods & FMCG',
+    'Automotive & Heavy Engineering',
+    'Other Diversified Trade',
   ];
 
   const countryList = ALL_COUNTRIES;
@@ -256,6 +270,7 @@ export const Register = ({ onNavigate }) => {
     if (!formData.gstNumber.trim()) errs.gstNumber = 'GST number is required';
     if (!formData.country) errs.country = 'Please select your country';
     if (!formData.accountType) errs.accountType = 'Please select an account type';
+    if (!formData.primarySector) errs.primarySector = 'Please select a commodity sector';
     const unmetRules = passwordRules.filter((rule) => !rule.met);
     if (!formData.password) {
       errs.password = 'Password is required';
@@ -331,9 +346,9 @@ export const Register = ({ onNavigate }) => {
   };
 
   const iconSlotStyle = {
-    width: '28px',
-    height: '28px',
-    borderRadius: '7px',
+    width: '30px',
+    height: '30px',
+    borderRadius: '8px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -342,9 +357,10 @@ export const Register = ({ onNavigate }) => {
 
   const orangeIconBadgeStyle = {
     ...iconSlotStyle,
-    backgroundColor: '#FFF7ED',
-    border: '1px solid #FFEDD5',
-    color: '#EA580C',
+    background: 'linear-gradient(135deg, #FF7A00 0%, #EA580C 100%)',
+    border: 'none',
+    color: '#FFFFFF',
+    boxShadow: '0 3px 8px rgba(234, 88, 12, 0.28)',
   };
 
   const labelStyle = {
@@ -399,12 +415,13 @@ export const Register = ({ onNavigate }) => {
       className="register-page-root"
       style={{
         width: '100%',
-        maxWidth: '1200px',
-        margin: '0 auto',
         minHeight: '100vh',
-        background: '#FAFBFD',
+        backgroundColor: '#F8FAFC',
+        backgroundImage: `url(${kplBackground4K})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
         position: 'relative',
-        boxShadow: '0 0 40px rgba(0,0,0,0.12)',
         overflowX: 'clip',
       }}
     >
@@ -483,6 +500,22 @@ export const Register = ({ onNavigate }) => {
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
+            pointerEvents: 'none',
+            zIndex: 0,
+          }}
+        />
+
+        {/* Faint Center Radial Glow */}
+        <div
+          aria-hidden="true"
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: '840px',
+            height: '840px',
+            background: 'radial-gradient(circle, rgba(255, 122, 0, 0.08) 0%, rgba(8, 38, 83, 0.03) 50%, transparent 70%)',
             pointerEvents: 'none',
             zIndex: 0,
           }}
@@ -577,6 +610,14 @@ export const Register = ({ onNavigate }) => {
               <div>
                 <span style={{ color: '#64748B', display: 'block', fontSize: '11.5px' }}>Country</span>
                 <strong style={{ color: '#082653' }}>{formData.country}</strong>
+              </div>
+              <div>
+                <span style={{ color: '#64748B', display: 'block', fontSize: '11.5px' }}>Account Type</span>
+                <strong style={{ color: '#082653' }}>{selectedAccountTitle || formData.accountType}</strong>
+              </div>
+              <div>
+                <span style={{ color: '#64748B', display: 'block', fontSize: '11.5px' }}>Commodity Sector</span>
+                <strong style={{ color: '#082653' }}>{formData.primarySector}</strong>
               </div>
             </div>
 
@@ -718,7 +759,7 @@ export const Register = ({ onNavigate }) => {
                   <Magnet {...getFieldMagnetProps('fullName')}>
                     <div style={getFieldWrapperStyle('fullName')}>
                       <div style={orangeIconBadgeStyle}>
-                        <User size={15} color="#EA580C" />
+                        <User size={16} color="#FFFFFF" strokeWidth={2.2} />
                       </div>
                       <input
                         type="text"
@@ -746,7 +787,7 @@ export const Register = ({ onNavigate }) => {
                   <Magnet {...getFieldMagnetProps('email')}>
                     <div style={getFieldWrapperStyle('email')}>
                       <div style={orangeIconBadgeStyle}>
-                        <Mail size={15} color="#EA580C" />
+                        <Mail size={16} color="#FFFFFF" strokeWidth={2.2} />
                       </div>
                       <input
                         type="email"
@@ -775,7 +816,7 @@ export const Register = ({ onNavigate }) => {
                     <Magnet {...getFieldMagnetProps('phoneNumber', openDropdown === 'dial')}>
                       <div style={getFieldWrapperStyle('phoneNumber', openDropdown === 'dial')}>
                         <div style={orangeIconBadgeStyle}>
-                          <Phone size={15} color="#EA580C" />
+                          <Phone size={16} color="#FFFFFF" strokeWidth={2.2} />
                         </div>
                         <button
                           type="button"
@@ -880,7 +921,7 @@ export const Register = ({ onNavigate }) => {
                   <Magnet {...getFieldMagnetProps('companyName')}>
                     <div style={getFieldWrapperStyle('companyName')}>
                       <div style={orangeIconBadgeStyle}>
-                        <Building2 size={15} color="#EA580C" />
+                        <Building2 size={16} color="#FFFFFF" strokeWidth={2.2} />
                       </div>
                       <input
                         type="text"
@@ -908,7 +949,7 @@ export const Register = ({ onNavigate }) => {
                   <Magnet {...getFieldMagnetProps('gstNumber')}>
                     <div style={getFieldWrapperStyle('gstNumber')}>
                       <div style={orangeIconBadgeStyle}>
-                        <FileText size={15} color="#EA580C" />
+                        <FileText size={16} color="#FFFFFF" strokeWidth={2.2} />
                       </div>
                       <input
                         type="text"
@@ -951,7 +992,7 @@ export const Register = ({ onNavigate }) => {
                         }}
                       >
                         <span style={orangeIconBadgeStyle}>
-                          <Globe size={15} color="#EA580C" />
+                          <Globe size={16} color="#FFFFFF" strokeWidth={2.2} />
                         </span>
                         <input
                           ref={countryInputRef}
@@ -1174,7 +1215,7 @@ export const Register = ({ onNavigate }) => {
                       >
                         <span style={{ display: 'flex', alignItems: 'center', gap: '10px', minWidth: 0, flex: 1 }}>
                           <span style={orangeIconBadgeStyle}>
-                            <Layers size={15} color="#EA580C" />
+                            <Layers size={16} color="#FFFFFF" strokeWidth={2.2} />
                           </span>
                           <span
                             style={{
@@ -1242,8 +1283,94 @@ export const Register = ({ onNavigate }) => {
                   {renderError('accountType')}
                 </div>
 
-                {/* Row 4 Right: Empty spacer cell matching reference alignment */}
-                <div className="kpl-register-empty-cell" />
+                {/* Row 4 Right: Primary Commodity Sector (Bounded Custom Dropdown) */}
+                <div style={{ minWidth: 0, position: 'relative', zIndex: openDropdown === 'primarySector' ? 40 : 1 }}>
+                  <label style={labelStyle}>
+                    Primary Commodity Sector <span style={{ color: '#EF4444' }}>*</span>
+                  </label>
+                  <div style={{ position: 'relative' }}>
+                    <Magnet {...getFieldMagnetProps('primarySector', openDropdown === 'primarySector')}>
+                      <button
+                        type="button"
+                        aria-haspopup="listbox"
+                        aria-expanded={openDropdown === 'primarySector'}
+                        onClick={() => setOpenDropdown((prev) => (prev === 'primarySector' ? null : 'primarySector'))}
+                        style={{
+                          ...getFieldWrapperStyle('primarySector', openDropdown === 'primarySector'),
+                          justifyContent: 'space-between',
+                          cursor: 'pointer',
+                          textAlign: 'left',
+                        }}
+                      >
+                        <span style={{ display: 'flex', alignItems: 'center', gap: '10px', minWidth: 0, flex: 1 }}>
+                          <span style={orangeIconBadgeStyle}>
+                            <Package size={16} color="#FFFFFF" strokeWidth={2.2} />
+                          </span>
+                          <span
+                            style={{
+                              fontSize: '13.5px',
+                              color: formData.primarySector ? '#0F172A' : '#64748B',
+                              whiteSpace: 'nowrap',
+                              overflow: 'hidden',
+                              textOverflow: 'ellipsis',
+                            }}
+                          >
+                            {formData.primarySector || 'Select commodity sector'}
+                          </span>
+                        </span>
+                        <ChevronDown
+                          size={16}
+                          color="#0F172A"
+                          style={{
+                            flexShrink: 0,
+                            transform: openDropdown === 'primarySector' ? 'rotate(180deg)' : 'rotate(0deg)',
+                            transition: 'transform 0.15s ease',
+                          }}
+                        />
+                      </button>
+                    </Magnet>
+
+                    {openDropdown === 'primarySector' && (
+                      <div role="listbox" className="kpl-custom-dropdown-list" style={dropdownMenuStyle}>
+                        {commoditySectors.map((sector) => {
+                          const isSelected = formData.primarySector === sector;
+                          return (
+                            <button
+                              key={sector}
+                              type="button"
+                              role="option"
+                              aria-selected={isSelected}
+                              className="kpl-dropdown-option"
+                              onClick={() => {
+                                handleInputChange('primarySector', sector);
+                                setOpenDropdown(null);
+                              }}
+                              style={{
+                                width: '100%',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'space-between',
+                                padding: '9px 10px',
+                                borderRadius: '6px',
+                                backgroundColor: isSelected ? '#FFF7ED' : 'transparent',
+                                color: isSelected ? '#EA580C' : '#0F172A',
+                                fontSize: '13.5px',
+                                fontWeight: isSelected ? '700' : '500',
+                                textAlign: 'left',
+                                border: 'none',
+                                cursor: 'pointer',
+                              }}
+                            >
+                              <span>{sector}</span>
+                              {isSelected && <Check size={14} color="#EA580C" />}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </div>
+                  {renderError('primarySector')}
+                </div>
 
                 {/* Row 5 Left: Password */}
                 <div style={{ minWidth: 0 }}>
@@ -1253,7 +1380,7 @@ export const Register = ({ onNavigate }) => {
                   <Magnet {...getFieldMagnetProps('password')}>
                     <div style={getFieldWrapperStyle('password')}>
                       <div style={orangeIconBadgeStyle}>
-                        <Lock size={15} color="#EA580C" />
+                        <Lock size={16} color="#FFFFFF" strokeWidth={2.2} />
                       </div>
                       <input
                         type={showPassword ? 'text' : 'password'}
@@ -1399,7 +1526,7 @@ export const Register = ({ onNavigate }) => {
                   <Magnet {...getFieldMagnetProps('confirmPassword')}>
                     <div style={getFieldWrapperStyle('confirmPassword')}>
                       <div style={orangeIconBadgeStyle}>
-                        <Lock size={15} color="#EA580C" />
+                        <Lock size={16} color="#FFFFFF" strokeWidth={2.2} />
                       </div>
                       <input
                         type={showConfirmPassword ? 'text' : 'password'}
